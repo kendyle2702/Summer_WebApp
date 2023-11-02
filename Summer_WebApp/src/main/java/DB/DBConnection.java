@@ -17,11 +17,11 @@ import java.util.logging.Logger;
 public class DBConnection {
 
     public static Connection connect() throws SQLException {
-        String server = "DESKTOP-7UI977G\\SQLEXPRESS";
+        String server = "LAPTOP-5ABH3PVT";
         String port = "1433";
         String database = "prj_project";
         String user = "sa";
-        String password = "123456";
+        String password = "sa";
         Connection conn = null;
         try {
 
