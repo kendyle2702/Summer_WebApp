@@ -1,4 +1,16 @@
-<%@include file="/header.jsp" %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%@include file="/componants/head.jsp" %>
+</head>
+
+<body id="prices-drop" class="lang-en country-us currency-usd layout-left-column page-prices-drop tax-display-disabled"
+  itemscope itemtype="http://schema.org/WebPage">
+  <div class="ttloading-bg spinner"></div>
+
+  <div class="newsletter-pop"></div>
+
   <main>
     <div id="page" class="">
       <nav data-depth="2" class="breadcrumb hidden-sm-down">
@@ -383,7 +395,7 @@
             </div>
             <div class="ttleftbanner">
               <a href="http://www.prestashop.com/" title="PrestaShop"><img
-                  src="/modules/ttadvertising/img/advertising-s1.jpg" alt="PrestaShop" title="PrestaShop" width="300"
+                  src="../modules/ttadvertising/img/advertising-s1.jpg" alt="PrestaShop" title="PrestaShop" width="300"
                   height="500" /></a>
             </div>
             <section class="new-products clearfix mt-3">
@@ -2576,4 +2588,11 @@
           </div>
         </div>
       </section>
-      <%@include file="/footer.jsp" %>
+      <%@include file="/componants/footer.jsp" %>
+    </div>
+  </main>
+
+  <script src="/js/bottom-8d0d2558.js"></script>
+</body>
+
+</html>
