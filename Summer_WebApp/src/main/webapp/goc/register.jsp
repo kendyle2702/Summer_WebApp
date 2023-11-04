@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%@include file="/components/head.jsp" %>
+  </head>
 
-<head>
-  <%@include file="/componants/head.jsp" %>
-</head>
-
-<body id="authentication"
-  class="lang-en country-us currency-usd layout-full-width page-authentication tax-display-disabled page-customer-account"
-  itemscope itemtype="http://schema.org/WebPage">
-  <%@include file="/componants/header.jsp" %>
+  <body
+    id="authentication"
+    class="lang-en country-us currency-usd layout-full-width page-authentication tax-display-disabled page-customer-account"
+    itemscope
+    itemtype="http://schema.org/WebPage"
+  >
+    <%@include file="/components/header.jsp" %>
     <div class="ttloading-bg spinner"></div>
 
     <div class="newsletter-pop"></div>
@@ -18,8 +20,7 @@
         <nav data-depth="2" class="breadcrumb hidden-sm-down">
           <ol itemscope itemtype="http://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/"><span
-                  itemprop="name">Home</span></a>
+              <a itemprop="item" href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/"><span itemprop="name">Home</span></a>
               <meta itemprop="position" content="1" />
             </li>
 
@@ -43,25 +44,24 @@
                       <a href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/login">Log in instead!</a>
                     </p>
 
-                    <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/login?create_account=1"
-                      id="customer-form" class="js-customer-form" method="post">
+                    <form
+                      action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/login?create_account=1"
+                      id="customer-form"
+                      class="js-customer-form"
+                      method="post"
+                    >
                       <section>
                         <div class="form-group row">
                           <label class="col-md-3 form-control-label required">Full name</label>
                           <div class="col-md-6">
                             <input class="form-control" name="fullName" type="text" value="" required />
-                            <span class="form-control-comment">
-                              Only letters and the dot (.) character, followed
-                              by a space, are allowed.
-                            </span>
+                            <span class="form-control-comment"> Only letters and the dot (.) character, followed by a space, are allowed. </span>
                           </div>
 
                           <div class="col-md-3 form-control-comment"></div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-md-3 form-control-label">
-                            Gender
-                          </label>
+                          <label class="col-md-3 form-control-label"> Gender </label>
                           <div class="col-md-6 form-control-valign">
                             <label class="radio-inline">
                               <span class="custom-radio">
@@ -81,9 +81,7 @@
                           <div class="col-md-3 form-control-comment"></div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-md-3 form-control-label required">
-                            Email
-                          </label>
+                          <label class="col-md-3 form-control-label required"> Email </label>
                           <div class="col-md-6">
                             <input class="form-control" name="email" type="email" value="" required />
                           </div>
@@ -92,16 +90,20 @@
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-md-3 form-control-label required">
-                            Password
-                          </label>
+                          <label class="col-md-3 form-control-label required"> Password </label>
                           <div class="col-md-6">
                             <div class="input-group js-parent-focus">
-                              <input class="form-control js-child-focus js-visible-password" name="password"
-                                title="At least 5 characters long" type="password" value="" pattern=".{5,}" required />
+                              <input
+                                class="form-control js-child-focus js-visible-password"
+                                name="password"
+                                title="At least 5 characters long"
+                                type="password"
+                                value=""
+                                pattern=".{5,}"
+                                required
+                              />
                               <span class="input-group-btn">
-                                <button class="btn" type="button" data-action="show-password" data-text-show="Show"
-                                  data-text-hide="Hide">
+                                <button class="btn" type="button" data-action="show-password" data-text-show="Show" data-text-hide="Hide">
                                   Show
                                 </button>
                               </span>
@@ -114,11 +116,17 @@
                           <label class="col-md-3 form-control-label required">Confirm password</label>
                           <div class="col-md-6">
                             <div class="input-group js-parent-focus">
-                              <input class="form-control js-child-focus js-visible-password" name="confirmPassword"
-                                title="At least 5 characters long" type="password" value="" pattern=".{5,}" required />
+                              <input
+                                class="form-control js-child-focus js-visible-password"
+                                name="confirmPassword"
+                                title="At least 5 characters long"
+                                type="password"
+                                value=""
+                                pattern=".{5,}"
+                                required
+                              />
                               <span class="input-group-btn">
-                                <button class="btn" type="button" data-action="show-password" data-text-show="Show"
-                                  data-text-hide="Hide">
+                                <button class="btn" type="button" data-action="show-password" data-text-show="Show" data-text-hide="Hide">
                                   Show
                                 </button>
                               </span>
@@ -129,35 +137,27 @@
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-md-3 form-control-label">
-                            Birthdate
-                          </label>
+                          <label class="col-md-3 form-control-label"> Birthdate </label>
                           <div class="col-md-6">
                             <input class="form-control" name="birthday" type="text" value="" placeholder="MM/DD/YYYY" />
-                            <span class="form-control-comment">
-                              (E.g.: 05/31/1970)
-                            </span>
+                            <span class="form-control-comment"> (E.g.: 05/31/1970) </span>
                           </div>
 
-                          <div class="col-md-3 form-control-comment">
-                            Optional
-                          </div>
+                          <div class="col-md-3 form-control-comment">Optional</div>
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-md-3 form-control-label required">
-                          </label>
+                          <label class="col-md-3 form-control-label required"> </label>
                           <div class="col-md-6">
                             <span class="custom-checkbox">
                               <label>
                                 <input name="customer_privacy" type="checkbox" value="1" required />
                                 <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
                                 Customer data privacy<br />
-                                <em>The personal data you provide is used to
-                                  answer queries, process orders or allow access
-                                  to specific information. You have the right to
-                                  modify and delete all the personal information
-                                  found in the "My Account" page.</em>
+                                <em
+                                  >The personal data you provide is used to answer queries, process orders or allow access to specific information.
+                                  You have the right to modify and delete all the personal information found in the "My Account" page.</em
+                                >
                               </label>
                             </span>
                           </div>
@@ -169,8 +169,7 @@
                       <footer class="form-footer clearfix">
                         <input type="hidden" name="submitCreate" value="1" />
 
-                        <button class="btn btn-primary form-control-submit float-xs-right"
-                          data-link-action="save-customer" type="submit">
+                        <button class="btn btn-primary form-control-submit float-xs-right" data-link-action="save-customer" type="submit">
                           Save
                         </button>
                       </footer>
@@ -181,11 +180,10 @@
             </div>
           </div>
         </section>
-        <%@include file="/componants/footer.jsp" %>
+        <%@include file="/components/footer.jsp" %>
       </div>
     </main>
 
     <script src="https://prestashop1.templatetrip.com/PRS01/PRS001_summ/js/bottom-8d0d2558.js"></script>
-</body>
-
+  </body>
 </html>

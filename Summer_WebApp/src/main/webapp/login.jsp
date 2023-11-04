@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%@include file="/components/head.jsp" %>
+  </head>
 
-<head>
-  <%@include file="/componants/head.jsp" %>
-</head>
-
-<body id="authentication"
-  class="lang-en country-us currency-usd layout-full-width page-authentication tax-display-disabled page-customer-account"
-  itemscope itemtype="http://schema.org/WebPage">
-  <%@include file="/componants/header.jsp" %>
+  <body
+    id="authentication"
+    class="lang-en country-us currency-usd layout-full-width page-authentication tax-display-disabled page-customer-account"
+    itemscope
+    itemtype="http://schema.org/WebPage"
+  >
+    <%@include file="/components/header.jsp" %>
     <div class="ttloading-bg spinner"></div>
 
     <div class="newsletter-pop"></div>
@@ -42,15 +44,12 @@
 
                 <section id="content" class="page-content card card-block">
                   <section class="login-form">
-                    <form id="login-form" action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/login"
-                      method="post">
+                    <form id="login-form" action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/login" method="post">
                       <section>
                         <input type="hidden" name="back" value="" />
 
                         <div class="form-group row">
-                          <label class="col-md-3 form-control-label required">
-                            Email
-                          </label>
+                          <label class="col-md-3 form-control-label required"> Email </label>
                           <div class="col-md-6">
                             <input class="form-control" name="email" type="email" value="" required />
                           </div>
@@ -59,16 +58,20 @@
                         </div>
 
                         <div class="form-group row">
-                          <label class="col-md-3 form-control-label required">
-                            Password
-                          </label>
+                          <label class="col-md-3 form-control-label required"> Password </label>
                           <div class="col-md-6">
                             <div class="input-group js-parent-focus">
-                              <input class="form-control js-child-focus js-visible-password" name="password"
-                                title="At least 5 characters long" type="password" value="" pattern=".{5,}" required />
+                              <input
+                                class="form-control js-child-focus js-visible-password"
+                                name="password"
+                                title="At least 5 characters long"
+                                type="password"
+                                value=""
+                                pattern=".{5,}"
+                                required
+                              />
                               <span class="input-group-btn">
-                                <button class="btn" type="button" data-action="show-password" data-text-show="Show"
-                                  data-text-hide="Hide">
+                                <button class="btn" type="button" data-action="show-password" data-text-show="Show" data-text-hide="Hide">
                                   Show
                                 </button>
                               </span>
@@ -79,17 +82,14 @@
                         </div>
 
                         <div class="forgot-password">
-                          <a href="password-recovery.html" rel="nofollow">
-                            Forgot your password?
-                          </a>
+                          <a href="password-recovery.html" rel="nofollow"> Forgot your password? </a>
                         </div>
                       </section>
 
                       <footer class="form-footer text-sm-center clearfix">
                         <input type="hidden" name="submitLogin" value="1" />
 
-                        <button id="submit-login" class="btn btn-primary" data-link-action="sign-in" type="submit"
-                          class="form-control-submit">
+                        <button id="submit-login" class="btn btn-primary" data-link-action="sign-in" type="submit" class="form-control-submit">
                           Sign in
                         </button>
                       </footer>
@@ -98,9 +98,7 @@
                   <hr />
 
                   <div class="no-account">
-                    <a href="register.jsp" data-link-action="display-register-form">
-                      No account? Create one here
-                    </a>
+                    <a href="register.jsp" data-link-action="display-register-form"> No account? Create one here </a>
                   </div>
                 </section>
 
@@ -112,11 +110,10 @@
           </div>
         </section>
 
-        <%@include file="/componants/footer.jsp" %>
+        <%@include file="/components/footer.jsp" %>
       </div>
     </main>
 
     <script src="/js/bottom-8d0d2558.js"></script>
-</body>
-
+  </body>
 </html>

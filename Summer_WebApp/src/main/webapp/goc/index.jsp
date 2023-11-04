@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%@include file="/components/head.jsp" %>
+  </head>
 
-<head>
-  <%@include file="/componants/head.jsp" %>
-</head>
+  <body
+    id="index"
+    class="lang-en country-us currency-usd layout-full-width page-index tax-display-disabled"
+    itemscope
+    itemtype="http://schema.org/WebPage"
+  >
+    <div class="ttloading-bg spinner"></div>
 
-<body id="index" class="lang-en country-us currency-usd layout-full-width page-index tax-display-disabled" itemscope
-  itemtype="http://schema.org/WebPage">
-  <div class="ttloading-bg spinner"></div>
-
-  <%@include file="/componants/header.jsp" %>
+    <%@include file="/components/header.jsp" %>
 
     <div class="newsletter-pop">
       <div id="ttPopupnewsletter" class="modal fade" tabindex="-1" role="dialog">
@@ -23,8 +26,7 @@
             <div id="newsletter_block_popup" class="block">
               <div class="block_content">
                 <div class="ttnewslatterpopup-img col-sm-6">
-                  <img src="../modules/ttpopupnewsletter/views/img/newsletter.jpg" class="img" alt="bg-img" width="290"
-                    height="470" />
+                  <img src="../modules/ttpopupnewsletter/views/img/newsletter.jpg" class="img" alt="bg-img" width="290" height="470" />
                 </div>
                 <div class="ttnewslatterpopup-content col-sm-6">
                   <form method="post">
@@ -33,18 +35,13 @@
                     </div>
 
                     <div class="ttContent">
-                      Subscribe to the Complex mailing list to receive updates
-                      on new arrivals, special offers and other discount
-                      information.
+                      Subscribe to the Complex mailing list to receive updates on new arrivals, special offers and other discount information.
                     </div>
                     <div class="ttAlert"></div>
 
-                    <input class="inputNew" id="ttnewsletter-input" type="text" name="email"
-                      placeholder="Enter your mail..." />
+                    <input class="inputNew" id="ttnewsletter-input" type="text" name="email" placeholder="Enter your mail..." />
 
-                    <div class="send-reqest button_unique btn-primary">
-                      Subscribe
-                    </div>
+                    <div class="send-reqest button_unique btn-primary">Subscribe</div>
                   </form>
 
                   <div class="newsletter_block_popup-bottom">
@@ -52,8 +49,7 @@
                       <input id="tt_newsletter_dont_show_again" type="checkbox" />
                     </div>
 
-                    <label class="tt_newsletter_dont_show_again" for="tt_newsletter_dont_show_again">Do not show this
-                      popup again</label>
+                    <label class="tt_newsletter_dont_show_again" for="tt_newsletter_dont_show_again">Do not show this popup again</label>
                   </div>
                 </div>
               </div>
@@ -90,32 +86,32 @@
         var field_width = 600;
         var field_height = 490;
         var field_newsletter = 1;
-        var field_path =
-          "https://prestashop1.templatetrip.com/PRS01/PRS001_summer/modules/ttpopupnewsletter/ajax.php";
+        var field_path = "https://prestashop1.templatetrip.com/PRS01/PRS001_summer/modules/ttpopupnewsletter/ajax.php";
       </script>
     </div>
 
     <main>
       <div id="page" class="">
         <div id="top_column" class="">
-          <div id="carousel" data-ride="carousel" class="carousel slide homeslider" data-interval="5000"
-            data-wrap="true" data-pause="hover">
+          <div id="carousel" data-ride="carousel" class="carousel slide homeslider" data-interval="5000" data-wrap="true" data-pause="hover">
             <div class="ttloading-bg"></div>
             <ul class="carousel-inner" role="listbox">
               <li class="carousel-item active" role="option" aria-hidden="false">
                 <a href="index.html">
                   <figure>
-                    <img src="../modules/ps_imageslider/images/ee137d975ece14977f9e49140199c16439b48eea_slider-01.jpg"
-                      alt="sample-1" width="1903" height="1000" />
+                    <img
+                      src="../modules/ps_imageslider/images/ee137d975ece14977f9e49140199c16439b48eea_slider-01.jpg"
+                      alt="sample-1"
+                      width="1903"
+                      height="1000"
+                    />
                     <figcaption class="caption">
                       <div class="caption-description">
                         <h5>Summer Shop</h5>
                         <h3>Healthy Summer Juice Everyday</h3>
                         <p class="offer">Get Save 35% OFF All Juice</p>
                         <p>
-                          <button class="shop_now animation-btn">
-                            Shop Now
-                          </button>
+                          <button class="shop_now animation-btn">Shop Now</button>
                         </p>
                       </div>
                     </figcaption>
@@ -125,17 +121,19 @@
               <li class="carousel-item" role="option" aria-hidden="true">
                 <a href="index.html">
                   <figure>
-                    <img src="../modules/ps_imageslider/images/9252f4a4f320db92addbc4e5547c60e07ada7540_slider-02.jpg"
-                      alt="sample-2" width="1903" height="1000" />
+                    <img
+                      src="../modules/ps_imageslider/images/9252f4a4f320db92addbc4e5547c60e07ada7540_slider-02.jpg"
+                      alt="sample-2"
+                      width="1903"
+                      height="1000"
+                    />
                     <figcaption class="caption">
                       <div class="caption-description">
                         <h5>Yammy &amp; Tasty Shop</h5>
                         <h3>Ice Cream Made With Passion</h3>
                         <p class="offer">Exclusive Summer Shop, Big Deals</p>
                         <p>
-                          <button class="shop_now animation-btn">
-                            Shop Now
-                          </button>
+                          <button class="shop_now animation-btn">Shop Now</button>
                         </p>
                       </div>
                     </figcaption>
@@ -337,22 +335,17 @@
             $(document).ready(function () {
               var max_link = 5;
               var more_info = "View All";
-              $(
-                ".tt_category_feature .content .ttcat-content .sub-cat > ul"
-              ).each(function () {
+              $(".tt_category_feature .content .ttcat-content .sub-cat > ul").each(function () {
                 var subcat = $(this).find("li");
-                var mainul = $(this)
-                  .parent()
-                  .closest(".ttcat-content")
-                  .find(".cat-infor > .title > a");
+                var mainul = $(this).parent().closest(".ttcat-content").find(".cat-infor > .title > a");
                 var ahref = mainul.attr("href");
                 if (subcat.length > max_link) {
                   $(this).append(
                     '<li class="cat-more"><div class="cat-more-menu"><span class="categories"><a href="' +
-                    ahref +
-                    '">' +
-                    more_info +
-                    "</a></span></div></li>"
+                      ahref +
+                      '">' +
+                      more_info +
+                      "</a></span></div></li>"
                   );
                 }
                 subcat.each(function (j) {
@@ -371,14 +364,12 @@
                   <div class="ttcmsaboutus-bg">
                     <div class="image1 ttimg">
                       <div class="ttbanner-img">
-                        <a href="#">
-                          <img src="../img/cms/about-us.png" alt="cms-img-01.jpg" width="675" height="620" /></a>
+                        <a href="#"> <img src="../img/cms/about-us.png" alt="cms-img-01.jpg" width="675" height="620" /></a>
                       </div>
                     </div>
                     <div class="image2 ttimg">
                       <div class="ttbanner-img">
-                        <a href="#">
-                          <img src="../img/cms/tag.png" alt="cms-img-02.jpg" width="190" height="145" /></a>
+                        <a href="#"> <img src="../img/cms/tag.png" alt="cms-img-02.jpg" width="190" height="145" /></a>
                       </div>
                     </div>
                   </div>
@@ -389,9 +380,7 @@
                       <div class="ttcmsaboutus-head">Fresh Juice Shop</div>
                       <div class="ttcmsaboutus-title">Summer Juice</div>
                       <div class="ttcmsaboutus-desc">
-                        Lorem ipsum dolor sit amet, consectetur adialiquip
-                        commodincididunt ut labore etsectetur adialiquipsectetur
-                        adialiquip
+                        Lorem ipsum dolor sit amet, consectetur adialiquip commodincididunt ut labore etsectetur adialiquipsectetur adialiquip
                       </div>
                       <div class="ttcmsaboutus-btn">
                         <a href="#" class="animation-btn">shop now</a>
@@ -435,27 +424,32 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="19"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="19" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
                                         <a href="home/19-customizable-mug.html" class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1" src="../132-home_default/customizable-mug.jpg"
+                                          <img
+                                            class="ttproduct-img1"
+                                            src="../132-home_default/customizable-mug.jpg"
                                             alt="Cucumber Lemonade Mocktail"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/132-large_default/customizable-mug.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../133-home_default/customizable-mug.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/133-large_default/customizable-mug.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
 
                                         <ul class="product-flags">
-                                          <li class="online-only">
-                                            Online only
-                                          </li>
+                                          <li class="online-only">Online only</li>
                                           <li class="on-sale">On sale!</li>
                                           <li class="discount">-$3.00</li>
                                           <li class="new">New</li>
@@ -463,9 +457,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_19" href="#"
-                                            data-dismiss="modal" data-rel="19" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '19', '0', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_19"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="19"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '19', '0', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -478,8 +477,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -490,20 +488,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="19"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="19" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -512,8 +510,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="19"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="19"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -522,8 +525,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -538,13 +545,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/19-customizable-mug.html">Cucumber Lemonade...</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/19-customizable-mug.html">Cucumber Lemonade...</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -571,19 +577,30 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="18"
-                                    data-id-product-attribute="36">
+                                  <article
+                                    class="product-miniature js-product-miniature col-sm-4"
+                                    data-id-product="18"
+                                    data-id-product-attribute="36"
+                                  >
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
                                         <a href="home/18-hummingbird-notebook.html" class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1" src="../126-home_default/hummingbird-notebook.jpg"
+                                          <img
+                                            class="ttproduct-img1"
+                                            src="../126-home_default/hummingbird-notebook.jpg"
                                             alt="Tequila and Grapefruit Juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/126-large_default/hummingbird-notebook.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../127-home_default/hummingbird-notebook.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/127-large_default/hummingbird-notebook.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -593,9 +610,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_18" href="#"
-                                            data-dismiss="modal" data-rel="18" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '18', '36', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_18"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="18"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '18', '36', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -608,8 +630,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -620,20 +641,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="18"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="18" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -642,8 +663,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="18"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="18"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -652,8 +678,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star"></div>
                                                 <div class="star"></div>
@@ -668,14 +698,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/18-hummingbird-notebook.html">Tequila and
-                                              Grapefruit...</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/18-hummingbird-notebook.html">Tequila and Grapefruit...</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -706,27 +734,32 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="17"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="17" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
                                         <a href="home/17-brown-bear-notebook.html" class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1" src="../120-home_default/brown-bear-notebook.jpg"
+                                          <img
+                                            class="ttproduct-img1"
+                                            src="../120-home_default/brown-bear-notebook.jpg"
                                             alt="Malibu &amp; Orange Juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/120-large_default/brown-bear-notebook.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../121-home_default/brown-bear-notebook.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/121-large_default/brown-bear-notebook.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
 
                                         <ul class="product-flags">
-                                          <li class="online-only">
-                                            Online only
-                                          </li>
+                                          <li class="online-only">Online only</li>
                                           <li class="on-sale">On sale!</li>
                                           <li class="discount">-$5.00</li>
                                           <li class="new">New</li>
@@ -734,9 +767,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_17" href="#"
-                                            data-dismiss="modal" data-rel="17" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '17', '0', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_17"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="17"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '17', '0', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -749,8 +787,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -761,20 +798,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="17"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="17" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -783,8 +820,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="17"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="17"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -793,8 +835,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -809,14 +855,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/17-brown-bear-notebook.html">Malibu &amp; Orange
-                                              Juice</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/17-brown-bear-notebook.html">Malibu &amp; Orange Juice</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -843,21 +887,30 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="16"
-                                    data-id-product-attribute="28">
+                                  <article
+                                    class="product-miniature js-product-miniature col-sm-4"
+                                    data-id-product="16"
+                                    data-id-product-attribute="28"
+                                  >
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/16-mountain-fox-notebook.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/16-mountain-fox-notebook.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../114-home_default/mountain-fox-notebook.jpg"
                                             alt="Vodka Cranberry drink"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/114-large_default/mountain-fox-notebook.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../115-home_default/mountain-fox-notebook.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/115-large_default/mountain-fox-notebook.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -867,9 +920,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_16" href="#"
-                                            data-dismiss="modal" data-rel="16" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_16"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="16"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -882,8 +940,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -894,20 +951,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="16"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="16" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -916,8 +973,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="16"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="16"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -926,8 +988,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -942,13 +1008,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/16-mountain-fox-notebook.html">Vodka Cranberry drink</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/16-mountain-fox-notebook.html">Vodka Cranberry drink</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -979,21 +1044,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="15"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="15" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/15-pack-mug-framed-poster.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/15-pack-mug-framed-poster.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../108-home_default/pack-mug-framed-poster.jpg"
                                             alt="Easy Ganga Jamuna Juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/108-large_default/pack-mug-framed-poster.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../109-home_default/pack-mug-framed-poster.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/109-large_default/pack-mug-framed-poster.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1004,9 +1074,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_15" href="#"
-                                            data-dismiss="modal" data-rel="15" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '15', '0', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_15"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="15"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '15', '0', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1019,8 +1094,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1031,20 +1105,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="15"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="15" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -1053,8 +1127,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="15"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="15"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1063,8 +1142,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star"></div>
                                                 <div class="star"></div>
@@ -1079,14 +1162,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/15-pack-mug-framed-poster.html">Easy Ganga Jamuna
-                                              Juice</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/15-pack-mug-framed-poster.html">Easy Ganga Jamuna Juice</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -1109,38 +1190,46 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="14"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="14" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="treats/14-hummingbird-vector-graphics.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="treats/14-hummingbird-vector-graphics.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../102-home_default/hummingbird-vector-graphics.jpg"
                                             alt="Screwdriver Cocktail"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/102-large_default/hummingbird-vector-graphics.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../103-home_default/hummingbird-vector-graphics.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/103-large_default/hummingbird-vector-graphics.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
 
                                         <ul class="product-flags">
-                                          <li class="online-only">
-                                            Online only
-                                          </li>
+                                          <li class="online-only">Online only</li>
                                           <li class="on-sale">On sale!</li>
                                           <li class="discount">-$5.00</li>
                                           <li class="new">New</li>
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_14" href="#"
-                                            data-dismiss="modal" data-rel="14" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '14', '0', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_14"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="14"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '14', '0', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1153,8 +1242,7 @@
                                           <h5 class="cat-name">treats</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1165,20 +1253,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="14"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="14" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -1187,8 +1275,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="14"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="14"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1197,8 +1290,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -1213,14 +1310,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="treats/14-hummingbird-vector-graphics.html">Screwdriver
-                                              Cocktail</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="treats/14-hummingbird-vector-graphics.html">Screwdriver Cocktail</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -1255,21 +1350,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="13"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="13" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/13-brown-bear-vector-graphics.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/13-brown-bear-vector-graphics.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../96-home_default/brown-bear-vector-graphics.jpg"
                                             alt="Blended Smoothie cocktail"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/96-large_default/brown-bear-vector-graphics.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../97-home_default/brown-bear-vector-graphics.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/97-large_default/brown-bear-vector-graphics.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1279,8 +1379,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_13" href="#"
-                                            data-dismiss="modal" data-rel="13" title="Add to wishlist" onclick="">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_13"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="13"
+                                            title="Add to wishlist"
+                                            onclick=""
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1293,8 +1399,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1305,20 +1410,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="13"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="13" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -1327,8 +1432,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="13"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="13"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1337,8 +1447,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -1353,14 +1467,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/13-brown-bear-vector-graphics.html">Blended Smoothie
-                                              cocktail</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/13-brown-bear-vector-graphics.html">Blended Smoothie cocktail</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -1383,21 +1495,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="12"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="12" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="treats/12-mountain-fox-vector-graphics.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="treats/12-mountain-fox-vector-graphics.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../90-home_default/mountain-fox-vector-graphics.jpg"
                                             alt="Green Thumb Juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/90-large_default/mountain-fox-vector-graphics.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../91-home_default/mountain-fox-vector-graphics.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/91-large_default/mountain-fox-vector-graphics.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1407,8 +1524,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_12" href="#"
-                                            data-dismiss="modal" data-rel="12" title="Add to wishlist" onclick="">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_12"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="12"
+                                            title="Add to wishlist"
+                                            onclick=""
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1421,8 +1544,7 @@
                                           <h5 class="cat-name">treats</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1433,20 +1555,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="12"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="12" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -1455,8 +1577,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="12"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="12"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1465,8 +1592,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -1481,14 +1612,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="treats/12-mountain-fox-vector-graphics.html">Green Thumb
-                                              Juice</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="treats/12-mountain-fox-vector-graphics.html">Green Thumb Juice</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -1519,36 +1648,50 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="11"
-                                    data-id-product-attribute="26">
+                                  <article
+                                    class="product-miniature js-product-miniature col-sm-4"
+                                    data-id-product="11"
+                                    data-id-product-attribute="26"
+                                  >
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
                                         <a href="home/11-hummingbird-cushion.html" class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1" src="../84-home_default/hummingbird-cushion.jpg"
+                                          <img
+                                            class="ttproduct-img1"
+                                            src="../84-home_default/hummingbird-cushion.jpg"
                                             alt="Simply Organic Juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/84-large_default/hummingbird-cushion.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../85-home_default/hummingbird-cushion.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/85-large_default/hummingbird-cushion.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
 
                                         <ul class="product-flags">
-                                          <li class="online-only">
-                                            Online only
-                                          </li>
+                                          <li class="online-only">Online only</li>
                                           <li class="on-sale">On sale!</li>
                                           <li class="discount">-$3.00</li>
                                           <li class="new">New</li>
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_11" href="#"
-                                            data-dismiss="modal" data-rel="11" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '11', '26', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_11"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="11"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '11', '26', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1561,8 +1704,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1573,20 +1715,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="11"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="11" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -1595,8 +1737,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="11"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="11"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1605,8 +1752,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -1621,13 +1772,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/11-hummingbird-cushion.html">Simply Organic Juice</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/11-hummingbird-cushion.html">Simply Organic Juice</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -1642,14 +1792,20 @@
 
                                           <div class="highlighted-informations hidden-sm-down">
                                             <div class="variant-links">
-                                              <a href="home/11-26-hummingbird-cushion.html#/8-color-white" class="color"
-                                                title="White" style="
-                                                  background-color: #ffffff;
-                                                "><span class="sr-only">White</span></a>
-                                              <a href="home/11-27-hummingbird-cushion.html#/11-color-black"
-                                                class="color" title="Black" style="
-                                                  background-color: #434a54;
-                                                "><span class="sr-only">Black</span></a>
+                                              <a
+                                                href="home/11-26-hummingbird-cushion.html#/8-color-white"
+                                                class="color"
+                                                title="White"
+                                                style="background-color: #ffffff"
+                                                ><span class="sr-only">White</span></a
+                                              >
+                                              <a
+                                                href="home/11-27-hummingbird-cushion.html#/11-color-black"
+                                                class="color"
+                                                title="Black"
+                                                style="background-color: #434a54"
+                                                ><span class="sr-only">Black</span></a
+                                              >
                                               <span class="js-count count"></span>
                                             </div>
                                           </div>
@@ -1666,19 +1822,30 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="10"
-                                    data-id-product-attribute="24">
+                                  <article
+                                    class="product-miniature js-product-miniature col-sm-4"
+                                    data-id-product="10"
+                                    data-id-product-attribute="24"
+                                  >
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
                                         <a href="home/10-brown-bear-cushion.html" class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1" src="../78-home_default/brown-bear-cushion.jpg"
+                                          <img
+                                            class="ttproduct-img1"
+                                            src="../78-home_default/brown-bear-cushion.jpg"
                                             alt="Tropic Juice Bar Deli"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/78-large_default/brown-bear-cushion.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../79-home_default/brown-bear-cushion.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/79-large_default/brown-bear-cushion.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1688,9 +1855,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_10" href="#"
-                                            data-dismiss="modal" data-rel="10" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '10', '24', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_10"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="10"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '10', '24', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1703,8 +1875,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1715,20 +1886,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="10"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="10" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -1737,8 +1908,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="10"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="10"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1747,8 +1923,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -1763,13 +1943,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/10-brown-bear-cushion.html">Tropic Juice Bar Deli</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/10-brown-bear-cushion.html">Tropic Juice Bar Deli</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -1780,14 +1959,20 @@
 
                                           <div class="highlighted-informations hidden-sm-down">
                                             <div class="variant-links">
-                                              <a href="home/10-24-brown-bear-cushion.html#/8-color-white" class="color"
-                                                title="White" style="
-                                                  background-color: #ffffff;
-                                                "><span class="sr-only">White</span></a>
-                                              <a href="home/10-25-brown-bear-cushion.html#/11-color-black" class="color"
-                                                title="Black" style="
-                                                  background-color: #434a54;
-                                                "><span class="sr-only">Black</span></a>
+                                              <a
+                                                href="home/10-24-brown-bear-cushion.html#/8-color-white"
+                                                class="color"
+                                                title="White"
+                                                style="background-color: #ffffff"
+                                                ><span class="sr-only">White</span></a
+                                              >
+                                              <a
+                                                href="home/10-25-brown-bear-cushion.html#/11-color-black"
+                                                class="color"
+                                                title="Black"
+                                                style="background-color: #434a54"
+                                                ><span class="sr-only">Black</span></a
+                                              >
                                               <span class="js-count count"></span>
                                             </div>
                                           </div>
@@ -1824,21 +2009,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="3"
-                                    data-id-product-attribute="13">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="3" data-id-product-attribute="13">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="treats/3-the-best-is-yet-to-come-framed-poster.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="treats/3-the-best-is-yet-to-come-framed-poster.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../36-home_default/the-best-is-yet-to-come-framed-poster.jpg"
                                             alt="Green coconut juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/36-large_default/the-best-is-yet-to-come-framed-poster.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../37-home_default/the-best-is-yet-to-come-framed-poster.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/37-large_default/the-best-is-yet-to-come-framed-poster.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1848,9 +2038,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_3" href="#"
-                                            data-dismiss="modal" data-rel="3" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '3', '13', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_3"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="3"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '3', '13', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1863,8 +2058,7 @@
                                           <h5 class="cat-name">treats</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1875,20 +2069,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="3"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="3" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -1897,8 +2091,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="3"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="3"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -1907,8 +2106,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star"></div>
                                                 <div class="star"></div>
@@ -1923,14 +2126,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="treats/3-the-best-is-yet-to-come-framed-poster.html">Green coconut
-                                              juice</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="treats/3-the-best-is-yet-to-come-framed-poster.html">Green coconut juice</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummy text of
-                                            the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -1953,21 +2154,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="12"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="12" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="treats/12-mountain-fox-vector-graphics.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="treats/12-mountain-fox-vector-graphics.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../90-home_default/mountain-fox-vector-graphics.jpg"
                                             alt="Green Thumb Juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/90-large_default/mountain-fox-vector-graphics.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../91-home_default/mountain-fox-vector-graphics.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/91-large_default/mountain-fox-vector-graphics.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1977,9 +2183,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_12" href="#"
-                                            data-dismiss="modal" data-rel="12" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '12', '0', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_12"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="12"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '12', '0', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1992,8 +2203,7 @@
                                           <h5 class="cat-name">treats</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2004,20 +2214,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="12"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="12" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -2026,8 +2236,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="12"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="12"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2036,8 +2251,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -2052,14 +2271,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="treats/12-mountain-fox-vector-graphics.html">Green Thumb
-                                              Juice</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="treats/12-mountain-fox-vector-graphics.html">Green Thumb Juice</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -2090,21 +2307,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="6"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="6" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/6-mug-the-best-is-yet-to-come.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/6-mug-the-best-is-yet-to-come.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../54-home_default/mug-the-best-is-yet-to-come.jpg"
                                             alt="Fruit punch cocktail"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/54-large_default/mug-the-best-is-yet-to-come.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../55-home_default/mug-the-best-is-yet-to-come.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/55-large_default/mug-the-best-is-yet-to-come.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -2114,9 +2336,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_6" href="#"
-                                            data-dismiss="modal" data-rel="6" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '6', '0', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_6"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="6"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '6', '0', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -2129,8 +2356,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2141,20 +2367,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="6"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="6" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -2163,8 +2389,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="6"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="6"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2173,8 +2404,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star"></div>
                                                 <div class="star"></div>
@@ -2189,14 +2424,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/6-mug-the-best-is-yet-to-come.html">Fruit punch
-                                              cocktail</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/6-mug-the-best-is-yet-to-come.html">Fruit punch cocktail</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummy text of
-                                            the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -2219,19 +2452,30 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="10"
-                                    data-id-product-attribute="24">
+                                  <article
+                                    class="product-miniature js-product-miniature col-sm-4"
+                                    data-id-product="10"
+                                    data-id-product-attribute="24"
+                                  >
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
                                         <a href="home/10-brown-bear-cushion.html" class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1" src="../78-home_default/brown-bear-cushion.jpg"
+                                          <img
+                                            class="ttproduct-img1"
+                                            src="../78-home_default/brown-bear-cushion.jpg"
                                             alt="Tropic Juice Bar Deli"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/78-large_default/brown-bear-cushion.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../79-home_default/brown-bear-cushion.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/79-large_default/brown-bear-cushion.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -2241,9 +2485,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_10" href="#"
-                                            data-dismiss="modal" data-rel="10" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '10', '24', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_10"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="10"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '10', '24', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -2256,8 +2505,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2268,20 +2516,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="10"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="10" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -2290,8 +2538,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="10"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="10"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2300,8 +2553,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -2316,13 +2573,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/10-brown-bear-cushion.html">Tropic Juice Bar Deli</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/10-brown-bear-cushion.html">Tropic Juice Bar Deli</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -2333,14 +2589,20 @@
 
                                           <div class="highlighted-informations hidden-sm-down">
                                             <div class="variant-links">
-                                              <a href="home/10-24-brown-bear-cushion.html#/8-color-white" class="color"
-                                                title="White" style="
-                                                  background-color: #ffffff;
-                                                "><span class="sr-only">White</span></a>
-                                              <a href="home/10-25-brown-bear-cushion.html#/11-color-black" class="color"
-                                                title="Black" style="
-                                                  background-color: #434a54;
-                                                "><span class="sr-only">Black</span></a>
+                                              <a
+                                                href="home/10-24-brown-bear-cushion.html#/8-color-white"
+                                                class="color"
+                                                title="White"
+                                                style="background-color: #ffffff"
+                                                ><span class="sr-only">White</span></a
+                                              >
+                                              <a
+                                                href="home/10-25-brown-bear-cushion.html#/11-color-black"
+                                                class="color"
+                                                title="Black"
+                                                style="background-color: #434a54"
+                                                ><span class="sr-only">Black</span></a
+                                              >
                                               <span class="js-count count"></span>
                                             </div>
                                           </div>
@@ -2365,21 +2627,30 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="16"
-                                    data-id-product-attribute="28">
+                                  <article
+                                    class="product-miniature js-product-miniature col-sm-4"
+                                    data-id-product="16"
+                                    data-id-product-attribute="28"
+                                  >
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/16-mountain-fox-notebook.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/16-mountain-fox-notebook.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../114-home_default/mountain-fox-notebook.jpg"
                                             alt="Vodka Cranberry drink"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/114-large_default/mountain-fox-notebook.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../115-home_default/mountain-fox-notebook.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/115-large_default/mountain-fox-notebook.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -2389,9 +2660,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_16" href="#"
-                                            data-dismiss="modal" data-rel="16" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_16"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="16"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -2404,8 +2680,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2416,20 +2691,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="16"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="16" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -2438,8 +2713,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="16"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="16"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2448,8 +2728,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -2464,13 +2748,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/16-mountain-fox-notebook.html">Vodka Cranberry drink</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/16-mountain-fox-notebook.html">Vodka Cranberry drink</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -2493,36 +2776,50 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="11"
-                                    data-id-product-attribute="26">
+                                  <article
+                                    class="product-miniature js-product-miniature col-sm-4"
+                                    data-id-product="11"
+                                    data-id-product-attribute="26"
+                                  >
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
                                         <a href="home/11-hummingbird-cushion.html" class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1" src="../84-home_default/hummingbird-cushion.jpg"
+                                          <img
+                                            class="ttproduct-img1"
+                                            src="../84-home_default/hummingbird-cushion.jpg"
                                             alt="Simply Organic Juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/84-large_default/hummingbird-cushion.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../85-home_default/hummingbird-cushion.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/85-large_default/hummingbird-cushion.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
 
                                         <ul class="product-flags">
-                                          <li class="online-only">
-                                            Online only
-                                          </li>
+                                          <li class="online-only">Online only</li>
                                           <li class="on-sale">On sale!</li>
                                           <li class="discount">-$3.00</li>
                                           <li class="new">New</li>
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_11" href="#"
-                                            data-dismiss="modal" data-rel="11" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '11', '26', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_11"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="11"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '11', '26', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -2535,8 +2832,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2547,20 +2843,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="11"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="11" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -2569,8 +2865,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="11"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="11"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2579,8 +2880,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -2595,13 +2900,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/11-hummingbird-cushion.html">Simply Organic Juice</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/11-hummingbird-cushion.html">Simply Organic Juice</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -2616,14 +2920,20 @@
 
                                           <div class="highlighted-informations hidden-sm-down">
                                             <div class="variant-links">
-                                              <a href="home/11-26-hummingbird-cushion.html#/8-color-white" class="color"
-                                                title="White" style="
-                                                  background-color: #ffffff;
-                                                "><span class="sr-only">White</span></a>
-                                              <a href="home/11-27-hummingbird-cushion.html#/11-color-black"
-                                                class="color" title="Black" style="
-                                                  background-color: #434a54;
-                                                "><span class="sr-only">Black</span></a>
+                                              <a
+                                                href="home/11-26-hummingbird-cushion.html#/8-color-white"
+                                                class="color"
+                                                title="White"
+                                                style="background-color: #ffffff"
+                                                ><span class="sr-only">White</span></a
+                                              >
+                                              <a
+                                                href="home/11-27-hummingbird-cushion.html#/11-color-black"
+                                                class="color"
+                                                title="Black"
+                                                style="background-color: #434a54"
+                                                ><span class="sr-only">Black</span></a
+                                              >
                                               <span class="js-count count"></span>
                                             </div>
                                           </div>
@@ -2648,21 +2958,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="13"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="13" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/13-brown-bear-vector-graphics.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/13-brown-bear-vector-graphics.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../96-home_default/brown-bear-vector-graphics.jpg"
                                             alt="Blended Smoothie cocktail"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/96-large_default/brown-bear-vector-graphics.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../97-home_default/brown-bear-vector-graphics.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/97-large_default/brown-bear-vector-graphics.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -2672,9 +2987,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_13" href="#"
-                                            data-dismiss="modal" data-rel="13" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '13', '0', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_13"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="13"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '13', '0', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -2687,8 +3007,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2699,20 +3018,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="13"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="13" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -2721,8 +3040,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="13"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="13"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2731,8 +3055,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star star_on"></div>
                                                 <div class="star star_on"></div>
@@ -2747,14 +3075,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/13-brown-bear-vector-graphics.html">Blended Smoothie
-                                              cocktail</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/13-brown-bear-vector-graphics.html">Blended Smoothie cocktail</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -2777,38 +3103,46 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="1"
-                                    data-id-product-attribute="1">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="1" data-id-product-attribute="1">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/1-hummingbird-printed-t-shirt.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/1-hummingbird-printed-t-shirt.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../24-home_default/hummingbird-printed-t-shirt.jpg"
                                             alt="Strawberry Daiquiri"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/24-large_default/hummingbird-printed-t-shirt.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../25-home_default/hummingbird-printed-t-shirt.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/25-large_default/hummingbird-printed-t-shirt.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
 
                                         <ul class="product-flags">
-                                          <li class="online-only">
-                                            Online only
-                                          </li>
+                                          <li class="online-only">Online only</li>
                                           <li class="on-sale">On sale!</li>
                                           <li class="discount">-20%</li>
                                           <li class="new">New</li>
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_1" href="#"
-                                            data-dismiss="modal" data-rel="1" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '1', '1', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_1"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="1"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '1', '1', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -2821,8 +3155,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2833,20 +3166,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="1"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="1" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -2855,8 +3188,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="1"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="1"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2865,8 +3203,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star"></div>
                                                 <div class="star"></div>
@@ -2881,14 +3223,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/1-hummingbird-printed-t-shirt.html">Strawberry
-                                              Daiquiri</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/1-hummingbird-printed-t-shirt.html">Strawberry Daiquiri</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummy text of
-                                            the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -2903,14 +3243,20 @@
 
                                           <div class="highlighted-informations hidden-sm-down">
                                             <div class="variant-links">
-                                              <a href="home/1-1-hummingbird-printed-t-shirt.html#/1-size-s/8-color-white"
-                                                class="color" title="White" style="
-                                                  background-color: #ffffff;
-                                                "><span class="sr-only">White</span></a>
-                                              <a href="home/1-2-hummingbird-printed-t-shirt.html#/1-size-s/11-color-black"
-                                                class="color" title="Black" style="
-                                                  background-color: #434a54;
-                                                "><span class="sr-only">Black</span></a>
+                                              <a
+                                                href="home/1-1-hummingbird-printed-t-shirt.html#/1-size-s/8-color-white"
+                                                class="color"
+                                                title="White"
+                                                style="background-color: #ffffff"
+                                                ><span class="sr-only">White</span></a
+                                              >
+                                              <a
+                                                href="home/1-2-hummingbird-printed-t-shirt.html#/1-size-s/11-color-black"
+                                                class="color"
+                                                title="Black"
+                                                style="background-color: #434a54"
+                                                ><span class="sr-only">Black</span></a
+                                              >
                                               <span class="js-count count"></span>
                                             </div>
                                           </div>
@@ -2935,21 +3281,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="2"
-                                    data-id-product-attribute="9">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="2" data-id-product-attribute="9">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/2-brown-bear-printed-sweater.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/2-brown-bear-printed-sweater.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../30-home_default/brown-bear-printed-sweater.jpg"
                                             alt="Various carbonated flavors"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/30-large_default/brown-bear-printed-sweater.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../31-home_default/brown-bear-printed-sweater.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/31-large_default/brown-bear-printed-sweater.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -2960,9 +3311,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_2" href="#"
-                                            data-dismiss="modal" data-rel="2" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '2', '9', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_2"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="2"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '2', '9', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -2975,8 +3331,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -2987,20 +3342,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="2"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="2" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -3009,8 +3364,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="2"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="2"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -3019,8 +3379,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star"></div>
                                                 <div class="star"></div>
@@ -3035,14 +3399,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/2-brown-bear-printed-sweater.html">Various
-                                              carbonated...</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/2-brown-bear-printed-sweater.html">Various carbonated...</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummy text of
-                                            the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -3069,21 +3431,26 @@
                                 <!-- End TemplateTrip 2 product slide code -->
 
                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="8"
-                                    data-id-product-attribute="0">
+                                  <article class="product-miniature js-product-miniature col-sm-4" data-id-product="8" data-id-product-attribute="0">
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
-                                        <a href="home/8-mug-today-is-a-good-day.html"
-                                          class="thumbnail product-thumbnail">
-                                          <img class="ttproduct-img1"
+                                        <a href="home/8-mug-today-is-a-good-day.html" class="thumbnail product-thumbnail">
+                                          <img
+                                            class="ttproduct-img1"
                                             src="../66-home_default/mug-today-is-a-good-day.jpg"
                                             alt="Veggies Natural Juice"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/66-large_default/mug-today-is-a-good-day.jpg"
-                                            width="290" height="290" />
-                                          <img class="fade second_image img-responsive"
+                                            width="290"
+                                            height="290"
+                                          />
+                                          <img
+                                            class="fade second_image img-responsive"
                                             src="../67-home_default/mug-today-is-a-good-day.jpg"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/67-large_default/mug-today-is-a-good-day.jpg"
-                                            alt="" width="300" height="390" />
+                                            alt=""
+                                            width="300"
+                                            height="390"
+                                          />
                                         </a>
 
                                         <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -3093,9 +3460,14 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_8" href="#"
-                                            data-dismiss="modal" data-rel="8" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '8', '0', 1); return false;">
+                                          <a
+                                            class="addToWishlist btn btn-primary wishlistProd_8"
+                                            href="#"
+                                            data-dismiss="modal"
+                                            data-rel="8"
+                                            title="Add to wishlist"
+                                            onclick="WishlistCart('wishlist_block_list', 'add', '8', '0', 1); return false;"
+                                          >
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -3108,8 +3480,7 @@
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
                                             <div class="quick-view-block">
-                                              <a href="#" class="quick-view btn btn-primary"
-                                                data-link-action="quickview" title="Quick view">
+                                              <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                 <span>Quick view</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -3120,20 +3491,20 @@
                                               <div class="product-add-to-cart">
                                                 <form
                                                   action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                                  method="post" class="add-to-cart-or-refresh">
+                                                  method="post"
+                                                  class="add-to-cart-or-refresh"
+                                                >
                                                   <div class="product-quantity" style="display: none">
-                                                    <input type="number" name="id_product" value="8"
-                                                      class="product_page_product_id" />
-                                                    <input type="number" name="id_customization" value="0"
-                                                      class="product_customization_id" />
-                                                    <input type="hidden" name="token"
-                                                      value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                    <input type="number" name="qty" class="quantity_wanted input-group"
-                                                      value="1" min="1" />
+                                                    <input type="number" name="id_product" value="8" class="product_page_product_id" />
+                                                    <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                    <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                    <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                                   </div>
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                    data-button-action="add-to-cart" title="Add to cart">
+                                                    data-button-action="add-to-cart"
+                                                    title="Add to cart"
+                                                  >
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>
@@ -3142,8 +3513,13 @@
                                               </div>
                                             </div>
                                             <div class="compare">
-                                              <a class="add_to_compare btn btn-primary" href="#" data-id-product="8"
-                                                data-dismiss="modal" title="Add to Compare">
+                                              <a
+                                                class="add_to_compare btn btn-primary"
+                                                href="#"
+                                                data-id-product="8"
+                                                data-dismiss="modal"
+                                                title="Add to Compare"
+                                              >
                                                 <i class="material-icons compare_icon">equalizer</i>
                                                 <span>Add to Compare</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -3152,8 +3528,12 @@
                                           </div>
 
                                           <div class="hook-reviews">
-                                            <div class="comments_note" itemprop="aggregateRating" itemscope
-                                              itemtype="https://schema.org/AggregateRating">
+                                            <div
+                                              class="comments_note"
+                                              itemprop="aggregateRating"
+                                              itemscope
+                                              itemtype="https://schema.org/AggregateRating"
+                                            >
                                               <div class="star_content clearfix">
                                                 <div class="star"></div>
                                                 <div class="star"></div>
@@ -3168,14 +3548,12 @@
                                             </div>
                                           </div>
 
-                                          <span class="h3 product-title" itemprop="name"><a
-                                              href="home/8-mug-today-is-a-good-day.html">Veggies Natural
-                                              Juice</a></span>
+                                          <span class="h3 product-title" itemprop="name"
+                                            ><a href="home/8-mug-today-is-a-good-day.html">Veggies Natural Juice</a></span
+                                          >
 
                                           <div class="product-desc-short" itemprop="description">
-                                            Lorem Ipsum is simply dummied text
-                                            of the printing and typesetting
-                                            industry. Lorem Ipsum has...
+                                            Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                           </div>
 
                                           <div class="product-price-and-shipping">
@@ -3213,19 +3591,26 @@
 
                       <div class="ttbestseller-content products">
                         <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="16"
-                            data-id-product-attribute="28">
+                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="16" data-id-product-attribute="28">
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a href="home/16-mountain-fox-notebook.html" class="thumbnail product-thumbnail">
-                                  <img class="ttproduct-img1" src="../114-home_default/mountain-fox-notebook.jpg"
+                                  <img
+                                    class="ttproduct-img1"
+                                    src="../114-home_default/mountain-fox-notebook.jpg"
                                     alt="Vodka Cranberry drink"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/114-large_default/mountain-fox-notebook.jpg"
-                                    width="290" height="290" />
-                                  <img class="fade second_image img-responsive"
+                                    width="290"
+                                    height="290"
+                                  />
+                                  <img
+                                    class="fade second_image img-responsive"
                                     src="../115-home_default/mountain-fox-notebook.jpg"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/115-large_default/mountain-fox-notebook.jpg"
-                                    alt="" width="300" height="390" />
+                                    alt=""
+                                    width="300"
+                                    height="390"
+                                  />
                                 </a>
 
                                 <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -3235,9 +3620,14 @@
                                 </ul>
 
                                 <div class="wishlist">
-                                  <a class="addToWishlist btn btn-primary wishlistProd_16" href="#" data-dismiss="modal"
-                                    data-rel="16" title="Add to wishlist"
-                                    onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;">
+                                  <a
+                                    class="addToWishlist btn btn-primary wishlistProd_16"
+                                    href="#"
+                                    data-dismiss="modal"
+                                    data-rel="16"
+                                    title="Add to wishlist"
+                                    onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;"
+                                  >
                                     <i class="material-icons wishlist-icon">favorite_border</i>
                                     <span class="wishlist-name">Add to Wishlist</span>
                                     <span class="loading"><i class="material-icons">cached</i></span>
@@ -3250,8 +3640,7 @@
                                   <h5 class="cat-name">home</h5>
                                   <div class="ttproducthover">
                                     <div class="quick-view-block">
-                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                        title="Quick view">
+                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                         <i class="material-icons quick_view_icon">visibility</i>
                                         <span>Quick view</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3260,20 +3649,22 @@
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
-                                        <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                          method="post" class="add-to-cart-or-refresh">
+                                        <form
+                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          method="post"
+                                          class="add-to-cart-or-refresh"
+                                        >
                                           <div class="product-quantity" style="display: none">
-                                            <input type="number" name="id_product" value="16"
-                                              class="product_page_product_id" />
-                                            <input type="number" name="id_customization" value="0"
-                                              class="product_customization_id" />
-                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                              class="tt-token" />
-                                            <input type="number" name="qty" class="quantity_wanted input-group"
-                                              value="1" min="1" />
+                                            <input type="number" name="id_product" value="16" class="product_page_product_id" />
+                                            <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                            <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                           </div>
-                                          <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart" title="Add to cart">
+                                          <button
+                                            class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                            data-button-action="add-to-cart"
+                                            title="Add to cart"
+                                          >
                                             <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                             <span class="loading"><i class="material-icons">cached</i></span>
                                             <span>Add to cart</span>
@@ -3282,8 +3673,13 @@
                                       </div>
                                     </div>
                                     <div class="compare">
-                                      <a class="add_to_compare btn btn-primary" href="#" data-id-product="16"
-                                        data-dismiss="modal" title="Add to Compare">
+                                      <a
+                                        class="add_to_compare btn btn-primary"
+                                        href="#"
+                                        data-id-product="16"
+                                        data-dismiss="modal"
+                                        title="Add to Compare"
+                                      >
                                         <i class="material-icons compare_icon">equalizer</i>
                                         <span>Add to Compare</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3292,8 +3688,7 @@
                                   </div>
 
                                   <div class="hook-reviews">
-                                    <div class="comments_note" itemprop="aggregateRating" itemscope
-                                      itemtype="https://schema.org/AggregateRating">
+                                    <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                       <div class="star_content clearfix">
                                         <div class="star star_on"></div>
                                         <div class="star star_on"></div>
@@ -3308,13 +3703,12 @@
                                     </div>
                                   </div>
 
-                                  <span class="h3 product-title" itemprop="name"><a
-                                      href="home/16-mountain-fox-notebook.html">Vodka Cranberry drink</a></span>
+                                  <span class="h3 product-title" itemprop="name"
+                                    ><a href="home/16-mountain-fox-notebook.html">Vodka Cranberry drink</a></span
+                                  >
 
                                   <div class="product-desc-short" itemprop="description">
-                                    Lorem Ipsum is simply dummied text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has...
+                                    Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                   </div>
 
                                   <div class="product-price-and-shipping">
@@ -3331,21 +3725,26 @@
                         </div>
 
                         <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="4"
-                            data-id-product-attribute="16">
+                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="4" data-id-product-attribute="16">
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
-                                <a href="treats/4-the-adventure-begins-framed-poster.html"
-                                  class="thumbnail product-thumbnail">
-                                  <img class="ttproduct-img1"
+                                <a href="treats/4-the-adventure-begins-framed-poster.html" class="thumbnail product-thumbnail">
+                                  <img
+                                    class="ttproduct-img1"
                                     src="../42-home_default/the-adventure-begins-framed-poster.jpg"
                                     alt="Cantaloupe juice &amp; cocktail"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/42-large_default/the-adventure-begins-framed-poster.jpg"
-                                    width="290" height="290" />
-                                  <img class="fade second_image img-responsive"
+                                    width="290"
+                                    height="290"
+                                  />
+                                  <img
+                                    class="fade second_image img-responsive"
                                     src="../43-home_default/the-adventure-begins-framed-poster.jpg"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/43-large_default/the-adventure-begins-framed-poster.jpg"
-                                    alt="" width="300" height="390" />
+                                    alt=""
+                                    width="300"
+                                    height="390"
+                                  />
                                 </a>
 
                                 <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -3358,9 +3757,14 @@
                                 </ul>
 
                                 <div class="wishlist">
-                                  <a class="addToWishlist btn btn-primary wishlistProd_4" href="#" data-dismiss="modal"
-                                    data-rel="4" title="Add to wishlist"
-                                    onclick="WishlistCart('wishlist_block_list', 'add', '4', '16', 1); return false;">
+                                  <a
+                                    class="addToWishlist btn btn-primary wishlistProd_4"
+                                    href="#"
+                                    data-dismiss="modal"
+                                    data-rel="4"
+                                    title="Add to wishlist"
+                                    onclick="WishlistCart('wishlist_block_list', 'add', '4', '16', 1); return false;"
+                                  >
                                     <i class="material-icons wishlist-icon">favorite_border</i>
                                     <span class="wishlist-name">Add to Wishlist</span>
                                     <span class="loading"><i class="material-icons">cached</i></span>
@@ -3373,8 +3777,7 @@
                                   <h5 class="cat-name">treats</h5>
                                   <div class="ttproducthover">
                                     <div class="quick-view-block">
-                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                        title="Quick view">
+                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                         <i class="material-icons quick_view_icon">visibility</i>
                                         <span>Quick view</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3383,20 +3786,22 @@
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
-                                        <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                          method="post" class="add-to-cart-or-refresh">
+                                        <form
+                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          method="post"
+                                          class="add-to-cart-or-refresh"
+                                        >
                                           <div class="product-quantity" style="display: none">
-                                            <input type="number" name="id_product" value="4"
-                                              class="product_page_product_id" />
-                                            <input type="number" name="id_customization" value="0"
-                                              class="product_customization_id" />
-                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                              class="tt-token" />
-                                            <input type="number" name="qty" class="quantity_wanted input-group"
-                                              value="1" min="1" />
+                                            <input type="number" name="id_product" value="4" class="product_page_product_id" />
+                                            <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                            <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                           </div>
-                                          <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart" title="Add to cart">
+                                          <button
+                                            class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                            data-button-action="add-to-cart"
+                                            title="Add to cart"
+                                          >
                                             <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                             <span class="loading"><i class="material-icons">cached</i></span>
                                             <span>Add to cart</span>
@@ -3405,8 +3810,13 @@
                                       </div>
                                     </div>
                                     <div class="compare">
-                                      <a class="add_to_compare btn btn-primary" href="#" data-id-product="4"
-                                        data-dismiss="modal" title="Add to Compare">
+                                      <a
+                                        class="add_to_compare btn btn-primary"
+                                        href="#"
+                                        data-id-product="4"
+                                        data-dismiss="modal"
+                                        title="Add to Compare"
+                                      >
                                         <i class="material-icons compare_icon">equalizer</i>
                                         <span>Add to Compare</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3415,8 +3825,7 @@
                                   </div>
 
                                   <div class="hook-reviews">
-                                    <div class="comments_note" itemprop="aggregateRating" itemscope
-                                      itemtype="https://schema.org/AggregateRating">
+                                    <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                       <div class="star_content clearfix">
                                         <div class="star star_on"></div>
                                         <div class="star star_on"></div>
@@ -3431,14 +3840,12 @@
                                     </div>
                                   </div>
 
-                                  <span class="h3 product-title" itemprop="name"><a
-                                      href="treats/4-the-adventure-begins-framed-poster.html">Cantaloupe juice
-                                      &amp;...</a></span>
+                                  <span class="h3 product-title" itemprop="name"
+                                    ><a href="treats/4-the-adventure-begins-framed-poster.html">Cantaloupe juice &amp;...</a></span
+                                  >
 
                                   <div class="product-desc-short" itemprop="description">
-                                    Lorem Ipsum is simply dummy text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has...
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                   </div>
 
                                   <div class="product-price-and-shipping">
@@ -3459,19 +3866,26 @@
                         </div>
 
                         <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="10"
-                            data-id-product-attribute="24">
+                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="10" data-id-product-attribute="24">
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a href="home/10-brown-bear-cushion.html" class="thumbnail product-thumbnail">
-                                  <img class="ttproduct-img1" src="../78-home_default/brown-bear-cushion.jpg"
+                                  <img
+                                    class="ttproduct-img1"
+                                    src="../78-home_default/brown-bear-cushion.jpg"
                                     alt="Tropic Juice Bar Deli"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/78-large_default/brown-bear-cushion.jpg"
-                                    width="290" height="290" />
-                                  <img class="fade second_image img-responsive"
+                                    width="290"
+                                    height="290"
+                                  />
+                                  <img
+                                    class="fade second_image img-responsive"
                                     src="../79-home_default/brown-bear-cushion.jpg"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/79-large_default/brown-bear-cushion.jpg"
-                                    alt="" width="300" height="390" />
+                                    alt=""
+                                    width="300"
+                                    height="390"
+                                  />
                                 </a>
 
                                 <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -3481,9 +3895,14 @@
                                 </ul>
 
                                 <div class="wishlist">
-                                  <a class="addToWishlist btn btn-primary wishlistProd_10" href="#" data-dismiss="modal"
-                                    data-rel="10" title="Add to wishlist"
-                                    onclick="WishlistCart('wishlist_block_list', 'add', '10', '24', 1); return false;">
+                                  <a
+                                    class="addToWishlist btn btn-primary wishlistProd_10"
+                                    href="#"
+                                    data-dismiss="modal"
+                                    data-rel="10"
+                                    title="Add to wishlist"
+                                    onclick="WishlistCart('wishlist_block_list', 'add', '10', '24', 1); return false;"
+                                  >
                                     <i class="material-icons wishlist-icon">favorite_border</i>
                                     <span class="wishlist-name">Add to Wishlist</span>
                                     <span class="loading"><i class="material-icons">cached</i></span>
@@ -3496,8 +3915,7 @@
                                   <h5 class="cat-name">home</h5>
                                   <div class="ttproducthover">
                                     <div class="quick-view-block">
-                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                        title="Quick view">
+                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                         <i class="material-icons quick_view_icon">visibility</i>
                                         <span>Quick view</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3506,20 +3924,22 @@
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
-                                        <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                          method="post" class="add-to-cart-or-refresh">
+                                        <form
+                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          method="post"
+                                          class="add-to-cart-or-refresh"
+                                        >
                                           <div class="product-quantity" style="display: none">
-                                            <input type="number" name="id_product" value="10"
-                                              class="product_page_product_id" />
-                                            <input type="number" name="id_customization" value="0"
-                                              class="product_customization_id" />
-                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                              class="tt-token" />
-                                            <input type="number" name="qty" class="quantity_wanted input-group"
-                                              value="1" min="1" />
+                                            <input type="number" name="id_product" value="10" class="product_page_product_id" />
+                                            <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                            <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                           </div>
-                                          <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart" title="Add to cart">
+                                          <button
+                                            class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                            data-button-action="add-to-cart"
+                                            title="Add to cart"
+                                          >
                                             <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                             <span class="loading"><i class="material-icons">cached</i></span>
                                             <span>Add to cart</span>
@@ -3528,8 +3948,13 @@
                                       </div>
                                     </div>
                                     <div class="compare">
-                                      <a class="add_to_compare btn btn-primary" href="#" data-id-product="10"
-                                        data-dismiss="modal" title="Add to Compare">
+                                      <a
+                                        class="add_to_compare btn btn-primary"
+                                        href="#"
+                                        data-id-product="10"
+                                        data-dismiss="modal"
+                                        title="Add to Compare"
+                                      >
                                         <i class="material-icons compare_icon">equalizer</i>
                                         <span>Add to Compare</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3538,8 +3963,7 @@
                                   </div>
 
                                   <div class="hook-reviews">
-                                    <div class="comments_note" itemprop="aggregateRating" itemscope
-                                      itemtype="https://schema.org/AggregateRating">
+                                    <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                       <div class="star_content clearfix">
                                         <div class="star star_on"></div>
                                         <div class="star star_on"></div>
@@ -3554,13 +3978,12 @@
                                     </div>
                                   </div>
 
-                                  <span class="h3 product-title" itemprop="name"><a
-                                      href="home/10-brown-bear-cushion.html">Tropic Juice Bar Deli</a></span>
+                                  <span class="h3 product-title" itemprop="name"
+                                    ><a href="home/10-brown-bear-cushion.html">Tropic Juice Bar Deli</a></span
+                                  >
 
                                   <div class="product-desc-short" itemprop="description">
-                                    Lorem Ipsum is simply dummied text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has...
+                                    Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                   </div>
 
                                   <div class="product-price-and-shipping">
@@ -3571,12 +3994,20 @@
 
                                   <div class="highlighted-informations hidden-sm-down">
                                     <div class="variant-links">
-                                      <a href="home/10-24-brown-bear-cushion.html#/8-color-white" class="color"
-                                        title="White" style="background-color: #ffffff"><span
-                                          class="sr-only">White</span></a>
-                                      <a href="home/10-25-brown-bear-cushion.html#/11-color-black" class="color"
-                                        title="Black" style="background-color: #434a54"><span
-                                          class="sr-only">Black</span></a>
+                                      <a
+                                        href="home/10-24-brown-bear-cushion.html#/8-color-white"
+                                        class="color"
+                                        title="White"
+                                        style="background-color: #ffffff"
+                                        ><span class="sr-only">White</span></a
+                                      >
+                                      <a
+                                        href="home/10-25-brown-bear-cushion.html#/11-color-black"
+                                        class="color"
+                                        title="Black"
+                                        style="background-color: #434a54"
+                                        ><span class="sr-only">Black</span></a
+                                      >
                                       <span class="js-count count"></span>
                                     </div>
                                   </div>
@@ -3587,19 +4018,26 @@
                         </div>
 
                         <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="8"
-                            data-id-product-attribute="0">
+                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="8" data-id-product-attribute="0">
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a href="home/8-mug-today-is-a-good-day.html" class="thumbnail product-thumbnail">
-                                  <img class="ttproduct-img1" src="../66-home_default/mug-today-is-a-good-day.jpg"
+                                  <img
+                                    class="ttproduct-img1"
+                                    src="../66-home_default/mug-today-is-a-good-day.jpg"
                                     alt="Veggies Natural Juice"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/66-large_default/mug-today-is-a-good-day.jpg"
-                                    width="290" height="290" />
-                                  <img class="fade second_image img-responsive"
+                                    width="290"
+                                    height="290"
+                                  />
+                                  <img
+                                    class="fade second_image img-responsive"
                                     src="../67-home_default/mug-today-is-a-good-day.jpg"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/67-large_default/mug-today-is-a-good-day.jpg"
-                                    alt="" width="300" height="390" />
+                                    alt=""
+                                    width="300"
+                                    height="390"
+                                  />
                                 </a>
 
                                 <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -3609,9 +4047,14 @@
                                 </ul>
 
                                 <div class="wishlist">
-                                  <a class="addToWishlist btn btn-primary wishlistProd_8" href="#" data-dismiss="modal"
-                                    data-rel="8" title="Add to wishlist"
-                                    onclick="WishlistCart('wishlist_block_list', 'add', '8', '0', 1); return false;">
+                                  <a
+                                    class="addToWishlist btn btn-primary wishlistProd_8"
+                                    href="#"
+                                    data-dismiss="modal"
+                                    data-rel="8"
+                                    title="Add to wishlist"
+                                    onclick="WishlistCart('wishlist_block_list', 'add', '8', '0', 1); return false;"
+                                  >
                                     <i class="material-icons wishlist-icon">favorite_border</i>
                                     <span class="wishlist-name">Add to Wishlist</span>
                                     <span class="loading"><i class="material-icons">cached</i></span>
@@ -3624,8 +4067,7 @@
                                   <h5 class="cat-name">home</h5>
                                   <div class="ttproducthover">
                                     <div class="quick-view-block">
-                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                        title="Quick view">
+                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                         <i class="material-icons quick_view_icon">visibility</i>
                                         <span>Quick view</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3634,20 +4076,22 @@
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
-                                        <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                          method="post" class="add-to-cart-or-refresh">
+                                        <form
+                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          method="post"
+                                          class="add-to-cart-or-refresh"
+                                        >
                                           <div class="product-quantity" style="display: none">
-                                            <input type="number" name="id_product" value="8"
-                                              class="product_page_product_id" />
-                                            <input type="number" name="id_customization" value="0"
-                                              class="product_customization_id" />
-                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                              class="tt-token" />
-                                            <input type="number" name="qty" class="quantity_wanted input-group"
-                                              value="1" min="1" />
+                                            <input type="number" name="id_product" value="8" class="product_page_product_id" />
+                                            <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                            <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                           </div>
-                                          <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart" title="Add to cart">
+                                          <button
+                                            class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                            data-button-action="add-to-cart"
+                                            title="Add to cart"
+                                          >
                                             <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                             <span class="loading"><i class="material-icons">cached</i></span>
                                             <span>Add to cart</span>
@@ -3656,8 +4100,13 @@
                                       </div>
                                     </div>
                                     <div class="compare">
-                                      <a class="add_to_compare btn btn-primary" href="#" data-id-product="8"
-                                        data-dismiss="modal" title="Add to Compare">
+                                      <a
+                                        class="add_to_compare btn btn-primary"
+                                        href="#"
+                                        data-id-product="8"
+                                        data-dismiss="modal"
+                                        title="Add to Compare"
+                                      >
                                         <i class="material-icons compare_icon">equalizer</i>
                                         <span>Add to Compare</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3666,8 +4115,7 @@
                                   </div>
 
                                   <div class="hook-reviews">
-                                    <div class="comments_note" itemprop="aggregateRating" itemscope
-                                      itemtype="https://schema.org/AggregateRating">
+                                    <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                       <div class="star_content clearfix">
                                         <div class="star"></div>
                                         <div class="star"></div>
@@ -3682,13 +4130,12 @@
                                     </div>
                                   </div>
 
-                                  <span class="h3 product-title" itemprop="name"><a
-                                      href="home/8-mug-today-is-a-good-day.html">Veggies Natural Juice</a></span>
+                                  <span class="h3 product-title" itemprop="name"
+                                    ><a href="home/8-mug-today-is-a-good-day.html">Veggies Natural Juice</a></span
+                                  >
 
                                   <div class="product-desc-short" itemprop="description">
-                                    Lorem Ipsum is simply dummied text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has...
+                                    Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                   </div>
 
                                   <div class="product-price-and-shipping">
@@ -3705,19 +4152,26 @@
                         </div>
 
                         <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="2"
-                            data-id-product-attribute="9">
+                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="2" data-id-product-attribute="9">
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a href="home/2-brown-bear-printed-sweater.html" class="thumbnail product-thumbnail">
-                                  <img class="ttproduct-img1" src="../30-home_default/brown-bear-printed-sweater.jpg"
+                                  <img
+                                    class="ttproduct-img1"
+                                    src="../30-home_default/brown-bear-printed-sweater.jpg"
                                     alt="Various carbonated flavors"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/30-large_default/brown-bear-printed-sweater.jpg"
-                                    width="290" height="290" />
-                                  <img class="fade second_image img-responsive"
+                                    width="290"
+                                    height="290"
+                                  />
+                                  <img
+                                    class="fade second_image img-responsive"
                                     src="../31-home_default/brown-bear-printed-sweater.jpg"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/31-large_default/brown-bear-printed-sweater.jpg"
-                                    alt="" width="300" height="390" />
+                                    alt=""
+                                    width="300"
+                                    height="390"
+                                  />
                                 </a>
 
                                 <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -3728,9 +4182,14 @@
                                 </ul>
 
                                 <div class="wishlist">
-                                  <a class="addToWishlist btn btn-primary wishlistProd_2" href="#" data-dismiss="modal"
-                                    data-rel="2" title="Add to wishlist"
-                                    onclick="WishlistCart('wishlist_block_list', 'add', '2', '9', 1); return false;">
+                                  <a
+                                    class="addToWishlist btn btn-primary wishlistProd_2"
+                                    href="#"
+                                    data-dismiss="modal"
+                                    data-rel="2"
+                                    title="Add to wishlist"
+                                    onclick="WishlistCart('wishlist_block_list', 'add', '2', '9', 1); return false;"
+                                  >
                                     <i class="material-icons wishlist-icon">favorite_border</i>
                                     <span class="wishlist-name">Add to Wishlist</span>
                                     <span class="loading"><i class="material-icons">cached</i></span>
@@ -3743,8 +4202,7 @@
                                   <h5 class="cat-name">home</h5>
                                   <div class="ttproducthover">
                                     <div class="quick-view-block">
-                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                        title="Quick view">
+                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                         <i class="material-icons quick_view_icon">visibility</i>
                                         <span>Quick view</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3753,20 +4211,22 @@
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
-                                        <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                          method="post" class="add-to-cart-or-refresh">
+                                        <form
+                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          method="post"
+                                          class="add-to-cart-or-refresh"
+                                        >
                                           <div class="product-quantity" style="display: none">
-                                            <input type="number" name="id_product" value="2"
-                                              class="product_page_product_id" />
-                                            <input type="number" name="id_customization" value="0"
-                                              class="product_customization_id" />
-                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                              class="tt-token" />
-                                            <input type="number" name="qty" class="quantity_wanted input-group"
-                                              value="1" min="1" />
+                                            <input type="number" name="id_product" value="2" class="product_page_product_id" />
+                                            <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                            <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                           </div>
-                                          <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart" title="Add to cart">
+                                          <button
+                                            class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                            data-button-action="add-to-cart"
+                                            title="Add to cart"
+                                          >
                                             <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                             <span class="loading"><i class="material-icons">cached</i></span>
                                             <span>Add to cart</span>
@@ -3775,8 +4235,13 @@
                                       </div>
                                     </div>
                                     <div class="compare">
-                                      <a class="add_to_compare btn btn-primary" href="#" data-id-product="2"
-                                        data-dismiss="modal" title="Add to Compare">
+                                      <a
+                                        class="add_to_compare btn btn-primary"
+                                        href="#"
+                                        data-id-product="2"
+                                        data-dismiss="modal"
+                                        title="Add to Compare"
+                                      >
                                         <i class="material-icons compare_icon">equalizer</i>
                                         <span>Add to Compare</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3785,8 +4250,7 @@
                                   </div>
 
                                   <div class="hook-reviews">
-                                    <div class="comments_note" itemprop="aggregateRating" itemscope
-                                      itemtype="https://schema.org/AggregateRating">
+                                    <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                       <div class="star_content clearfix">
                                         <div class="star"></div>
                                         <div class="star"></div>
@@ -3801,13 +4265,12 @@
                                     </div>
                                   </div>
 
-                                  <span class="h3 product-title" itemprop="name"><a
-                                      href="home/2-brown-bear-printed-sweater.html">Various carbonated...</a></span>
+                                  <span class="h3 product-title" itemprop="name"
+                                    ><a href="home/2-brown-bear-printed-sweater.html">Various carbonated...</a></span
+                                  >
 
                                   <div class="product-desc-short" itemprop="description">
-                                    Lorem Ipsum is simply dummy text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has...
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                   </div>
 
                                   <div class="product-price-and-shipping">
@@ -3828,19 +4291,26 @@
                         </div>
 
                         <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="1"
-                            data-id-product-attribute="1">
+                          <article class="product-miniature js-product-miniature col-sm-4" data-id-product="1" data-id-product-attribute="1">
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a href="home/1-hummingbird-printed-t-shirt.html" class="thumbnail product-thumbnail">
-                                  <img class="ttproduct-img1" src="../24-home_default/hummingbird-printed-t-shirt.jpg"
+                                  <img
+                                    class="ttproduct-img1"
+                                    src="../24-home_default/hummingbird-printed-t-shirt.jpg"
                                     alt="Strawberry Daiquiri"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/24-large_default/hummingbird-printed-t-shirt.jpg"
-                                    width="290" height="290" />
-                                  <img class="fade second_image img-responsive"
+                                    width="290"
+                                    height="290"
+                                  />
+                                  <img
+                                    class="fade second_image img-responsive"
                                     src="../25-home_default/hummingbird-printed-t-shirt.jpg"
                                     data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/25-large_default/hummingbird-printed-t-shirt.jpg"
-                                    alt="" width="300" height="390" />
+                                    alt=""
+                                    width="300"
+                                    height="390"
+                                  />
                                 </a>
 
                                 <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -3853,9 +4323,14 @@
                                 </ul>
 
                                 <div class="wishlist">
-                                  <a class="addToWishlist btn btn-primary wishlistProd_1" href="#" data-dismiss="modal"
-                                    data-rel="1" title="Add to wishlist"
-                                    onclick="WishlistCart('wishlist_block_list', 'add', '1', '1', 1); return false;">
+                                  <a
+                                    class="addToWishlist btn btn-primary wishlistProd_1"
+                                    href="#"
+                                    data-dismiss="modal"
+                                    data-rel="1"
+                                    title="Add to wishlist"
+                                    onclick="WishlistCart('wishlist_block_list', 'add', '1', '1', 1); return false;"
+                                  >
                                     <i class="material-icons wishlist-icon">favorite_border</i>
                                     <span class="wishlist-name">Add to Wishlist</span>
                                     <span class="loading"><i class="material-icons">cached</i></span>
@@ -3868,8 +4343,7 @@
                                   <h5 class="cat-name">home</h5>
                                   <div class="ttproducthover">
                                     <div class="quick-view-block">
-                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                        title="Quick view">
+                                      <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                         <i class="material-icons quick_view_icon">visibility</i>
                                         <span>Quick view</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3878,20 +4352,22 @@
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
-                                        <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                          method="post" class="add-to-cart-or-refresh">
+                                        <form
+                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          method="post"
+                                          class="add-to-cart-or-refresh"
+                                        >
                                           <div class="product-quantity" style="display: none">
-                                            <input type="number" name="id_product" value="1"
-                                              class="product_page_product_id" />
-                                            <input type="number" name="id_customization" value="0"
-                                              class="product_customization_id" />
-                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                              class="tt-token" />
-                                            <input type="number" name="qty" class="quantity_wanted input-group"
-                                              value="1" min="1" />
+                                            <input type="number" name="id_product" value="1" class="product_page_product_id" />
+                                            <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                            <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                            <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                           </div>
-                                          <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart" title="Add to cart">
+                                          <button
+                                            class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                            data-button-action="add-to-cart"
+                                            title="Add to cart"
+                                          >
                                             <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                             <span class="loading"><i class="material-icons">cached</i></span>
                                             <span>Add to cart</span>
@@ -3900,8 +4376,13 @@
                                       </div>
                                     </div>
                                     <div class="compare">
-                                      <a class="add_to_compare btn btn-primary" href="#" data-id-product="1"
-                                        data-dismiss="modal" title="Add to Compare">
+                                      <a
+                                        class="add_to_compare btn btn-primary"
+                                        href="#"
+                                        data-id-product="1"
+                                        data-dismiss="modal"
+                                        title="Add to Compare"
+                                      >
                                         <i class="material-icons compare_icon">equalizer</i>
                                         <span>Add to Compare</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -3910,8 +4391,7 @@
                                   </div>
 
                                   <div class="hook-reviews">
-                                    <div class="comments_note" itemprop="aggregateRating" itemscope
-                                      itemtype="https://schema.org/AggregateRating">
+                                    <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                       <div class="star_content clearfix">
                                         <div class="star"></div>
                                         <div class="star"></div>
@@ -3926,13 +4406,12 @@
                                     </div>
                                   </div>
 
-                                  <span class="h3 product-title" itemprop="name"><a
-                                      href="home/1-hummingbird-printed-t-shirt.html">Strawberry Daiquiri</a></span>
+                                  <span class="h3 product-title" itemprop="name"
+                                    ><a href="home/1-hummingbird-printed-t-shirt.html">Strawberry Daiquiri</a></span
+                                  >
 
                                   <div class="product-desc-short" itemprop="description">
-                                    Lorem Ipsum is simply dummy text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has...
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                   </div>
 
                                   <div class="product-price-and-shipping">
@@ -3947,12 +4426,20 @@
 
                                   <div class="highlighted-informations hidden-sm-down">
                                     <div class="variant-links">
-                                      <a href="home/1-1-hummingbird-printed-t-shirt.html#/1-size-s/8-color-white"
-                                        class="color" title="White" style="background-color: #ffffff"><span
-                                          class="sr-only">White</span></a>
-                                      <a href="home/1-2-hummingbird-printed-t-shirt.html#/1-size-s/11-color-black"
-                                        class="color" title="Black" style="background-color: #434a54"><span
-                                          class="sr-only">Black</span></a>
+                                      <a
+                                        href="home/1-1-hummingbird-printed-t-shirt.html#/1-size-s/8-color-white"
+                                        class="color"
+                                        title="White"
+                                        style="background-color: #ffffff"
+                                        ><span class="sr-only">White</span></a
+                                      >
+                                      <a
+                                        href="home/1-2-hummingbird-printed-t-shirt.html#/1-size-s/11-color-black"
+                                        class="color"
+                                        title="Black"
+                                        style="background-color: #434a54"
+                                        ><span class="sr-only">Black</span></a
+                                      >
                                       <span class="js-count count"></span>
                                     </div>
                                   </div>
@@ -3984,20 +4471,16 @@
                       <div class="ttbannerblock row">
                         <div class="ttbanner1 ttbanner col-sm-6 col-xs-12">
                           <div class="ttbanner-img">
-                            <a href="#"><img src="../img/cms/banner-01.jpg" alt="banner-01.jpg" width="600"
-                                height="290" /></a>
+                            <a href="#"><img src="../img/cms/banner-01.jpg" alt="banner-01.jpg" width="600" height="290" /></a>
                           </div>
                           <div class="ttbanner-text">
                             <h3>Fresh Made Fruit Juice</h3>
-                            <button class="animation-btn">
-                              Get Flat 30% OFF
-                            </button>
+                            <button class="animation-btn">Get Flat 30% OFF</button>
                           </div>
                         </div>
                         <div class="ttbanner2 ttbanner col-sm-6 col-xs-12">
                           <div class="ttbanner-img">
-                            <a href="#"><img src="../img/cms/banner-02.jpg" alt="banner-02.jpg" width="600"
-                                height="290" /></a>
+                            <a href="#"><img src="../img/cms/banner-02.jpg" alt="banner-02.jpg" width="600" height="290" /></a>
                           </div>
                           <div class="ttbanner-text">
                             <h3>Summer Season Sale</h3>
@@ -4016,26 +4499,18 @@
                               <div class="client-img col-sm-4">
                                 <div class="user-details">
                                   <div class="image">
-                                    <a href="#"><img src="../img/cms/user1.jpg" alt="user1" width="120"
-                                        height="120" /></a>
+                                    <a href="#"><img src="../img/cms/user1.jpg" alt="user1" width="120" height="120" /></a>
                                   </div>
                                   <div class="client-user">
-                                    <div class="client-usertitle">
-                                      Johny deep
-                                    </div>
-                                    <div class="client-subtitle">
-                                      CEO &amp; Founder
-                                    </div>
+                                    <div class="client-usertitle">Johny deep</div>
+                                    <div class="client-subtitle">CEO &amp; Founder</div>
                                   </div>
                                 </div>
                               </div>
                               <div class="client-content col-sm-8">
                                 <div class="client-desc">
-                                  The majority have suffered alteration in some
-                                  form, by injected believable. There variation
-                                  words able s, but also the leap into
-                                  electronic typesetting, the 1960s with the
-                                  release of Letraset sheet passage.
+                                  The majority have suffered alteration in some form, by injected believable. There variation words able s, but also
+                                  the leap into electronic typesetting, the 1960s with the release of Letraset sheet passage.
                                 </div>
                               </div>
                             </li>
@@ -4043,26 +4518,18 @@
                               <div class="client-img col-sm-4">
                                 <div class="user-details">
                                   <div class="image">
-                                    <a href="#"><img src="../img/cms/user2.jpg" alt="user2" width="120"
-                                        height="120" /></a>
+                                    <a href="#"><img src="../img/cms/user2.jpg" alt="user2" width="120" height="120" /></a>
                                   </div>
                                   <div class="client-user">
-                                    <div class="client-usertitle">
-                                      Johny deep
-                                    </div>
-                                    <div class="client-subtitle">
-                                      CEO &amp; Founder
-                                    </div>
+                                    <div class="client-usertitle">Johny deep</div>
+                                    <div class="client-subtitle">CEO &amp; Founder</div>
                                   </div>
                                 </div>
                               </div>
                               <div class="client-content col-sm-8">
                                 <div class="client-desc">
-                                  The majority have suffered alteration in some
-                                  form, by injected believable. There variation
-                                  words able s, but also the leap into
-                                  electronic typesetting, the 1960s with the
-                                  release of Letraset sheet passage.
+                                  The majority have suffered alteration in some form, by injected believable. There variation words able s, but also
+                                  the leap into electronic typesetting, the 1960s with the release of Letraset sheet passage.
                                 </div>
                               </div>
                             </li>
@@ -4070,26 +4537,18 @@
                               <div class="client-img col-sm-4">
                                 <div class="user-details">
                                   <div class="image">
-                                    <a href="#"><img src="../img/cms/user3.jpg" alt="user3" width="120"
-                                        height="120" /></a>
+                                    <a href="#"><img src="../img/cms/user3.jpg" alt="user3" width="120" height="120" /></a>
                                   </div>
                                   <div class="client-user">
-                                    <div class="client-usertitle">
-                                      Johny deep
-                                    </div>
-                                    <div class="client-subtitle">
-                                      CEO &amp; Founder
-                                    </div>
+                                    <div class="client-usertitle">Johny deep</div>
+                                    <div class="client-subtitle">CEO &amp; Founder</div>
                                   </div>
                                 </div>
                               </div>
                               <div class="client-content col-sm-8">
                                 <div class="client-desc">
-                                  The majority have suffered alteration in some
-                                  form, by injected believable. There variation
-                                  words able s, but also the leap into
-                                  electronic typesetting, the 1960s with the
-                                  release of Letraset sheet passage.
+                                  The majority have suffered alteration in some form, by injected believable. There variation words able s, but also
+                                  the leap into electronic typesetting, the 1960s with the release of Letraset sheet passage.
                                 </div>
                               </div>
                             </li>
@@ -4101,20 +4560,14 @@
                   <div id="ttcmsservices" class="bottom-to-top hb-animate-element">
                     <div class="services container">
                       <div class="ttservices-inner">
-                        <div
-                          class="ttservice-left col-sm-6 col-xs-12 col-lg-4 hb-animate-element right-to-left hb-in-viewport">
+                        <div class="ttservice-left col-sm-6 col-xs-12 col-lg-4 hb-animate-element right-to-left hb-in-viewport">
                           <div class="ttoffers ttservices col-sm-12">
                             <div class="ttcontent_inner">
                               <div class="service">
                                 <div class="ttoffers_img service-icon"></div>
                                 <div class="service-content">
-                                  <div class="service-title">
-                                    Ice cubes Juice
-                                  </div>
-                                  <div class="service-desc">
-                                    Add in a few ice cubes. The drink is best
-                                    served chilled!
-                                  </div>
+                                  <div class="service-title">Ice cubes Juice</div>
+                                  <div class="service-desc">Add in a few ice cubes. The drink is best served chilled!</div>
                                 </div>
                               </div>
                             </div>
@@ -4125,10 +4578,7 @@
                                 <div class="ttreturn_img service-icon"></div>
                                 <div class="service-content">
                                   <div class="service-title">Garnish Juice</div>
-                                  <div class="service-desc">
-                                    Garnish with fresh lime a few ice cubes.
-                                    served chilled!
-                                  </div>
+                                  <div class="service-desc">Garnish with fresh lime a few ice cubes. served chilled!</div>
                                 </div>
                               </div>
                             </div>
@@ -4138,30 +4588,21 @@
                               <div class="service">
                                 <div class="tteasyuse_img service-icon"></div>
                                 <div class="service-content">
-                                  <div class="service-title">
-                                    High ball Juice
-                                  </div>
-                                  <div class="service-desc">
-                                    Recommend to serve in a highball Add in a
-                                    served chilled!.
-                                  </div>
+                                  <div class="service-title">High ball Juice</div>
+                                  <div class="service-desc">Recommend to serve in a highball Add in a served chilled!.</div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div
-                          class="ttservice-right col-sm-6 col-xs-12 col-lg-4 hb-animate-element left-to-right hb-in-viewport">
+                        <div class="ttservice-right col-sm-6 col-xs-12 col-lg-4 hb-animate-element left-to-right hb-in-viewport">
                           <div class="ttexchange ttservices col-sm-12">
                             <div class="ttcontent_inner">
                               <div class="service">
                                 <div class="ttexchange_img service-icon"></div>
                                 <div class="service-content">
                                   <div class="service-title">100% Healthy</div>
-                                  <div class="service-desc">
-                                    Add in a few ice cubes. The drink is best
-                                    served chilled!
-                                  </div>
+                                  <div class="service-desc">Add in a few ice cubes. The drink is best served chilled!</div>
                                 </div>
                               </div>
                             </div>
@@ -4171,13 +4612,8 @@
                               <div class="service">
                                 <div class="ttshinpping_img service-icon"></div>
                                 <div class="service-content">
-                                  <div class="service-title">
-                                    Fresh &amp; Natural
-                                  </div>
-                                  <div class="service-desc">
-                                    Garnish with fresh lime a few ice cubes.
-                                    served chilled!
-                                  </div>
+                                  <div class="service-title">Fresh &amp; Natural</div>
+                                  <div class="service-desc">Garnish with fresh lime a few ice cubes. served chilled!</div>
                                 </div>
                               </div>
                             </div>
@@ -4188,20 +4624,15 @@
                                 <div class="ttdelivery_img service-icon"></div>
                                 <div class="service-content">
                                   <div class="service-title">Full Creamy</div>
-                                  <div class="service-desc">
-                                    Recommend to serve in a highball Add in a
-                                    served chilled!.
-                                  </div>
+                                  <div class="service-desc">Recommend to serve in a highball Add in a served chilled!.</div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div
-                          class="ttservice-middle ttservicebanner col-sm-4 col-xs-12 hb-animate-element bottom-to-top hb-in-viewport">
+                        <div class="ttservice-middle ttservicebanner col-sm-4 col-xs-12 hb-animate-element bottom-to-top hb-in-viewport">
                           <div class="ttservices-img">
-                            <a href="#"><img alt="services-image" src="../img/cms/services-img.png" width="400"
-                                height="440" /></a>
+                            <a href="#"><img alt="services-image" src="../img/cms/services-img.png" width="400" height="440" /></a>
                           </div>
                         </div>
                       </div>
@@ -4214,19 +4645,26 @@
                       <div class="row">
                         <div class="products">
                           <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="2"
-                              data-id-product-attribute="9">
+                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="2" data-id-product-attribute="9">
                               <div class="thumbnail-container">
                                 <div class="ttproduct-image">
                                   <a href="home/2-brown-bear-printed-sweater.html" class="thumbnail product-thumbnail">
-                                    <img class="ttproduct-img1" src="../30-home_default/brown-bear-printed-sweater.jpg"
+                                    <img
+                                      class="ttproduct-img1"
+                                      src="../30-home_default/brown-bear-printed-sweater.jpg"
                                       alt="Various carbonated flavors"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/30-large_default/brown-bear-printed-sweater.jpg"
-                                      width="290" height="290" />
-                                    <img class="fade second_image img-responsive"
+                                      width="290"
+                                      height="290"
+                                    />
+                                    <img
+                                      class="fade second_image img-responsive"
                                       src="../31-home_default/brown-bear-printed-sweater.jpg"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/31-large_default/brown-bear-printed-sweater.jpg"
-                                      alt="" width="300" height="390" />
+                                      alt=""
+                                      width="300"
+                                      height="390"
+                                    />
                                   </a>
 
                                   <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -4237,9 +4675,14 @@
                                   </ul>
 
                                   <div class="wishlist">
-                                    <a class="addToWishlist btn btn-primary wishlistProd_2" href="#"
-                                      data-dismiss="modal" data-rel="2" title="Add to wishlist"
-                                      onclick="WishlistCart('wishlist_block_list', 'add', '2', '9', 1); return false;">
+                                    <a
+                                      class="addToWishlist btn btn-primary wishlistProd_2"
+                                      href="#"
+                                      data-dismiss="modal"
+                                      data-rel="2"
+                                      title="Add to wishlist"
+                                      onclick="WishlistCart('wishlist_block_list', 'add', '2', '9', 1); return false;"
+                                    >
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
@@ -4252,8 +4695,7 @@
                                     <h5 class="cat-name">home</h5>
                                     <div class="ttproducthover">
                                       <div class="quick-view-block">
-                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                          title="Quick view">
+                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                           <i class="material-icons quick_view_icon">visibility</i>
                                           <span>Quick view</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4264,19 +4706,20 @@
                                         <div class="product-add-to-cart">
                                           <form
                                             action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                            method="post" class="add-to-cart-or-refresh">
+                                            method="post"
+                                            class="add-to-cart-or-refresh"
+                                          >
                                             <div class="product-quantity" style="display: none">
-                                              <input type="number" name="id_product" value="2"
-                                                class="product_page_product_id" />
-                                              <input type="number" name="id_customization" value="0"
-                                                class="product_customization_id" />
-                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                                class="tt-token" />
-                                              <input type="number" name="qty" class="quantity_wanted input-group"
-                                                value="1" min="1" />
+                                              <input type="number" name="id_product" value="2" class="product_page_product_id" />
+                                              <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                              <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                             </div>
-                                            <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                              data-button-action="add-to-cart" title="Add to cart">
+                                            <button
+                                              class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                              data-button-action="add-to-cart"
+                                              title="Add to cart"
+                                            >
                                               <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                               <span class="loading"><i class="material-icons">cached</i></span>
                                               <span>Add to cart</span>
@@ -4285,8 +4728,13 @@
                                         </div>
                                       </div>
                                       <div class="compare">
-                                        <a class="add_to_compare btn btn-primary" href="#" data-id-product="2"
-                                          data-dismiss="modal" title="Add to Compare">
+                                        <a
+                                          class="add_to_compare btn btn-primary"
+                                          href="#"
+                                          data-id-product="2"
+                                          data-dismiss="modal"
+                                          title="Add to Compare"
+                                        >
                                           <i class="material-icons compare_icon">equalizer</i>
                                           <span>Add to Compare</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4295,8 +4743,7 @@
                                     </div>
 
                                     <div class="hook-reviews">
-                                      <div class="comments_note" itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
+                                      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                         <div class="star_content clearfix">
                                           <div class="star"></div>
                                           <div class="star"></div>
@@ -4311,13 +4758,12 @@
                                       </div>
                                     </div>
 
-                                    <span class="h3 product-title" itemprop="name"><a
-                                        href="home/2-brown-bear-printed-sweater.html">Various carbonated...</a></span>
+                                    <span class="h3 product-title" itemprop="name"
+                                      ><a href="home/2-brown-bear-printed-sweater.html">Various carbonated...</a></span
+                                    >
 
                                     <div class="product-desc-short" itemprop="description">
-                                      Lorem Ipsum is simply dummy text of the
-                                      printing and typesetting industry. Lorem
-                                      Ipsum has...
+                                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                     </div>
 
                                     <div class="product-price-and-shipping">
@@ -4338,21 +4784,26 @@
                           </div>
 
                           <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="4"
-                              data-id-product-attribute="16">
+                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="4" data-id-product-attribute="16">
                               <div class="thumbnail-container">
                                 <div class="ttproduct-image">
-                                  <a href="treats/4-the-adventure-begins-framed-poster.html"
-                                    class="thumbnail product-thumbnail">
-                                    <img class="ttproduct-img1"
+                                  <a href="treats/4-the-adventure-begins-framed-poster.html" class="thumbnail product-thumbnail">
+                                    <img
+                                      class="ttproduct-img1"
                                       src="../42-home_default/the-adventure-begins-framed-poster.jpg"
                                       alt="Cantaloupe juice &amp; cocktail"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/42-large_default/the-adventure-begins-framed-poster.jpg"
-                                      width="290" height="290" />
-                                    <img class="fade second_image img-responsive"
+                                      width="290"
+                                      height="290"
+                                    />
+                                    <img
+                                      class="fade second_image img-responsive"
                                       src="../43-home_default/the-adventure-begins-framed-poster.jpg"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/43-large_default/the-adventure-begins-framed-poster.jpg"
-                                      alt="" width="300" height="390" />
+                                      alt=""
+                                      width="300"
+                                      height="390"
+                                    />
                                   </a>
 
                                   <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -4365,9 +4816,14 @@
                                   </ul>
 
                                   <div class="wishlist">
-                                    <a class="addToWishlist btn btn-primary wishlistProd_4" href="#"
-                                      data-dismiss="modal" data-rel="4" title="Add to wishlist"
-                                      onclick="WishlistCart('wishlist_block_list', 'add', '4', '16', 1); return false;">
+                                    <a
+                                      class="addToWishlist btn btn-primary wishlistProd_4"
+                                      href="#"
+                                      data-dismiss="modal"
+                                      data-rel="4"
+                                      title="Add to wishlist"
+                                      onclick="WishlistCart('wishlist_block_list', 'add', '4', '16', 1); return false;"
+                                    >
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
@@ -4380,8 +4836,7 @@
                                     <h5 class="cat-name">treats</h5>
                                     <div class="ttproducthover">
                                       <div class="quick-view-block">
-                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                          title="Quick view">
+                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                           <i class="material-icons quick_view_icon">visibility</i>
                                           <span>Quick view</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4392,19 +4847,20 @@
                                         <div class="product-add-to-cart">
                                           <form
                                             action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                            method="post" class="add-to-cart-or-refresh">
+                                            method="post"
+                                            class="add-to-cart-or-refresh"
+                                          >
                                             <div class="product-quantity" style="display: none">
-                                              <input type="number" name="id_product" value="4"
-                                                class="product_page_product_id" />
-                                              <input type="number" name="id_customization" value="0"
-                                                class="product_customization_id" />
-                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                                class="tt-token" />
-                                              <input type="number" name="qty" class="quantity_wanted input-group"
-                                                value="1" min="1" />
+                                              <input type="number" name="id_product" value="4" class="product_page_product_id" />
+                                              <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                              <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                             </div>
-                                            <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                              data-button-action="add-to-cart" title="Add to cart">
+                                            <button
+                                              class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                              data-button-action="add-to-cart"
+                                              title="Add to cart"
+                                            >
                                               <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                               <span class="loading"><i class="material-icons">cached</i></span>
                                               <span>Add to cart</span>
@@ -4413,8 +4869,13 @@
                                         </div>
                                       </div>
                                       <div class="compare">
-                                        <a class="add_to_compare btn btn-primary" href="#" data-id-product="4"
-                                          data-dismiss="modal" title="Add to Compare">
+                                        <a
+                                          class="add_to_compare btn btn-primary"
+                                          href="#"
+                                          data-id-product="4"
+                                          data-dismiss="modal"
+                                          title="Add to Compare"
+                                        >
                                           <i class="material-icons compare_icon">equalizer</i>
                                           <span>Add to Compare</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4423,8 +4884,7 @@
                                     </div>
 
                                     <div class="hook-reviews">
-                                      <div class="comments_note" itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
+                                      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                         <div class="star_content clearfix">
                                           <div class="star star_on"></div>
                                           <div class="star star_on"></div>
@@ -4439,14 +4899,12 @@
                                       </div>
                                     </div>
 
-                                    <span class="h3 product-title" itemprop="name"><a
-                                        href="treats/4-the-adventure-begins-framed-poster.html">Cantaloupe juice
-                                        &amp;...</a></span>
+                                    <span class="h3 product-title" itemprop="name"
+                                      ><a href="treats/4-the-adventure-begins-framed-poster.html">Cantaloupe juice &amp;...</a></span
+                                    >
 
                                     <div class="product-desc-short" itemprop="description">
-                                      Lorem Ipsum is simply dummy text of the
-                                      printing and typesetting industry. Lorem
-                                      Ipsum has...
+                                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                     </div>
 
                                     <div class="product-price-and-shipping">
@@ -4467,19 +4925,26 @@
                           </div>
 
                           <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="1"
-                              data-id-product-attribute="1">
+                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="1" data-id-product-attribute="1">
                               <div class="thumbnail-container">
                                 <div class="ttproduct-image">
                                   <a href="home/1-hummingbird-printed-t-shirt.html" class="thumbnail product-thumbnail">
-                                    <img class="ttproduct-img1" src="../24-home_default/hummingbird-printed-t-shirt.jpg"
+                                    <img
+                                      class="ttproduct-img1"
+                                      src="../24-home_default/hummingbird-printed-t-shirt.jpg"
                                       alt="Strawberry Daiquiri"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/24-large_default/hummingbird-printed-t-shirt.jpg"
-                                      width="290" height="290" />
-                                    <img class="fade second_image img-responsive"
+                                      width="290"
+                                      height="290"
+                                    />
+                                    <img
+                                      class="fade second_image img-responsive"
                                       src="../25-home_default/hummingbird-printed-t-shirt.jpg"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/25-large_default/hummingbird-printed-t-shirt.jpg"
-                                      alt="" width="300" height="390" />
+                                      alt=""
+                                      width="300"
+                                      height="390"
+                                    />
                                   </a>
 
                                   <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -4492,9 +4957,14 @@
                                   </ul>
 
                                   <div class="wishlist">
-                                    <a class="addToWishlist btn btn-primary wishlistProd_1" href="#"
-                                      data-dismiss="modal" data-rel="1" title="Add to wishlist"
-                                      onclick="WishlistCart('wishlist_block_list', 'add', '1', '1', 1); return false;">
+                                    <a
+                                      class="addToWishlist btn btn-primary wishlistProd_1"
+                                      href="#"
+                                      data-dismiss="modal"
+                                      data-rel="1"
+                                      title="Add to wishlist"
+                                      onclick="WishlistCart('wishlist_block_list', 'add', '1', '1', 1); return false;"
+                                    >
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
@@ -4507,8 +4977,7 @@
                                     <h5 class="cat-name">home</h5>
                                     <div class="ttproducthover">
                                       <div class="quick-view-block">
-                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                          title="Quick view">
+                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                           <i class="material-icons quick_view_icon">visibility</i>
                                           <span>Quick view</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4519,19 +4988,20 @@
                                         <div class="product-add-to-cart">
                                           <form
                                             action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                            method="post" class="add-to-cart-or-refresh">
+                                            method="post"
+                                            class="add-to-cart-or-refresh"
+                                          >
                                             <div class="product-quantity" style="display: none">
-                                              <input type="number" name="id_product" value="1"
-                                                class="product_page_product_id" />
-                                              <input type="number" name="id_customization" value="0"
-                                                class="product_customization_id" />
-                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                                class="tt-token" />
-                                              <input type="number" name="qty" class="quantity_wanted input-group"
-                                                value="1" min="1" />
+                                              <input type="number" name="id_product" value="1" class="product_page_product_id" />
+                                              <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                              <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                             </div>
-                                            <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                              data-button-action="add-to-cart" title="Add to cart">
+                                            <button
+                                              class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                              data-button-action="add-to-cart"
+                                              title="Add to cart"
+                                            >
                                               <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                               <span class="loading"><i class="material-icons">cached</i></span>
                                               <span>Add to cart</span>
@@ -4540,8 +5010,13 @@
                                         </div>
                                       </div>
                                       <div class="compare">
-                                        <a class="add_to_compare btn btn-primary" href="#" data-id-product="1"
-                                          data-dismiss="modal" title="Add to Compare">
+                                        <a
+                                          class="add_to_compare btn btn-primary"
+                                          href="#"
+                                          data-id-product="1"
+                                          data-dismiss="modal"
+                                          title="Add to Compare"
+                                        >
                                           <i class="material-icons compare_icon">equalizer</i>
                                           <span>Add to Compare</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4550,8 +5025,7 @@
                                     </div>
 
                                     <div class="hook-reviews">
-                                      <div class="comments_note" itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
+                                      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                         <div class="star_content clearfix">
                                           <div class="star"></div>
                                           <div class="star"></div>
@@ -4566,13 +5040,12 @@
                                       </div>
                                     </div>
 
-                                    <span class="h3 product-title" itemprop="name"><a
-                                        href="home/1-hummingbird-printed-t-shirt.html">Strawberry Daiquiri</a></span>
+                                    <span class="h3 product-title" itemprop="name"
+                                      ><a href="home/1-hummingbird-printed-t-shirt.html">Strawberry Daiquiri</a></span
+                                    >
 
                                     <div class="product-desc-short" itemprop="description">
-                                      Lorem Ipsum is simply dummy text of the
-                                      printing and typesetting industry. Lorem
-                                      Ipsum has...
+                                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...
                                     </div>
 
                                     <div class="product-price-and-shipping">
@@ -4587,12 +5060,20 @@
 
                                     <div class="highlighted-informations hidden-sm-down">
                                       <div class="variant-links">
-                                        <a href="home/1-1-hummingbird-printed-t-shirt.html#/1-size-s/8-color-white"
-                                          class="color" title="White" style="background-color: #ffffff"><span
-                                            class="sr-only">White</span></a>
-                                        <a href="home/1-2-hummingbird-printed-t-shirt.html#/1-size-s/11-color-black"
-                                          class="color" title="Black" style="background-color: #434a54"><span
-                                            class="sr-only">Black</span></a>
+                                        <a
+                                          href="home/1-1-hummingbird-printed-t-shirt.html#/1-size-s/8-color-white"
+                                          class="color"
+                                          title="White"
+                                          style="background-color: #ffffff"
+                                          ><span class="sr-only">White</span></a
+                                        >
+                                        <a
+                                          href="home/1-2-hummingbird-printed-t-shirt.html#/1-size-s/11-color-black"
+                                          class="color"
+                                          title="Black"
+                                          style="background-color: #434a54"
+                                          ><span class="sr-only">Black</span></a
+                                        >
                                         <span class="js-count count"></span>
                                       </div>
                                     </div>
@@ -4603,19 +5084,26 @@
                           </div>
 
                           <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="11"
-                              data-id-product-attribute="26">
+                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="11" data-id-product-attribute="26">
                               <div class="thumbnail-container">
                                 <div class="ttproduct-image">
                                   <a href="home/11-hummingbird-cushion.html" class="thumbnail product-thumbnail">
-                                    <img class="ttproduct-img1" src="../84-home_default/hummingbird-cushion.jpg"
+                                    <img
+                                      class="ttproduct-img1"
+                                      src="../84-home_default/hummingbird-cushion.jpg"
                                       alt="Simply Organic Juice"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/84-large_default/hummingbird-cushion.jpg"
-                                      width="290" height="290" />
-                                    <img class="fade second_image img-responsive"
+                                      width="290"
+                                      height="290"
+                                    />
+                                    <img
+                                      class="fade second_image img-responsive"
                                       src="../85-home_default/hummingbird-cushion.jpg"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/85-large_default/hummingbird-cushion.jpg"
-                                      alt="" width="300" height="390" />
+                                      alt=""
+                                      width="300"
+                                      height="390"
+                                    />
                                   </a>
 
                                   <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -4628,9 +5116,14 @@
                                   </ul>
 
                                   <div class="wishlist">
-                                    <a class="addToWishlist btn btn-primary wishlistProd_11" href="#"
-                                      data-dismiss="modal" data-rel="11" title="Add to wishlist"
-                                      onclick="WishlistCart('wishlist_block_list', 'add', '11', '26', 1); return false;">
+                                    <a
+                                      class="addToWishlist btn btn-primary wishlistProd_11"
+                                      href="#"
+                                      data-dismiss="modal"
+                                      data-rel="11"
+                                      title="Add to wishlist"
+                                      onclick="WishlistCart('wishlist_block_list', 'add', '11', '26', 1); return false;"
+                                    >
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
@@ -4643,8 +5136,7 @@
                                     <h5 class="cat-name">home</h5>
                                     <div class="ttproducthover">
                                       <div class="quick-view-block">
-                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                          title="Quick view">
+                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                           <i class="material-icons quick_view_icon">visibility</i>
                                           <span>Quick view</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4655,19 +5147,20 @@
                                         <div class="product-add-to-cart">
                                           <form
                                             action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                            method="post" class="add-to-cart-or-refresh">
+                                            method="post"
+                                            class="add-to-cart-or-refresh"
+                                          >
                                             <div class="product-quantity" style="display: none">
-                                              <input type="number" name="id_product" value="11"
-                                                class="product_page_product_id" />
-                                              <input type="number" name="id_customization" value="0"
-                                                class="product_customization_id" />
-                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                                class="tt-token" />
-                                              <input type="number" name="qty" class="quantity_wanted input-group"
-                                                value="1" min="1" />
+                                              <input type="number" name="id_product" value="11" class="product_page_product_id" />
+                                              <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                              <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                             </div>
-                                            <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                              data-button-action="add-to-cart" title="Add to cart">
+                                            <button
+                                              class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                              data-button-action="add-to-cart"
+                                              title="Add to cart"
+                                            >
                                               <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                               <span class="loading"><i class="material-icons">cached</i></span>
                                               <span>Add to cart</span>
@@ -4676,8 +5169,13 @@
                                         </div>
                                       </div>
                                       <div class="compare">
-                                        <a class="add_to_compare btn btn-primary" href="#" data-id-product="11"
-                                          data-dismiss="modal" title="Add to Compare">
+                                        <a
+                                          class="add_to_compare btn btn-primary"
+                                          href="#"
+                                          data-id-product="11"
+                                          data-dismiss="modal"
+                                          title="Add to Compare"
+                                        >
                                           <i class="material-icons compare_icon">equalizer</i>
                                           <span>Add to Compare</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4686,8 +5184,7 @@
                                     </div>
 
                                     <div class="hook-reviews">
-                                      <div class="comments_note" itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
+                                      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                         <div class="star_content clearfix">
                                           <div class="star star_on"></div>
                                           <div class="star star_on"></div>
@@ -4702,13 +5199,12 @@
                                       </div>
                                     </div>
 
-                                    <span class="h3 product-title" itemprop="name"><a
-                                        href="home/11-hummingbird-cushion.html">Simply Organic Juice</a></span>
+                                    <span class="h3 product-title" itemprop="name"
+                                      ><a href="home/11-hummingbird-cushion.html">Simply Organic Juice</a></span
+                                    >
 
                                     <div class="product-desc-short" itemprop="description">
-                                      Lorem Ipsum is simply dummied text of the
-                                      printing and typesetting industry. Lorem
-                                      Ipsum has...
+                                      Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                     </div>
 
                                     <div class="product-price-and-shipping">
@@ -4723,12 +5219,20 @@
 
                                     <div class="highlighted-informations hidden-sm-down">
                                       <div class="variant-links">
-                                        <a href="home/11-26-hummingbird-cushion.html#/8-color-white" class="color"
-                                          title="White" style="background-color: #ffffff"><span
-                                            class="sr-only">White</span></a>
-                                        <a href="home/11-27-hummingbird-cushion.html#/11-color-black" class="color"
-                                          title="Black" style="background-color: #434a54"><span
-                                            class="sr-only">Black</span></a>
+                                        <a
+                                          href="home/11-26-hummingbird-cushion.html#/8-color-white"
+                                          class="color"
+                                          title="White"
+                                          style="background-color: #ffffff"
+                                          ><span class="sr-only">White</span></a
+                                        >
+                                        <a
+                                          href="home/11-27-hummingbird-cushion.html#/11-color-black"
+                                          class="color"
+                                          title="Black"
+                                          style="background-color: #434a54"
+                                          ><span class="sr-only">Black</span></a
+                                        >
                                         <span class="js-count count"></span>
                                       </div>
                                     </div>
@@ -4739,19 +5243,26 @@
                           </div>
 
                           <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="19"
-                              data-id-product-attribute="0">
+                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="19" data-id-product-attribute="0">
                               <div class="thumbnail-container">
                                 <div class="ttproduct-image">
                                   <a href="home/19-customizable-mug.html" class="thumbnail product-thumbnail">
-                                    <img class="ttproduct-img1" src="../132-home_default/customizable-mug.jpg"
+                                    <img
+                                      class="ttproduct-img1"
+                                      src="../132-home_default/customizable-mug.jpg"
                                       alt="Cucumber Lemonade Mocktail"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/132-large_default/customizable-mug.jpg"
-                                      width="290" height="290" />
-                                    <img class="fade second_image img-responsive"
+                                      width="290"
+                                      height="290"
+                                    />
+                                    <img
+                                      class="fade second_image img-responsive"
                                       src="../133-home_default/customizable-mug.jpg"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/133-large_default/customizable-mug.jpg"
-                                      alt="" width="300" height="390" />
+                                      alt=""
+                                      width="300"
+                                      height="390"
+                                    />
                                   </a>
 
                                   <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -4765,9 +5276,14 @@
                                   </ul>
 
                                   <div class="wishlist">
-                                    <a class="addToWishlist btn btn-primary wishlistProd_19" href="#"
-                                      data-dismiss="modal" data-rel="19" title="Add to wishlist"
-                                      onclick="WishlistCart('wishlist_block_list', 'add', '19', '0', 1); return false;">
+                                    <a
+                                      class="addToWishlist btn btn-primary wishlistProd_19"
+                                      href="#"
+                                      data-dismiss="modal"
+                                      data-rel="19"
+                                      title="Add to wishlist"
+                                      onclick="WishlistCart('wishlist_block_list', 'add', '19', '0', 1); return false;"
+                                    >
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
@@ -4780,8 +5296,7 @@
                                     <h5 class="cat-name">home</h5>
                                     <div class="ttproducthover">
                                       <div class="quick-view-block">
-                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                          title="Quick view">
+                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                           <i class="material-icons quick_view_icon">visibility</i>
                                           <span>Quick view</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4792,19 +5307,20 @@
                                         <div class="product-add-to-cart">
                                           <form
                                             action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                            method="post" class="add-to-cart-or-refresh">
+                                            method="post"
+                                            class="add-to-cart-or-refresh"
+                                          >
                                             <div class="product-quantity" style="display: none">
-                                              <input type="number" name="id_product" value="19"
-                                                class="product_page_product_id" />
-                                              <input type="number" name="id_customization" value="0"
-                                                class="product_customization_id" />
-                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                                class="tt-token" />
-                                              <input type="number" name="qty" class="quantity_wanted input-group"
-                                                value="1" min="1" />
+                                              <input type="number" name="id_product" value="19" class="product_page_product_id" />
+                                              <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                              <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                             </div>
-                                            <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                              data-button-action="add-to-cart" title="Add to cart">
+                                            <button
+                                              class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                              data-button-action="add-to-cart"
+                                              title="Add to cart"
+                                            >
                                               <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                               <span class="loading"><i class="material-icons">cached</i></span>
                                               <span>Add to cart</span>
@@ -4813,8 +5329,13 @@
                                         </div>
                                       </div>
                                       <div class="compare">
-                                        <a class="add_to_compare btn btn-primary" href="#" data-id-product="19"
-                                          data-dismiss="modal" title="Add to Compare">
+                                        <a
+                                          class="add_to_compare btn btn-primary"
+                                          href="#"
+                                          data-id-product="19"
+                                          data-dismiss="modal"
+                                          title="Add to Compare"
+                                        >
                                           <i class="material-icons compare_icon">equalizer</i>
                                           <span>Add to Compare</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4823,8 +5344,7 @@
                                     </div>
 
                                     <div class="hook-reviews">
-                                      <div class="comments_note" itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
+                                      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                         <div class="star_content clearfix">
                                           <div class="star star_on"></div>
                                           <div class="star star_on"></div>
@@ -4839,13 +5359,12 @@
                                       </div>
                                     </div>
 
-                                    <span class="h3 product-title" itemprop="name"><a
-                                        href="home/19-customizable-mug.html">Cucumber Lemonade...</a></span>
+                                    <span class="h3 product-title" itemprop="name"
+                                      ><a href="home/19-customizable-mug.html">Cucumber Lemonade...</a></span
+                                    >
 
                                     <div class="product-desc-short" itemprop="description">
-                                      Lorem Ipsum is simply dummied text of the
-                                      printing and typesetting industry. Lorem
-                                      Ipsum has...
+                                      Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                     </div>
 
                                     <div class="product-price-and-shipping">
@@ -4866,19 +5385,26 @@
                           </div>
 
                           <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="7"
-                              data-id-product-attribute="0">
+                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="7" data-id-product-attribute="0">
                               <div class="thumbnail-container">
                                 <div class="ttproduct-image">
                                   <a href="home/7-mug-the-adventure-begins.html" class="thumbnail product-thumbnail">
-                                    <img class="ttproduct-img1" src="../60-home_default/mug-the-adventure-begins.jpg"
+                                    <img
+                                      class="ttproduct-img1"
+                                      src="../60-home_default/mug-the-adventure-begins.jpg"
                                       alt="Polycarbonate Hurricane"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/60-large_default/mug-the-adventure-begins.jpg"
-                                      width="290" height="290" />
-                                    <img class="fade second_image img-responsive"
+                                      width="290"
+                                      height="290"
+                                    />
+                                    <img
+                                      class="fade second_image img-responsive"
                                       src="../61-home_default/mug-the-adventure-begins.jpg"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/61-large_default/mug-the-adventure-begins.jpg"
-                                      alt="" width="300" height="390" />
+                                      alt=""
+                                      width="300"
+                                      height="390"
+                                    />
                                   </a>
 
                                   <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -4891,9 +5417,14 @@
                                   </ul>
 
                                   <div class="wishlist">
-                                    <a class="addToWishlist btn btn-primary wishlistProd_7" href="#"
-                                      data-dismiss="modal" data-rel="7" title="Add to wishlist"
-                                      onclick="WishlistCart('wishlist_block_list', 'add', '7', '0', 1); return false;">
+                                    <a
+                                      class="addToWishlist btn btn-primary wishlistProd_7"
+                                      href="#"
+                                      data-dismiss="modal"
+                                      data-rel="7"
+                                      title="Add to wishlist"
+                                      onclick="WishlistCart('wishlist_block_list', 'add', '7', '0', 1); return false;"
+                                    >
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
@@ -4906,8 +5437,7 @@
                                     <h5 class="cat-name">home</h5>
                                     <div class="ttproducthover">
                                       <div class="quick-view-block">
-                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                          title="Quick view">
+                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                           <i class="material-icons quick_view_icon">visibility</i>
                                           <span>Quick view</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4918,19 +5448,20 @@
                                         <div class="product-add-to-cart">
                                           <form
                                             action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                            method="post" class="add-to-cart-or-refresh">
+                                            method="post"
+                                            class="add-to-cart-or-refresh"
+                                          >
                                             <div class="product-quantity" style="display: none">
-                                              <input type="number" name="id_product" value="7"
-                                                class="product_page_product_id" />
-                                              <input type="number" name="id_customization" value="0"
-                                                class="product_customization_id" />
-                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                                class="tt-token" />
-                                              <input type="number" name="qty" class="quantity_wanted input-group"
-                                                value="1" min="1" />
+                                              <input type="number" name="id_product" value="7" class="product_page_product_id" />
+                                              <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                              <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                             </div>
-                                            <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                              data-button-action="add-to-cart" title="Add to cart">
+                                            <button
+                                              class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                              data-button-action="add-to-cart"
+                                              title="Add to cart"
+                                            >
                                               <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                               <span class="loading"><i class="material-icons">cached</i></span>
                                               <span>Add to cart</span>
@@ -4939,8 +5470,13 @@
                                         </div>
                                       </div>
                                       <div class="compare">
-                                        <a class="add_to_compare btn btn-primary" href="#" data-id-product="7"
-                                          data-dismiss="modal" title="Add to Compare">
+                                        <a
+                                          class="add_to_compare btn btn-primary"
+                                          href="#"
+                                          data-id-product="7"
+                                          data-dismiss="modal"
+                                          title="Add to Compare"
+                                        >
                                           <i class="material-icons compare_icon">equalizer</i>
                                           <span>Add to Compare</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -4949,8 +5485,7 @@
                                     </div>
 
                                     <div class="hook-reviews">
-                                      <div class="comments_note" itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
+                                      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                         <div class="star_content clearfix">
                                           <div class="star"></div>
                                           <div class="star"></div>
@@ -4965,13 +5500,12 @@
                                       </div>
                                     </div>
 
-                                    <span class="h3 product-title" itemprop="name"><a
-                                        href="home/7-mug-the-adventure-begins.html">Polycarbonate Hurricane</a></span>
+                                    <span class="h3 product-title" itemprop="name"
+                                      ><a href="home/7-mug-the-adventure-begins.html">Polycarbonate Hurricane</a></span
+                                    >
 
                                     <div class="product-desc-short" itemprop="description">
-                                      Lorem Ipsum is simply dummied text of the
-                                      printing and typesetting industry. Lorem
-                                      Ipsum has...
+                                      Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                     </div>
 
                                     <div class="product-price-and-shipping">
@@ -4992,21 +5526,26 @@
                           </div>
 
                           <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="14"
-                              data-id-product-attribute="0">
+                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="14" data-id-product-attribute="0">
                               <div class="thumbnail-container">
                                 <div class="ttproduct-image">
-                                  <a href="treats/14-hummingbird-vector-graphics.html"
-                                    class="thumbnail product-thumbnail">
-                                    <img class="ttproduct-img1"
+                                  <a href="treats/14-hummingbird-vector-graphics.html" class="thumbnail product-thumbnail">
+                                    <img
+                                      class="ttproduct-img1"
                                       src="../102-home_default/hummingbird-vector-graphics.jpg"
                                       alt="Screwdriver Cocktail"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/102-large_default/hummingbird-vector-graphics.jpg"
-                                      width="290" height="290" />
-                                    <img class="fade second_image img-responsive"
+                                      width="290"
+                                      height="290"
+                                    />
+                                    <img
+                                      class="fade second_image img-responsive"
                                       src="../103-home_default/hummingbird-vector-graphics.jpg"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/103-large_default/hummingbird-vector-graphics.jpg"
-                                      alt="" width="300" height="390" />
+                                      alt=""
+                                      width="300"
+                                      height="390"
+                                    />
                                   </a>
 
                                   <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -5019,9 +5558,14 @@
                                   </ul>
 
                                   <div class="wishlist">
-                                    <a class="addToWishlist btn btn-primary wishlistProd_14" href="#"
-                                      data-dismiss="modal" data-rel="14" title="Add to wishlist"
-                                      onclick="WishlistCart('wishlist_block_list', 'add', '14', '0', 1); return false;">
+                                    <a
+                                      class="addToWishlist btn btn-primary wishlistProd_14"
+                                      href="#"
+                                      data-dismiss="modal"
+                                      data-rel="14"
+                                      title="Add to wishlist"
+                                      onclick="WishlistCart('wishlist_block_list', 'add', '14', '0', 1); return false;"
+                                    >
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
@@ -5034,8 +5578,7 @@
                                     <h5 class="cat-name">treats</h5>
                                     <div class="ttproducthover">
                                       <div class="quick-view-block">
-                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                          title="Quick view">
+                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                           <i class="material-icons quick_view_icon">visibility</i>
                                           <span>Quick view</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -5046,19 +5589,20 @@
                                         <div class="product-add-to-cart">
                                           <form
                                             action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                            method="post" class="add-to-cart-or-refresh">
+                                            method="post"
+                                            class="add-to-cart-or-refresh"
+                                          >
                                             <div class="product-quantity" style="display: none">
-                                              <input type="number" name="id_product" value="14"
-                                                class="product_page_product_id" />
-                                              <input type="number" name="id_customization" value="0"
-                                                class="product_customization_id" />
-                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                                class="tt-token" />
-                                              <input type="number" name="qty" class="quantity_wanted input-group"
-                                                value="1" min="1" />
+                                              <input type="number" name="id_product" value="14" class="product_page_product_id" />
+                                              <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                              <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                             </div>
-                                            <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                              data-button-action="add-to-cart" title="Add to cart">
+                                            <button
+                                              class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                              data-button-action="add-to-cart"
+                                              title="Add to cart"
+                                            >
                                               <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                               <span class="loading"><i class="material-icons">cached</i></span>
                                               <span>Add to cart</span>
@@ -5067,8 +5611,13 @@
                                         </div>
                                       </div>
                                       <div class="compare">
-                                        <a class="add_to_compare btn btn-primary" href="#" data-id-product="14"
-                                          data-dismiss="modal" title="Add to Compare">
+                                        <a
+                                          class="add_to_compare btn btn-primary"
+                                          href="#"
+                                          data-id-product="14"
+                                          data-dismiss="modal"
+                                          title="Add to Compare"
+                                        >
                                           <i class="material-icons compare_icon">equalizer</i>
                                           <span>Add to Compare</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -5077,8 +5626,7 @@
                                     </div>
 
                                     <div class="hook-reviews">
-                                      <div class="comments_note" itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
+                                      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                         <div class="star_content clearfix">
                                           <div class="star star_on"></div>
                                           <div class="star star_on"></div>
@@ -5093,14 +5641,12 @@
                                       </div>
                                     </div>
 
-                                    <span class="h3 product-title" itemprop="name"><a
-                                        href="treats/14-hummingbird-vector-graphics.html">Screwdriver
-                                        Cocktail</a></span>
+                                    <span class="h3 product-title" itemprop="name"
+                                      ><a href="treats/14-hummingbird-vector-graphics.html">Screwdriver Cocktail</a></span
+                                    >
 
                                     <div class="product-desc-short" itemprop="description">
-                                      Lorem Ipsum is simply dummied text of the
-                                      printing and typesetting industry. Lorem
-                                      Ipsum has...
+                                      Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                     </div>
 
                                     <div class="product-price-and-shipping">
@@ -5121,19 +5667,26 @@
                           </div>
 
                           <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="17"
-                              data-id-product-attribute="0">
+                            <article class="product-miniature js-product-miniature col-sm-4" data-id-product="17" data-id-product-attribute="0">
                               <div class="thumbnail-container">
                                 <div class="ttproduct-image">
                                   <a href="home/17-brown-bear-notebook.html" class="thumbnail product-thumbnail">
-                                    <img class="ttproduct-img1" src="../120-home_default/brown-bear-notebook.jpg"
+                                    <img
+                                      class="ttproduct-img1"
+                                      src="../120-home_default/brown-bear-notebook.jpg"
                                       alt="Malibu &amp; Orange Juice"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/120-large_default/brown-bear-notebook.jpg"
-                                      width="290" height="290" />
-                                    <img class="fade second_image img-responsive"
+                                      width="290"
+                                      height="290"
+                                    />
+                                    <img
+                                      class="fade second_image img-responsive"
                                       src="../121-home_default/brown-bear-notebook.jpg"
                                       data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/121-large_default/brown-bear-notebook.jpg"
-                                      alt="" width="300" height="390" />
+                                      alt=""
+                                      width="300"
+                                      height="390"
+                                    />
                                   </a>
 
                                   <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -5147,9 +5700,14 @@
                                   </ul>
 
                                   <div class="wishlist">
-                                    <a class="addToWishlist btn btn-primary wishlistProd_17" href="#"
-                                      data-dismiss="modal" data-rel="17" title="Add to wishlist"
-                                      onclick="WishlistCart('wishlist_block_list', 'add', '17', '0', 1); return false;">
+                                    <a
+                                      class="addToWishlist btn btn-primary wishlistProd_17"
+                                      href="#"
+                                      data-dismiss="modal"
+                                      data-rel="17"
+                                      title="Add to wishlist"
+                                      onclick="WishlistCart('wishlist_block_list', 'add', '17', '0', 1); return false;"
+                                    >
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
@@ -5162,8 +5720,7 @@
                                     <h5 class="cat-name">home</h5>
                                     <div class="ttproducthover">
                                       <div class="quick-view-block">
-                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                          title="Quick view">
+                                        <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                           <i class="material-icons quick_view_icon">visibility</i>
                                           <span>Quick view</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -5174,19 +5731,20 @@
                                         <div class="product-add-to-cart">
                                           <form
                                             action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                            method="post" class="add-to-cart-or-refresh">
+                                            method="post"
+                                            class="add-to-cart-or-refresh"
+                                          >
                                             <div class="product-quantity" style="display: none">
-                                              <input type="number" name="id_product" value="17"
-                                                class="product_page_product_id" />
-                                              <input type="number" name="id_customization" value="0"
-                                                class="product_customization_id" />
-                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55"
-                                                class="tt-token" />
-                                              <input type="number" name="qty" class="quantity_wanted input-group"
-                                                value="1" min="1" />
+                                              <input type="number" name="id_product" value="17" class="product_page_product_id" />
+                                              <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                              <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                              <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                             </div>
-                                            <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                              data-button-action="add-to-cart" title="Add to cart">
+                                            <button
+                                              class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                              data-button-action="add-to-cart"
+                                              title="Add to cart"
+                                            >
                                               <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                               <span class="loading"><i class="material-icons">cached</i></span>
                                               <span>Add to cart</span>
@@ -5195,8 +5753,13 @@
                                         </div>
                                       </div>
                                       <div class="compare">
-                                        <a class="add_to_compare btn btn-primary" href="#" data-id-product="17"
-                                          data-dismiss="modal" title="Add to Compare">
+                                        <a
+                                          class="add_to_compare btn btn-primary"
+                                          href="#"
+                                          data-id-product="17"
+                                          data-dismiss="modal"
+                                          title="Add to Compare"
+                                        >
                                           <i class="material-icons compare_icon">equalizer</i>
                                           <span>Add to Compare</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -5205,8 +5768,7 @@
                                     </div>
 
                                     <div class="hook-reviews">
-                                      <div class="comments_note" itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
+                                      <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                         <div class="star_content clearfix">
                                           <div class="star star_on"></div>
                                           <div class="star star_on"></div>
@@ -5221,13 +5783,12 @@
                                       </div>
                                     </div>
 
-                                    <span class="h3 product-title" itemprop="name"><a
-                                        href="home/17-brown-bear-notebook.html">Malibu &amp; Orange Juice</a></span>
+                                    <span class="h3 product-title" itemprop="name"
+                                      ><a href="home/17-brown-bear-notebook.html">Malibu &amp; Orange Juice</a></span
+                                    >
 
                                     <div class="product-desc-short" itemprop="description">
-                                      Lorem Ipsum is simply dummied text of the
-                                      printing and typesetting industry. Lorem
-                                      Ipsum has...
+                                      Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                     </div>
 
                                     <div class="product-price-and-shipping">
@@ -5273,9 +5834,13 @@
                               <div class="blog_post col-sm-12">
                                 <div class="news_module_image_holder">
                                   <a href="smartblog/5_viderer-voluptatum-te-eum.html">
-                                    <img alt="Viderer voluptatum te eum" class="feat_img_small"
-                                      src="../modules/smartblog/views/img/5-home-default.jpg" width="335"
-                                      height="216" />
+                                    <img
+                                      alt="Viderer voluptatum te eum"
+                                      class="feat_img_small"
+                                      src="../modules/smartblog/views/img/5-home-default.jpg"
+                                      width="335"
+                                      height="216"
+                                    />
                                     <span class="blog-hover"></span>
                                   </a>
                                   <span class="blog_date">
@@ -5286,9 +5851,13 @@
                                     </span>
                                   </span>
                                   <span class="blogicons">
-                                    <a title="Click to view Full Image"
+                                    <a
+                                      title="Click to view Full Image"
                                       href="../modules/smartblog/views/img/5-single-default.jpg"
-                                      data-lightbox="example-set" class="icon zoom">&nbsp;</a>
+                                      data-lightbox="example-set"
+                                      class="icon zoom"
+                                      >&nbsp;</a
+                                    >
                                   </span>
                                 </div>
                                 <div class="blog_content col-md-6">
@@ -5297,18 +5866,13 @@
                                       <a href="smartblog/5_viderer-voluptatum-te-eum.html">Viderer voluptatum te eum</a>
                                     </h4>
 
-                                    <p class="desc">
-                                      Ei has mutat solum. Fugit atomorum
-                                      efficiantur an vim, te...
-                                    </p>
+                                    <p class="desc">Ei has mutat solum. Fugit atomorum efficiantur an vim, te...</p>
                                     <div class="read_more">
-                                      <a title="Click to view Read More"
-                                        href="smartblog/5_viderer-voluptatum-te-eum.html" class="icon readmore">read
-                                        more</a>
+                                      <a title="Click to view Read More" href="smartblog/5_viderer-voluptatum-te-eum.html" class="icon readmore"
+                                        >read more</a
+                                      >
                                     </div>
-                                    <div class="ttviews">
-                                      &nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 90
-                                    </div>
+                                    <div class="ttviews">&nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 90</div>
                                   </div>
                                 </div>
                               </div>
@@ -5317,9 +5881,13 @@
                               <div class="blog_post col-sm-12">
                                 <div class="news_module_image_holder">
                                   <a href="smartblog/4_nec-intellegat-deseruisse-te.html">
-                                    <img alt="Nec intellegat deseruisse te" class="feat_img_small"
-                                      src="../modules/smartblog/views/img/4-home-default.jpg" width="335"
-                                      height="216" />
+                                    <img
+                                      alt="Nec intellegat deseruisse te"
+                                      class="feat_img_small"
+                                      src="../modules/smartblog/views/img/4-home-default.jpg"
+                                      width="335"
+                                      height="216"
+                                    />
                                     <span class="blog-hover"></span>
                                   </a>
                                   <span class="blog_date">
@@ -5330,9 +5898,13 @@
                                     </span>
                                   </span>
                                   <span class="blogicons">
-                                    <a title="Click to view Full Image"
+                                    <a
+                                      title="Click to view Full Image"
                                       href="../modules/smartblog/views/img/4-single-default.jpg"
-                                      data-lightbox="example-set" class="icon zoom">&nbsp;</a>
+                                      data-lightbox="example-set"
+                                      class="icon zoom"
+                                      >&nbsp;</a
+                                    >
                                   </span>
                                 </div>
                                 <div class="blog_content col-md-6">
@@ -5341,18 +5913,13 @@
                                       <a href="smartblog/4_nec-intellegat-deseruisse-te.html">Nec intellegat...</a>
                                     </h4>
 
-                                    <p class="desc">
-                                      Mea stet putent sadipscing an. Per prima
-                                      equidem cu, sit...
-                                    </p>
+                                    <p class="desc">Mea stet putent sadipscing an. Per prima equidem cu, sit...</p>
                                     <div class="read_more">
-                                      <a title="Click to view Read More"
-                                        href="smartblog/4_nec-intellegat-deseruisse-te.html" class="icon readmore">read
-                                        more</a>
+                                      <a title="Click to view Read More" href="smartblog/4_nec-intellegat-deseruisse-te.html" class="icon readmore"
+                                        >read more</a
+                                      >
                                     </div>
-                                    <div class="ttviews">
-                                      &nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 84
-                                    </div>
+                                    <div class="ttviews">&nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 84</div>
                                   </div>
                                 </div>
                               </div>
@@ -5361,9 +5928,13 @@
                               <div class="blog_post col-sm-12">
                                 <div class="news_module_image_holder">
                                   <a href="smartblog/3_scelerisque-vestibulum-urna.html">
-                                    <img alt="Scelerisque vestibulum urna" class="feat_img_small"
-                                      src="../modules/smartblog/views/img/3-home-default.jpg" width="335"
-                                      height="216" />
+                                    <img
+                                      alt="Scelerisque vestibulum urna"
+                                      class="feat_img_small"
+                                      src="../modules/smartblog/views/img/3-home-default.jpg"
+                                      width="335"
+                                      height="216"
+                                    />
                                     <span class="blog-hover"></span>
                                   </a>
                                   <span class="blog_date">
@@ -5374,30 +5945,28 @@
                                     </span>
                                   </span>
                                   <span class="blogicons">
-                                    <a title="Click to view Full Image"
+                                    <a
+                                      title="Click to view Full Image"
                                       href="../modules/smartblog/views/img/3-single-default.jpg"
-                                      data-lightbox="example-set" class="icon zoom">&nbsp;</a>
+                                      data-lightbox="example-set"
+                                      class="icon zoom"
+                                      >&nbsp;</a
+                                    >
                                   </span>
                                 </div>
                                 <div class="blog_content col-md-6">
                                   <div class="blog_inner">
                                     <h4 class="sds_post_title">
-                                      <a href="smartblog/3_scelerisque-vestibulum-urna.html">Scelerisque
-                                        vestibulum...</a>
+                                      <a href="smartblog/3_scelerisque-vestibulum-urna.html">Scelerisque vestibulum...</a>
                                     </h4>
 
-                                    <p class="desc">
-                                      Lorem Ipsum is simply dummy text of the
-                                      printing and...
-                                    </p>
+                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing and...</p>
                                     <div class="read_more">
-                                      <a title="Click to view Read More"
-                                        href="smartblog/3_scelerisque-vestibulum-urna.html" class="icon readmore">read
-                                        more</a>
+                                      <a title="Click to view Read More" href="smartblog/3_scelerisque-vestibulum-urna.html" class="icon readmore"
+                                        >read more</a
+                                      >
                                     </div>
-                                    <div class="ttviews">
-                                      &nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 89
-                                    </div>
+                                    <div class="ttviews">&nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 89</div>
                                   </div>
                                 </div>
                               </div>
@@ -5406,9 +5975,13 @@
                               <div class="blog_post col-sm-12">
                                 <div class="news_module_image_holder">
                                   <a href="smartblog/2_upon-of-seasons-earth-dominion.html">
-                                    <img alt="Upon of seasons earth dominion" class="feat_img_small"
-                                      src="../modules/smartblog/views/img/2-home-default.jpg" width="335"
-                                      height="216" />
+                                    <img
+                                      alt="Upon of seasons earth dominion"
+                                      class="feat_img_small"
+                                      src="../modules/smartblog/views/img/2-home-default.jpg"
+                                      width="335"
+                                      height="216"
+                                    />
                                     <span class="blog-hover"></span>
                                   </a>
                                   <span class="blog_date">
@@ -5419,30 +5992,28 @@
                                     </span>
                                   </span>
                                   <span class="blogicons">
-                                    <a title="Click to view Full Image"
+                                    <a
+                                      title="Click to view Full Image"
                                       href="../modules/smartblog/views/img/2-single-default.jpg"
-                                      data-lightbox="example-set" class="icon zoom">&nbsp;</a>
+                                      data-lightbox="example-set"
+                                      class="icon zoom"
+                                      >&nbsp;</a
+                                    >
                                   </span>
                                 </div>
                                 <div class="blog_content col-md-6">
                                   <div class="blog_inner">
                                     <h4 class="sds_post_title">
-                                      <a href="smartblog/2_upon-of-seasons-earth-dominion.html">Upon of seasons
-                                        earth...</a>
+                                      <a href="smartblog/2_upon-of-seasons-earth-dominion.html">Upon of seasons earth...</a>
                                     </h4>
 
-                                    <p class="desc">
-                                      Nascetur ridiculus mus upon of seasons
-                                      earth dominion....
-                                    </p>
+                                    <p class="desc">Nascetur ridiculus mus upon of seasons earth dominion....</p>
                                     <div class="read_more">
-                                      <a title="Click to view Read More"
-                                        href="smartblog/2_upon-of-seasons-earth-dominion.html"
-                                        class="icon readmore">read more</a>
+                                      <a title="Click to view Read More" href="smartblog/2_upon-of-seasons-earth-dominion.html" class="icon readmore"
+                                        >read more</a
+                                      >
                                     </div>
-                                    <div class="ttviews">
-                                      &nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 75
-                                    </div>
+                                    <div class="ttviews">&nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 75</div>
                                   </div>
                                 </div>
                               </div>
@@ -5451,9 +6022,13 @@
                               <div class="blog_post col-sm-12">
                                 <div class="news_module_image_holder">
                                   <a href="smartblog/1_lorem-ipsum-dolor-sit-amet.html">
-                                    <img alt="Lorem ipsum dolor sit amet" class="feat_img_small"
-                                      src="../modules/smartblog/views/img/1-home-default.jpg" width="335"
-                                      height="216" />
+                                    <img
+                                      alt="Lorem ipsum dolor sit amet"
+                                      class="feat_img_small"
+                                      src="../modules/smartblog/views/img/1-home-default.jpg"
+                                      width="335"
+                                      height="216"
+                                    />
                                     <span class="blog-hover"></span>
                                   </a>
                                   <span class="blog_date">
@@ -5464,9 +6039,13 @@
                                     </span>
                                   </span>
                                   <span class="blogicons">
-                                    <a title="Click to view Full Image"
+                                    <a
+                                      title="Click to view Full Image"
                                       href="../modules/smartblog/views/img/1-single-default.jpg"
-                                      data-lightbox="example-set" class="icon zoom">&nbsp;</a>
+                                      data-lightbox="example-set"
+                                      class="icon zoom"
+                                      >&nbsp;</a
+                                    >
                                   </span>
                                 </div>
                                 <div class="blog_content col-md-6">
@@ -5475,18 +6054,13 @@
                                       <a href="smartblog/1_lorem-ipsum-dolor-sit-amet.html">Lorem ipsum dolor sit...</a>
                                     </h4>
 
-                                    <p class="desc">
-                                      Lorem ipsum dolor sit amet, consectetuer
-                                      adipiscing elit....
-                                    </p>
+                                    <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit....</p>
                                     <div class="read_more">
-                                      <a title="Click to view Read More"
-                                        href="smartblog/1_lorem-ipsum-dolor-sit-amet.html" class="icon readmore">read
-                                        more</a>
+                                      <a title="Click to view Read More" href="smartblog/1_lorem-ipsum-dolor-sit-amet.html" class="icon readmore"
+                                        >read more</a
+                                      >
                                     </div>
-                                    <div class="ttviews">
-                                      &nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 87
-                                    </div>
+                                    <div class="ttviews">&nbsp;<i class="material-icons view">&#xE8F4;</i>&nbsp; views 87</div>
                                   </div>
                                 </div>
                               </div>
@@ -5502,9 +6076,7 @@
                   </div>
                   <section class="brands bottom-to-top hb-animate-element">
                     <div class="container">
-                      <span class="h1 products-section-title text-uppercase tt-title">
-                        Brands
-                      </span>
+                      <span class="h1 products-section-title text-uppercase tt-title"> Brands </span>
                       <div class="products">
                         <ul id="ttbrandlogo-carousel" class="product_list">
                           <li>
@@ -5581,11 +6153,10 @@
           </div>
         </section>
 
-        <%@include file="/componants/footer.jsp" %>
+        <%@include file="/components/footer.jsp" %>
       </div>
     </main>
 
     <script src="/js/bottom-254fa158.js"></script>
-</body>
-
+  </body>
 </html>
