@@ -44,7 +44,7 @@
 
                 <section id="content" class="page-content card card-block">
                   <section class="login-form">
-                    <form id="login-form" action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/login" method="post">
+                    <form id="login-form" action="login" method="post">
                       <section>
                         <input type="hidden" name="back" value="" />
 
@@ -89,7 +89,7 @@
                       <footer class="form-footer text-sm-center clearfix">
                         <input type="hidden" name="submitLogin" value="1" />
 
-                        <button id="submit-login" class="btn btn-primary" data-link-action="sign-in" type="submit" class="form-control-submit">
+                        <button id="submit-login" class="btn btn-primary" data-link-action="sign-in" type="submit"name="submit" class="form-control-submit">
                           Sign in
                         </button>
                       </footer>

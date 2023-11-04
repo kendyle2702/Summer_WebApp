@@ -3,3 +3,4 @@ Models\Account.class
 DAOs\AccountDAO.class
 DB\DBConnection.class
 Controllers\LoginController.class
+Hash\MD5.class

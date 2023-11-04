@@ -39,7 +39,7 @@ public class AccountDAO {
         return rs;
     }
     
-    public Account getAccountbyUsernameAndPassword(String username, String password){
+    public Account getAccountbyUsernameAndPassword1(String username, String password){
         Account account = null;
         try {
             PreparedStatement ps = conn.prepareStatement("select * from Account where email = ? and password = ?");
@@ -51,6 +51,25 @@ public class AccountDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return account;
+    }
+    
+    
+        public boolean getAccountbyUsernameAndPassword(String username, String password){
+        Boolean account = false;
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from Account where [email] = ? and [password] = ?");
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+               // account = new Account(rs.getString("email"),rs.getString("password"),rs.getString("fullName"),rs.getDate("birhdate"),rs.getString("role"));
+               account = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
         return account;
     }

@@ -430,7 +430,7 @@
                                         <a href="home/19-customizable-mug.html" class="thumbnail product-thumbnail">
                                           <img
                                             class="ttproduct-img1"
-                                            src="/products/132-home_default/customizable-mug.jpg"
+                                            src="/img/ep_buoi_1.png"
                                             alt="Cucumber Lemonade Mocktail"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/132-large_default/customizable-mug.jpg"
                                             width="290"
@@ -438,7 +438,7 @@
                                           />
                                           <img
                                             class="fade second_image img-responsive"
-                                            src="/products/133-home_default/customizable-mug.jpg"
+                                            src="/img/ep_chanhday_4.png"
                                             data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/133-large_default/customizable-mug.jpg"
                                             alt=""
                                             width="300"
