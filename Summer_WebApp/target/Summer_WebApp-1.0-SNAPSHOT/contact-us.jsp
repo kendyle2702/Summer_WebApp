@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <%@include file="/componants/head.jsp" %>
-    </head>
+<head>
+  <%@include file="/components/head.jsp" %>
+</head>
 
-    <body id="contact" class="lang-en country-us currency-usd layout-left-column page-contact tax-display-disabled"
-          itemscope itemtype="http://schema.org/WebPage">
-        <%@include file="/componants/header.jsp" %>
-        <div class="ttloading-bg spinner"></div>
+<body id="contact" class="lang-en country-us currency-usd layout-left-column page-contact tax-display-disabled"
+  itemscope itemtype="http://schema.org/WebPage">
+  <%@include file="/componants/header.jsp" %>
+    <div class="ttloading-bg spinner"></div>
 
         <div class="newsletter-pop"></div>
 
@@ -59,18 +59,18 @@
                             </div>
                         </div>
 
-                        <div id="content-wrapper" class="left-column col-xs-12 col-sm-8 col-md-9">
-                            <section id="main">
-                                <section id="content" class="page-content card card-block">
-                                    <section class="contact-form">
-                                        <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/contact-us" method="post"
-                                              enctype="multipart/form-data">
-                                            <section class="form-fields">
-                                                <div class="form-group row">
-                                                    <div class="col-md-9 col-md-offset-3">
-                                                        <h3>Contact us</h3>
-                                                    </div>
-                                                </div>
+            <div id="content-wrapper" class="left-column col-xs-12 col-sm-8 col-md-9">
+              <section id="main">
+                <section id="content" class="page-content card card-block">
+                  <section class="contact-form">
+                    <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/contact-us" method="post"
+                      enctype="multipart/form-data">
+                      <section class="form-fields">
+                        <div class="form-group row">
+                          <div class="col-md-9 col-md-offset-3">
+                            <h3>Contact us</h3>
+                          </div>
+                        </div>
 
                                                 <div class="form-group row">
                                                     <label class="col-md-3 form-control-label">Subject</label>
@@ -82,31 +82,31 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label">Email address</label>
-                                                    <div class="col-md-6">
-                                                        <input class="form-control" name="from" type="email" value=""
-                                                               placeholder="your@email.com" />
-                                                    </div>
-                                                </div>
+                        <div class="form-group row">
+                          <label class="col-md-3 form-control-label">Email address</label>
+                          <div class="col-md-6">
+                            <input class="form-control" name="from" type="email" value=""
+                              placeholder="your@email.com" />
+                          </div>
+                        </div>
 
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label">Attachment</label>
-                                                    <div class="col-md-6">
-                                                        <input type="file" name="fileUpload" class="filestyle" data-buttonText="Choose file" />
-                                                    </div>
-                                                    <span class="col-md-3 form-control-comment">
-                                                        optional
-                                                    </span>
-                                                </div>
+                        <div class="form-group row">
+                          <label class="col-md-3 form-control-label">Attachment</label>
+                          <div class="col-md-6">
+                            <input type="file" name="fileUpload" class="filestyle" data-buttonText="Choose file" />
+                          </div>
+                          <span class="col-md-3 form-control-comment">
+                            optional
+                          </span>
+                        </div>
 
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 form-control-label">Message</label>
-                                                    <div class="col-md-9">
-                                                        <textarea class="form-control" name="message" placeholder="How can we help?"
-                                                                  rows="3"></textarea>
-                                                    </div>
-                                                </div>
+                        <div class="form-group row">
+                          <label class="col-md-3 form-control-label">Message</label>
+                          <div class="col-md-9">
+                            <textarea class="form-control" name="message" placeholder="How can we help?"
+                              rows="3"></textarea>
+                          </div>
+                        </div>
 
                                                 <div class="form-group row">
                                                     <div class="offset-md-3"></div>
@@ -127,18 +127,18 @@
                                     </section>
                                 </section>
 
-                                <footer class="page-footer">
-                                    <!-- Footer content -->
-                                </footer>
-                            </section>
-                        </div>
-                    </div>
-                </section>
-                <%@include file="/componants/footer.jsp" %>
+                <footer class="page-footer">
+                  <!-- Footer content -->
+                </footer>
+              </section>
             </div>
-        </main>
+          </div>
+        </section>
+        <%@include file="/componants/footer.jsp" %>
+      </div>
+    </main>
 
-        <script src="/js/bottom-8d0d2558.js"></script>
-    </body>
+    <script src="/js/bottom-8d0d2558.js"></script>
+</body>
 
 </html>

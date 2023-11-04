@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%@include file="/components/head.jsp" %>
+  </head>
 
-<head>
-  <%@include file="/componants/head.jsp" %>
-</head>
-
-<body id="password"
-  class="lang-en country-us currency-usd layout-full-width page-password tax-display-disabled page-customer-account"
-  itemscope itemtype="http://schema.org/WebPage">
-  <%@include file="/componants/header.jsp" %>
+  <body
+    id="password"
+    class="lang-en country-us currency-usd layout-full-width page-password tax-display-disabled page-customer-account"
+    itemscope
+    itemtype="http://schema.org/WebPage"
+  >
+    <%@include file="/components/header.jsp" %>
     <div class="ttloading-bg spinner"></div>
 
     <div class="newsletter-pop"></div>
@@ -37,14 +39,16 @@
                 </header>
 
                 <section id="content" class="page-content card card-block">
-                  <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/password-recovery"
-                    class="forgotten-password" method="post">
+                  <form
+                    action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/password-recovery"
+                    class="forgotten-password"
+                    method="post"
+                  >
                     <ul class="ps-alert-error"></ul>
 
                     <header>
                       <p class="send-renew-password-link">
-                        Please enter the email address you used to register. You
-                        will receive a temporary link to reset your password.
+                        Please enter the email address you used to register. You will receive a temporary link to reset your password.
                       </p>
                     </header>
 
@@ -54,12 +58,8 @@
                         <div class="col-md-5 email">
                           <input type="email" name="email" id="email" value="" class="form-control" required />
                         </div>
-                        <button class="form-control-submit btn btn-primary hidden-xs-down" name="submit" type="submit">
-                          Send reset link
-                        </button>
-                        <button class="form-control-submit btn btn-primary hidden-sm-up" name="submit" type="submit">
-                          Send
-                        </button>
+                        <button class="form-control-submit btn btn-primary hidden-xs-down" name="submit" type="submit">Send reset link</button>
+                        <button class="form-control-submit btn btn-primary hidden-sm-up" name="submit" type="submit">Send</button>
                       </div>
                     </section>
                   </form>
@@ -75,11 +75,10 @@
             </div>
           </div>
         </section>
-        <%@include file="/componants/footer.jsp" %>
+        <%@include file="/components/footer.jsp" %>
       </div>
     </main>
 
     <script src="/js/bottom-8d0d2558.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%@include file="/components/head.jsp" %>
+  </head>
 
-<head>
-  <%@include file="/componants/head.jsp" %>
-</head>
-
-<body id="manufacturer"
-  class="lang-en country-us currency-usd layout-left-column page-manufacturer tax-display-disabled" itemscope
-  itemtype="http://schema.org/WebPage">
-  <%@include file="/componants/header.jsp" %>
+  <body
+    id="manufacturer"
+    class="lang-en country-us currency-usd layout-left-column page-manufacturer tax-display-disabled"
+    itemscope
+    itemtype="http://schema.org/WebPage"
+  >
+    <%@include file="/components/header.jsp" %>
     <div class="ttloading-bg spinner"></div>
 
     <div class="newsletter-pop"></div>
@@ -53,39 +55,36 @@
                     <ul class="category-sub-menu">
                       <li data-depth="0">
                         <a href="6-drinks.html">Drinks</a>
-                        <div class="navbar-toggler collapse-icons" data-toggle="collapse"
-                          data-target="#exCollapsingNavbar6">
+                        <div class="navbar-toggler collapse-icons" data-toggle="collapse" data-target="#exCollapsingNavbar6">
                           <i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i>
                         </div>
                         <div class="collapse" id="exCollapsingNavbar6">
                           <ul class="category-sub-menu">
                             <li data-depth="1">
-                              <a class="category-sub-link" href="40-scoops.html">Scoops</a><span class="arrows"
-                                data-toggle="collapse" data-target="#exCollapsingNavbar40"><i
-                                  class="material-icons arrow-right">&#xE145;</i><i
-                                  class="material-icons arrow-down">&#xE15B;</i></span>
+                              <a class="category-sub-link" href="40-scoops.html">Scoops</a
+                              ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar40"
+                                ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                              >
                               <div class="collapse" id="exCollapsingNavbar40">
                                 <ul class="category-sub-menu">
                                   <li data-depth="2">
                                     <a class="category-sub-link" href="45-vanilla.html">Vanilla</a>
                                   </li>
                                   <li data-depth="2">
-                                    <a class="category-sub-link" href="46-strawberry.html">Strawberry</a><span
-                                      class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar46"><i
-                                        class="material-icons arrow-right">&#xE145;</i><i
-                                        class="material-icons arrow-down">&#xE15B;</i></span>
+                                    <a class="category-sub-link" href="46-strawberry.html">Strawberry</a
+                                    ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar46"
+                                      ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                                    >
                                     <div class="collapse" id="exCollapsingNavbar46">
                                       <ul class="category-sub-menu">
                                         <li data-depth="3">
-                                          <a class="category-sub-link" href="80-strawberry-juice.html">Strawberry
-                                            Juice</a>
+                                          <a class="category-sub-link" href="80-strawberry-juice.html">Strawberry Juice</a>
                                         </li>
                                         <li data-depth="3">
                                           <a class="category-sub-link" href="81-strawberry-ice.html">Strawberry Ice</a>
                                         </li>
                                         <li data-depth="3">
-                                          <a class="category-sub-link" href="82-strawberry-cream.html">Strawberry
-                                            Cream</a>
+                                          <a class="category-sub-link" href="82-strawberry-cream.html">Strawberry Cream</a>
                                         </li>
                                       </ul>
                                     </div>
@@ -103,10 +102,10 @@
                               </div>
                             </li>
                             <li data-depth="1">
-                              <a class="category-sub-link" href="44-premium-tubs.html">Premium Tubs</a><span
-                                class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar44"><i
-                                  class="material-icons arrow-right">&#xE145;</i><i
-                                  class="material-icons arrow-down">&#xE15B;</i></span>
+                              <a class="category-sub-link" href="44-premium-tubs.html">Premium Tubs</a
+                              ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar44"
+                                ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                              >
                               <div class="collapse" id="exCollapsingNavbar44">
                                 <ul class="category-sub-menu">
                                   <li data-depth="2">
@@ -116,8 +115,7 @@
                                     <a class="category-sub-link" href="66-choco-chips-400ml.html">Choco Chips 400ml</a>
                                   </li>
                                   <li data-depth="2">
-                                    <a class="category-sub-link" href="67-tutti-fruitti-400ml.html">Tutti Fruitti
-                                      400ml</a>
+                                    <a class="category-sub-link" href="67-tutti-fruitti-400ml.html">Tutti Fruitti 400ml</a>
                                   </li>
                                   <li data-depth="2">
                                     <a class="category-sub-link" href="68-pista-400ml.html">Pista 400ml</a>
@@ -129,10 +127,10 @@
                               </div>
                             </li>
                             <li data-depth="1">
-                              <a class="category-sub-link" href="70-ice-cones.html">Ice Cones</a><span class="arrows"
-                                data-toggle="collapse" data-target="#exCollapsingNavbar70"><i
-                                  class="material-icons arrow-right">&#xE145;</i><i
-                                  class="material-icons arrow-down">&#xE15B;</i></span>
+                              <a class="category-sub-link" href="70-ice-cones.html">Ice Cones</a
+                              ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar70"
+                                ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                              >
                               <div class="collapse" id="exCollapsingNavbar70">
                                 <ul class="category-sub-menu">
                                   <li data-depth="2">
@@ -145,19 +143,17 @@
                                     <a class="category-sub-link" href="73-cornetto-chokiss.html">Cornetto Chokiss</a>
                                   </li>
                                   <li data-depth="2">
-                                    <a class="category-sub-link" href="74-cookies-creams.html">Cookies &amp;
-                                      Creams</a><span class="arrows" data-toggle="collapse"
-                                      data-target="#exCollapsingNavbar74"><i
-                                        class="material-icons arrow-right">&#xE145;</i><i
-                                        class="material-icons arrow-down">&#xE15B;</i></span>
+                                    <a class="category-sub-link" href="74-cookies-creams.html">Cookies &amp; Creams</a
+                                    ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar74"
+                                      ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                                    >
                                     <div class="collapse" id="exCollapsingNavbar74">
                                       <ul class="category-sub-menu">
                                         <li data-depth="3">
                                           <a class="category-sub-link" href="83-cookies.html">Cookies</a>
                                         </li>
                                         <li data-depth="3">
-                                          <a class="category-sub-link" href="84-cookies-biscuit.html">Cookies
-                                            Biscuit</a>
+                                          <a class="category-sub-link" href="84-cookies-biscuit.html">Cookies Biscuit</a>
                                         </li>
                                         <li data-depth="3">
                                           <a class="category-sub-link" href="85-corn-cookies.html">Corn Cookies</a>
@@ -176,17 +172,16 @@
                       </li>
                       <li data-depth="0">
                         <a href="9-treats.html">Treats</a>
-                        <div class="navbar-toggler collapse-icons" data-toggle="collapse"
-                          data-target="#exCollapsingNavbar9">
+                        <div class="navbar-toggler collapse-icons" data-toggle="collapse" data-target="#exCollapsingNavbar9">
                           <i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i>
                         </div>
                         <div class="collapse" id="exCollapsingNavbar9">
                           <ul class="category-sub-menu">
                             <li data-depth="1">
-                              <a class="category-sub-link" href="41-treat-bars.html">Treat Bars</a><span class="arrows"
-                                data-toggle="collapse" data-target="#exCollapsingNavbar41"><i
-                                  class="material-icons arrow-right">&#xE145;</i><i
-                                  class="material-icons arrow-down">&#xE15B;</i></span>
+                              <a class="category-sub-link" href="41-treat-bars.html">Treat Bars</a
+                              ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar41"
+                                ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                              >
                               <div class="collapse" id="exCollapsingNavbar41">
                                 <ul class="category-sub-menu">
                                   <li data-depth="2">
@@ -208,10 +203,10 @@
                               </div>
                             </li>
                             <li data-depth="1">
-                              <a class="category-sub-link" href="42-treat-novelties.html">Treat Novelties</a><span
-                                class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar42"><i
-                                  class="material-icons arrow-right">&#xE145;</i><i
-                                  class="material-icons arrow-down">&#xE15B;</i></span>
+                              <a class="category-sub-link" href="42-treat-novelties.html">Treat Novelties</a
+                              ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar42"
+                                ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                              >
                               <div class="collapse" id="exCollapsingNavbar42">
                                 <ul class="category-sub-menu">
                                   <li data-depth="2">
@@ -233,10 +228,10 @@
                               </div>
                             </li>
                             <li data-depth="1">
-                              <a class="category-sub-link" href="43-flavours.html">Flavours</a><span class="arrows"
-                                data-toggle="collapse" data-target="#exCollapsingNavbar43"><i
-                                  class="material-icons arrow-right">&#xE145;</i><i
-                                  class="material-icons arrow-down">&#xE15B;</i></span>
+                              <a class="category-sub-link" href="43-flavours.html">Flavours</a
+                              ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar43"
+                                ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                              >
                               <div class="collapse" id="exCollapsingNavbar43">
                                 <ul class="category-sub-menu">
                                   <li data-depth="2">
@@ -249,10 +244,10 @@
                                     <a class="category-sub-link" href="63-choco-treat.html">Choco Treat</a>
                                   </li>
                                   <li data-depth="2">
-                                    <a class="category-sub-link" href="60-butterscotch.html">Butterscotch</a><span
-                                      class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar60"><i
-                                        class="material-icons arrow-right">&#xE145;</i><i
-                                        class="material-icons arrow-down">&#xE15B;</i></span>
+                                    <a class="category-sub-link" href="60-butterscotch.html">Butterscotch</a
+                                    ><span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar60"
+                                      ><i class="material-icons arrow-right">&#xE145;</i><i class="material-icons arrow-down">&#xE15B;</i></span
+                                    >
                                     <div class="collapse" id="exCollapsingNavbar60">
                                       <ul class="category-sub-menu">
                                         <li data-depth="3">
@@ -278,8 +273,7 @@
                       </li>
                       <li data-depth="0">
                         <a href="10-ice-cream.html">Ice Cream</a>
-                        <div class="navbar-toggler collapse-icons" data-toggle="collapse"
-                          data-target="#exCollapsingNavbar10">
+                        <div class="navbar-toggler collapse-icons" data-toggle="collapse" data-target="#exCollapsingNavbar10">
                           <i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i>
                         </div>
                         <div class="collapse" id="exCollapsingNavbar10">
@@ -307,8 +301,7 @@
                       </li>
                       <li data-depth="0">
                         <a href="11-ice-drink.html">Ice Drink</a>
-                        <div class="navbar-toggler collapse-icons" data-toggle="collapse"
-                          data-target="#exCollapsingNavbar11">
+                        <div class="navbar-toggler collapse-icons" data-toggle="collapse" data-target="#exCollapsingNavbar11">
                           <i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i>
                         </div>
                         <div class="collapse" id="exCollapsingNavbar11">
@@ -336,8 +329,7 @@
                       </li>
                       <li data-depth="0">
                         <a href="12-ice-juice.html">Ice Juice</a>
-                        <div class="navbar-toggler collapse-icons" data-toggle="collapse"
-                          data-target="#exCollapsingNavbar12">
+                        <div class="navbar-toggler collapse-icons" data-toggle="collapse" data-target="#exCollapsingNavbar12">
                           <i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i>
                         </div>
                         <div class="collapse" id="exCollapsingNavbar12">
@@ -365,8 +357,7 @@
                       </li>
                       <li data-depth="0">
                         <a href="13-ice-pop.html">Ice Pop</a>
-                        <div class="navbar-toggler collapse-icons" data-toggle="collapse"
-                          data-target="#exCollapsingNavbar13">
+                        <div class="navbar-toggler collapse-icons" data-toggle="collapse" data-target="#exCollapsingNavbar13">
                           <i class="material-icons add">&#xE145;</i><i class="material-icons remove">&#xE15B;</i>
                         </div>
                         <div class="collapse" id="exCollapsingNavbar13">
@@ -397,14 +388,12 @@
                 </ul>
               </div>
               <div class="ttleftbanner">
-                <a href="http://www.prestashop.com/" title="PrestaShop"><img
-                    src="../modules/ttadvertising/img/advertising-s1.jpg" alt="PrestaShop" title="PrestaShop"
-                    width="300" height="500" /></a>
+                <a href="http://www.prestashop.com/" title="PrestaShop"
+                  ><img src="../modules/ttadvertising/img/advertising-s1.jpg" alt="PrestaShop" title="PrestaShop" width="300" height="500"
+                /></a>
               </div>
               <section class="new-products clearfix mt-3">
-                <h1 class="h1 products-section-title text-uppercase">
-                  New products
-                </h1>
+                <h1 class="h1 products-section-title text-uppercase">New products</h1>
                 <div class="title clearfix hidden-md-up" data-target="#new-product" data-toggle="collapse">
                   <span class="h3 text-uppercase">New products</span>
                   <span class="float-xs-right">
@@ -430,19 +419,26 @@
                             <!-- End TemplateTrip 2 product slide code -->
 
                             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="19"
-                                data-id-product-attribute="0">
+                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="19" data-id-product-attribute="0">
                                 <div class="thumbnail-container">
                                   <div class="ttproduct-image">
                                     <a href="home/19-customizable-mug.html" class="thumbnail product-thumbnail">
-                                      <img class="ttproduct-img1" src="../132-home_default/customizable-mug.jpg"
+                                      <img
+                                        class="ttproduct-img1"
+                                        src="../132-home_default/customizable-mug.jpg"
                                         alt="Cucumber Lemonade Mocktail"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/132-large_default/customizable-mug.jpg"
-                                        width="290" height="290" />
-                                      <img class="fade second_image img-responsive"
+                                        width="290"
+                                        height="290"
+                                      />
+                                      <img
+                                        class="fade second_image img-responsive"
                                         src="../133-home_default/customizable-mug.jpg"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/133-large_default/customizable-mug.jpg"
-                                        alt="" width="300" height="390" />
+                                        alt=""
+                                        width="300"
+                                        height="390"
+                                      />
                                     </a>
 
                                     <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -456,9 +452,14 @@
                                     </ul>
 
                                     <div class="wishlist">
-                                      <a class="addToWishlist btn btn-primary wishlistProd_19" href="#"
-                                        data-dismiss="modal" data-rel="19" title="Add to wishlist"
-                                        onclick="WishlistCart('wishlist_block_list', 'add', '19', '0', 1); return false;">
+                                      <a
+                                        class="addToWishlist btn btn-primary wishlistProd_19"
+                                        href="#"
+                                        data-dismiss="modal"
+                                        data-rel="19"
+                                        title="Add to wishlist"
+                                        onclick="WishlistCart('wishlist_block_list', 'add', '19', '0', 1); return false;"
+                                      >
                                         <i class="material-icons wishlist-icon">favorite_border</i>
                                         <span class="wishlist-name">Add to Wishlist</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -471,8 +472,7 @@
                                       <h5 class="cat-name">home</h5>
                                       <div class="ttproducthover">
                                         <div class="quick-view-block">
-                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                            title="Quick view">
+                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                             <i class="material-icons quick_view_icon">visibility</i>
                                             <span>Quick view</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -483,19 +483,20 @@
                                           <div class="product-add-to-cart">
                                             <form
                                               action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                              method="post" class="add-to-cart-or-refresh">
+                                              method="post"
+                                              class="add-to-cart-or-refresh"
+                                            >
                                               <div class="product-quantity" style="display: none">
-                                                <input type="number" name="id_product" value="19"
-                                                  class="product_page_product_id" />
-                                                <input type="number" name="id_customization" value="0"
-                                                  class="product_customization_id" />
-                                                <input type="hidden" name="token"
-                                                  value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                <input type="number" name="qty" class="quantity_wanted input-group"
-                                                  value="1" min="1" />
+                                                <input type="number" name="id_product" value="19" class="product_page_product_id" />
+                                                <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                               </div>
-                                              <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                data-button-action="add-to-cart" title="Add to cart">
+                                              <button
+                                                class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                data-button-action="add-to-cart"
+                                                title="Add to cart"
+                                              >
                                                 <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                 <span>Add to cart</span>
@@ -504,8 +505,13 @@
                                           </div>
                                         </div>
                                         <div class="compare">
-                                          <a class="add_to_compare btn btn-primary" href="#" data-id-product="19"
-                                            data-dismiss="modal" title="Add to Compare">
+                                          <a
+                                            class="add_to_compare btn btn-primary"
+                                            href="#"
+                                            data-id-product="19"
+                                            data-dismiss="modal"
+                                            title="Add to Compare"
+                                          >
                                             <i class="material-icons compare_icon">equalizer</i>
                                             <span>Add to Compare</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -514,8 +520,7 @@
                                       </div>
 
                                       <div class="hook-reviews">
-                                        <div class="comments_note" itemprop="aggregateRating" itemscope
-                                          itemtype="https://schema.org/AggregateRating">
+                                        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                           <div class="star_content clearfix">
                                             <div class="star star_on"></div>
                                             <div class="star star_on"></div>
@@ -530,13 +535,12 @@
                                         </div>
                                       </div>
 
-                                      <span class="h3 product-title" itemprop="name"><a
-                                          href="home/19-customizable-mug.html">Cucumber Lemonade...</a></span>
+                                      <span class="h3 product-title" itemprop="name"
+                                        ><a href="home/19-customizable-mug.html">Cucumber Lemonade...</a></span
+                                      >
 
                                       <div class="product-desc-short" itemprop="description">
-                                        Lorem Ipsum is simply dummied text of
-                                        the printing and typesetting industry.
-                                        Lorem Ipsum has...
+                                        Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                       </div>
 
                                       <div class="product-price-and-shipping">
@@ -562,19 +566,26 @@
                             <!-- End TemplateTrip 2 product slide code -->
 
                             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="18"
-                                data-id-product-attribute="36">
+                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="18" data-id-product-attribute="36">
                                 <div class="thumbnail-container">
                                   <div class="ttproduct-image">
                                     <a href="home/18-hummingbird-notebook.html" class="thumbnail product-thumbnail">
-                                      <img class="ttproduct-img1" src="../126-home_default/hummingbird-notebook.jpg"
+                                      <img
+                                        class="ttproduct-img1"
+                                        src="../126-home_default/hummingbird-notebook.jpg"
                                         alt="Tequila and Grapefruit Juice"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/126-large_default/hummingbird-notebook.jpg"
-                                        width="290" height="290" />
-                                      <img class="fade second_image img-responsive"
+                                        width="290"
+                                        height="290"
+                                      />
+                                      <img
+                                        class="fade second_image img-responsive"
                                         src="../127-home_default/hummingbird-notebook.jpg"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/127-large_default/hummingbird-notebook.jpg"
-                                        alt="" width="300" height="390" />
+                                        alt=""
+                                        width="300"
+                                        height="390"
+                                      />
                                     </a>
 
                                     <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -584,9 +595,14 @@
                                     </ul>
 
                                     <div class="wishlist">
-                                      <a class="addToWishlist btn btn-primary wishlistProd_18" href="#"
-                                        data-dismiss="modal" data-rel="18" title="Add to wishlist"
-                                        onclick="WishlistCart('wishlist_block_list', 'add', '18', '36', 1); return false;">
+                                      <a
+                                        class="addToWishlist btn btn-primary wishlistProd_18"
+                                        href="#"
+                                        data-dismiss="modal"
+                                        data-rel="18"
+                                        title="Add to wishlist"
+                                        onclick="WishlistCart('wishlist_block_list', 'add', '18', '36', 1); return false;"
+                                      >
                                         <i class="material-icons wishlist-icon">favorite_border</i>
                                         <span class="wishlist-name">Add to Wishlist</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -599,8 +615,7 @@
                                       <h5 class="cat-name">home</h5>
                                       <div class="ttproducthover">
                                         <div class="quick-view-block">
-                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                            title="Quick view">
+                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                             <i class="material-icons quick_view_icon">visibility</i>
                                             <span>Quick view</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -611,19 +626,20 @@
                                           <div class="product-add-to-cart">
                                             <form
                                               action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                              method="post" class="add-to-cart-or-refresh">
+                                              method="post"
+                                              class="add-to-cart-or-refresh"
+                                            >
                                               <div class="product-quantity" style="display: none">
-                                                <input type="number" name="id_product" value="18"
-                                                  class="product_page_product_id" />
-                                                <input type="number" name="id_customization" value="0"
-                                                  class="product_customization_id" />
-                                                <input type="hidden" name="token"
-                                                  value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                <input type="number" name="qty" class="quantity_wanted input-group"
-                                                  value="1" min="1" />
+                                                <input type="number" name="id_product" value="18" class="product_page_product_id" />
+                                                <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                               </div>
-                                              <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                data-button-action="add-to-cart" title="Add to cart">
+                                              <button
+                                                class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                data-button-action="add-to-cart"
+                                                title="Add to cart"
+                                              >
                                                 <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                 <span>Add to cart</span>
@@ -632,8 +648,13 @@
                                           </div>
                                         </div>
                                         <div class="compare">
-                                          <a class="add_to_compare btn btn-primary" href="#" data-id-product="18"
-                                            data-dismiss="modal" title="Add to Compare">
+                                          <a
+                                            class="add_to_compare btn btn-primary"
+                                            href="#"
+                                            data-id-product="18"
+                                            data-dismiss="modal"
+                                            title="Add to Compare"
+                                          >
                                             <i class="material-icons compare_icon">equalizer</i>
                                             <span>Add to Compare</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -642,8 +663,7 @@
                                       </div>
 
                                       <div class="hook-reviews">
-                                        <div class="comments_note" itemprop="aggregateRating" itemscope
-                                          itemtype="https://schema.org/AggregateRating">
+                                        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                           <div class="star_content clearfix">
                                             <div class="star"></div>
                                             <div class="star"></div>
@@ -658,13 +678,12 @@
                                         </div>
                                       </div>
 
-                                      <span class="h3 product-title" itemprop="name"><a
-                                          href="home/18-hummingbird-notebook.html">Tequila and Grapefruit...</a></span>
+                                      <span class="h3 product-title" itemprop="name"
+                                        ><a href="home/18-hummingbird-notebook.html">Tequila and Grapefruit...</a></span
+                                      >
 
                                       <div class="product-desc-short" itemprop="description">
-                                        Lorem Ipsum is simply dummied text of
-                                        the printing and typesetting industry.
-                                        Lorem Ipsum has...
+                                        Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                       </div>
 
                                       <div class="product-price-and-shipping">
@@ -686,19 +705,26 @@
                             <!-- End TemplateTrip 2 product slide code -->
 
                             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="17"
-                                data-id-product-attribute="0">
+                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="17" data-id-product-attribute="0">
                                 <div class="thumbnail-container">
                                   <div class="ttproduct-image">
                                     <a href="home/17-brown-bear-notebook.html" class="thumbnail product-thumbnail">
-                                      <img class="ttproduct-img1" src="../120-home_default/brown-bear-notebook.jpg"
+                                      <img
+                                        class="ttproduct-img1"
+                                        src="../120-home_default/brown-bear-notebook.jpg"
                                         alt="Malibu &amp; Orange Juice"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/120-large_default/brown-bear-notebook.jpg"
-                                        width="290" height="290" />
-                                      <img class="fade second_image img-responsive"
+                                        width="290"
+                                        height="290"
+                                      />
+                                      <img
+                                        class="fade second_image img-responsive"
                                         src="../121-home_default/brown-bear-notebook.jpg"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/121-large_default/brown-bear-notebook.jpg"
-                                        alt="" width="300" height="390" />
+                                        alt=""
+                                        width="300"
+                                        height="390"
+                                      />
                                     </a>
 
                                     <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -712,9 +738,14 @@
                                     </ul>
 
                                     <div class="wishlist">
-                                      <a class="addToWishlist btn btn-primary wishlistProd_17" href="#"
-                                        data-dismiss="modal" data-rel="17" title="Add to wishlist"
-                                        onclick="WishlistCart('wishlist_block_list', 'add', '17', '0', 1); return false;">
+                                      <a
+                                        class="addToWishlist btn btn-primary wishlistProd_17"
+                                        href="#"
+                                        data-dismiss="modal"
+                                        data-rel="17"
+                                        title="Add to wishlist"
+                                        onclick="WishlistCart('wishlist_block_list', 'add', '17', '0', 1); return false;"
+                                      >
                                         <i class="material-icons wishlist-icon">favorite_border</i>
                                         <span class="wishlist-name">Add to Wishlist</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -727,8 +758,7 @@
                                       <h5 class="cat-name">home</h5>
                                       <div class="ttproducthover">
                                         <div class="quick-view-block">
-                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                            title="Quick view">
+                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                             <i class="material-icons quick_view_icon">visibility</i>
                                             <span>Quick view</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -739,19 +769,20 @@
                                           <div class="product-add-to-cart">
                                             <form
                                               action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                              method="post" class="add-to-cart-or-refresh">
+                                              method="post"
+                                              class="add-to-cart-or-refresh"
+                                            >
                                               <div class="product-quantity" style="display: none">
-                                                <input type="number" name="id_product" value="17"
-                                                  class="product_page_product_id" />
-                                                <input type="number" name="id_customization" value="0"
-                                                  class="product_customization_id" />
-                                                <input type="hidden" name="token"
-                                                  value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                <input type="number" name="qty" class="quantity_wanted input-group"
-                                                  value="1" min="1" />
+                                                <input type="number" name="id_product" value="17" class="product_page_product_id" />
+                                                <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                               </div>
-                                              <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                data-button-action="add-to-cart" title="Add to cart">
+                                              <button
+                                                class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                data-button-action="add-to-cart"
+                                                title="Add to cart"
+                                              >
                                                 <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                 <span>Add to cart</span>
@@ -760,8 +791,13 @@
                                           </div>
                                         </div>
                                         <div class="compare">
-                                          <a class="add_to_compare btn btn-primary" href="#" data-id-product="17"
-                                            data-dismiss="modal" title="Add to Compare">
+                                          <a
+                                            class="add_to_compare btn btn-primary"
+                                            href="#"
+                                            data-id-product="17"
+                                            data-dismiss="modal"
+                                            title="Add to Compare"
+                                          >
                                             <i class="material-icons compare_icon">equalizer</i>
                                             <span>Add to Compare</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -770,8 +806,7 @@
                                       </div>
 
                                       <div class="hook-reviews">
-                                        <div class="comments_note" itemprop="aggregateRating" itemscope
-                                          itemtype="https://schema.org/AggregateRating">
+                                        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                           <div class="star_content clearfix">
                                             <div class="star star_on"></div>
                                             <div class="star star_on"></div>
@@ -786,13 +821,12 @@
                                         </div>
                                       </div>
 
-                                      <span class="h3 product-title" itemprop="name"><a
-                                          href="home/17-brown-bear-notebook.html">Malibu &amp; Orange Juice</a></span>
+                                      <span class="h3 product-title" itemprop="name"
+                                        ><a href="home/17-brown-bear-notebook.html">Malibu &amp; Orange Juice</a></span
+                                      >
 
                                       <div class="product-desc-short" itemprop="description">
-                                        Lorem Ipsum is simply dummied text of
-                                        the printing and typesetting industry.
-                                        Lorem Ipsum has...
+                                        Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                       </div>
 
                                       <div class="product-price-and-shipping">
@@ -826,19 +860,26 @@
                             <!-- End TemplateTrip 2 product slide code -->
 
                             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="16"
-                                data-id-product-attribute="28">
+                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="16" data-id-product-attribute="28">
                                 <div class="thumbnail-container">
                                   <div class="ttproduct-image">
                                     <a href="home/16-mountain-fox-notebook.html" class="thumbnail product-thumbnail">
-                                      <img class="ttproduct-img1" src="../114-home_default/mountain-fox-notebook.jpg"
+                                      <img
+                                        class="ttproduct-img1"
+                                        src="../114-home_default/mountain-fox-notebook.jpg"
                                         alt="Vodka Cranberry drink"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/114-large_default/mountain-fox-notebook.jpg"
-                                        width="290" height="290" />
-                                      <img class="fade second_image img-responsive"
+                                        width="290"
+                                        height="290"
+                                      />
+                                      <img
+                                        class="fade second_image img-responsive"
                                         src="../115-home_default/mountain-fox-notebook.jpg"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/115-large_default/mountain-fox-notebook.jpg"
-                                        alt="" width="300" height="390" />
+                                        alt=""
+                                        width="300"
+                                        height="390"
+                                      />
                                     </a>
 
                                     <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -848,9 +889,14 @@
                                     </ul>
 
                                     <div class="wishlist">
-                                      <a class="addToWishlist btn btn-primary wishlistProd_16" href="#"
-                                        data-dismiss="modal" data-rel="16" title="Add to wishlist"
-                                        onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;">
+                                      <a
+                                        class="addToWishlist btn btn-primary wishlistProd_16"
+                                        href="#"
+                                        data-dismiss="modal"
+                                        data-rel="16"
+                                        title="Add to wishlist"
+                                        onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;"
+                                      >
                                         <i class="material-icons wishlist-icon">favorite_border</i>
                                         <span class="wishlist-name">Add to Wishlist</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -863,8 +909,7 @@
                                       <h5 class="cat-name">home</h5>
                                       <div class="ttproducthover">
                                         <div class="quick-view-block">
-                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                            title="Quick view">
+                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                             <i class="material-icons quick_view_icon">visibility</i>
                                             <span>Quick view</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -875,19 +920,20 @@
                                           <div class="product-add-to-cart">
                                             <form
                                               action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                              method="post" class="add-to-cart-or-refresh">
+                                              method="post"
+                                              class="add-to-cart-or-refresh"
+                                            >
                                               <div class="product-quantity" style="display: none">
-                                                <input type="number" name="id_product" value="16"
-                                                  class="product_page_product_id" />
-                                                <input type="number" name="id_customization" value="0"
-                                                  class="product_customization_id" />
-                                                <input type="hidden" name="token"
-                                                  value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                <input type="number" name="qty" class="quantity_wanted input-group"
-                                                  value="1" min="1" />
+                                                <input type="number" name="id_product" value="16" class="product_page_product_id" />
+                                                <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                               </div>
-                                              <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                data-button-action="add-to-cart" title="Add to cart">
+                                              <button
+                                                class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                data-button-action="add-to-cart"
+                                                title="Add to cart"
+                                              >
                                                 <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                 <span>Add to cart</span>
@@ -896,8 +942,13 @@
                                           </div>
                                         </div>
                                         <div class="compare">
-                                          <a class="add_to_compare btn btn-primary" href="#" data-id-product="16"
-                                            data-dismiss="modal" title="Add to Compare">
+                                          <a
+                                            class="add_to_compare btn btn-primary"
+                                            href="#"
+                                            data-id-product="16"
+                                            data-dismiss="modal"
+                                            title="Add to Compare"
+                                          >
                                             <i class="material-icons compare_icon">equalizer</i>
                                             <span>Add to Compare</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -906,8 +957,7 @@
                                       </div>
 
                                       <div class="hook-reviews">
-                                        <div class="comments_note" itemprop="aggregateRating" itemscope
-                                          itemtype="https://schema.org/AggregateRating">
+                                        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                           <div class="star_content clearfix">
                                             <div class="star star_on"></div>
                                             <div class="star star_on"></div>
@@ -922,13 +972,12 @@
                                         </div>
                                       </div>
 
-                                      <span class="h3 product-title" itemprop="name"><a
-                                          href="home/16-mountain-fox-notebook.html">Vodka Cranberry drink</a></span>
+                                      <span class="h3 product-title" itemprop="name"
+                                        ><a href="home/16-mountain-fox-notebook.html">Vodka Cranberry drink</a></span
+                                      >
 
                                       <div class="product-desc-short" itemprop="description">
-                                        Lorem Ipsum is simply dummied text of
-                                        the printing and typesetting industry.
-                                        Lorem Ipsum has...
+                                        Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                       </div>
 
                                       <div class="product-price-and-shipping">
@@ -950,19 +999,26 @@
                             <!-- End TemplateTrip 2 product slide code -->
 
                             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="15"
-                                data-id-product-attribute="0">
+                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="15" data-id-product-attribute="0">
                                 <div class="thumbnail-container">
                                   <div class="ttproduct-image">
                                     <a href="home/15-pack-mug-framed-poster.html" class="thumbnail product-thumbnail">
-                                      <img class="ttproduct-img1" src="../108-home_default/pack-mug-framed-poster.jpg"
+                                      <img
+                                        class="ttproduct-img1"
+                                        src="../108-home_default/pack-mug-framed-poster.jpg"
                                         alt="Easy Ganga Jamuna Juice"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/108-large_default/pack-mug-framed-poster.jpg"
-                                        width="290" height="290" />
-                                      <img class="fade second_image img-responsive"
+                                        width="290"
+                                        height="290"
+                                      />
+                                      <img
+                                        class="fade second_image img-responsive"
                                         src="../109-home_default/pack-mug-framed-poster.jpg"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/109-large_default/pack-mug-framed-poster.jpg"
-                                        alt="" width="300" height="390" />
+                                        alt=""
+                                        width="300"
+                                        height="390"
+                                      />
                                     </a>
 
                                     <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -973,9 +1029,14 @@
                                     </ul>
 
                                     <div class="wishlist">
-                                      <a class="addToWishlist btn btn-primary wishlistProd_15" href="#"
-                                        data-dismiss="modal" data-rel="15" title="Add to wishlist"
-                                        onclick="WishlistCart('wishlist_block_list', 'add', '15', '0', 1); return false;">
+                                      <a
+                                        class="addToWishlist btn btn-primary wishlistProd_15"
+                                        href="#"
+                                        data-dismiss="modal"
+                                        data-rel="15"
+                                        title="Add to wishlist"
+                                        onclick="WishlistCart('wishlist_block_list', 'add', '15', '0', 1); return false;"
+                                      >
                                         <i class="material-icons wishlist-icon">favorite_border</i>
                                         <span class="wishlist-name">Add to Wishlist</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -988,8 +1049,7 @@
                                       <h5 class="cat-name">home</h5>
                                       <div class="ttproducthover">
                                         <div class="quick-view-block">
-                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                            title="Quick view">
+                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                             <i class="material-icons quick_view_icon">visibility</i>
                                             <span>Quick view</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1000,19 +1060,20 @@
                                           <div class="product-add-to-cart">
                                             <form
                                               action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                              method="post" class="add-to-cart-or-refresh">
+                                              method="post"
+                                              class="add-to-cart-or-refresh"
+                                            >
                                               <div class="product-quantity" style="display: none">
-                                                <input type="number" name="id_product" value="15"
-                                                  class="product_page_product_id" />
-                                                <input type="number" name="id_customization" value="0"
-                                                  class="product_customization_id" />
-                                                <input type="hidden" name="token"
-                                                  value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                <input type="number" name="qty" class="quantity_wanted input-group"
-                                                  value="1" min="1" />
+                                                <input type="number" name="id_product" value="15" class="product_page_product_id" />
+                                                <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                               </div>
-                                              <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                data-button-action="add-to-cart" title="Add to cart">
+                                              <button
+                                                class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                data-button-action="add-to-cart"
+                                                title="Add to cart"
+                                              >
                                                 <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                 <span>Add to cart</span>
@@ -1021,8 +1082,13 @@
                                           </div>
                                         </div>
                                         <div class="compare">
-                                          <a class="add_to_compare btn btn-primary" href="#" data-id-product="15"
-                                            data-dismiss="modal" title="Add to Compare">
+                                          <a
+                                            class="add_to_compare btn btn-primary"
+                                            href="#"
+                                            data-id-product="15"
+                                            data-dismiss="modal"
+                                            title="Add to Compare"
+                                          >
                                             <i class="material-icons compare_icon">equalizer</i>
                                             <span>Add to Compare</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1031,8 +1097,7 @@
                                       </div>
 
                                       <div class="hook-reviews">
-                                        <div class="comments_note" itemprop="aggregateRating" itemscope
-                                          itemtype="https://schema.org/AggregateRating">
+                                        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                           <div class="star_content clearfix">
                                             <div class="star"></div>
                                             <div class="star"></div>
@@ -1047,13 +1112,12 @@
                                         </div>
                                       </div>
 
-                                      <span class="h3 product-title" itemprop="name"><a
-                                          href="home/15-pack-mug-framed-poster.html">Easy Ganga Jamuna Juice</a></span>
+                                      <span class="h3 product-title" itemprop="name"
+                                        ><a href="home/15-pack-mug-framed-poster.html">Easy Ganga Jamuna Juice</a></span
+                                      >
 
                                       <div class="product-desc-short" itemprop="description">
-                                        Lorem Ipsum is simply dummied text of
-                                        the printing and typesetting industry.
-                                        Lorem Ipsum has...
+                                        Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                       </div>
 
                                       <div class="product-price-and-shipping">
@@ -1075,21 +1139,26 @@
                             <!-- End TemplateTrip 2 product slide code -->
 
                             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="14"
-                                data-id-product-attribute="0">
+                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="14" data-id-product-attribute="0">
                                 <div class="thumbnail-container">
                                   <div class="ttproduct-image">
-                                    <a href="treats/14-hummingbird-vector-graphics.html"
-                                      class="thumbnail product-thumbnail">
-                                      <img class="ttproduct-img1"
+                                    <a href="treats/14-hummingbird-vector-graphics.html" class="thumbnail product-thumbnail">
+                                      <img
+                                        class="ttproduct-img1"
                                         src="../102-home_default/hummingbird-vector-graphics.jpg"
                                         alt="Screwdriver Cocktail"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/102-large_default/hummingbird-vector-graphics.jpg"
-                                        width="290" height="290" />
-                                      <img class="fade second_image img-responsive"
+                                        width="290"
+                                        height="290"
+                                      />
+                                      <img
+                                        class="fade second_image img-responsive"
                                         src="../103-home_default/hummingbird-vector-graphics.jpg"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/103-large_default/hummingbird-vector-graphics.jpg"
-                                        alt="" width="300" height="390" />
+                                        alt=""
+                                        width="300"
+                                        height="390"
+                                      />
                                     </a>
 
                                     <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1102,9 +1171,14 @@
                                     </ul>
 
                                     <div class="wishlist">
-                                      <a class="addToWishlist btn btn-primary wishlistProd_14" href="#"
-                                        data-dismiss="modal" data-rel="14" title="Add to wishlist"
-                                        onclick="WishlistCart('wishlist_block_list', 'add', '14', '0', 1); return false;">
+                                      <a
+                                        class="addToWishlist btn btn-primary wishlistProd_14"
+                                        href="#"
+                                        data-dismiss="modal"
+                                        data-rel="14"
+                                        title="Add to wishlist"
+                                        onclick="WishlistCart('wishlist_block_list', 'add', '14', '0', 1); return false;"
+                                      >
                                         <i class="material-icons wishlist-icon">favorite_border</i>
                                         <span class="wishlist-name">Add to Wishlist</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -1117,8 +1191,7 @@
                                       <h5 class="cat-name">treats</h5>
                                       <div class="ttproducthover">
                                         <div class="quick-view-block">
-                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                            title="Quick view">
+                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                             <i class="material-icons quick_view_icon">visibility</i>
                                             <span>Quick view</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1129,19 +1202,20 @@
                                           <div class="product-add-to-cart">
                                             <form
                                               action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                              method="post" class="add-to-cart-or-refresh">
+                                              method="post"
+                                              class="add-to-cart-or-refresh"
+                                            >
                                               <div class="product-quantity" style="display: none">
-                                                <input type="number" name="id_product" value="14"
-                                                  class="product_page_product_id" />
-                                                <input type="number" name="id_customization" value="0"
-                                                  class="product_customization_id" />
-                                                <input type="hidden" name="token"
-                                                  value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                <input type="number" name="qty" class="quantity_wanted input-group"
-                                                  value="1" min="1" />
+                                                <input type="number" name="id_product" value="14" class="product_page_product_id" />
+                                                <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                               </div>
-                                              <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                data-button-action="add-to-cart" title="Add to cart">
+                                              <button
+                                                class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                data-button-action="add-to-cart"
+                                                title="Add to cart"
+                                              >
                                                 <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                 <span>Add to cart</span>
@@ -1150,8 +1224,13 @@
                                           </div>
                                         </div>
                                         <div class="compare">
-                                          <a class="add_to_compare btn btn-primary" href="#" data-id-product="14"
-                                            data-dismiss="modal" title="Add to Compare">
+                                          <a
+                                            class="add_to_compare btn btn-primary"
+                                            href="#"
+                                            data-id-product="14"
+                                            data-dismiss="modal"
+                                            title="Add to Compare"
+                                          >
                                             <i class="material-icons compare_icon">equalizer</i>
                                             <span>Add to Compare</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1160,8 +1239,7 @@
                                       </div>
 
                                       <div class="hook-reviews">
-                                        <div class="comments_note" itemprop="aggregateRating" itemscope
-                                          itemtype="https://schema.org/AggregateRating">
+                                        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                           <div class="star_content clearfix">
                                             <div class="star star_on"></div>
                                             <div class="star star_on"></div>
@@ -1176,14 +1254,12 @@
                                         </div>
                                       </div>
 
-                                      <span class="h3 product-title" itemprop="name"><a
-                                          href="treats/14-hummingbird-vector-graphics.html">Screwdriver
-                                          Cocktail</a></span>
+                                      <span class="h3 product-title" itemprop="name"
+                                        ><a href="treats/14-hummingbird-vector-graphics.html">Screwdriver Cocktail</a></span
+                                      >
 
                                       <div class="product-desc-short" itemprop="description">
-                                        Lorem Ipsum is simply dummied text of
-                                        the printing and typesetting industry.
-                                        Lorem Ipsum has...
+                                        Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                       </div>
 
                                       <div class="product-price-and-shipping">
@@ -1217,21 +1293,26 @@
                             <!-- End TemplateTrip 2 product slide code -->
 
                             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="13"
-                                data-id-product-attribute="0">
+                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="13" data-id-product-attribute="0">
                                 <div class="thumbnail-container">
                                   <div class="ttproduct-image">
-                                    <a href="home/13-brown-bear-vector-graphics.html"
-                                      class="thumbnail product-thumbnail">
-                                      <img class="ttproduct-img1"
+                                    <a href="home/13-brown-bear-vector-graphics.html" class="thumbnail product-thumbnail">
+                                      <img
+                                        class="ttproduct-img1"
                                         src="../96-home_default/brown-bear-vector-graphics.jpg"
                                         alt="Blended Smoothie cocktail"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/96-large_default/brown-bear-vector-graphics.jpg"
-                                        width="290" height="290" />
-                                      <img class="fade second_image img-responsive"
+                                        width="290"
+                                        height="290"
+                                      />
+                                      <img
+                                        class="fade second_image img-responsive"
                                         src="../97-home_default/brown-bear-vector-graphics.jpg"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/97-large_default/brown-bear-vector-graphics.jpg"
-                                        alt="" width="300" height="390" />
+                                        alt=""
+                                        width="300"
+                                        height="390"
+                                      />
                                     </a>
 
                                     <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1241,9 +1322,14 @@
                                     </ul>
 
                                     <div class="wishlist">
-                                      <a class="addToWishlist btn btn-primary wishlistProd_13" href="#"
-                                        data-dismiss="modal" data-rel="13" title="Add to wishlist"
-                                        onclick="WishlistCart('wishlist_block_list', 'add', '13', '0', 1); return false;">
+                                      <a
+                                        class="addToWishlist btn btn-primary wishlistProd_13"
+                                        href="#"
+                                        data-dismiss="modal"
+                                        data-rel="13"
+                                        title="Add to wishlist"
+                                        onclick="WishlistCart('wishlist_block_list', 'add', '13', '0', 1); return false;"
+                                      >
                                         <i class="material-icons wishlist-icon">favorite_border</i>
                                         <span class="wishlist-name">Add to Wishlist</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -1256,8 +1342,7 @@
                                       <h5 class="cat-name">home</h5>
                                       <div class="ttproducthover">
                                         <div class="quick-view-block">
-                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                            title="Quick view">
+                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                             <i class="material-icons quick_view_icon">visibility</i>
                                             <span>Quick view</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1268,19 +1353,20 @@
                                           <div class="product-add-to-cart">
                                             <form
                                               action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                              method="post" class="add-to-cart-or-refresh">
+                                              method="post"
+                                              class="add-to-cart-or-refresh"
+                                            >
                                               <div class="product-quantity" style="display: none">
-                                                <input type="number" name="id_product" value="13"
-                                                  class="product_page_product_id" />
-                                                <input type="number" name="id_customization" value="0"
-                                                  class="product_customization_id" />
-                                                <input type="hidden" name="token"
-                                                  value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                <input type="number" name="qty" class="quantity_wanted input-group"
-                                                  value="1" min="1" />
+                                                <input type="number" name="id_product" value="13" class="product_page_product_id" />
+                                                <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                               </div>
-                                              <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                data-button-action="add-to-cart" title="Add to cart">
+                                              <button
+                                                class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                data-button-action="add-to-cart"
+                                                title="Add to cart"
+                                              >
                                                 <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                 <span>Add to cart</span>
@@ -1289,8 +1375,13 @@
                                           </div>
                                         </div>
                                         <div class="compare">
-                                          <a class="add_to_compare btn btn-primary" href="#" data-id-product="13"
-                                            data-dismiss="modal" title="Add to Compare">
+                                          <a
+                                            class="add_to_compare btn btn-primary"
+                                            href="#"
+                                            data-id-product="13"
+                                            data-dismiss="modal"
+                                            title="Add to Compare"
+                                          >
                                             <i class="material-icons compare_icon">equalizer</i>
                                             <span>Add to Compare</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1299,8 +1390,7 @@
                                       </div>
 
                                       <div class="hook-reviews">
-                                        <div class="comments_note" itemprop="aggregateRating" itemscope
-                                          itemtype="https://schema.org/AggregateRating">
+                                        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                           <div class="star_content clearfix">
                                             <div class="star star_on"></div>
                                             <div class="star star_on"></div>
@@ -1315,14 +1405,12 @@
                                         </div>
                                       </div>
 
-                                      <span class="h3 product-title" itemprop="name"><a
-                                          href="home/13-brown-bear-vector-graphics.html">Blended Smoothie
-                                          cocktail</a></span>
+                                      <span class="h3 product-title" itemprop="name"
+                                        ><a href="home/13-brown-bear-vector-graphics.html">Blended Smoothie cocktail</a></span
+                                      >
 
                                       <div class="product-desc-short" itemprop="description">
-                                        Lorem Ipsum is simply dummied text of
-                                        the printing and typesetting industry.
-                                        Lorem Ipsum has...
+                                        Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                       </div>
 
                                       <div class="product-price-and-shipping">
@@ -1344,21 +1432,26 @@
                             <!-- End TemplateTrip 2 product slide code -->
 
                             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="12"
-                                data-id-product-attribute="0">
+                              <article class="product-miniature js-product-miniature col-sm-4" data-id-product="12" data-id-product-attribute="0">
                                 <div class="thumbnail-container">
                                   <div class="ttproduct-image">
-                                    <a href="treats/12-mountain-fox-vector-graphics.html"
-                                      class="thumbnail product-thumbnail">
-                                      <img class="ttproduct-img1"
+                                    <a href="treats/12-mountain-fox-vector-graphics.html" class="thumbnail product-thumbnail">
+                                      <img
+                                        class="ttproduct-img1"
                                         src="../90-home_default/mountain-fox-vector-graphics.jpg"
                                         alt="Green Thumb Juice"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/90-large_default/mountain-fox-vector-graphics.jpg"
-                                        width="290" height="290" />
-                                      <img class="fade second_image img-responsive"
+                                        width="290"
+                                        height="290"
+                                      />
+                                      <img
+                                        class="fade second_image img-responsive"
                                         src="../91-home_default/mountain-fox-vector-graphics.jpg"
                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/91-large_default/mountain-fox-vector-graphics.jpg"
-                                        alt="" width="300" height="390" />
+                                        alt=""
+                                        width="300"
+                                        height="390"
+                                      />
                                     </a>
 
                                     <!-- @todo: use include file='catalog/_partials/product-flags.tpl'} -->
@@ -1368,9 +1461,14 @@
                                     </ul>
 
                                     <div class="wishlist">
-                                      <a class="addToWishlist btn btn-primary wishlistProd_12" href="#"
-                                        data-dismiss="modal" data-rel="12" title="Add to wishlist"
-                                        onclick="WishlistCart('wishlist_block_list', 'add', '12', '0', 1); return false;">
+                                      <a
+                                        class="addToWishlist btn btn-primary wishlistProd_12"
+                                        href="#"
+                                        data-dismiss="modal"
+                                        data-rel="12"
+                                        title="Add to wishlist"
+                                        onclick="WishlistCart('wishlist_block_list', 'add', '12', '0', 1); return false;"
+                                      >
                                         <i class="material-icons wishlist-icon">favorite_border</i>
                                         <span class="wishlist-name">Add to Wishlist</span>
                                         <span class="loading"><i class="material-icons">cached</i></span>
@@ -1383,8 +1481,7 @@
                                       <h5 class="cat-name">treats</h5>
                                       <div class="ttproducthover">
                                         <div class="quick-view-block">
-                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                            title="Quick view">
+                                          <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                             <i class="material-icons quick_view_icon">visibility</i>
                                             <span>Quick view</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1395,19 +1492,20 @@
                                           <div class="product-add-to-cart">
                                             <form
                                               action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
-                                              method="post" class="add-to-cart-or-refresh">
+                                              method="post"
+                                              class="add-to-cart-or-refresh"
+                                            >
                                               <div class="product-quantity" style="display: none">
-                                                <input type="number" name="id_product" value="12"
-                                                  class="product_page_product_id" />
-                                                <input type="number" name="id_customization" value="0"
-                                                  class="product_customization_id" />
-                                                <input type="hidden" name="token"
-                                                  value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                <input type="number" name="qty" class="quantity_wanted input-group"
-                                                  value="1" min="1" />
+                                                <input type="number" name="id_product" value="12" class="product_page_product_id" />
+                                                <input type="number" name="id_customization" value="0" class="product_customization_id" />
+                                                <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
                                               </div>
-                                              <button class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                data-button-action="add-to-cart" title="Add to cart">
+                                              <button
+                                                class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                data-button-action="add-to-cart"
+                                                title="Add to cart"
+                                              >
                                                 <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                 <span>Add to cart</span>
@@ -1416,8 +1514,13 @@
                                           </div>
                                         </div>
                                         <div class="compare">
-                                          <a class="add_to_compare btn btn-primary" href="#" data-id-product="12"
-                                            data-dismiss="modal" title="Add to Compare">
+                                          <a
+                                            class="add_to_compare btn btn-primary"
+                                            href="#"
+                                            data-id-product="12"
+                                            data-dismiss="modal"
+                                            title="Add to Compare"
+                                          >
                                             <i class="material-icons compare_icon">equalizer</i>
                                             <span>Add to Compare</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1426,8 +1529,7 @@
                                       </div>
 
                                       <div class="hook-reviews">
-                                        <div class="comments_note" itemprop="aggregateRating" itemscope
-                                          itemtype="https://schema.org/AggregateRating">
+                                        <div class="comments_note" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
                                           <div class="star_content clearfix">
                                             <div class="star star_on"></div>
                                             <div class="star star_on"></div>
@@ -1442,14 +1544,12 @@
                                         </div>
                                       </div>
 
-                                      <span class="h3 product-title" itemprop="name"><a
-                                          href="treats/12-mountain-fox-vector-graphics.html">Green Thumb
-                                          Juice</a></span>
+                                      <span class="h3 product-title" itemprop="name"
+                                        ><a href="treats/12-mountain-fox-vector-graphics.html">Green Thumb Juice</a></span
+                                      >
 
                                       <div class="product-desc-short" itemprop="description">
-                                        Lorem Ipsum is simply dummied text of
-                                        the printing and typesetting industry.
-                                        Lorem Ipsum has...
+                                        Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has...
                                       </div>
 
                                       <div class="product-price-and-shipping">
@@ -1576,8 +1676,7 @@
 
                   <li class="brand">
                     <div class="brand-img col-sm-2 col-xs-12">
-                      <a href="brand/2-graphic-corner.html"><img src="../img/m/2-small_default.jpg"
-                          alt="Graphic Corner" /></a>
+                      <a href="brand/2-graphic-corner.html"><img src="../img/m/2-small_default.jpg" alt="Graphic Corner" /></a>
                     </div>
                     <div class="brand-desc col-sm-10 col-xs-12">
                       <div class="brand-infos">
@@ -1594,8 +1693,7 @@
 
                   <li class="brand">
                     <div class="brand-img col-sm-2 col-xs-12">
-                      <a href="brand/1-studio-design.html"><img src="../img/m/1-small_default.jpg"
-                          alt="Studio Design" /></a>
+                      <a href="brand/1-studio-design.html"><img src="../img/m/1-small_default.jpg" alt="Studio Design" /></a>
                     </div>
                     <div class="brand-desc col-sm-10 col-xs-12">
                       <div class="brand-infos">
@@ -1614,11 +1712,10 @@
             </div>
           </div>
         </section>
-        <%@include file="/componants/footer.jsp" %>
+        <%@include file="/components/footer.jsp" %>
       </div>
     </main>
 
     <script src="js/bottom-8d0d2558.js"></script>
-</body>
-
+  </body>
 </html>

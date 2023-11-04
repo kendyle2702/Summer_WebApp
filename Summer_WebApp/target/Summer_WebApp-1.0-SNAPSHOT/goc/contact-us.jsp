@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%@include file="/components/head.jsp" %>
+  </head>
 
-<head>
-  <%@include file="/componants/head.jsp" %>
-</head>
-
-<body id="contact" class="lang-en country-us currency-usd layout-left-column page-contact tax-display-disabled"
-  itemscope itemtype="http://schema.org/WebPage">
-  <%@include file="/componants/header.jsp" %>
+  <body
+    id="contact"
+    class="lang-en country-us currency-usd layout-left-column page-contact tax-display-disabled"
+    itemscope
+    itemtype="http://schema.org/WebPage"
+  >
+    <%@include file="/components/header.jsp" %>
     <div class="ttloading-bg spinner"></div>
 
     <div class="newsletter-pop"></div>
@@ -63,8 +66,7 @@
               <section id="main">
                 <section id="content" class="page-content card card-block">
                   <section class="contact-form">
-                    <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/contact-us" method="post"
-                      enctype="multipart/form-data">
+                    <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/contact-us" method="post" enctype="multipart/form-data">
                       <section class="form-fields">
                         <div class="form-group row">
                           <div class="col-md-9 col-md-offset-3">
@@ -85,8 +87,7 @@
                         <div class="form-group row">
                           <label class="col-md-3 form-control-label">Email address</label>
                           <div class="col-md-6">
-                            <input class="form-control" name="from" type="email" value=""
-                              placeholder="your@email.com" />
+                            <input class="form-control" name="from" type="email" value="" placeholder="your@email.com" />
                           </div>
                         </div>
 
@@ -95,16 +96,13 @@
                           <div class="col-md-6">
                             <input type="file" name="fileUpload" class="filestyle" data-buttonText="Choose file" />
                           </div>
-                          <span class="col-md-3 form-control-comment">
-                            optional
-                          </span>
+                          <span class="col-md-3 form-control-comment"> optional </span>
                         </div>
 
                         <div class="form-group row">
                           <label class="col-md-3 form-control-label">Message</label>
                           <div class="col-md-9">
-                            <textarea class="form-control" name="message" placeholder="How can we help?"
-                              rows="3"></textarea>
+                            <textarea class="form-control" name="message" placeholder="How can we help?" rows="3"></textarea>
                           </div>
                         </div>
 
@@ -134,11 +132,10 @@
             </div>
           </div>
         </section>
-        <%@include file="/componants/footer.jsp" %>
+        <%@include file="/components/footer.jsp" %>
       </div>
     </main>
 
     <script src="/js/bottom-8d0d2558.js"></script>
-</body>
-
+  </body>
 </html>
