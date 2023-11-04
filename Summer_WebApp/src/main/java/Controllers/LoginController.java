@@ -54,7 +54,7 @@ public class LoginController extends HttpServlet {
             MD5 md5 = new MD5();
             String userName = request.getParameter("email");
             String pass = request.getParameter("password");
-            String pass_hash =md5.getMd5(pass);
+            String pass_hash = md5.getMd5(pass);
             //Account acc = aDAO.getAccountbyUsernameAndPassword(userName, pass_hash);
             boolean acc = aDAO.getAccountbyUsernameAndPassword(userName, pass_hash);
             if (acc == false) {
