@@ -45,7 +45,7 @@
                     </p>
 
                     <form
-                      action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/login?create_account=1"
+                      action="AddNewLoginController"
                       id="customer-form"
                       class="js-customer-form"
                       method="post"
@@ -67,7 +67,7 @@
                               <span class="custom-radio">
                                 <input name="id_gender" type="radio" value="1" />
                                 <span></span>
-                              </span>
+</span>
                               Male
                             </label>
                             <label class="radio-inline">
@@ -125,7 +125,7 @@
                                 pattern=".{5,}"
                                 required
                               />
-                              <span class="input-group-btn">
+<span class="input-group-btn">
                                 <button class="btn" type="button" data-action="show-password" data-text-show="Show" data-text-hide="Hide">
                                   Show
                                 </button>
@@ -139,7 +139,7 @@
                         <div class="form-group row">
                           <label class="col-md-3 form-control-label"> Birthdate </label>
                           <div class="col-md-6">
-                            <input class="form-control" name="birthday" type="text" value="" placeholder="MM/DD/YYYY" />
+                            <input class="form-control" name="birthday" type="date" value="" placeholder="MM/DD/YYYY" />
                             <span class="form-control-comment"> (E.g.: 05/31/1970) </span>
                           </div>
 
@@ -169,7 +169,7 @@
                       <footer class="form-footer clearfix">
                         <input type="hidden" name="submitCreate" value="1" />
 
-                        <button class="btn btn-primary form-control-submit float-xs-right" data-link-action="save-customer" type="submit">
+                        <button class="btn btn-primary form-control-submit float-xs-right" data-link-action="save-customer" type="submit" name="btnAddnew">
                           Save
                         </button>
                       </footer>

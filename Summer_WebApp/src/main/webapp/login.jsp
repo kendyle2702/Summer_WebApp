@@ -44,7 +44,7 @@
 
                 <section id="content" class="page-content card card-block">
                   <section class="login-form">
-                    <form id="login-form" action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/login" method="post">
+                    <form id="login-form" action="login" method="post">
                       <section>
                         <input type="hidden" name="back" value="" />
 
@@ -79,7 +79,7 @@
                           </div>
 
                           <div class="col-md-3 form-control-comment"></div>
-                        </div>
+                        </div>g
 
                         <div class="forgot-password">
                           <a href="password-recovery.html" rel="nofollow"> Forgot your password? </a>
@@ -89,7 +89,7 @@
                       <footer class="form-footer text-sm-center clearfix">
                         <input type="hidden" name="submitLogin" value="1" />
 
-                        <button id="submit-login" class="btn btn-primary" data-link-action="sign-in" type="submit" class="form-control-submit">
+                        <button id="submit-login" class="btn btn-primary" data-link-action="sign-in" type="submit"name="submit" class="form-control-submit">
                           Sign in
                         </button>
                       </footer>
@@ -98,7 +98,7 @@
                   <hr />
 
                   <div class="no-account">
-                    <a href="register.jsp" data-link-action="display-register-form"> No account? Create one here </a>
+                    <a href="register.jsp"  data-link-action="display-register-form"> No account? Create one here </a>
                   </div>
                 </section>
 

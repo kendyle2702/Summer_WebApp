@@ -17,26 +17,33 @@ import java.util.logging.Logger;
 public class DBConnection {
 
     public static Connection connect() throws SQLException {
+<<<<<<< HEAD
         String server = "LAPTOP-5ABH3PVT";
         String port = "1433";
         String database = "prj_project";
         String user = "sa";
         String password = "sa";
+=======
+        String server = "DUYDATT";
+        String port = "1433";
+        String database = "prj_project";
+        String user = "sa";
+        String password = "190803";
+>>>>>>> branch_Dat
         Connection conn = null;
+
         try {
-
-            // Create driver
+            // Đảm bảo driver đã được tạo
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            // Create Connection object
-            conn = DriverManager.getConnection("jdbc:sqlserver://"
-                    + server + ":" + port + ";databaseName="
-                    + database + ";user=" + user + ";password="
-                    + password + ";encrypt=true"
-                    + ";trustServerCertificate=true;");
 
+            // Tạo đối tượng Connection
+            conn = DriverManager.getConnection("jdbc:sqlserver://" + server + ":" + port
+                    + ";databaseName=" + database + ";user=" + user + ";password=" + password
+                    + ";encrypt=true;trustServerCertificate=true;");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return conn;
     }
 }
