@@ -11,21 +11,26 @@ import java.sql.Date;
  * @author QuocCu
  */
 public class Account {
+
     private String email;
     private String password;
     private String fullName;
     private Date birthdate;
     private String role;
+    private String sex;
+    private boolean isDeleted;
 
-    public Account(String email, String password, String fullName, Date birthdate, String role) {
+    public Account() {
+    }
+
+    public Account(String email, String password, String fullName, Date birthdate, String role, String sex, boolean isDeleted) {
         this.email = email;
         this.password = password;
         this.fullName = fullName;
         this.birthdate = birthdate;
         this.role = role;
-    }
-
-    public Account() {
+        this.sex = sex;
+        this.isDeleted = isDeleted;
     }
 
     public String getEmail() {
@@ -67,7 +72,24 @@ public class Account {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public boolean isIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
     
+
     
-    
+
 }

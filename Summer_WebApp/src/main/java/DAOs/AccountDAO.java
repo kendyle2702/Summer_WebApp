@@ -18,6 +18,7 @@ import java.util.logging.Logger;
  * @author QuocCu
  */
 public class AccountDAO {
+
     private Connection conn;
 
     public AccountDAO() {
@@ -27,7 +28,7 @@ public class AccountDAO {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public ResultSet getAll() {
         ResultSet rs = null;
         try {
@@ -38,22 +39,57 @@ public class AccountDAO {
         }
         return rs;
     }
-    
-    public Account getAccountbyUsernameAndPassword(String username, String password){
+    public Account getAccountByUsername(String username){
         Account account = null;
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from Account where email = ? and password = ?");
-            ps.setString(1, username);
-            ps.setString(2, password);
+            PreparedStatement ps = conn.prepareStatement("select * from Account where email = ?");
+            ps.setString(1,username);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                account = new Account(rs.getString("email"),rs.getString("password"),rs.getString("fullName"),rs.getDate("birhdate"),rs.getString("role"));
+            while(rs.next()){
+                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birthdate"), rs.getString("role"), rs.getString("sex"),rs.getBoolean("isDeleted"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return account;
     }
+    public Account getAccountByUsernameAndPassword(String username, String password) {
+        Account account = null;
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from Account where email =? and password=?");
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birthdate"), rs.getString("role"), rs.getString("sex"),rs.getBoolean("isDeleted"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return account;
+    }
+
+    public Account addNewAccount(Account acc) {
+        int count = 0;
+        try {
+            PreparedStatement ps = conn.prepareStatement("insert into Account values(?,?,?,?,?,?)");
+            ps.setString(1, acc.getEmail());
+            ps.setString(2, acc.getPassword());
+            ps.setString(3, acc.getFullName()); 
+            ps.setDate(4, acc.getBirthdate());
+            ps.setString(5, "member");
+            ps.setString(6, acc.getSex());
+            ps.setBoolean(7, false);
+           
+            count = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return (count == 0) ? null : acc;
+    }
     
-    
+
+
 }
