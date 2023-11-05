@@ -1,8 +1,8 @@
-<meta charset="utf-8" />
 
+<meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-<title>demo store</title>
+<title>Ice Store</title>
 <meta name="description" content="Shop powered by PrestaShop" />
 <meta name="keywords" content="" />
 

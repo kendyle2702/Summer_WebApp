@@ -73,9 +73,9 @@ public class ProductDAO {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				product = new Product(rs.getInt("productID"), rs.getString("productName"), rs.getInt("discount"),
-						rs.getInt("quantity"), rs.getString("description"), rs.getInt("categoryID"),
-						rs.getString("image"), rs.getBoolean("isDeleted"), rs.getDate("createTime"),
-						rs.getFloat("price"));
+								rs.getInt("quantity"), rs.getString("description"), rs.getInt("categoryID"),
+								rs.getString("image"), rs.getBoolean("isDeleted"), rs.getDate("createTime"),
+								rs.getFloat("price"));
 			}
 
 		} catch (SQLException ex) {
@@ -105,7 +105,7 @@ public class ProductDAO {
 		int count = 0;
 		try {
 			PreparedStatement ps = conn.prepareStatement(
-					"update product set productName =?, discount=?, quantity=?, description=?, categoryID=?,image=?,isDeleted=?, createTime=?, price=? where productID =?");
+							"update product set productName =?, discount=?, quantity=?, description=?, categoryID=?,image=?,isDeleted=?, createTime=?, price=? where productID =?");
 
 			ps.setString(1, newProduct.getProductName());
 			ps.setInt(2, newProduct.getDiscount());
@@ -139,7 +139,7 @@ public class ProductDAO {
 		ResultSet rs = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement(
-					"Select * from Product where createTime >= DATEADD(day, -7, GETDATE()) AND createTime <= GETDATE()");
+							"Select * from Product where createTime >= DATEADD(day, -7, GETDATE()) AND createTime <= GETDATE()");
 			rs = ps.executeQuery();
 		} catch (SQLException ex) {
 			Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -153,6 +153,28 @@ public class ProductDAO {
 			PreparedStatement ps = conn.prepareStatement("select * from Product where categoryID =?");
 			ps.setInt(1, cate);
 			rs = ps.executeQuery();
+		} catch (SQLException ex) {
+			Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return rs;
+	}
+
+	public ResultSet getTop10BestSeller() {
+		ResultSet rs = null;
+		try {
+			Statement st = conn.createStatement();
+			rs = st.executeQuery("SELECT TOP 10 * FROM Product ORDER BY discount DESC");
+		} catch (SQLException ex) {
+			Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return rs;
+	}
+
+	public ResultSet get5SpecialProducts() {
+		ResultSet rs = null;
+		try {
+			Statement st = conn.createStatement();
+			rs = st.executeQuery("SELECT TOP 5 * FROM Product ORDER BY productID ASC");
 		} catch (SQLException ex) {
 			Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
 		}
