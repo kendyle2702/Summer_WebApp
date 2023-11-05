@@ -181,4 +181,14 @@ public class ProductDAO {
 		return rs;
 	}
 
+	public ResultSet getAllWithCategory() {
+		ResultSet rs = null;
+		try {
+			Statement st = conn.createStatement();
+			rs = st.executeQuery("select * from Product, Category where Product.categoryID = Category.categoryID");
+		} catch (SQLException ex) {
+			Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return rs;
+	}
 }
