@@ -1,5 +1,0 @@
-Controllers\HomeController.class
-Models\Account.class
-DAOs\AccountDAO.class
-DB\DBConnection.class
-Controllers\LoginController.class
