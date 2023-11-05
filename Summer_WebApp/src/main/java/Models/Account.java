@@ -18,18 +18,19 @@ public class Account {
     private Date birthdate;
     private String role;
     private String sex;
-    
-    
+    private boolean isDeleted;
+
     public Account() {
     }
 
-    public Account(String email, String password, String fullName, Date birthdate, String role, String sex) {
+    public Account(String email, String password, String fullName, Date birthdate, String role, String sex, boolean isDeleted) {
         this.email = email;
         this.password = password;
         this.fullName = fullName;
         this.birthdate = birthdate;
         this.role = role;
         this.sex = sex;
+        this.isDeleted = isDeleted;
     }
 
     public String getEmail() {
@@ -79,5 +80,16 @@ public class Account {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
+    public boolean isIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+    
+
+    
 
 }

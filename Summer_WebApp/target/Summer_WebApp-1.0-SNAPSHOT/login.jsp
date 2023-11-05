@@ -20,7 +20,7 @@
         <nav data-depth="2" class="breadcrumb hidden-sm-down">
           <ol itemscope itemtype="http://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="index.html"><span itemprop="name">Home</span></a>
+              <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
               <meta itemprop="position" content="1" />
             </li>
 
@@ -39,7 +39,7 @@
             <div id="content-wrapper">
               <section id="main">
                 <header class="page-header">
-                  <h1 class="tt-innerpagetitle">Log in to your account</h1>
+                  <h1 class="tt-innerpagetitle"><%= (Account)session.getAttribute("acc") != null ? "":"" %>Log in to your account</h1>
                 </header>
 
                 <section id="content" class="page-content card card-block">
@@ -82,7 +82,7 @@
                         </div>g
 
                         <div class="forgot-password">
-                          <a href="password-recovery.html" rel="nofollow"> Forgot your password? </a>
+                          <a href="/login/recovery" rel="nofollow"> Forgot your password? </a>
                         </div>
                       </section>
 
@@ -98,7 +98,7 @@
                   <hr />
 
                   <div class="no-account">
-                    <a href="register.jsp"  data-link-action="display-register-form"> No account? Create one here </a>
+                    <a href="/login/register"  data-link-action="display-register-form"> No account? Create one here </a>
                   </div>
                 </section>
 
