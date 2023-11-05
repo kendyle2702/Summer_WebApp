@@ -65,6 +65,8 @@ public class LoginController extends HttpServlet {
             Cookie[] cList = request.getCookies();
             if (cList != null) {
                 for (Cookie c : cList) {
+                    c.setValue("");
+                    c.setPath("/");
                     c.setMaxAge(0);
                     response.addCookie(c);
                 }
