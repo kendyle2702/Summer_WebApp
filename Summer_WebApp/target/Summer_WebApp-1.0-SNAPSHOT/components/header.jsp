@@ -366,7 +366,7 @@
                 <div class="ttuserheading">
                     <i class="material-icons user">&#xE7FF;</i>
                     
-                            <span> My Account</span>     
+                    <span> My Account</span>     
                     <i class="material-icons expand-more">&#xE313;</i>
                     <i class="material-icons expand-less">&#xE316;</i>
                 </div>
