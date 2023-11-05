@@ -8,14 +8,12 @@ import DAOs.AccountDAO;
 import Hash.MD5;
 import Models.Account;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.sql.Date;
 
 /**
  *
@@ -26,20 +24,56 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         HttpSession session = request.getSession();
         String path = request.getRequestURI();
 
         if (path.endsWith("/login")) {
             if (session.getAttribute("acc") == null) {
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
-            } else {
+                String username = null;
+                Cookie[] cList = request.getCookies();
+                if (cList != null) {
+                    boolean logged = false;
+                    for (Cookie c : cList) {
+                        if (c.getName().equals("login")) {
+                            username = c.getValue();
+                            logged = true;
+                            break;
+                        }
+                    }
+                    if (logged) {
+                        AccountDAO aDAO = new AccountDAO();
+                        Account acc = aDAO.getAccountByUsername(username);
+                        if (acc != null) {
+                            session.setAttribute("acc", acc);
+                        }
+                        response.sendRedirect("/");
+                    } else {
+                        request.getRequestDispatcher("/login.jsp").forward(request, response);
+                    }
+                } else {
+                    request.getRequestDispatcher("/login.jsp").forward(request, response);
+                }
+            }
+            else{
                 response.sendRedirect("/");
             }
-        } else if (path.startsWith("/login/register")) {
+        } else if (path.endsWith("/login/register")) {
             request.getRequestDispatcher("/register.jsp").forward(request, response);
-        } else if (path.startsWith("/login/recovery")) {
+        } else if (path.endsWith("/login/recovery")) {
             request.getRequestDispatcher("/password-recovery.jsp").forward(request, response);
+        } else if (path.endsWith("/login/out")) {
+            Cookie[] cList = request.getCookies();
+            if (cList != null) {
+                for (Cookie c : cList) {
+                    c.setValue("");
+                    c.setPath("/");
+                    c.setMaxAge(0);
+                    response.addCookie(c);
+                }
+
+            }
+            session.invalidate();
+            response.sendRedirect("/");
         }
     }
 
@@ -53,34 +87,16 @@ public class LoginController extends HttpServlet {
             String userName = request.getParameter("email");
             String pass = request.getParameter("password");
             String pass_hash = MD5.getMd5(pass);
-            Account acc = aDAO.getAccountbyUsernameAndPassword(userName, pass_hash);
+            Account acc = aDAO.getAccountByUsernameAndPassword(userName, pass_hash);
             if (acc == null) {
+                session.setAttribute("isSuccess", "false");
                 response.sendRedirect("/login");
             } else {
                 // thêm att là acc de tien lay thong tin qua các trang khác
                 session.setAttribute("acc", acc);
-                session.setAttribute("username", userName);
-
                 Cookie c = new Cookie("login", userName);
                 c.setMaxAge(24 * 60 * 60 * 3);
                 response.addCookie(c);
-                response.sendRedirect("/");
-            }
-        }
-        if (request.getParameter("btnAddnew") != null) {
-            String fullname = request.getParameter("fullName");
-            String gen = request.getParameter("id_gender");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            String pass_hash = MD5.getMd5(password);
-            Date birthday = Date.valueOf(request.getParameter("birthday"));
-            String role = "member";
-            AccountDAO accnew = new AccountDAO();
-            Account newAccount = new Account(email, pass_hash, fullname, birthday, role, gen, false);
-            Account account = accnew.addNewAccount(newAccount);
-            if (account == null) {
-                response.sendRedirect("/login/register");
-            } else {
                 response.sendRedirect("/");
             }
         }

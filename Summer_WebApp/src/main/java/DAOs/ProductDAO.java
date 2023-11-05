@@ -73,9 +73,9 @@ public class ProductDAO {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				product = new Product(rs.getInt("productID"), rs.getString("productName"), rs.getInt("discount"),
-								rs.getInt("quantity"), rs.getString("description"), rs.getInt("categoryID"),
-								rs.getString("image"), rs.getBoolean("isDeleted"), rs.getDate("createTime"),
-								rs.getFloat("price"));
+						rs.getInt("quantity"), rs.getString("description"), rs.getInt("categoryID"),
+						rs.getString("image"), rs.getBoolean("isDeleted"), rs.getDate("createTime"),
+						rs.getFloat("price"));
 			}
 
 		} catch (SQLException ex) {
@@ -105,7 +105,7 @@ public class ProductDAO {
 		int count = 0;
 		try {
 			PreparedStatement ps = conn.prepareStatement(
-							"update product set productName =?, discount=?, quantity=?, description=?, categoryID=?,image=?,isDeleted=?, createTime=?, price=? where productID =?");
+					"update product set productName =?, discount=?, quantity=?, description=?, categoryID=?,image=?,isDeleted=?, createTime=?, price=? where productID =?");
 
 			ps.setString(1, newProduct.getProductName());
 			ps.setInt(2, newProduct.getDiscount());
@@ -139,7 +139,7 @@ public class ProductDAO {
 		ResultSet rs = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement(
-							"Select * from Product where createTime >= DATEADD(day, -7, GETDATE()) AND createTime <= GETDATE()");
+					"Select * from Product where createTime >= DATEADD(day, -7, GETDATE()) AND createTime <= GETDATE()");
 			rs = ps.executeQuery();
 		} catch (SQLException ex) {
 			Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);

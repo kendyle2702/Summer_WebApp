@@ -14,7 +14,7 @@ public class Address {
     private String name;
     private String detailAddress;
     private  String email;
-        private boolean isDeleted;
+    private boolean isDeleted;
 
 
     public Address() {
