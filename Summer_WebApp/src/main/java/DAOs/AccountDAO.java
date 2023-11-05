@@ -56,7 +56,7 @@ public class AccountDAO {
     public Account getAccountByUsernameAndPassword(String username, String password) {
         Account account = null;
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from Account where [email] = ? and [password] = ?");
+            PreparedStatement ps = conn.prepareStatement("select * from Account where email =? and password=?");
             ps.setString(1, username);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();

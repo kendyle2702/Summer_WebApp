@@ -53,19 +53,20 @@ public class LoginController extends HttpServlet {
                 } else {
                     request.getRequestDispatcher("/login.jsp").forward(request, response);
                 }
-            } else {
+            }
+            else{
                 response.sendRedirect("/");
             }
-        } else if (path.startsWith("/login/register")) {
-
+        } else if (path.endsWith("/login/register")) {
             request.getRequestDispatcher("/register.jsp").forward(request, response);
-        } else if (path.startsWith("/login/recovery")) {
-
+        } else if (path.endsWith("/login/recovery")) {
             request.getRequestDispatcher("/password-recovery.jsp").forward(request, response);
         } else if (path.endsWith("/login/out")) {
             Cookie[] cList = request.getCookies();
             if (cList != null) {
                 for (Cookie c : cList) {
+                    c.setValue("");
+                    c.setPath("/");
                     c.setMaxAge(0);
                     response.addCookie(c);
                 }

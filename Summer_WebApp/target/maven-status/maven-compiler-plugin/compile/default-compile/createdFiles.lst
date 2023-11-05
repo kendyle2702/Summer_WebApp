@@ -7,7 +7,6 @@ Models\Payment.class
 Controllers\LoginController.class
 Hash\MD5.class
 Models\Category.class
-Controllers\AddNewLoginController.class
 DAOs\ProductDAO.class
 Models\Product.class
 Models\Wishlist.class

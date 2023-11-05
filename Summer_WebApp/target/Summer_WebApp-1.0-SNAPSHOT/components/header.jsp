@@ -1,5 +1,4 @@
 <%@page import="Models.Account"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <header id="header">
     <div class="header-banner"></div>
 
