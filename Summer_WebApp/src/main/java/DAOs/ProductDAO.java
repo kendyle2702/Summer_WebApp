@@ -33,7 +33,7 @@ public class ProductDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("select * from product");
+            rs = st.executeQuery("select * from Product");
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -122,7 +122,7 @@ public class ProductDAO {
     public void delete(String productID) {
         boolean isDelete = true;
         try {
-            PreparedStatement ps = conn.prepareStatement("update product set isDeleted=?  where productID =?");
+            PreparedStatement ps = conn.prepareStatement("update Product set isDeleted=?  where productID =?");
             ps.setBoolean(1, isDelete);
             ps.executeUpdate();
         } catch (SQLException ex) {

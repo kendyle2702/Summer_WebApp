@@ -15,7 +15,7 @@
 
         <%@include file="/components/header.jsp" %>
 
-       <%        if (session.getAttribute("acc") == null) {%>
+       <%  if (session.getAttribute("acc") == null) {%>
         <div class="newsletter-pop">
             <div id="ttPopupnewsletter" class="modal fade" tabindex="-1" role="dialog">
                 <div class="ttPopupnewsletter-i" role="document" style="">

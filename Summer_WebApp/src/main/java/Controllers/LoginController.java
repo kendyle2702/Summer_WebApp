@@ -27,35 +27,42 @@ public class LoginController extends HttpServlet {
         HttpSession session = request.getSession();
         String path = request.getRequestURI();
 
-        if (path.endsWith("/login")) {
-            if (session.getAttribute("acc") == null) {
-                String username = null;
-                Cookie[] cList = request.getCookies();
-                if (cList != null) {
-                    boolean logged = false;
-                    for (Cookie c : cList) {
-                        if (c.getName().equals("login")) {
-                            username = c.getValue();
-                            logged = true;
-                            break;
-                        }
+        if (session.getAttribute("acc") != null) {
+            Account curAcc = (Account) session.getAttribute("acc");
+            if(curAcc.getRole() != "member"){
+                response.sendRedirect("/admin");
+            }
+            else{
+                response.sendRedirect("/");
+            }
+        } else if (path.endsWith("/login")) {
+            String username = null;
+            Cookie[] cList = request.getCookies();
+            if (cList != null) {
+                boolean logged = false;
+                for (Cookie c : cList) {
+                    if (c.getName().equals("login")) {
+                        username = c.getValue();
+                        logged = true;
+                        break;
                     }
-                    if (logged) {
-                        AccountDAO aDAO = new AccountDAO();
-                        Account acc = aDAO.getAccountByUsername(username);
-                        if (acc != null) {
-                            session.setAttribute("acc", acc);
-                        }
-                        response.sendRedirect("/");
+                }
+                if (logged) {
+                    AccountDAO aDAO = new AccountDAO();
+                    Account acc = aDAO.getAccountByUsername(username);
+                    if (acc != null) {
+                        session.setAttribute("acc", acc);
+                    }
+                    if (acc.getRole() != "member") {
+                        response.sendRedirect("/admin");
                     } else {
-                        request.getRequestDispatcher("/login.jsp").forward(request, response);
+                        response.sendRedirect("/");
                     }
                 } else {
                     request.getRequestDispatcher("/login.jsp").forward(request, response);
                 }
-            }
-            else{
-                response.sendRedirect("/");
+            } else {
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
         } else if (path.endsWith("/login/register")) {
             request.getRequestDispatcher("/register.jsp").forward(request, response);

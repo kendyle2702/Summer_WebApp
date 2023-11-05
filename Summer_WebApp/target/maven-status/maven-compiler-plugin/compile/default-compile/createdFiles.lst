@@ -1,4 +1,5 @@
 DAOs\CategoryDAO.class
+Controllers\ProductController.class
 Models\Address.class
 Controllers\HomeController.class
 DAOs\OrderDAO.class

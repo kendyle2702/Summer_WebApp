@@ -1,4 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="DAOs.ProductDAO"%>
 <%@page import="Models.Account"%>
+<%ProductDAO proDAO = new ProductDAO();%>
 <style>
     .ttuserheading{
         display: flex;
@@ -12,8 +15,8 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-     
-   
+
+
 </style>
 <header id="header">
     <div class="header-banner"></div>
@@ -34,7 +37,7 @@
                         <ul class="dropdown-menu hidden-sm-down" aria-labelledby="currency-selector-label">
                             <li>
                                 <a title="Euro" rel="nofollow" href="index6edc.html?SubmitCurrency=1&amp;id_currency=2"
-                                   class="dropdown-item">EUR €</a>
+                                   class="dropdown-item">EUR ?</a>
                             </li>
                             <li class="current">
                                 <a title="US Dollar" rel="nofollow" href="indexe3c8.html?SubmitCurrency=1&amp;id_currency=1"
@@ -44,7 +47,7 @@
                         <select class="link hidden-md-up" aria-labelledby="currency-selector-label">
                             <option
                                 value="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/?SubmitCurrency=1&amp;id_currency=2">
-                                EUR €
+                                EUR ?
                             </option>
                             <option
                                 value="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/?SubmitCurrency=1&amp;id_currency=1"
@@ -66,27 +69,13 @@
                     </a>
                 </h1>
             </div>
-            <%
-                if (session.getAttribute("acc") != null) {
-                    Account acc2 = (Account) session.getAttribute("acc");
-                    if (acc2.getRole() == "member") {%>
-                        <div class="top-wishlist" id="top-wishlist">
-                            <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
-                                <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
-                            </a>
-                        </div> 
-                    <%}
-                }
-                else{%>
-                    <div class="top-wishlist" id="top-wishlist">
-                            <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
-                                <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
-                            </a>
-                    </div> 
-                <%}
-            %>
-
-
+         
+            <div class="top-wishlist" id="top-wishlist">
+                <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
+                    <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
+                </a>
+            </div> 
+           
             <div class="hidden-md-up text-sm-center mobile">
                 <div id="mobile_menu">
                     <div class="float-xs-left" id="menu-icon">
@@ -113,24 +102,15 @@
                                 </a>
                                 <span class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
+                                    <%
+                                        ResultSet rsCreamh = proDAO.getProductByCategory(3);
+                                        while (rsCreamh.next()) {
+                                    %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="71-choco-browie.html"><span class="catagory">Mint
-                                                Chocolate</span></a>
+                                        <a class="ttinnermenu" href="<%= rsCreamh.getInt("productID")%>"><span class="catagory"><%= rsCreamh.getString("ProductName")%></span></a>
                                     </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="72-dark-chocolate.html"><span class="catagory">Buttered
-                                                Pecan</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="73-cornetto-chokiss.html"><span class="catagory">Strawberry</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="74-cookies-creams.html"><span class="catagory">Vanilla</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="75-avocado-corn.html"><span class="catagory">Baskin
-                                                Robbins</span></a>
-                                    </li>
+                                    <% } %>
+
                                 </ul>
                             </li>
                             <li class="level-1 parent">
@@ -139,70 +119,42 @@
                                 </a>
                                 <span class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
+                                    <%
+                                        ResultSet rsDrinkh = proDAO.getProductByCategory(4);
+                                        while (rsDrinkh.next()) {
+                                    %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="71-choco-browie.html"><span class="catagory">Black
-                                                Raspberry</span></a>
+                                        <a class="ttinnermenu" href="<%= rsDrinkh.getInt("productID")%>"><span class="catagory"><%= rsDrinkh.getString("ProductName")%></span></a>
                                     </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="72-dark-chocolate.html"><span class="catagory">Strawberry
-                                                Lemonade</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="73-cornetto-chokiss.html"><span class="catagory">Grape
-                                                Raspberry</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="74-cookies-creams.html"><span class="catagory">Crisp Apple</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="75-avocado-corn.html"><span class="catagory">Kiwi
-                                                Strawberry</span></a>
-                                    </li>
+                                    <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
                                 <a class="ttinnermenu" href="43-flavours.html"><span class="catagory">Ice Juice</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
+                                    <%
+                                        ResultSet rsJuiceh = proDAO.getProductByCategory(2);
+                                        while (rsJuiceh.next()) {
+                                    %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="61-badam-roasted.html"><span class="catagory">Apple Juice.</span></a>
+                                        <a class="ttinnermenu" href="<%= rsJuiceh.getInt("productID")%>"><span class="catagory"><%= rsJuiceh.getString("ProductName")%></span></a>
                                     </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="62-kesar-pista.html"><span class="catagory">Cranberry
-                                                Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="63-choco-treat.html"><span class="catagory">Beet Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="60-butterscotch.html"><span class="catagory">Cantaloupe
-                                                Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="64-vanilla-mini.html"><span class="catagory">Grapefruit
-                                                Juice</span></a>
-                                    </li>
+                                    <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
                                 <a class="ttinnermenu" href="40-scoops.html"><span class="catagory">Ice Pop</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
+                                    <%
+                                        ResultSet rsPoph = proDAO.getProductByCategory(1);
+                                        while (rsPoph.next()) {
+                                    %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="45-vanilla.html"><span class="catagory">Lemon Lime</span></a>
+                                        <a class="ttinnermenu" href="<%= rsPoph.getInt("productID")%>"><span class="catagory"><%= rsPoph.getString("ProductName")%></span></a>
                                     </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="46-strawberry.html"><span class="catagory">Punch Pink</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="47-pista.html"><span class="catagory">Tropical Tip</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="48-butter-scotch.html"><span class="catagory">Berry Blue</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="49-plain-pista.html"><span class="catagory">Strawberry Red</span></a>
-                                    </li>
+                                    <% } %>
                                 </ul>
                             </li>
 
@@ -371,86 +323,28 @@
                 });
             </script>
             <!-- /Module Megamenu -->
-             <%
-                if (session.getAttribute("acc") != null) {
-                    Account acc1 = (Account) session.getAttribute("acc");
-                    if (acc1.getRole() == "member") {%>
-                        <div id="_desktop_cart">
-                            <div class="blockcart cart-preview inactive"
-                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                                <div class="header">
-                                    <span class="shopping">
-                                        <i class="material-icons shopping-cart">shopping_cart</i>
-                                        <span class="hidden-sm-down">Cart</span>
-                                        <span class="cart-productsount">0</span>
-                                    </span>
-                                </div>
-                                <div class="cart_block block exclusive">
-                                    <div class="block_content">
-                                        <div class="cart_head"></div>
-                                        <div class="cart_block_list">
-                                            <p class="no-item">No products in the cart.</p>
-                                        </div>
-                                    </div>
-                                </div>
+
+            <div id="_desktop_cart">
+                <div class="blockcart cart-preview inactive"
+                     data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
+                    <div class="header">
+                        <span class="shopping">
+                            <i class="material-icons shopping-cart">shopping_cart</i>
+                            <span class="hidden-sm-down">Cart</span>
+                            <span class="cart-productsount">0</span>
+                        </span>
+                    </div>
+                    <div class="cart_block block exclusive">
+                        <div class="block_content">
+                            <div class="cart_head"></div>
+                            <div class="cart_block_list">
+                                <p class="no-item">No products in the cart.</p>
                             </div>
                         </div>
-                    <%}
-                }
-                else{%>
-                    <div id="_desktop_cart">
-                            <div class="blockcart cart-preview inactive"
-                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                                <div class="header">
-                                    <span class="shopping">
-                                        <i class="material-icons shopping-cart">shopping_cart</i>
-                                        <span class="hidden-sm-down">Cart</span>
-                                        <span class="cart-productsount">0</span>
-                                    </span>
-                                </div>
-                                <div class="cart_block block exclusive">
-                                    <div class="block_content">
-                                        <div class="cart_head"></div>
-                                        <div class="cart_block_list">
-                                            <p class="no-item">No products in the cart.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                     </div>
-                <%}
-            %>
-            
-            
-            
-            
-            
-            <%
-                if (session.getAttribute("acc") != null) {
-                    Account admin = (Account) session.getAttribute("acc");
-                    if (admin.getRole() != "member") {%>
-                    <style>
-                        #header .blockcart .header>span::after{
-                            content: '' !important;
-                        }
-                    </style>
-                   
-                    <div id="_desktop_cart">
-                        <a href="/admin">
-                            <div class="blockcart cart-preview inactive"
-                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                                <div class="header">
-                                    <span class="">
-                                        <span class="hidden-sm-down">Dashboard</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <%}
-                }
-            %>
-            
+                </div>
+            </div>
+
             <div id="_desktop_user_info">
                 <div class="ttuserheading">
                     <i class="material-icons user">&#xE7FF;</i>
