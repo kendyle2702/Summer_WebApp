@@ -1,6 +1,7 @@
 DAOs\CategoryDAO.class
 Models\Address.class
 Controllers\HomeController.class
+<<<<<<< HEAD
 DAOs\OrderDAO.class
 DAOs\AccountDAO.class
 Models\Payment.class
@@ -19,3 +20,10 @@ Models\Order.class
 DB\DBConnection.class
 DAOs\Wishlist.class
 Models\WishlistItem.class
+=======
+DAOs\AccountDAO.class
+Controllers\LoginController.class
+Hash\MD5.class
+Models\Account.class
+DB\DBConnection.class
+>>>>>>> ed22a891e3aafb4932f35ca97812d082c539733e
