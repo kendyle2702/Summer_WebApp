@@ -365,16 +365,18 @@
             <div id="_desktop_user_info">
                 <div class="ttuserheading">
                     <i class="material-icons user">&#xE7FF;</i>
-                    
-                    <span> My Account</span>     
+                    <%
+                        Account a = (Account) session.getAttribute("acc");
+                    %>
+                    <%=a != null? "<span> "+a.getFullName()+"</span>": "<span>My Account</span> "%>
                     <i class="material-icons expand-more">&#xE313;</i>
                     <i class="material-icons expand-less">&#xE316;</i>
                 </div>
                 <ul class="user-info">
                     <li>
-                        <a href="/login" title="Log in to your customer account" rel="nofollow">
+                        <a href="<%=a!=null?"/login/out":"/login"%>" title="Log in to your customer account" rel="nofollow">
                             <i class="material-icons user">&#xE7FF;</i>
-                            <span class="hidden-sm-down">Sign in</span>
+                            <%= a!=null ?"<span class=\"hidden-sm-down\">Sign Out</span>":"<span class=\"hidden-sm-down\">Sign In</span>"%>
                         </a>
                     </li>
                     <li>
