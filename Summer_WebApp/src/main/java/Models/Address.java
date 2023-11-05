@@ -14,16 +14,19 @@ public class Address {
     private String name;
     private String detailAddress;
     private  String email;
+    private boolean isDeleted;
+
 
     public Address() {
     }
 
-    public Address(int addressID, String phoneNumber, String name, String detailAddress, String email) {
+    public Address(int addressID, String phoneNumber, String name, String detailAddress, String email, boolean isDeleted) {
         this.addressID = addressID;
         this.phoneNumber = phoneNumber;
         this.name = name;
         this.detailAddress = detailAddress;
         this.email = email;
+        this.isDeleted = isDeleted;
     }
 
     public int getAddressID() {
@@ -65,6 +68,14 @@ public class Address {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public boolean isIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
     
-    
+
 }

@@ -1,6 +1,3 @@
-Controllers\HomeController.class
-Models\Account.class
-DAOs\AccountDAO.class
-DB\DBConnection.class
-Controllers\LoginController.class
-Hash\MD5.class
+Models\Payment.class
+Models\Product.class
+Models\Wishlist.class

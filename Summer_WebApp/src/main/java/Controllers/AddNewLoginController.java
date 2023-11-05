@@ -72,21 +72,20 @@ public class AddNewLoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //   processRequest(request, response);
-        if (request.getParameter("btnAddNewOrder") != null) {
-            String fullname = request.getParameter("fullName");
-            String gen = request.getParameter("id_gender");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            Date birthday = Date.valueOf(request.getParameter("birthday"));
-            AccountDAO accnew = new AccountDAO();
-            Account newAccount = new Account(email, password, fullname, birthday, gen, gen);
-            Account account = accnew.addNewProduct(newAccount);
-            if (accnew == null) {
-             //   response.sendRedirect("/AccountController/Order/CreateNew");
-            } else {
-                //response.sendRedirect("/AccountController/Order/OrderList");
-            }
-        }
+//        if (request.getParameter("btnAddNewOrder") != null) {
+//            String fullname = request.getParameter("fullName");
+//            String gen = request.getParameter("id_gender");
+//            String email = request.getParameter("email");
+//            String password = request.getParameter("password");
+//            Date birthday = Date.valueOf(request.getParameter("birthday"));
+//            AccountDAO accnew = new AccountDAO();
+//            Account newAccount = new Account(email, password, fullname, birthday,null, gen);
+//            Account account = accnew.addNewAccount(newAccount);
+//            if (account == null) {
+//             //   response.sendRedirect("/AccountController/Order/CreateNew");
+//            } else {
+//                //response.sendRedirect("/AccountController/Order/OrderList");
+//            }
+//        }
     }
 }

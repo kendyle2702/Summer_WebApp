@@ -48,7 +48,7 @@ public class AccountDAO {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birhdate"), rs.getString("role"), rs.getString("sex"));
+                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birhdate"), rs.getString("role"), rs.getString("sex"),rs.getBoolean("isDeleted"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,15 +74,18 @@ public class AccountDAO {
         return account;
     }
 
-    public Account addNewProduct(Account acc) {
+    public Account addNewAccount(Account acc) {
         int count = 0;
         try {
-            PreparedStatement ps = conn.prepareStatement("insert into product values(?,?,?,?,?,?)");
-            ps.setString(3, acc.getFullName());
-            ps.setString(6, acc.getSex());
+            PreparedStatement ps = conn.prepareStatement("insert into Account values(?,?,?,?,?,?)");
             ps.setString(1, acc.getEmail());
             ps.setString(2, acc.getPassword());
+            ps.setString(3, acc.getFullName()); 
             ps.setDate(4, acc.getBirthdate());
+            ps.setString(5, "member");
+            ps.setString(6, acc.getSex());
+            ps.setBoolean(7, false);
+           
             count = ps.executeUpdate();
 
         } catch (SQLException ex) {

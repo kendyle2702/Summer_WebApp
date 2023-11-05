@@ -9,13 +9,15 @@ package Models;
  * @author Tran Duy Dat - CE172036
  */
 public class Product {
-    private int productID , discount, quantity, categoryID;
-    private String productName , description, image;
+
+    private int productID, discount, quantity, categoryID;
+    private String productName, description, image;
+    private boolean isDeleted;
 
     public Product() {
     }
 
-    public Product(int productID, int discount, int quantity, int categoryID, String productName, String description, String image) {
+    public Product(int productID, int discount, int quantity, int categoryID, String productName, String description, String image, boolean isDeleted) {
         this.productID = productID;
         this.discount = discount;
         this.quantity = quantity;
@@ -23,6 +25,7 @@ public class Product {
         this.productName = productName;
         this.description = description;
         this.image = image;
+        this.isDeleted = isDeleted;
     }
 
     public int getProductID() {
@@ -80,5 +83,16 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public boolean isIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+ 
+
     
 }
