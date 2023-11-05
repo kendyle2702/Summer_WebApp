@@ -89,6 +89,7 @@ public class LoginController extends HttpServlet {
             String pass_hash = MD5.getMd5(pass);
             Account acc = aDAO.getAccountByUsernameAndPassword(userName, pass_hash);
             if (acc == null) {
+                session.setAttribute("isSuccess", "false");
                 response.sendRedirect("/login");
             } else {
                 // thêm att là acc de tien lay thong tin qua các trang khác

@@ -1,4 +1,18 @@
 <%@page import="Models.Account"%>
+<style>
+    .ttuserheading{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+    .ttuserheading span{
+        display: inline-block;
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 <header id="header">
     <div class="header-banner"></div>
 
@@ -50,12 +64,19 @@
                     </a>
                 </h1>
             </div>
+            <%
+                if (session.getAttribute("acc") != null) {
+                    Account acc = (Account) session.getAttribute("acc");
+                    if (acc.getRole() == "member") {%>
+                        <div class="top-wishlist" id="top-wishlist">
+                            <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
+                                <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
+                            </a>
+                        </div> 
+                    <%}
+                }
+            %>
 
-            <div class="top-wishlist" id="top-wishlist">
-                <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
-                    <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
-                </a>
-            </div>
 
             <div class="hidden-md-up text-sm-center mobile">
                 <div id="mobile_menu">
@@ -367,15 +388,15 @@
                     <%
                         Account a = (Account) session.getAttribute("acc");
                     %>
-                    <%=a != null? "<span> "+a.getFullName()+"</span>": "<span>My Account</span> "%>
+                    <%=a != null ? "<span> " + a.getFullName() + "</span>" : "<span>My Account</span> "%>
                     <i class="material-icons expand-more">&#xE313;</i>
                     <i class="material-icons expand-less">&#xE316;</i>
                 </div>
                 <ul class="user-info">
                     <li>
-                        <a href="<%=a!=null?"/login/out":"/login"%>" title="Log in to your customer account" rel="nofollow">
+                        <a href="<%=a != null ? "/login/out" : "/login"%>" title="Log in to your customer account" rel="nofollow">
                             <i class="material-icons user">&#xE7FF;</i>
-                            <%= a!=null ?"<span class=\"hidden-sm-down\">Sign Out</span>":"<span class=\"hidden-sm-down\">Sign In</span>"%>
+                            <%= a != null ? "<span class=\"hidden-sm-down\">Sign Out</span>" : "<span class=\"hidden-sm-down\">Sign In</span>"%>
                         </a>
                     </li>
                     <li>
