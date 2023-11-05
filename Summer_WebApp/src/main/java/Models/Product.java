@@ -16,12 +16,13 @@ public class Product {
     private String productName, description, image;
     private Date createTime;
     private boolean isDeleted;
+    float price;
 
     public Product() {
-        
+
     }
 
-    public Product(int productID, int discount, int quantity, int categoryID, String productName, String description, String image, boolean isDeleted,Date createTime) {
+    public Product(int productID, String productName, int discount, int quantity, String description, int categoryID, String image, boolean isDeleted, Date createTime, float price) {
         this.productID = productID;
         this.discount = discount;
         this.quantity = quantity;
@@ -31,6 +32,14 @@ public class Product {
         this.image = image;
         this.isDeleted = isDeleted;
         this.createTime = createTime;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 
     public Date getCreateTime() {
@@ -105,7 +114,4 @@ public class Product {
         this.isDeleted = isDeleted;
     }
 
- 
-
-    
 }
