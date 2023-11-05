@@ -4,6 +4,8 @@
  */
 package Models;
 
+import java.sql.Date;
+
 /**
  *
  * @author Tran Duy Dat - CE172036
@@ -12,12 +14,14 @@ public class Product {
 
     private int productID, discount, quantity, categoryID;
     private String productName, description, image;
+    private Date createTime;
     private boolean isDeleted;
 
     public Product() {
+        
     }
 
-    public Product(int productID, int discount, int quantity, int categoryID, String productName, String description, String image, boolean isDeleted) {
+    public Product(int productID, int discount, int quantity, int categoryID, String productName, String description, String image, boolean isDeleted,Date createTime) {
         this.productID = productID;
         this.discount = discount;
         this.quantity = quantity;
@@ -26,6 +30,15 @@ public class Product {
         this.description = description;
         this.image = image;
         this.isDeleted = isDeleted;
+        this.createTime = createTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public int getProductID() {
