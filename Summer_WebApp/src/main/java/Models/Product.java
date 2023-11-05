@@ -14,8 +14,8 @@ public class Product {
 
     private int productID, discount, quantity, categoryID;
     private String productName, description, image;
-    private Date createTime;
     private boolean isDeleted;
+    private Date createTime;
 
     public Product() {
         

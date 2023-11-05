@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Models\OrderItem.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Models\Address.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Controllers\LoginController.java
@@ -7,7 +6,6 @@ D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Models\WishlistItem.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\AddressDAO.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Models\Category.java
-D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Controllers\AddNewLoginController.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Controllers\HomeController.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Models\Wishlist.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\DB\DBConnection.java
@@ -20,25 +18,3 @@ D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\Wishlist.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\Models\Account.java
 D:\FPT\Major\Semester4\PRJ301\ProjectWeb\Git Remote\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\OrderDAO.java
-=======
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Controllers\LoginController.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\Wishlist.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\OrderDAO.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\Category.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\PaymentDAO.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\Account.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\Order.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\Address.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\OrderItem.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\AccountDAO.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\Wishlist.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Controllers\HomeController.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\Payment.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\Product.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\AddressDAO.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\ProductDAO.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\DAOs\CategoryDAO.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\DB\DBConnection.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Hash\MD5.java
-D:\Backend Project\Summer_WebApp\Summer_WebApp\src\main\java\Models\WishlistItem.java
->>>>>>> ed22a891e3aafb4932f35ca97812d082c539733e
