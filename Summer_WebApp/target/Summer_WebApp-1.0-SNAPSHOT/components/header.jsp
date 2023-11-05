@@ -12,6 +12,8 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+     
+   
 </style>
 <header id="header">
     <div class="header-banner"></div>
@@ -75,6 +77,13 @@
                         </div> 
                     <%}
                 }
+                else{%>
+                    <div class="top-wishlist" id="top-wishlist">
+                            <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
+                                <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
+                            </a>
+                    </div> 
+                <%}
             %>
 
 
@@ -362,26 +371,86 @@
                 });
             </script>
             <!-- /Module Megamenu -->
-            <div id="_desktop_cart">
-                <div class="blockcart cart-preview inactive"
-                     data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                    <div class="header">
-                        <span class="shopping">
-                            <i class="material-icons shopping-cart">shopping_cart</i>
-                            <span class="hidden-sm-down">Cart</span>
-                            <span class="cart-productsount">0</span>
-                        </span>
-                    </div>
-                    <div class="cart_block block exclusive">
-                        <div class="block_content">
-                            <div class="cart_head"></div>
-                            <div class="cart_block_list">
-                                <p class="no-item">No productsn the cart.</p>
+             <%
+                if (session.getAttribute("acc") != null) {
+                    Account acc = (Account) session.getAttribute("acc");
+                    if (acc.getRole() == "member") {%>
+                        <div id="_desktop_cart">
+                            <div class="blockcart cart-preview inactive"
+                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
+                                <div class="header">
+                                    <span class="shopping">
+                                        <i class="material-icons shopping-cart">shopping_cart</i>
+                                        <span class="hidden-sm-down">Cart</span>
+                                        <span class="cart-productsount">0</span>
+                                    </span>
+                                </div>
+                                <div class="cart_block block exclusive">
+                                    <div class="block_content">
+                                        <div class="cart_head"></div>
+                                        <div class="cart_block_list">
+                                            <p class="no-item">No products in the cart.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    <%}
+                }
+                else{%>
+                    <div id="_desktop_cart">
+                            <div class="blockcart cart-preview inactive"
+                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
+                                <div class="header">
+                                    <span class="shopping">
+                                        <i class="material-icons shopping-cart">shopping_cart</i>
+                                        <span class="hidden-sm-down">Cart</span>
+                                        <span class="cart-productsount">0</span>
+                                    </span>
+                                </div>
+                                <div class="cart_block block exclusive">
+                                    <div class="block_content">
+                                        <div class="cart_head"></div>
+                                        <div class="cart_block_list">
+                                            <p class="no-item">No products in the cart.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
-                </div>
-            </div>
+                <%}
+            %>
+            
+            
+            
+            
+            
+            <%
+                if (session.getAttribute("acc") != null) {
+                    Account admin = (Account) session.getAttribute("acc");
+                    if (admin.getRole() != "member") {%>
+                    <style>
+                        #header .blockcart .header>span::after{
+                            content: '' !important;
+                        }
+                    </style>
+                   
+                    <div id="_desktop_cart">
+                        <a href="/admin">
+                            <div class="blockcart cart-preview inactive"
+                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
+                                <div class="header">
+                                    <span class="">
+                                        <span class="hidden-sm-down">Dashboard</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <%}
+                }
+            %>
+            
             <div id="_desktop_user_info">
                 <div class="ttuserheading">
                     <i class="material-icons user">&#xE7FF;</i>
