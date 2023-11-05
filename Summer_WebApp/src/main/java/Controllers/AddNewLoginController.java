@@ -90,6 +90,3 @@ public class AddNewLoginController extends HttpServlet {
         }
     }
 }
-
-
-}
