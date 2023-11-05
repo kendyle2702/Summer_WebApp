@@ -21,7 +21,9 @@ public class DBConnection {
         String port = "1433";
         String database = "prj_project";
         String user = "sa";
+
         String password = "123456";
+
         Connection conn = null;
 
         try {

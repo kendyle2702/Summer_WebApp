@@ -79,7 +79,7 @@
                           </div>
 
                           <div class="col-md-3 form-control-comment"></div>
-                        </div>
+                        </div>g
 
                         <div class="forgot-password">
                           <a href="password-recovery.html" rel="nofollow"> Forgot your password? </a>
@@ -98,7 +98,7 @@
                   <hr />
 
                   <div class="no-account">
-                    <a href="register.jsp" data-link-action="display-register-form"> No account? Create one here </a>
+                    <a href="register.jsp"  data-link-action="display-register-form"> No account? Create one here </a>
                   </div>
                 </section>
 
