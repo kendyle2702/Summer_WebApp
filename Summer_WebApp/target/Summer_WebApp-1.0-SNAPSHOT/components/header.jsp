@@ -44,10 +44,13 @@
 		if(filter.length === 0){
 			searchBox.css("display", "none")
 		}else{
+			const inputSearchRect = document.querySelector("#search_query_top").getBoundingClientRect()
+			console.log(inputSearchRect)
 			searchBox.css({
 				"display": "block",
-				"top": "138px",
-				"left": "770px"
+				"position": "fixed",
+				"top": inputSearchRect.bottom - (inputSearchRect.height/2),
+				"left": inputSearchRect.left 
 			})
 		}
 	})	
