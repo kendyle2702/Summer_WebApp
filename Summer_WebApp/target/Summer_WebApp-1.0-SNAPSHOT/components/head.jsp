@@ -27,8 +27,7 @@
         href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/img/favicon.ico?1615016276" />
 
 <link rel="stylesheet" href="/css/theme-91857b59.css" type="text/css" media="all" />
-<link rel="stylesheet" href="/css/theme-086d4259.css" type="text/css" media="all" />
-<link rel="stylesheet" href="/css/theme-dd366259.css" type="text/css" media="all" />
+
 
 <script>
         var added_to_wishlist =
