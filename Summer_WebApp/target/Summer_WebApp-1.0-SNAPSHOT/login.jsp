@@ -20,7 +20,7 @@
         <nav data-depth="2" class="breadcrumb hidden-sm-down">
           <ol itemscope itemtype="http://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="index.html"><span itemprop="name">Home</span></a>
+              <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
               <meta itemprop="position" content="1" />
             </li>
 
@@ -82,7 +82,7 @@
                         </div>g
 
                         <div class="forgot-password">
-                          <a href="password-recovery.html" rel="nofollow"> Forgot your password? </a>
+                          <a href="/register.jsp" rel="nofollow"> Forgot your password? </a>
                         </div>
                       </section>
 
