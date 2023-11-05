@@ -45,7 +45,7 @@
                     </p>
 
                     <form
-                      action="AddNewLoginController"
+                      action="login"
                       id="customer-form"
                       class="js-customer-form"
                       method="post"
@@ -65,14 +65,14 @@
                           <div class="col-md-6 form-control-valign">
                             <label class="radio-inline">
                               <span class="custom-radio">
-                                <input name="id_gender" type="radio" value="1" />
+                                <input name="id_gender" type="radio" value="Male" />
                                 <span></span>
 </span>
                               Male
                             </label>
                             <label class="radio-inline">
                               <span class="custom-radio">
-                                <input name="id_gender" type="radio" value="2" />
+                                <input name="id_gender" type="radio" value="Female" />
                                 <span></span>
                               </span>
                               Female
