@@ -11,6 +11,7 @@ import java.sql.Date;
  * @author Tran Duy Dat - CE172036
  */
 public class Order {
+
     private int orderID;
     private Date time;
     private String orderStatus;
@@ -18,11 +19,12 @@ public class Order {
     private String description;
     private String email;
     private String addressID;
+    private boolean isDeleted;
 
     public Order() {
     }
-
-    public Order(int orderID, Date time, String orderStatus, int total, String description, String email, String addressID) {
+    
+    public Order(int orderID, Date time, String orderStatus, int total, String description, String email, String addressID, boolean isDeleted) {
         this.orderID = orderID;
         this.time = time;
         this.orderStatus = orderStatus;
@@ -30,7 +32,9 @@ public class Order {
         this.description = description;
         this.email = email;
         this.addressID = addressID;
+        this.isDeleted = isDeleted;
     }
+
 
     public int getOrderID() {
         return orderID;
@@ -87,7 +91,15 @@ public class Order {
     public void setAddressID(String addressID) {
         this.addressID = addressID;
     }
-    
-    
-    
+
+    public boolean isIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+   
+
 }

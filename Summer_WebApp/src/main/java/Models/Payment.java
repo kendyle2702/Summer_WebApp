@@ -11,14 +11,18 @@ import java.sql.Date;
  * @author Tran Duy Dat - CE172036
  */
 public class Payment {
+
     private int paymentID, fee, totalPayment, orderID;
-    private String paymentMethod, paymentStatus ;
+    private String paymentMethod, paymentStatus;
     private Date time;
+    private boolean isDeleted;
 
     public Payment() {
     }
 
-    public Payment(int paymentID, int fee, int totalPayment, int orderID, String paymentMethod, String paymentStatus, Date time) {
+
+
+    public Payment(int paymentID, int fee, int totalPayment, int orderID, String paymentMethod, String paymentStatus, Date time, boolean isDeleted) {
         this.paymentID = paymentID;
         this.fee = fee;
         this.totalPayment = totalPayment;
@@ -26,6 +30,7 @@ public class Payment {
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
         this.time = time;
+        this.isDeleted = isDeleted;
     }
 
     public int getPaymentID() {
@@ -83,6 +88,15 @@ public class Payment {
     public void setTime(Date time) {
         this.time = time;
     }
+
+    public boolean isIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
     
-    
+
+  
 }

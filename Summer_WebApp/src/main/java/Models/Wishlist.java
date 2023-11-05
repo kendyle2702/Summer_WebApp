@@ -11,18 +11,21 @@ import java.sql.Date;
  * @author Tran Duy Dat - CE172036
  */
 public class Wishlist {
+
     private Date time;
     private int wishlistID;
     private String wishlistName, email;
+    private boolean isDeleted;
 
     public Wishlist() {
     }
 
-    public Wishlist(Date time, int wishlistID, String wishlistName, String email) {
+    public Wishlist(Date time, int wishlistID, String wishlistName, String email, boolean isDeleted) {
         this.time = time;
         this.wishlistID = wishlistID;
         this.wishlistName = wishlistName;
         this.email = email;
+        this.isDeleted = isDeleted;
     }
 
     public Date getTime() {
@@ -56,6 +59,15 @@ public class Wishlist {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public boolean isIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
     
     
 }

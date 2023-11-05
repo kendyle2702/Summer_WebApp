@@ -9,17 +9,20 @@ package Models;
  * @author Tran Duy Dat - CE172036
  */
 public class Category {
+
     private int categoryID;
     private String categoryName;
     private String description;
+    private boolean isDeleted;
 
     public Category() {
     }
 
-    public Category(int categoryID, String categoryName, String description) {
+    public Category(int categoryID, String categoryName, String description, boolean isDeleted) {
         this.categoryID = categoryID;
         this.categoryName = categoryName;
         this.description = description;
+        this.isDeleted = isDeleted;
     }
 
     public int getCategoryID() {
@@ -45,5 +48,15 @@ public class Category {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public boolean isIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
     
+
 }

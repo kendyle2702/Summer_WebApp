@@ -48,7 +48,7 @@ public class AccountDAO {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birhdate"), rs.getString("role"), rs.getString("sex"));
+                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birhdate"), rs.getString("role"), rs.getString("sex"),rs.getBoolean("isDeleted"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);

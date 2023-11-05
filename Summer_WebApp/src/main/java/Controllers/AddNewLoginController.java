@@ -80,9 +80,9 @@ public class AddNewLoginController extends HttpServlet {
             String password = request.getParameter("password");
             Date birthday = Date.valueOf(request.getParameter("birthday"));
             AccountDAO accnew = new AccountDAO();
-            Account newAccount = new Account(email, password, fullname, birthday, gen, gen);
+            Account newAccount = new Account(email, password, fullname, birthday,null, gen);
             Account account = accnew.addNewProduct(newAccount);
-            if (accnew == null) {
+            if (account == null) {
              //   response.sendRedirect("/AccountController/Order/CreateNew");
             } else {
                 //response.sendRedirect("/AccountController/Order/OrderList");
@@ -91,14 +91,4 @@ public class AddNewLoginController extends HttpServlet {
     }
 }
 
-/**
- * Returns a short description of the servlet.
- *
- * @return a String containing servlet description
- */
-@Override
-public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
-}
