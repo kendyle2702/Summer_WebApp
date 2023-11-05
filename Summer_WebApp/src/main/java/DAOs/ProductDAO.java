@@ -164,4 +164,15 @@ public class ProductDAO {
         }
         return rs;
     }
+    
+    public ResultSet get5SpecialProducts() {
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("SELECT TOP 5 * FROM Product ORDER BY productID ASC");
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
 }

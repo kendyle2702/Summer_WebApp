@@ -68,8 +68,8 @@
             </div>
             <%
                 if (session.getAttribute("acc") != null) {
-                    Account acc = (Account) session.getAttribute("acc");
-                    if (acc.getRole() == "member") {%>
+                    Account acc2 = (Account) session.getAttribute("acc");
+                    if (acc2.getRole() == "member") {%>
                         <div class="top-wishlist" id="top-wishlist">
                             <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
                                 <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
@@ -373,8 +373,8 @@
             <!-- /Module Megamenu -->
              <%
                 if (session.getAttribute("acc") != null) {
-                    Account acc = (Account) session.getAttribute("acc");
-                    if (acc.getRole() == "member") {%>
+                    Account acc1 = (Account) session.getAttribute("acc");
+                    if (acc1.getRole() == "member") {%>
                         <div id="_desktop_cart">
                             <div class="blockcart cart-preview inactive"
                                  data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">

@@ -22,7 +22,7 @@ public class Product {
         
     }
 
-    public Product(int productID, String productName, int discount, int quantity, int categoryID, String description, String image, boolean isDeleted,Date createTime,float price) {
+    public Product(int productID, String productName, int discount, int quantity, String description ,int categoryID, String image, boolean isDeleted,Date createTime,float price) {
         this.productID = productID;
         this.discount = discount;
         this.quantity = quantity;
@@ -114,8 +114,4 @@ public class Product {
     public void setIsDeleted(boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
-
- 
-
-    
 }
