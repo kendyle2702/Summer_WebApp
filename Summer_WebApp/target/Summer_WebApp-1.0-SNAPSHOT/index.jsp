@@ -1,6 +1,6 @@
 <%@page import="DAOs.ProductDAO" %>
 <%@page import="java.sql.ResultSet" %>
- <%! ProductDAO pDAO = new ProductDAO();%>
+ 
  
 <!DOCTYPE html>
 <html lang="en">

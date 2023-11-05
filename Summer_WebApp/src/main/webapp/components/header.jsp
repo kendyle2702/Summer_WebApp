@@ -1,4 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="DAOs.ProductDAO"%>
 <%@page import="Models.Account"%>
+ <%! ProductDAO pDAO = new ProductDAO();%>
 <style>
     .ttuserheading{
         display: flex;
@@ -113,24 +116,15 @@
                                 </a>
                                 <span class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="71-choco-browie.html"><span class="catagory">Mint
-                                                Chocolate</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="72-dark-chocolate.html"><span class="catagory">Buttered
-                                                Pecan</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="73-cornetto-chokiss.html"><span class="catagory">Strawberry</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="74-cookies-creams.html"><span class="catagory">Vanilla</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="75-avocado-corn.html"><span class="catagory">Baskin
-                                                Robbins</span></a>
-                                    </li>
+							<%														
+								ResultSet rsCreamh = pDAO.getProductByCategory(3);
+                                                        while (rsCreamh.next()) {
+                                                    %>
+										<li class="level-2">
+											<a class="ttinnermenu" href="<%= rsCreamh.getInt("productID")%>"><span class="catagory"><%= rsCreamh.getString("ProductName")%></span></a>
+										</li>
+                                     <% } %>
+                                    
                                 </ul>
                             </li>
                             <li class="level-1 parent">
@@ -139,70 +133,42 @@
                                 </a>
                                 <span class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="71-choco-browie.html"><span class="catagory">Black
-                                                Raspberry</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="72-dark-chocolate.html"><span class="catagory">Strawberry
-                                                Lemonade</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="73-cornetto-chokiss.html"><span class="catagory">Grape
-                                                Raspberry</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="74-cookies-creams.html"><span class="catagory">Crisp Apple</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="75-avocado-corn.html"><span class="catagory">Kiwi
-                                                Strawberry</span></a>
-                                    </li>
+                                    <%														
+								ResultSet rsDrinkh = pDAO.getProductByCategory(4);
+                                                        while (rsDrinkh.next()) {
+                                                    %>
+										<li class="level-2">
+											<a class="ttinnermenu" href="<%= rsDrinkh.getInt("productID")%>"><span class="catagory"><%= rsDrinkh.getString("ProductName")%></span></a>
+										</li>
+                                     <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
                                 <a class="ttinnermenu" href="43-flavours.html"><span class="catagory">Ice Juice</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="61-badam-roasted.html"><span class="catagory">Apple Juice.</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="62-kesar-pista.html"><span class="catagory">Cranberry
-                                                Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="63-choco-treat.html"><span class="catagory">Beet Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="60-butterscotch.html"><span class="catagory">Cantaloupe
-                                                Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="64-vanilla-mini.html"><span class="catagory">Grapefruit
-                                                Juice</span></a>
-                                    </li>
+                                    <%														
+								ResultSet rsJuiceh = pDAO.getProductByCategory(2);
+                                                        while (rsJuiceh.next()) {
+                                                    %>
+										<li class="level-2">
+											<a class="ttinnermenu" href="<%= rsJuiceh.getInt("productID")%>"><span class="catagory"><%= rsJuiceh.getString("ProductName")%></span></a>
+										</li>
+                                     <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
                                 <a class="ttinnermenu" href="40-scoops.html"><span class="catagory">Ice Pop</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="45-vanilla.html"><span class="catagory">Lemon Lime</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="46-strawberry.html"><span class="catagory">Punch Pink</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="47-pista.html"><span class="catagory">Tropical Tip</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="48-butter-scotch.html"><span class="catagory">Berry Blue</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="49-plain-pista.html"><span class="catagory">Strawberry Red</span></a>
-                                    </li>
+                                    <%														
+								ResultSet rsPoph = pDAO.getProductByCategory(1);
+                                                        while (rsPoph.next()) {
+                                                    %>
+										<li class="level-2">
+											<a class="ttinnermenu" href="<%= rsPoph.getInt("productID")%>"><span class="catagory"><%= rsPoph.getString("ProductName")%></span></a>
+										</li>
+                                     <% } %>
                                 </ul>
                             </li>
 
