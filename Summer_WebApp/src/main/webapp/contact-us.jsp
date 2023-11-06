@@ -7,7 +7,7 @@
 
 <body id="contact" class="lang-en country-us currency-usd layout-left-column page-contact tax-display-disabled"
   itemscope itemtype="http://schema.org/WebPage">
-  <%@include file="/componants/header.jsp" %>
+  <%@include file="/components/header.jsp" %>
     <div class="ttloading-bg spinner"></div>
 
         <div class="newsletter-pop"></div>
@@ -134,7 +134,7 @@
             </div>
           </div>
         </section>
-        <%@include file="/componants/footer.jsp" %>
+        <%@include file="/components/footer.jsp" %>
       </div>
     </main>
 

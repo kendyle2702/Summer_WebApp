@@ -135,7 +135,7 @@
                     <div class="ttmenu-content">
                         <ul class="menu-content">
                             <li class="level-1 parent">
-                                <a href="6-drinks.html" class="ttinnermenu">
+                                <a href="/product/icream" class="ttinnermenu">
                                     <span class="catagory">Ice Cream</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
@@ -145,14 +145,14 @@
                                         while (rsCreamh.next()) {
                                     %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="<%= rsCreamh.getInt("productID")%>"><span class="catagory"><%= rsCreamh.getString("ProductName")%></span></a>
+                                        <a class="ttinnermenu" href="/product/<%= rsCreamh.getInt("productID")%>"><span class="catagory"><%= rsCreamh.getString("ProductName")%></span></a>
                                     </li>
                                     <% } %>
 
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a href="9-treats.html" class="ttinnermenu">
+                                <a href="/product/idrink" class="ttinnermenu">
                                     <span class="catagory">Ice Drink</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
@@ -162,13 +162,13 @@
                                         while (rsDrinkh.next()) {
                                     %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="<%= rsDrinkh.getInt("productID")%>"><span class="catagory"><%= rsDrinkh.getString("ProductName")%></span></a>
+                                        <a class="ttinnermenu" href="/product/<%= rsDrinkh.getInt("productID")%>"><span class="catagory"><%= rsDrinkh.getString("ProductName")%></span></a>
                                     </li>
                                     <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a class="ttinnermenu" href="43-flavours.html"><span class="catagory">Ice Juice</span></a><span
+                                <a class="ttinnermenu" href="/product/ijuice"><span class="catagory">Ice Juice</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
                                     <%
@@ -176,13 +176,13 @@
                                         while (rsJuiceh.next()) {
                                     %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="<%= rsJuiceh.getInt("productID")%>"><span class="catagory"><%= rsJuiceh.getString("ProductName")%></span></a>
+                                        <a class="ttinnermenu" href="/product/<%= rsJuiceh.getInt("productID")%>"><span class="catagory"><%= rsJuiceh.getString("ProductName")%></span></a>
                                     </li>
                                     <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a class="ttinnermenu" href="40-scoops.html"><span class="catagory">Ice Pop</span></a><span
+                                <a class="ttinnermenu" href="/product/ipop"><span class="catagory">Ice Pop</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
                                     <%
@@ -190,7 +190,7 @@
                                         while (rsPoph.next()) {
                                     %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="<%= rsPoph.getInt("productID")%>"><span class="catagory"><%= rsPoph.getString("ProductName")%></span></a>
+                                        <a class="ttinnermenu" href="/product/<%= rsPoph.getInt("productID")%>"><span class="catagory"><%= rsPoph.getString("ProductName")%></span></a>
                                     </li>
                                     <% } %>
                                 </ul>
@@ -202,118 +202,9 @@
                                 </a>
                                 <span class="icon-drop-mobile"></span>
                             </li>
-                            <li class="level-1 parent">
-                                <a class="ttinnermenu" href="6-drinks.html"><span class="catagory">Drinks</span></a><span
-                                    class="icon-drop-mobile"></span>
-                                <ul class="menu-dropdown cat-drop-menu tt-sub-auto">
-                                    <li class="level-2 parent">
-                                        <a class="ttinnermenu" href="40-scoops.html"><span class="catagory">Scoops</span></a><span
-                                            class="icon-drop-mobile"></span>
-                                        <ul class="menu-dropdown cat-drop-menu">
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="45-vanilla.html"><span class="catagory">Vanilla</span></a>
-                                            </li>
-                                            <li class="level-3 parent">
-                                                <a class="ttinnermenu" href="46-strawberry.html"><span
-                                                        class="catagory">Strawberry</span></a><span class="icon-drop-mobile"></span>
-                                                <ul class="menu-dropdown cat-drop-menu">
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="80-strawberry-juice.html"><span class="catagory">Strawberry
-                                                                Juice</span></a>
-                                                    </li>
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="81-strawberry-ice.html"><span class="catagory">Strawberry
-                                                                Ice</span></a>
-                                                    </li>
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="82-strawberry-cream.html"><span class="catagory">Strawberry
-                                                                Cream</span></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="47-pista.html"><span class="catagory">Pista</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="48-butter-scotch.html"><span class="catagory">Butter
-                                                        Scotch</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="49-plain-pista.html"><span class="catagory">Plain
-                                                        Pista</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="level-2 parent">
-                                        <a class="ttinnermenu" href="44-premium-tubs.html"><span class="catagory">Premium
-                                                Tubs</span></a><span class="icon-drop-mobile"></span>
-                                        <ul class="menu-dropdown cat-drop-menu">
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="65-vanilla-400ml.html"><span class="catagory">Vanilla
-                                                        400ml</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="66-choco-chips-400ml.html"><span class="catagory">Choco Chips
-                                                        400ml</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="67-tutti-fruitti-400ml.html"><span class="catagory">Tutti Fruitti
-                                                        400ml</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="68-pista-400ml.html"><span class="catagory">Pista
-                                                        400ml</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="69-strawberry-400ml.html"><span class="catagory">Strawberry
-                                                        400ml</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="level-2 parent">
-                                        <a class="ttinnermenu" href="70-ice-cones.html"><span class="catagory">Ice Cones</span></a><span
-                                            class="icon-drop-mobile"></span>
-                                        <ul class="menu-dropdown cat-drop-menu">
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="71-choco-browie.html"><span class="catagory">Choco
-                                                        Browie</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="72-dark-chocolate.html"><span class="catagory">Dark
-                                                        Chocolate</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="73-cornetto-chokiss.html"><span class="catagory">Cornetto
-                                                        Chokiss</span></a>
-                                            </li>
-                                            <li class="level-3 parent">
-                                                <a class="ttinnermenu" href="74-cookies-creams.html"><span class="catagory">Cookies &
-                                                        Creams</span></a><span class="icon-drop-mobile"></span>
-                                                <ul class="menu-dropdown cat-drop-menu">
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="83-cookies.html"><span class="catagory">Cookies</span></a>
-                                                    </li>
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="84-cookies-biscuit.html"><span class="catagory">Cookies
-                                                                Biscuit</span></a>
-                                                    </li>
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="85-corn-cookies.html"><span class="catagory">Corn
-                                                                Cookies</span></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="75-avocado-corn.html"><span class="catagory">Avocado
-                                                        Corn</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
+                            
                             <li class="level-1">
-                                <a href="contact-us.html" class="ttinnermenu">
+                                <a href="contact-us.jsp" class="ttinnermenu">
                                     <span class="catagory">Contact us</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
