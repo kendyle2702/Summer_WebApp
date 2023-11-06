@@ -12,6 +12,7 @@ Models\Category.class
 DAOs\ProductDAO.class
 Models\Product.class
 Models\Wishlist.class
+DAOs\WishlistDAO.class
 Models\OrderItem.class
 DAOs\AddressDAO.class
 DAOs\PaymentDAO.class

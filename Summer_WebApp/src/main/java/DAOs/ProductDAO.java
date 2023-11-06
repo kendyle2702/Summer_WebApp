@@ -49,21 +49,21 @@ public class ProductDAO {
         }
         return rs;
     }
+   
 
     public Product addNew(Product newProduct) {
         int count = 0;
         try {
-            PreparedStatement ps = conn.prepareStatement("Insert into Product values(?,?,?,?,?,?,?,?,?,?)");
-            ps.setInt(1, newProduct.getProductID());
-            ps.setString(2, newProduct.getProductName());
-            ps.setInt(3, newProduct.getDiscount());
-            ps.setInt(4, newProduct.getQuantity());
-            ps.setString(5, newProduct.getDescription());
-            ps.setInt(6, newProduct.getCategoryID());
-            ps.setString(7, newProduct.getImage());
-            ps.setBoolean(8, newProduct.isIsDeleted());
-            ps.setDate(9, newProduct.getCreateTime());
-            ps.setFloat(10, newProduct.getPrice());
+            PreparedStatement ps = conn.prepareStatement("Insert into Product values(?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, newProduct.getProductName());
+            ps.setInt(2, newProduct.getDiscount());
+            ps.setInt(3, newProduct.getQuantity());
+            ps.setString(4, newProduct.getDescription());
+            ps.setInt(5, newProduct.getCategoryID());
+            ps.setString(6, newProduct.getImage());
+            ps.setBoolean(7, newProduct.isIsDeleted());
+            ps.setDate(8, newProduct.getCreateTime());
+            ps.setFloat(9, newProduct.getPrice());
 
             count = ps.executeUpdate(); // tra ve so dong bi anh huong trong sql
 
@@ -107,7 +107,7 @@ public class ProductDAO {
         return checkID;
     }
 
-    public Product update(String pro_id, Product newProduct) {
+    public Product update(int pro_id, Product newProduct) {
         int count = 0;
         try {
             PreparedStatement ps = conn.prepareStatement("update product set productName =?, discount=?, quantity=?, description=?, categoryID=?,image=?,isDeleted=?, createTime=?, price=? where productID =?");
@@ -121,19 +121,31 @@ public class ProductDAO {
             ps.setBoolean(7, newProduct.isIsDeleted());
             ps.setDate(8, newProduct.getCreateTime());
             ps.setFloat(9, newProduct.getPrice());
-            ps.setInt(10, newProduct.getProductID());
+            ps.setInt(10, pro_id);
             count = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return (count == 0) ? null : newProduct;
     }
-
-    public void delete(String productID) {
+    
+    public void delete(int productID) {
         boolean isDelete = true;
         try {
-            PreparedStatement ps = conn.prepareStatement("update Product set isDeleted=?  where productID =?");
+            PreparedStatement ps = conn.prepareStatement("update Product set isDeleted = ?  where productID = ?");
             ps.setBoolean(1, isDelete);
+            ps.setInt(2, productID);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void sellingAgain(int productID){
+        boolean isDelete = false;
+        try {
+            PreparedStatement ps = conn.prepareStatement("update Product set isDeleted = ?  where productID = ?");
+            ps.setBoolean(1, isDelete);
+            ps.setInt(2, productID);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);

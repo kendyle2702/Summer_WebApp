@@ -22,7 +22,7 @@
 <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
 <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-
+<script src="${pageContext.request.contextPath}/js/sweetalert2.all.min.js"></script>
 <style>
     .vertical-nav-menu li a {
         font-weight: 500 !important;

@@ -22,6 +22,17 @@ public class Product {
         
     }
 
+    public Product(String productName, int discount, int quantity, String description ,int categoryID, String image, boolean isDeleted,Date createTime,float price) {
+        this.discount = discount;
+        this.quantity = quantity;
+        this.categoryID = categoryID;
+        this.productName = productName;
+        this.description = description;
+        this.image = image;
+        this.isDeleted = isDeleted;
+        this.createTime = createTime;
+        this.price = price;
+    }
     public Product(int productID, String productName, int discount, int quantity, String description ,int categoryID, String image, boolean isDeleted,Date createTime,float price) {
         this.productID = productID;
         this.discount = discount;

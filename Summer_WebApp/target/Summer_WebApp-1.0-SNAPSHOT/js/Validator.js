@@ -133,6 +133,15 @@ Validator.isPositive = (selector, invalidMessage) => {
     };
 };
 
+Validator.isPositiveFloat = (selector, invalidMessage) => {
+    return {
+        selector: selector,
+        test: function (value) {
+            return /^(\d*\.)?\d+$/.test(value) && parseFloat(value) >= 0 ? undefined : invalidMessage;
+        }
+    };
+};
+
 
 Validator.isPassword = (selector, invalidMessgae) => {
     return {
