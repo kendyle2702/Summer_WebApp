@@ -43,11 +43,10 @@ public class CategoryDAO {
     public Category addNew(Category newCategory) {
         int count = 0;
         try {
-            PreparedStatement ps = conn.prepareStatement("Insert into Category values(?,?,?,?)");
-            ps.setInt(1, newCategory.getCategoryID());
-            ps.setString(2, newCategory.getCategoryName());
-            ps.setString(3, newCategory.getDescription());
-            ps.setBoolean(4, newCategory.isIsDeleted());
+            PreparedStatement ps = conn.prepareStatement("Insert into Category values(?,?,?)");
+            ps.setString(1, newCategory.getCategoryName());
+            ps.setString(2, newCategory.getDescription());
+            ps.setBoolean(3, newCategory.isIsDeleted());
 
             count = ps.executeUpdate(); // tra ve so dong bi anh huong trong sql
 
@@ -91,7 +90,7 @@ public class CategoryDAO {
         return checkID;
     }
 
-    public Category update(String pro_id, Category newCategory) {
+    public Category update(int cate_id, Category newCategory) {
         int count = 0;
         try {
             PreparedStatement ps = conn.prepareStatement("update category set categoryName =?, description=? ,isDeleted=? where categoryID =?");
@@ -99,7 +98,7 @@ public class CategoryDAO {
             ps.setString(1, newCategory.getCategoryName());
             ps.setString(2, newCategory.getDescription());
             ps.setBoolean(3, newCategory.isIsDeleted());
-            ps.setInt(4, newCategory.getCategoryID());
+            ps.setInt(4, cate_id);
             count = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,11 +106,28 @@ public class CategoryDAO {
         return (count == 0) ? null : newCategory;
     }
 
-    public void delete(String categoryID) {
+    public void delete(int categoryID) {
         boolean isDelete = true;
         try {
-            PreparedStatement ps = conn.prepareStatement("update category set isDeleted=?  where categoryID =?");
+            PreparedStatement ps1 = conn.prepareStatement("update Category set isDeleted=?  where categoryID =?");
+            PreparedStatement ps2 = conn.prepareStatement("update Product set isDeleted=? where categoryID = ?");
+            ps1.setBoolean(1, isDelete);
+            ps2.setBoolean(1, isDelete);
+            ps1.setInt(2, categoryID);
+            ps2.setInt(2, categoryID);
+            ps1.executeUpdate();
+            ps2.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void sellingAgain(int categoryID) {
+        boolean isDelete = false;
+        try {
+            PreparedStatement ps = conn.prepareStatement("update Category set isDeleted=?  where categoryID =?");
             ps.setBoolean(1, isDelete);
+            ps.setInt(2, categoryID);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);

@@ -4,51 +4,18 @@
     Author     : QuocCu
 --%>
 
-<%@page import="Models.Category"%>
-<%@page import="DAOs.CategoryDAO"%>
-<%@page import="Models.Product"%>
+<%@page import="DAOs.OrderDAO"%>
 <%@page import="Models.Account"%>
 <%@page import="java.sql.ResultSet"%>
+<%@page import="DAOs.ProductDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <%@include file="/components/headAdmin.jsp"%>
-        <style>
-            h4{
-                padding-bottom: 20px;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
-            }
-            .form__box{
-                max-width: 1000px;
-            }
-            label{
-                text-align: end;
-            }
-            .img__box{
-                width: 100px;
-                height: 100px;
-            }
-            .img__box img{
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-            .invalid div {
-                color: red;
-            }
-            .invalid input {
-                border: 1px solid red;
-            }
-            @media screen and (max-width:768px){
-                label{
-                    text-align: start;
-                }
-            }
-        </style>
     </head>
     <body>
-        <% Account acc = (Account) session.getAttribute("acc");%>
+        <% Account acc = (Account)session.getAttribute("acc"); %>
         <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
@@ -128,7 +95,7 @@
                                                 <div class="scroll-area-xs" style="height: 150px">
                                                     <div class="scrollbar-container ps">
                                                         <ul class="nav flex-column">
-                                                            <li class="nav-item-header nav-item" style="text-transform: lowercase">Email: <%=acc.getEmail()%></li>
+                                                            <li class="nav-item-header nav-item" style="text-transform: lowercase">Email: <%=acc.getEmail() %></li>
                                                             <li class="nav-item">
                                                                 <a href="javascript:void(0);" class="nav-link">Recovery Password </a>
                                                             </li>
@@ -151,6 +118,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="app-main">
                 <div class="app-sidebar sidebar-shadow">
                     <div class="app-header__logo">
@@ -240,43 +208,60 @@
                             <div class="card mb-3">
                                 <div class="card-header-tab card-header">
                                     <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
-                                        <i class="header-icon lnr-laptop-phone mr-3 text-muted opacity-6"> </i>Detail Categories
+                                        <i class="header-icon lnr-laptop-phone mr-3 text-muted opacity-6"> </i>View Orders
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <%
-                                        Category category = (Category) session.getAttribute("viewCategory");
-                                    %>
-                                    <form action="admin" id="form-1" method="POST" class="container form__box" enctype="multipart/form-data">
-                                        <a id="stopSelling" href="/admin/category/delete/<%=category.getCategoryID()%>" style='display: none'><button class="mb-2 mr-2 btn-icon btn btn-warning "><i class="pe-7s-trash btn-icon-wrapper"></i>Stop Selling</button></a> 
-                                        <a id="sellingAgain" href="/admin/category/again/<%=category.getCategoryID()%>" style='display: none'><button class="mb-2 mr-2 btn-icon btn btn-primary"><i class="pe-7s-tools btn-icon-wrapper"> </i>Selling again</button></a> 
-                                        <div class="mt-3 mb-3 row">
-                                            <label for="categoryID" class="col-sm-2 col-form-label a">Category ID</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="categoryID" value="<%= category.getCategoryID()%>" name="categoryID" readonly>
-                                                <div class="message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label for="categoryName" class="col-sm-2 col-form-label">Category Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="categoryName" name="categoryName" value="<%= category.getCategoryName()%>">
-                                                <div class="message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label for="description" class="col-sm-2 col-form-label">Description</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" id="description" rows="3" name="description"><%= category.getDescription()%></textarea>
-                                                <div class="message"></div>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <input type="hidden" name="updateCategory" value="<%=category.isIsDeleted() %>">
-                                            <button class="btn btn-primary col-sm-1 offset-sm-2" type="submit" value="save" name="save">Save</button>
-                                            <a class="btn btn-danger col-sm-2 ms-1" href="/admin/category">Back to View Categories</a>
-                                        </div>
-                                    </form>
+                                    
+                                    <table style="width: 100%" id="example" class="table table-hover table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Order Status</th>
+                                                <th>Create Time</th>
+                                                <th>Full Name</th>
+                                                <th>Address</th>
+                                                <th>Total</th>
+                                                <th>Description</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%
+                                                OrderDAO orDao =  new OrderDAO();
+                                                ResultSet rs = orDao.getAll();;
+                                                while(rs.next()){%>
+                                                <tr>
+                                                    <td><%=rs.getInt("orderID") %></td>
+                                                    <td><%=rs.getString("orderStatus")%></td>
+                                                    <td><%=rs.getTimestamp("time") %></td>
+                                                    <td><%=rs.getString("fullName") %></td>
+                                                    <td><%=rs.getString("detailAddress")%></td>
+                                                    <td><%=rs.getInt("total")%>đ</td>
+                                                    <td><%=rs.getString("description") %></td>
+                                                    <td> <%if(rs.getString("orderStatus").equals("Pending")){%>
+                                                        <a  href="/admin/order/accept/<%=rs.getInt("orderID")%>"><button class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary"><i class="pe-7s-upload btn-icon-wrapper"></i>Accept</button></a>
+                                                        <a  href="/admin/order/decline/<%=rs.getInt("orderID")%>"><button class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"></i>Decline</button></a>
+                                                        <%}%>
+                                                    </td>
+                                                </tr>
+                                                <%}
+                                            %>
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Order Status</th>
+                                                <th>Create Time</th>
+                                                <th>Full Name</th>
+                                                <th>Address</th>
+                                                <th>Total</th>
+                                                <th>Description</th>
+                                                <th></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -284,69 +269,8 @@
                 </div>
             </div>
         </div>
-
+       
         <div class="app-drawer-overlay d-none animated fadeIn"></div>
-
-
-
-
-
         <script type="text/javascript" src="/js/main.d810cf0ae7f39f28f336.js"></script>
-
-
-        <script src="${pageContext.request.contextPath}/js/Validator.js"></script>
-
-        <script>
-            Validator({
-                form: "#form-1",
-                message: ".message", // Selector class
-                invalid: "invalid", // Tên class message
-                rules: [
-                    Validator.isRequire("#categoryName", "Product Name is required"),
-                    Validator.isLimit("#categoryName", 50, "Product Name must be less than or equal to 50 characters"),
-                ]
-            });
-
-            document.querySelector("#stopSelling").addEventListener("click", function (event) {
-                event.preventDefault();
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "Are you sure to stop selling the category?",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = document.querySelector("#stopSelling").href;
-                    }
-                });
-            });
-
-            document.querySelector("#sellingAgain").addEventListener("click", function (event) {
-                event.preventDefault();
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "Do you want to resell the category?",
-                    icon: "question",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, resell it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = document.querySelector("#sellingAgain").href;
-                    }
-                });
-            });
-            <%
-                if (!category.isIsDeleted()) {%>
-            document.querySelector("#stopSelling").style.display = 'block';
-            <%} else {%>
-            document.querySelector("#sellingAgain").style.display = 'block';
-            <%}
-            %>
-        </script>
     </body>
 </html>

@@ -51,7 +51,7 @@
         <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
-                    <div class="logo-src">Summer</div>
+                    <a href="/admin"><div class="logo-src">Summer</div></a> 
                     <div class="header__pane ml-auto">
                         <div>
                             <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -281,7 +281,7 @@
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <label for="category" class="col-sm-2 col-form-label">Description</label>
+                                            <label for="category" class="col-sm-2 col-form-label">Category</label>
                                             <div class="col-sm-10">
                                                 <select id="category" name="category" class="form-select" aria-label="Default select example">
                                                     <%
@@ -304,7 +304,7 @@
                                         </div>
                                         <div class="mb-3 row">
                                             <input type="hidden" name="addProduct" value="addProduct">
-                                            <button class="btn btn-primary col-sm-1 offset-sm-2" type="submit" value="save" name="save">Save</button>
+                                            <button class="btn btn-primary col-sm-1 offset-sm-2" type="submit" value="save" name="save">Create</button>
                                             <a class="btn btn-danger col-sm-2 ms-1" href="/admin/product">Back to View Products</a>
                                         </div>
                                     </form>

@@ -34,7 +34,7 @@ public class OrderDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("select * from [Order]");
+            rs = st.executeQuery("  select * from [Order] o inner join [Address] a on o.addressID = a.addressID inner join [Account] ac on o.email =  ac.email");
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -98,19 +98,12 @@ public class OrderDAO {
         return checkID;
     }
 
-    public Order update(String pro_id, Order newOrder) {
+    public Order update(int or_id, Order newOrder) {
         int count = 0;
         try {
-            PreparedStatement ps = conn.prepareStatement("update [order] set time =?, orderStatus=?, total=?, description=?, email=?,addressID=?,isDeleted=? where orderID =?");
-
-            ps.setTimestamp(1, newOrder.getTime());
-            ps.setInt(2, newOrder.getTotal());
-            ps.setString(3, newOrder.getDescription());
-            ps.setString(4, newOrder.getEmail());
-            ps.setInt(5, newOrder.getAddressID());
-            ps.setBoolean(6, newOrder.isIsDeleted());
-            //  ps.setInt(6, newOrder.isIsDeleted());
-            ps.setInt(7, newOrder.getOrderID());
+            PreparedStatement ps = conn.prepareStatement("update [Order] set orderStatus=? where orderID =?");
+            ps.setString(1, newOrder.getOrderStatus());
+            ps.setInt(2, or_id);
             count = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -118,11 +111,23 @@ public class OrderDAO {
         return (count == 0) ? null : newOrder;
     }
 
-    public void delete(String orderID) {
-        boolean isDelete = true;
+
+    public void acceptOrder(int orderID) {
         try {
-            PreparedStatement ps = conn.prepareStatement("update [Order] set isDeleted=?  where orderID =?");
-            ps.setBoolean(1, isDelete);
+            PreparedStatement ps = conn.prepareStatement("update [Order] set orderStatus=?  where orderID =?");
+            ps.setString(1, "Awaiting delivery");
+            ps.setInt(2,orderID);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void declineOrder(int orderID) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("update [Order] set orderStatus=?  where orderID =?");
+            ps.setString(1, "Cancelled");
+            ps.setInt(2,orderID);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);

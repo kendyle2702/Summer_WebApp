@@ -39,6 +39,7 @@ public class AccountDAO {
         }
         return rs;
     }
+    
     public Account getAccountByUsername(String username){
         Account account = null;
         try {

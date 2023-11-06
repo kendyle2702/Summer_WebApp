@@ -4,7 +4,7 @@
     Author     : QuocCu
 --%>
 
-<%@page import="Models.Category"%>
+<%@page import="Models.Order"%>
 <%@page import="DAOs.CategoryDAO"%>
 <%@page import="Models.Product"%>
 <%@page import="Models.Account"%>
@@ -240,41 +240,53 @@
                             <div class="card mb-3">
                                 <div class="card-header-tab card-header">
                                     <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
-                                        <i class="header-icon lnr-laptop-phone mr-3 text-muted opacity-6"> </i>Detail Categories
+                                        <i class="header-icon lnr-laptop-phone mr-3 text-muted opacity-6"> </i>Detail Orders
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <%
-                                        Category category = (Category) session.getAttribute("viewCategory");
+                                        Order order = (Order) session.getAttribute("viewOrder");
                                     %>
                                     <form action="admin" id="form-1" method="POST" class="container form__box" enctype="multipart/form-data">
-                                        <a id="stopSelling" href="/admin/category/delete/<%=category.getCategoryID()%>" style='display: none'><button class="mb-2 mr-2 btn-icon btn btn-warning "><i class="pe-7s-trash btn-icon-wrapper"></i>Stop Selling</button></a> 
-                                        <a id="sellingAgain" href="/admin/category/again/<%=category.getCategoryID()%>" style='display: none'><button class="mb-2 mr-2 btn-icon btn btn-primary"><i class="pe-7s-tools btn-icon-wrapper"> </i>Selling again</button></a> 
                                         <div class="mt-3 mb-3 row">
-                                            <label for="categoryID" class="col-sm-2 col-form-label a">Category ID</label>
+                                            <label for="orderID" class="col-sm-2 col-form-label a">Order ID</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="categoryID" value="<%= category.getCategoryID()%>" name="categoryID" readonly>
+                                                <input type="text" class="form-control" id="orderID" value="<%= order.getOrderID()%>" name="orderID" readonly>
                                                 <div class="message"></div>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <label for="categoryName" class="col-sm-2 col-form-label">Category Name</label>
+                                            <label for="orderStatus" class="col-sm-2 col-form-label">Order Status</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="categoryName" name="categoryName" value="<%= category.getCategoryName()%>">
+                                                <input type="text" class="form-control" id="orderStatus" name="orderStatus" value="<%= order.getOrderStatus()%>">
                                                 <div class="message"></div>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <label for="description" class="col-sm-2 col-form-label">Description</label>
+                                            <label for="createTime" class="col-sm-2 col-form-label">Create Time</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" id="description" rows="3" name="description"><%= category.getDescription()%></textarea>
+                                                <input type="text" class="form-control" id="createTime" name="createTime" value="<%= order.getTime()%>" readonly>
+                                                <div class="message"></div>
+                                            </div>
+                                        </div>  
+                                        <div class="mb-3 row">
+                                            <label for="total" class="col-sm-2 col-form-label">Total</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="total" name="total" value="<%= order.getTotal()%>" readonly>
                                                 <div class="message"></div>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <input type="hidden" name="updateCategory" value="<%=category.isIsDeleted() %>">
+                                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="email" name="email" value="<%= order.getEmail()%>" readonly>
+                                                <div class="message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <input type="hidden" name="updateOrder" value="<%=order.isIsDeleted()%>">
                                             <button class="btn btn-primary col-sm-1 offset-sm-2" type="submit" value="save" name="save">Save</button>
-                                            <a class="btn btn-danger col-sm-2 ms-1" href="/admin/category">Back to View Categories</a>
+                                            <a class="btn btn-danger col-sm-2 ms-1" href="/admin/order">Back to View Orders</a>
                                         </div>
                                     </form>
                                 </div>
@@ -302,51 +314,9 @@
                 message: ".message", // Selector class
                 invalid: "invalid", // Tên class message
                 rules: [
-                    Validator.isRequire("#categoryName", "Product Name is required"),
-                    Validator.isLimit("#categoryName", 50, "Product Name must be less than or equal to 50 characters"),
+                    
                 ]
             });
-
-            document.querySelector("#stopSelling").addEventListener("click", function (event) {
-                event.preventDefault();
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "Are you sure to stop selling the category?",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = document.querySelector("#stopSelling").href;
-                    }
-                });
-            });
-
-            document.querySelector("#sellingAgain").addEventListener("click", function (event) {
-                event.preventDefault();
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "Do you want to resell the category?",
-                    icon: "question",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, resell it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = document.querySelector("#sellingAgain").href;
-                    }
-                });
-            });
-            <%
-                if (!category.isIsDeleted()) {%>
-            document.querySelector("#stopSelling").style.display = 'block';
-            <%} else {%>
-            document.querySelector("#sellingAgain").style.display = 'block';
-            <%}
-            %>
         </script>
     </body>
 </html>

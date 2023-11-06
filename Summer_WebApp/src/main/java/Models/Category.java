@@ -17,6 +17,12 @@ public class Category {
 
     public Category() {
     }
+    
+    public Category(String categoryName, String description, boolean isDeleted) {
+        this.categoryName = categoryName;
+        this.description = description;
+        this.isDeleted = isDeleted;
+    }
 
     public Category(int categoryID, String categoryName, String description, boolean isDeleted) {
         this.categoryID = categoryID;

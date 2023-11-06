@@ -18,7 +18,7 @@
         <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
-                    <div class="logo-src">Summer</div>
+                    <a href="/admin"><div class="logo-src">Summer</div></a> 
                     <div class="header__pane ml-auto">
                         <div>
                             <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -211,8 +211,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <a href="/admin/product?isDelete=1" style='display: none'><button class="mb-2 mr-2 btn-icon btn btn-warning "><i class="pe-7s-trash btn-icon-wrapper"></i>Products Discontinued</button></a> 
-                                    <a href="/admin/product?isDelete=2" style='display: none'><button class="mb-2 mr-2 btn-icon btn btn-primary"><i class="pe-7s-tools btn-icon-wrapper"> </i>Products On Selling</button></a> 
+                                    
                                     <table style="width: 100%" id="example" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
@@ -237,7 +236,7 @@
                                                 <tr>
                                                     <td><%=rs.getInt("productID") %></td>
                                                     <td><%=rs.getString("productName") %></td>
-                                                    <td><%=rs.getFloat("price") %>đ</td>
+                                                    <td><%=rs.getInt("price") %>đ</td>
                                                     <td><%=rs.getInt("discount") %>%</td>
                                                     <td><%=rs.getInt("quantity") %></td>
                                                     <td><%=rs.getString("categoryName")%></td>
@@ -245,7 +244,7 @@
                                                     <td><%=rs.getDate("createTime")%></td>
                                                     <td><%=rs.getString("description")%></td>
                                                     <td><%=rs.getBoolean("isDeleted")== false? "<span style='color:blue'>Selling</span>":"<span style='color:red;font-weight:bold;'>Stop selling</span>"%></td>
-                                                    <td><a  href="/admin/product/view/<%=rs.getInt("productID")%>"><button style='min-width: 100px' class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary"><i class="pe-7s-tools btn-icon-wrapper"></i>View detail</button></a></td>
+                                                    <td><a  href="/admin/product/view/<%=rs.getInt("productID")%>"><button style='min-width: 80px' class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary"><i class="pe-7s-tools btn-icon-wrapper"></i>View detail</button></a></td>
                                                 </tr>
                                                 <%}
                                             %>
