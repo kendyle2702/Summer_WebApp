@@ -1,3 +1,4 @@
+<%@page import="Models.Product"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,9 @@
   <%@include file="/components/header.jsp" %>
     <div class="ttloading-bg spinner"></div>
     <div class="newsletter-pop"></div>
-
+<%
+	Product product = (Product) session.getAttribute("product");
+%>
     <main>
       <div id="page" class="">
         <nav data-depth="2" class="breadcrumb hidden-sm-down">
@@ -22,7 +25,7 @@
             </li>
 
             <li>
-              <span>ten product</span>
+              <span><%= product.getProductName()%></span>
             </li>
           </ol>
         </nav>
@@ -51,7 +54,7 @@
                                   data-image-medium-src="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/24-large_default/hummingbird-printed-t-shirt.jpg"
                                   data-image-large-src="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/24-large_default/hummingbird-printed-t-shirt.jpg"
                                   data-zoom-image="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/24-large_default/hummingbird-printed-t-shirt.jpg"
-                                  src="https://source.unsplash.com/random/870x1131" alt="" title="" itemprop="image"
+                                  src="/img/<%= product.getImage()%>" alt="" title="" itemprop="image"
                                   width="870" height="1131" />
 
                                 <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
@@ -70,7 +73,7 @@
                     </section>
                   </div>
                   <div class="col-md-7 pb-right-column">
-                    <h1 class="h1 tt-producttitle" itemprop="name">Ten Product</h1>
+                    <h1 class="h1 tt-producttitle" itemprop="name"><%= product.getProductName()%></h1>
 
 
                     <!--  /Module ProductComments -->
@@ -84,12 +87,12 @@
                         <meta itemprop="url" content="1-hummingbird-printed-t-shirt.html" />
 
                         <div class="current-price">
-                          <span itemprop="price" content="19.12">$19.12</span>
+                          <span itemprop="price" content="19.12"><%=(int)((100 - product.getDiscount()) * product.getPrice()/100 )%><sup>d</sup></span>
 
-                          <span class="discount discount-percentage">Save 20%</span>
+                          <span class="discount discount-percentage"><%= product.getDiscount() == 0 ? "": "Save " +product.getDiscount() + "%" %></span>
 
                           <div class="product-discount">
-                            <span class="regular-price">$23.90</span>
+                            <span class="regular-price"><%=product.getDiscount() != 0 ? (int)product.getPrice()+"<sup>d</sup>": ""%></span>
                           </div>
                         </div>
                       </div>
@@ -100,14 +103,7 @@
                     <div class="product-information">
                       <div id="product-description-short-1" itemprop="description">
                         <p>
-                          <span style="font-size: 13.3333px">Lorem Ipsum is simply dummy text of the printing
-                            and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged.</span>
+                          <span style="font-size: 13.3333px"><%= product.getDescription()%></span>
                         </p>
                       </div>
 
