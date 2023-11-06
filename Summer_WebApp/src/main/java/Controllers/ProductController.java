@@ -5,6 +5,8 @@
 
 package Controllers;
 
+import DAOs.ProductDAO;
+import Models.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -55,19 +57,28 @@ public class ProductController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         String path = request.getRequestURI();
+        ProductDAO pDAO = new ProductDAO();
         HttpSession session = request.getSession();
         if(path.endsWith("/product/iceCream")){
             session.setAttribute("type", 1);
-            request.getRequestDispatcher("/6-drinks.jsp").forward(request, response);
-        }else if(path.endsWith("/product/iceDrink")){
+            request.getRequestDispatcher("/category.jsp").forward(request, response);
+        }else if(path.endsWith("/product/IceDrink")){
             session.setAttribute("type", 4);
-            request.getRequestDispatcher("/6-drinks.jsp").forward(request, response);
+            request.getRequestDispatcher("/category.jsp").forward(request, response);
         }else if(path.endsWith("/product/iceJuice")){
             session.setAttribute("type", 2);
-            request.getRequestDispatcher("/6-drinks.jsp").forward(request, response);
-        }else if(path.endsWith("/product/icePop")){
+            request.getRequestDispatcher("/category.jsp").forward(request, response);
+        }else if(path.endsWith("/product/IcePop")){
             session.setAttribute("type", 3);
-            request.getRequestDispatcher("/6-drinks.jsp").forward(request, response);
+            request.getRequestDispatcher("/category.jsp").forward(request, response);
+        }else{
+            if(path.startsWith("/product/detail/")){
+                String [] str = path.split("/");
+                int productID = Integer.parseInt(str[str.length - 1]);
+                Product product = pDAO.getProduct(productID);
+                session.setAttribute("product", product);
+                request.getRequestDispatcher("/product_details.jsp").forward(request, response);
+            }
         }
     } 
 

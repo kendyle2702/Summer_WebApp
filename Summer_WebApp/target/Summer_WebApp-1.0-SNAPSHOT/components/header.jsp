@@ -1,4 +1,9 @@
+<%@page import="Models.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="DAOs.ProductDAO"%>
 <%@page import="Models.Account"%>
+<%ProductDAO proDAO = new ProductDAO();%>
 <style>
     .ttuserheading{
         display: flex;
@@ -12,9 +17,47 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-     
-   
+
+
 </style>
+<script>
+	$( document ).ready(function() {
+	let products = []
+	let filter = [];
+	$.ajax({
+        url: '/ajax',
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        success: function (response) {
+					products = response
+        },
+        error: function () {
+            alert("error ajax get products");
+        }
+    }); 
+	$("#search_query_top").on("input", function(){
+		let searchBox = $("#ui-id-1")
+		searchBox.empty()
+		filter = products.filter( fil => fil.productName.toLowerCase().trim().includes($(this).val().toLowerCase().trim()))
+		filter.forEach(product => {
+			searchBox.append(" <li class='ui-menu-item' role='presentation'> <img src='/img/"+product.image+"' class='product-img'> <a id='"+product.productID+"' class='ui-corner-all' tabindex='-1'> <span class='category'>"+product.categoryName+"</span> <span class='separator'> &gt; </span> <span class='product'>"+product.productName+"</span> <span class='price'>"+product.price+"</span> </a> </li> ");
+		});
+		console.log(filter)
+		if(filter.length === 0){
+			searchBox.css("display", "none")
+		}else{
+			const inputSearchRect = document.querySelector("#search_query_top").getBoundingClientRect()
+			console.log(inputSearchRect)
+			searchBox.css({
+				"display": "block",
+				"position": "fixed",
+				"top": inputSearchRect.bottom - (inputSearchRect.height/2),
+				"left": inputSearchRect.left 
+			})
+		}
+	})	
+});
+</script>
 <header id="header">
     <div class="header-banner"></div>
 
@@ -34,7 +77,7 @@
                         <ul class="dropdown-menu hidden-sm-down" aria-labelledby="currency-selector-label">
                             <li>
                                 <a title="Euro" rel="nofollow" href="index6edc.html?SubmitCurrency=1&amp;id_currency=2"
-                                   class="dropdown-item">EUR €</a>
+                                   class="dropdown-item">EUR ?</a>
                             </li>
                             <li class="current">
                                 <a title="US Dollar" rel="nofollow" href="indexe3c8.html?SubmitCurrency=1&amp;id_currency=1"
@@ -44,7 +87,7 @@
                         <select class="link hidden-md-up" aria-labelledby="currency-selector-label">
                             <option
                                 value="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/?SubmitCurrency=1&amp;id_currency=2">
-                                EUR €
+                                EUR ?
                             </option>
                             <option
                                 value="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/?SubmitCurrency=1&amp;id_currency=1"
@@ -61,32 +104,18 @@
             <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
                 <h1>
                     <a href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/">
-                        <img class="logo img-responsive" src="../img/demo-logo-1615016276.jpg" alt="demo store" width="185"
+                        <img class="logo img-responsive" src="/img/demo-logo-1615016276.jpg" alt="demo store" width="185"
                              height="60" />
                     </a>
                 </h1>
             </div>
-            <%
-                if (session.getAttribute("acc") != null) {
-                    Account acc2 = (Account) session.getAttribute("acc");
-                    if (acc2.getRole() == "member") {%>
-                        <div class="top-wishlist" id="top-wishlist">
-                            <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
-                                <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
-                            </a>
-                        </div> 
-                    <%}
-                }
-                else{%>
-                    <div class="top-wishlist" id="top-wishlist">
-                            <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
-                                <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
-                            </a>
-                    </div> 
-                <%}
-            %>
-
-
+         
+            <div class="top-wishlist" id="top-wishlist">
+                <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
+                    <i class="material-icons">favorite_border</i><span class="cart-wishlist-number">0</span>
+                </a>
+            </div> 
+           
             <div class="hidden-md-up text-sm-center mobile">
                 <div id="mobile_menu">
                     <div class="float-xs-left" id="menu-icon">
@@ -113,217 +142,71 @@
                                 </a>
                                 <span class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
+                                    <%
+                                        ResultSet rsCreamh = proDAO.getProductByCategory(3);
+                                        while (rsCreamh.next()) {
+                                    %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="71-choco-browie.html"><span class="catagory">Mint
-                                                Chocolate</span></a>
+                                        <a class="ttinnermenu" href="/product/detail/<%= rsCreamh.getInt("productID")%>"><span class="catagory"><%= rsCreamh.getString("ProductName")%></span></a>
                                     </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="72-dark-chocolate.html"><span class="catagory">Buttered
-                                                Pecan</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="73-cornetto-chokiss.html"><span class="catagory">Strawberry</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="74-cookies-creams.html"><span class="catagory">Vanilla</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="75-avocado-corn.html"><span class="catagory">Baskin
-                                                Robbins</span></a>
-                                    </li>
+                                    <% } %>
+
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a href="/product/iceDrink" class="ttinnermenu">
+                                <a href="/product/IceDrink" class="ttinnermenu">
                                     <span class="catagory">Ice Drink</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
+                                    <%
+                                        ResultSet rsDrinkh = proDAO.getProductByCategory(4);
+                                        while (rsDrinkh.next()) {
+                                    %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="71-choco-browie.html"><span class="catagory">Black
-                                                Raspberry</span></a>
+                                        <a class="ttinnermenu" href="/product/detail/<%= rsDrinkh.getInt("productID")%>"><span class="catagory"><%= rsDrinkh.getString("ProductName")%></span></a>
                                     </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="72-dark-chocolate.html"><span class="catagory">Strawberry
-                                                Lemonade</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="73-cornetto-chokiss.html"><span class="catagory">Grape
-                                                Raspberry</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="74-cookies-creams.html"><span class="catagory">Crisp Apple</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="75-avocado-corn.html"><span class="catagory">Kiwi
-                                                Strawberry</span></a>
-                                    </li>
+                                    <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
                                 <a class="ttinnermenu" href="/product/iceJuice"><span class="catagory">Ice Juice</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
+                                    <%
+                                        ResultSet rsJuiceh = proDAO.getProductByCategory(2);
+                                        while (rsJuiceh.next()) {
+                                    %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="61-badam-roasted.html"><span class="catagory">Apple Juice.</span></a>
+                                        <a class="ttinnermenu" href="/product/detail/<%= rsJuiceh.getInt("productID")%>"><span class="catagory"><%= rsJuiceh.getString("ProductName")%></span></a>
                                     </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="62-kesar-pista.html"><span class="catagory">Cranberry
-                                                Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="63-choco-treat.html"><span class="catagory">Beet Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="60-butterscotch.html"><span class="catagory">Cantaloupe
-                                                Juice</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="64-vanilla-mini.html"><span class="catagory">Grapefruit
-                                                Juice</span></a>
-                                    </li>
+                                    <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a class="ttinnermenu" href="/product/icePop"><span class="catagory">Ice Pop</span></a><span
+                                <a class="ttinnermenu" href="/product/IcePop"><span class="catagory">Ice Pop</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
+                                    <%
+                                        ResultSet rsPoph = proDAO.getProductByCategory(1);
+                                        while (rsPoph.next()) {
+                                    %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="45-vanilla.html"><span class="catagory">Lemon Lime</span></a>
+                                        <a class="ttinnermenu" href="/product/detail/<%= rsPoph.getInt("productID")%>"><span class="catagory"><%= rsPoph.getString("ProductName")%></span></a>
                                     </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="46-strawberry.html"><span class="catagory">Punch Pink</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="47-pista.html"><span class="catagory">Tropical Tip</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="48-butter-scotch.html"><span class="catagory">Berry Blue</span></a>
-                                    </li>
-                                    <li class="level-2">
-                                        <a class="ttinnermenu" href="49-plain-pista.html"><span class="catagory">Strawberry Red</span></a>
-                                    </li>
+                                    <% } %>
                                 </ul>
                             </li>
 
                             <li class="level-1">
-                                <a href="content/4-about-us.html" class="ttinnermenu">
+                                <a href="#" class="ttinnermenu">
                                     <span class="catagory">About us</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
                             </li>
-                            <li class="level-1 parent">
-                                <a class="ttinnermenu" href="6-drinks.html"><span class="catagory">Drinks</span></a><span
-                                    class="icon-drop-mobile"></span>
-                                <ul class="menu-dropdown cat-drop-menu tt-sub-auto">
-                                    <li class="level-2 parent">
-                                        <a class="ttinnermenu" href="40-scoops.html"><span class="catagory">Scoops</span></a><span
-                                            class="icon-drop-mobile"></span>
-                                        <ul class="menu-dropdown cat-drop-menu">
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="45-vanilla.html"><span class="catagory">Vanilla</span></a>
-                                            </li>
-                                            <li class="level-3 parent">
-                                                <a class="ttinnermenu" href="46-strawberry.html"><span
-                                                        class="catagory">Strawberry</span></a><span class="icon-drop-mobile"></span>
-                                                <ul class="menu-dropdown cat-drop-menu">
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="80-strawberry-juice.html"><span class="catagory">Strawberry
-                                                                Juice</span></a>
-                                                    </li>
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="81-strawberry-ice.html"><span class="catagory">Strawberry
-                                                                Ice</span></a>
-                                                    </li>
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="82-strawberry-cream.html"><span class="catagory">Strawberry
-                                                                Cream</span></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="47-pista.html"><span class="catagory">Pista</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="48-butter-scotch.html"><span class="catagory">Butter
-                                                        Scotch</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="49-plain-pista.html"><span class="catagory">Plain
-                                                        Pista</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="level-2 parent">
-                                        <a class="ttinnermenu" href="44-premium-tubs.html"><span class="catagory">Premium
-                                                Tubs</span></a><span class="icon-drop-mobile"></span>
-                                        <ul class="menu-dropdown cat-drop-menu">
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="65-vanilla-400ml.html"><span class="catagory">Vanilla
-                                                        400ml</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="66-choco-chips-400ml.html"><span class="catagory">Choco Chips
-                                                        400ml</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="67-tutti-fruitti-400ml.html"><span class="catagory">Tutti Fruitti
-                                                        400ml</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="68-pista-400ml.html"><span class="catagory">Pista
-                                                        400ml</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="69-strawberry-400ml.html"><span class="catagory">Strawberry
-                                                        400ml</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="level-2 parent">
-                                        <a class="ttinnermenu" href="70-ice-cones.html"><span class="catagory">Ice Cones</span></a><span
-                                            class="icon-drop-mobile"></span>
-                                        <ul class="menu-dropdown cat-drop-menu">
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="71-choco-browie.html"><span class="catagory">Choco
-                                                        Browie</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="72-dark-chocolate.html"><span class="catagory">Dark
-                                                        Chocolate</span></a>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="73-cornetto-chokiss.html"><span class="catagory">Cornetto
-                                                        Chokiss</span></a>
-                                            </li>
-                                            <li class="level-3 parent">
-                                                <a class="ttinnermenu" href="74-cookies-creams.html"><span class="catagory">Cookies &
-                                                        Creams</span></a><span class="icon-drop-mobile"></span>
-                                                <ul class="menu-dropdown cat-drop-menu">
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="83-cookies.html"><span class="catagory">Cookies</span></a>
-                                                    </li>
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="84-cookies-biscuit.html"><span class="catagory">Cookies
-                                                                Biscuit</span></a>
-                                                    </li>
-                                                    <li class="level-4">
-                                                        <a class="ttinnermenu" href="85-corn-cookies.html"><span class="catagory">Corn
-                                                                Cookies</span></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="level-3">
-                                                <a class="ttinnermenu" href="75-avocado-corn.html"><span class="catagory">Avocado
-                                                        Corn</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
+                            
                             <li class="level-1">
-                                <a href="contact-us.html" class="ttinnermenu">
+                                <a href="contact-us.jsp" class="ttinnermenu">
                                     <span class="catagory">Contact us</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
@@ -371,86 +254,111 @@
                 });
             </script>
             <!-- /Module Megamenu -->
-             <%
-                if (session.getAttribute("acc") != null) {
-                    Account acc1 = (Account) session.getAttribute("acc");
-                    if (acc1.getRole() == "member") {%>
-                        <div id="_desktop_cart">
-                            <div class="blockcart cart-preview inactive"
-                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                                <div class="header">
-                                    <span class="shopping">
-                                        <i class="material-icons shopping-cart">shopping_cart</i>
-                                        <span class="hidden-sm-down">Cart</span>
-                                        <span class="cart-productsount">0</span>
-                                    </span>
-                                </div>
-                                <div class="cart_block block exclusive">
-                                    <div class="block_content">
-                                        <div class="cart_head"></div>
-                                        <div class="cart_block_list">
-                                            <p class="no-item">No products in the cart.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <%}
-                }
-                else{%>
-                    <div id="_desktop_cart">
-                            <div class="blockcart cart-preview inactive"
-                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                                <div class="header">
-                                    <span class="shopping">
-                                        <i class="material-icons shopping-cart">shopping_cart</i>
-                                        <span class="hidden-sm-down">Cart</span>
-                                        <span class="cart-productsount">0</span>
-                                    </span>
-                                </div>
-                                <div class="cart_block block exclusive">
-                                    <div class="block_content">
-                                        <div class="cart_head"></div>
-                                        <div class="cart_block_list">
-                                            <p class="no-item">No products in the cart.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                <%}
-            %>
+
+                    <%
+                        Account account = (Account) session.getAttribute("acc");
+					List<Product> cart = (List<Product>) session.getAttribute("cart");
+												if(account == null || cart == null){
+												%>
+									<div id="_desktop_cart">
+										<div class="blockcart cart-preview inactive"
+											 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
+											<div class="header">
+													<span class="shopping">
+															<i class="material-icons shopping-cart">shopping_cart</i>
+															<span class="hidden-sm-down">Cart</span>
+															<span class="cart-productsount">0</span>
+													</span>
+											</div>
+											<div class="cart_block block exclusive">
+													<div class="block_content">
+															<div class="cart_head"></div>
+															<div class="cart_block_list">
+																	<p class="no-item">No products in the cart.</p>
+															</div>
+													</div>
+											</div>
+									</div>
+							</div>
+										<%
+											}else{
+										%>
+										<div id="_desktop_cart">
+											<div class="blockcart cart-preview active" data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
+												<div class="header">
+													<span class="shopping">
+														<i class="material-icons shopping-cart">shopping_cart</i>
+														<span class="hidden-sm-down">Cart</span>
+														<span class="cart-products-count"><%= cart.size()%></span>
+													</span>
+												</div>
+												<div class="cart_block block exclusive">
+													<div class="block_content">
+														<div class="cart_head">
+
+														</div>
+														<div class="cart_block_list">
+															<div class="cart_block_product_list">
+																<%
+																	for (Product product : cart){
+																	%>
+
+																<div class="products">
+																	<div class="img">
+
+																		<a href="/product/detail/<%= product.getProductID()%>" class="thumbnail product-thumbnail">
+																			<img src="/img/<%= product.getImage()%>" alt="" data-full-size-image-url="/img/<%= product.getImage()%>" style="width: 70px; height: 70px;">
+																		</a>
+
+																	</div>
+																	<div class="cart-info">
+																		<h2 class="h2 productname" itemprop="name">
+																			<a href="/img/<%= product.getProductID()%>"><%= product.getProductName()%></a>
+																		</h2>
+																		<div class="ttPrice">
+																			<span class="quantity"><%= product.getQuantity()%>X</span>
+																			<span class="price"><%= product.getPrice()%><sup>d</sup></span>
+																		</div>
+																	</div>
+																	<p class="remove_link">
+																		<a class="remove-from-cart" rel="nofollow" href="#delete" data-link-action="delete-from-cart" data-id-product="13" data-id-product-attribute="0" data-id-customization=""><i class="material-icons">close</i></a>
+																	</p>
+																</div>
+																	<%
+																	}
+																%>
+
+
+															</div>
+														</div>
+													</div>
+													<div class="cart-prices">
+														<span class="total pull-left">
+															Total:
+														</span>
+														<span class="amount pull-right">
+															<%
+																int total = 0;
+																for (Product product: cart){
+																	total += product.getQuantity() * product.getPrice();
+																}
+																out.print(total + "<sup>d</sup>");
+															%>
+														</span>
+													</div>
+													<div class="cart-buttons">
+														<a rel="nofollow" href="/cart/checkout" class="btn-primary">
+															Check out <i class="ion-chevron-right"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<%
+											}
+                    %>
             
-            
-            
-            
-            
-            <%
-                if (session.getAttribute("acc") != null) {
-                    Account admin = (Account) session.getAttribute("acc");
-                    if (admin.getRole() != "member") {%>
-                    <style>
-                        #header .blockcart .header>span::after{
-                            content: '' !important;
-                        }
-                    </style>
-                   
-                    <div id="_desktop_cart">
-                        <a href="/admin">
-                            <div class="blockcart cart-preview inactive"
-                                 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                                <div class="header">
-                                    <span class="">
-                                        <span class="hidden-sm-down">Dashboard</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <%}
-                }
-            %>
-            
+
             <div id="_desktop_user_info">
                 <div class="ttuserheading">
                     <i class="material-icons user">&#xE7FF;</i>
@@ -483,7 +391,7 @@
                     <i class="material-icons search">&#xE8B6;</i>
                 </span>
                 <div class="ttsearchtoggle">
-                    <form method="get" action="http://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/search">
+                    <form method="get" action="http://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/search" >
                         <input type="hidden" name="controller" value="search" />
                         <input type="text" name="s" id="search_query_top" value="" placeholder="Search our catalog"
                                aria-label="Search" />

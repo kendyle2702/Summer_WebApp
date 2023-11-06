@@ -9,8 +9,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script src="../libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="/libs/jquery/2.0.0/jquery.min.js"></script>
 <!-- TemplateTrip theme google font-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!-- comment -->
 
 <link rel="preconnect" href="https://fonts.gstatic.com/" />
 

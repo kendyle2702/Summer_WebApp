@@ -73,7 +73,7 @@
           </div>
           <div id="ttcmsfooter" class="links">
             <p class="ttfooter-logo">
-              <img src="../img/cms/logo.png" alt="" width="150" height="75" />
+              <img src="/img/cms/logo.png" alt="" width="150" height="75" />
             </p>
           </div>
           <div id="newslatter" class="col-sm-12">
@@ -198,7 +198,7 @@
                     <a href="#">
                       <img
                         alt="visa"
-                        src="../img/cms/payment-visa.png"
+                        src="/img/cms/payment-visa.png"
                         width="42"
                         height="26"
                     /></a>
@@ -207,7 +207,7 @@
                     <a href="#">
                       <img
                         alt="mastercard"
-                        src="../img/cms/payment-mastercard.png"
+                        src="/img/cms/payment-mastercard.png"
                         width="42"
                         height="26"
                     /></a>
@@ -216,7 +216,7 @@
                     <a href="#">
                       <img
                         alt="paypal"
-                        src="../img/cms/payment-paypal.png"
+                        src="/img/cms/payment-paypal.png"
                         width="42"
                         height="26"
                     /></a>
@@ -224,7 +224,7 @@
                   <li class="cod">
                     <a href="#">
                       <img
-                        src="../img/cms/payment-cod.png"
+                        src="/img/cms/payment-cod.png"
                         alt=""
                         width="42"
                         height="26"
@@ -234,7 +234,7 @@
                     <a href="#">
                       <img
                         alt="paypal"
-                        src="../img/cms/payment-google.png"
+                        src="/img/cms/payment-google.png"
                         width="42"
                         height="26"
                     /></a>

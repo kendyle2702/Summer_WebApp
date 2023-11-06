@@ -1,6 +1,6 @@
 <%@page import="DAOs.ProductDAO" %>
 <%@page import="java.sql.ResultSet" %>
- <%! ProductDAO pDAO = new ProductDAO();%>
+<% ProductDAO pDAO = new ProductDAO(); %>
  
 <!DOCTYPE html>
 <html lang="en">
@@ -158,7 +158,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <div class="cat-img">
-                                            <a href="10-ice-cream.html" title="Ice Cream">
+                                            <a href="/product/iceCream" title="Ice Cream">
                                                 <img src="../img/c/10_thumb.jpg" alt="" width="270" height="351" />
                                             </a>
                                         </div>
@@ -166,7 +166,7 @@
                                         <div class="ttcat-content">
                                             <div class="cat-infor">
                                                 <h4 class="title">
-                                                    <a href="10-ice-cream.html"> Ice Cream </a>
+                                                    <a href="/product/iceCream"> Ice Cream </a>
                                                 </h4>
                                             </div>
                                             <div class="sub-cat">
@@ -177,7 +177,7 @@
                                                             String productName = rsCream.getString("ProductName");
                                                     %>
                                                     <li>
-                                                        <a href="<%= rsCream.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
+                                                        <a href="/product/detail/<%= rsCream.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
                                                     </li>
                                                     <% } %>
                                                 </ul>
@@ -189,15 +189,15 @@
                                 <div class="item">
                                     <div class="content">
                                         <div class="cat-img">
-                                            <a href="11-ice-drink.html" title="Ice Drink">
-                                                <img src="../img/c/11_thumb.jpg" alt="" width="270" height="351" />
+                                            <a href="/product/iceDrink" title="Ice Drink">
+                                                <img src="/img/c/11_thumb.jpg" alt="" width="270" height="351" />
                                             </a>
                                         </div>
 
                                         <div class="ttcat-content">
                                             <div class="cat-infor">
                                                 <h4 class="title">
-                                                    <a href="11-ice-drink.html"> Ice Drink </a>
+                                                    <a href="/product/iceDrink"> Ice Drink </a>
                                                 </h4>
                                             </div>
                                             <div class="sub-cat">
@@ -206,7 +206,7 @@
                                                                                                                                                                                                                     while (rsDrink.next()) {
                                                                                                                                                                                                                         String productName = rsDrink.getString("ProductName");%>
                                                     <li>
-                                                        <a href="<%= rsDrink.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
+                                                        <a href="/product/<%= rsDrink.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
                                                     </li>
                                                     <%}%>
                                                 </ul>
@@ -218,7 +218,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <div class="cat-img">
-                                            <a href="12-ice-juice.html" title="Ice Juice">
+                                            <a href="/product/iceJuice" title="Ice Juice">
                                                 <img src="../img/c/12_thumb.jpg" alt="" width="270" height="351" />
                                             </a>
                                         </div>
@@ -226,7 +226,7 @@
                                         <div class="ttcat-content">
                                             <div class="cat-infor">
                                                 <h4 class="title">
-                                                    <a href="12-ice-juice.html"> Ice Juice </a>
+                                                    <a href="/product/iceJuice"> Ice Juice </a>
                                                 </h4>
                                             </div>
                                             <div class="sub-cat">
@@ -236,7 +236,7 @@
                                                         while (rsJuice.next()) {
                                                                                                                                                                                                                         String productName = rsJuice.getString("ProductName");%>
                                                     <li>
-                                                        <a href="<%= rsJuice.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
+                                                        <a href="/product/<%= rsJuice.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
                                                     </li>
                                                     <%}%>
                                                 </ul>
@@ -248,7 +248,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <div class="cat-img">
-                                            <a href="13-ice-pop.html" title="Ice Pop">
+                                            <a href="/product/icePop" title="Ice Pop">
                                                 <img src="../img/c/13_thumb.jpg" alt="" width="270" height="351" />
                                             </a>
                                         </div>
@@ -256,7 +256,7 @@
                                         <div class="ttcat-content">
                                             <div class="cat-infor">
                                                 <h4 class="title">
-                                                    <a href="13-ice-pop.html"> Ice Pop </a>
+                                                    <a href="/product/icePop"> Ice Pop </a>
                                                 </h4>
                                             </div>
                                             <div class="sub-cat">
@@ -266,7 +266,7 @@
                                                         while (rsPop.next()) {
                                                                                                                                                                                                                         String productName = rsPop.getString("ProductName");%>
                                                     <li>
-                                                        <a href="<%= rsPop.getInt("productID")%>" title="<%= productName%>"><%= productName%>
+                                                        <a href="/product/<%= rsPop.getInt("productID")%>" title="<%= productName%>"><%= productName%>
                                                         </a>
                                                     </li>
                                                     <%}%>
@@ -390,7 +390,7 @@
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a
-																		href="#"
+																		href="/product/<%=rsNewProduct.getInt("productID")%>"
                                   class="thumbnail product-thumbnail"
                                 >
                                   <img
@@ -567,7 +567,7 @@
 
                                   <span class="h3 product-title" itemprop="name"
                                     ><a
-                                      href="home/16-mountain-fox-notebook.html"
+                                      href="/product/<%=rsNewProduct.getInt("productID")%>"
                                       ><%= rsNewProduct.getString("productName")%></a
                                     ></span
                                   >
@@ -637,7 +637,7 @@
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a
-																		href="#"
+																		href="/product/<%=rsFeatured.getInt("productID")%>"
                                   class="thumbnail product-thumbnail"
                                 >
                                   <img
@@ -814,7 +814,7 @@
 
                                   <span class="h3 product-title" itemprop="name"
                                     ><a
-                                      href="home/16-mountain-fox-notebook.html"
+																				href="/product/<%=rsFeatured.getInt("productID")%>"
                                       ><%= rsFeatured.getString("productName")%></a
                                     ></span
                                   >
@@ -883,7 +883,7 @@
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a
-																		href="#"
+																		href="/product/<%=rsBestSellers.getInt("productID")%>"
                                   class="thumbnail product-thumbnail"
                                 >
                                   <img
@@ -1060,7 +1060,7 @@
 
                                   <span class="h3 product-title" itemprop="name"
                                     ><a
-                                      href="home/16-mountain-fox-notebook.html"
+                                      href="/product/detail/<%=rsBestSellers.getInt("productID")%>"
                                       ><%= rsBestSellers.getString("productName")%></a
                                     ></span
                                   >
@@ -1327,7 +1327,7 @@
                                                                  data-id-product-attribute="9">
                                                             <div class="thumbnail-container">
                                                                 <div class="ttproduct-image">
-                                                                    <a href="home/2-brown-bear-printed-sweater.html"
+                                                                    <a href="/product/detail/<%=rsSpecial.getInt("productID")%>"
                                                                        class="thumbnail product-thumbnail">
                                                                         <img class="ttproduct-img1"
                                                                              src="/img/<%= rsSpecial.getString("image") %>"
@@ -1422,7 +1422,7 @@
                                                                         </div>
 
                                                                         <span class="h3 product-title" itemprop="name"><a
-                                                                                href="home/2-brown-bear-printed-sweater.html"><%= rsSpecial.getString("productName")%></a></span>
+                                                                                href="/product/detail/<%=rsSpecial.getInt("productID")%>"><%= rsSpecial.getString("productName")%></a></span>
 
                                                                         <div class="product-desc-short" itemprop="description">
                                                                              <%= rsSpecial.getString("description")%>
