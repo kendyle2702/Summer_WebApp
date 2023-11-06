@@ -166,6 +166,7 @@ public class AdminController extends HttpServlet {
                     if (path.endsWith("/admin/account")) {
                         request.getRequestDispatcher("/view-account.jsp").forward(request, response);
                     }
+                    
                 }
 
             } else {
