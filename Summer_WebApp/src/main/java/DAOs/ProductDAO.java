@@ -154,6 +154,22 @@ public class ProductDAO {
         return rs;
     }
 
+    public int getNumberProductByCategory(int cate) {
+        int count = 0;
+        ResultSet rs = null;
+        try {
+            PreparedStatement ps = conn.prepareStatement("select count(*) as numberProduct from Product where categoryID=?");
+            ps.setInt(1, cate);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                count = rs.getInt("numberProduct");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
+    }
+
     public ResultSet getTop10BestSeller() {
         ResultSet rs = null;
         try {
@@ -164,7 +180,7 @@ public class ProductDAO {
         }
         return rs;
     }
-    
+
     public ResultSet get5SpecialProducts() {
         ResultSet rs = null;
         try {

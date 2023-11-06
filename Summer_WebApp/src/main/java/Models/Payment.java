@@ -13,7 +13,7 @@ import java.sql.Date;
 public class Payment {
 
     private int paymentID, fee, totalPayment, orderID;
-    private String paymentMethod, paymentStatus;
+    private String paymentMethod, paymentStatus, transactionID;
     private Date time;
     private boolean isDeleted;
 
@@ -22,15 +22,25 @@ public class Payment {
 
 
 
-    public Payment(int paymentID, int fee, int totalPayment, int orderID, String paymentMethod, String paymentStatus, Date time, boolean isDeleted) {
+    public Payment(int paymentID, String paymentMethod, String paymentStatus, int fee, Date time, int totalPayment, String transactionID, int orderID, boolean isDeleted) {
         this.paymentID = paymentID;
         this.fee = fee;
         this.totalPayment = totalPayment;
         this.orderID = orderID;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
+        this.transactionID = transactionID;
         this.time = time;
         this.isDeleted = isDeleted;
+    }
+
+    
+     public String getTransactionID() {
+        return transactionID;
+    }
+
+    public void setTransactionID(String transactionID) {
+        this.transactionID = transactionID;
     }
 
     public int getPaymentID() {

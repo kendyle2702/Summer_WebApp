@@ -16,5 +16,4 @@ DAOs\PaymentDAO.class
 Models\Account.class
 Models\Order.class
 DB\DBConnection.class
-DAOs\Wishlist.class
 Models\WishlistItem.class

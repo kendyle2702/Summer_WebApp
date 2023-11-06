@@ -108,7 +108,7 @@
                     <div class="ttmenu-content">
                         <ul class="menu-content">
                             <li class="level-1 parent">
-                                <a href="6-drinks.html" class="ttinnermenu">
+                                <a href="/product/iceCream" class="ttinnermenu">
                                     <span class="catagory">Ice Cream</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
@@ -134,7 +134,7 @@
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a href="9-treats.html" class="ttinnermenu">
+                                <a href="/product/iceDrink" class="ttinnermenu">
                                     <span class="catagory">Ice Drink</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
@@ -161,7 +161,7 @@
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a class="ttinnermenu" href="43-flavours.html"><span class="catagory">Ice Juice</span></a><span
+                                <a class="ttinnermenu" href="/product/iceJuice"><span class="catagory">Ice Juice</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
                                     <li class="level-2">
@@ -185,7 +185,7 @@
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a class="ttinnermenu" href="40-scoops.html"><span class="catagory">Ice Pop</span></a><span
+                                <a class="ttinnermenu" href="/product/icePop"><span class="catagory">Ice Pop</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
                                     <li class="level-2">

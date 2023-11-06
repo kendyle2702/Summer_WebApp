@@ -17,12 +17,12 @@ import java.util.logging.Logger;
 public class DBConnection {
 
     public static Connection connect() throws SQLException {
-        String server = "DESKTOP-7UI977G\\SQLEXPRESS";
-        String port = "1433";
+        String server = "DESKTOP-836S4K7\\SQLEXPRESS";
+        String port = "49510";
         String database = "prj_project";
         String user = "sa";
 
-        String password = "123456";
+        String password = "khiem005101";
 
         Connection conn = null;
 

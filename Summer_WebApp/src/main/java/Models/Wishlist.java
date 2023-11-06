@@ -20,7 +20,7 @@ public class Wishlist {
     public Wishlist() {
     }
 
-    public Wishlist(Date time, int wishlistID, String wishlistName, String email, boolean isDeleted) {
+    public Wishlist(int wishlistID, String wishlistName, Date time, String email, boolean isDeleted) {
         this.time = time;
         this.wishlistID = wishlistID;
         this.wishlistName = wishlistName;

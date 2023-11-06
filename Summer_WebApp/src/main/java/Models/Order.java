@@ -18,13 +18,13 @@ public class Order {
     private int total;
     private String description;
     private String email;
-    private String addressID;
+    private int addressID;
     private boolean isDeleted;
 
     public Order() {
     }
     
-    public Order(int orderID, Date time, String orderStatus, int total, String description, String email, String addressID, boolean isDeleted) {
+    public Order(int orderID, Date time, String orderStatus, int total, String description, String email, int addressID, boolean isDeleted) {
         this.orderID = orderID;
         this.time = time;
         this.orderStatus = orderStatus;
@@ -84,11 +84,11 @@ public class Order {
         this.email = email;
     }
 
-    public String getAddressID() {
+    public int getAddressID() {
         return addressID;
     }
 
-    public void setAddressID(String addressID) {
+    public void setAddressID(int addressID) {
         this.addressID = addressID;
     }
 
