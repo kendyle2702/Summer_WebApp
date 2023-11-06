@@ -4,7 +4,7 @@
  */
 package Models;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -13,18 +13,18 @@ import java.sql.Date;
 public class Order {
 
     private int orderID;
-    private Date time;
+    private Timestamp time;
     private String orderStatus;
     private int total;
     private String description;
     private String email;
-    private String addressID;
+    private int addressID;
     private boolean isDeleted;
 
     public Order() {
     }
-    
-    public Order(int orderID, Date time, String orderStatus, int total, String description, String email, String addressID, boolean isDeleted) {
+
+    public Order(int orderID, Timestamp time, String orderStatus, int total, String description, String email, int addressID, boolean isDeleted) {
         this.orderID = orderID;
         this.time = time;
         this.orderStatus = orderStatus;
@@ -35,6 +35,16 @@ public class Order {
         this.isDeleted = isDeleted;
     }
 
+    public Order(Timestamp time, String orderStatus, int total, String description, String email, int addressID,boolean isDeleted) {
+
+        this.time = time;
+        this.orderStatus = orderStatus;
+        this.total = total;
+        this.description = description;
+        this.email = email;
+        this.addressID = addressID;
+        this.isDeleted = isDeleted;
+    }
 
     public int getOrderID() {
         return orderID;
@@ -44,11 +54,11 @@ public class Order {
         this.orderID = orderID;
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
@@ -84,11 +94,11 @@ public class Order {
         this.email = email;
     }
 
-    public String getAddressID() {
+    public int getAddressID() {
         return addressID;
     }
 
-    public void setAddressID(String addressID) {
+    public void setAddressID(int addressID) {
         this.addressID = addressID;
     }
 
@@ -99,7 +109,13 @@ public class Order {
     public void setIsDeleted(boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
-
-   
+    
+//      public int isIsDeleted() {
+//       return isDeleted;
+//    }
+//
+//    public void setIsDeleted(int isDeleted) {
+//        this.isDeleted = isDeleted;
+//    }
 
 }

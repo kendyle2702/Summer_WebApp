@@ -27,12 +27,24 @@ public class LoginController extends HttpServlet {
         HttpSession session = request.getSession();
         String path = request.getRequestURI();
 
-        if (session.getAttribute("acc") != null) {
-            Account curAcc = (Account) session.getAttribute("acc");
-            if(curAcc.getRole() != "member"){
-                response.sendRedirect("/admin");
+        if (path.endsWith("/login/out")) {
+            Cookie[] cList = request.getCookies();
+            if (cList != null) {
+                for (Cookie c : cList) {
+                    c.setValue("");
+                    c.setPath("/");
+                    c.setMaxAge(0);
+                    response.addCookie(c);
+                }
+
             }
-            else{
+            session.invalidate();
+            response.sendRedirect("/");
+        }else if (session.getAttribute("acc") != null) {
+            Account curAcc = (Account) session.getAttribute("acc");
+            if (curAcc.getRole() != "member") {
+                response.sendRedirect("/admin");
+            } else {
                 response.sendRedirect("/");
             }
         } else if (path.endsWith("/login")) {
@@ -68,19 +80,6 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("/register.jsp").forward(request, response);
         } else if (path.endsWith("/login/recovery")) {
             request.getRequestDispatcher("/password-recovery.jsp").forward(request, response);
-        } else if (path.endsWith("/login/out")) {
-            Cookie[] cList = request.getCookies();
-            if (cList != null) {
-                for (Cookie c : cList) {
-                    c.setValue("");
-                    c.setPath("/");
-                    c.setMaxAge(0);
-                    response.addCookie(c);
-                }
-
-            }
-            session.invalidate();
-            response.sendRedirect("/");
         }
     }
 
@@ -98,13 +97,18 @@ public class LoginController extends HttpServlet {
             if (acc == null) {
                 session.setAttribute("isSuccess", "false");
                 response.sendRedirect("/login");
+                return;
             } else {
                 // thêm att là acc de tien lay thong tin qua các trang khác
                 session.setAttribute("acc", acc);
                 Cookie c = new Cookie("login", userName);
                 c.setMaxAge(24 * 60 * 60 * 3);
                 response.addCookie(c);
-                response.sendRedirect("/");
+                if (!acc.getRole().equals("member") ) {
+                    response.sendRedirect("/admin");
+                } else {
+                    response.sendRedirect("/");
+                }
             }
         }
     }

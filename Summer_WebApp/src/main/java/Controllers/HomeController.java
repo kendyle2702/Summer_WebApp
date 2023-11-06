@@ -60,7 +60,7 @@ public class HomeController extends HttpServlet {
             }
         } else {
             Account currAccount = (Account)session.getAttribute("acc");
-            if(currAccount.getRole() != "member"){
+            if(!currAccount.getRole().equals("member") ){
                response.sendRedirect("/admin");
             }
             else{

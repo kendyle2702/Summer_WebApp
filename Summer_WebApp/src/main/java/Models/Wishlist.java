@@ -4,37 +4,32 @@
  */
 package Models;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
  * @author Tran Duy Dat - CE172036
  */
 public class Wishlist {
-
-    private Date time;
+    
     private int wishlistID;
-    private String wishlistName, email;
+    private String wishlistName;
+    private Timestamp time;  
+    private String email;
     private boolean isDeleted;
 
     public Wishlist() {
     }
 
-    public Wishlist(Date time, int wishlistID, String wishlistName, String email, boolean isDeleted) {
-        this.time = time;
+    public Wishlist(int wishlistID, String wishlistName, Timestamp time, String email, boolean isDeleted) {
         this.wishlistID = wishlistID;
         this.wishlistName = wishlistName;
+        this.time = time;
         this.email = email;
         this.isDeleted = isDeleted;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
+   
 
     public int getWishlistID() {
         return wishlistID;
@@ -62,6 +57,14 @@ public class Wishlist {
 
     public boolean isIsDeleted() {
         return isDeleted;
+    }
+
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
     public void setIsDeleted(boolean isDeleted) {

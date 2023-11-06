@@ -4,34 +4,38 @@
  */
 package Models;
 
-import java.sql.Date;
-
+import java.sql.Timestamp;
 /**
  *
  * @author Tran Duy Dat - CE172036
  */
 public class Payment {
 
-    private int paymentID, fee, totalPayment, orderID;
-    private String paymentMethod, paymentStatus;
-    private Date time;
+    private int paymentID;
+    private String paymentMethod;
+    private String paymentStatus;
+    private int fee;
+    private Timestamp time;
+    private int totalPayment;
+    private String transactionID;
+    private int orderID;
     private boolean isDeleted;
-
+            
     public Payment() {
     }
 
-
-
-    public Payment(int paymentID, int fee, int totalPayment, int orderID, String paymentMethod, String paymentStatus, Date time, boolean isDeleted) {
+    public Payment(int paymentID, String paymentMethod, String paymentStatus, int fee, Timestamp time, int totalPayment, String transactionID, int orderID, boolean isDeleted) {
         this.paymentID = paymentID;
-        this.fee = fee;
-        this.totalPayment = totalPayment;
-        this.orderID = orderID;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
+        this.fee = fee;
         this.time = time;
+        this.totalPayment = totalPayment;
+        this.transactionID = transactionID;
+        this.orderID = orderID;
         this.isDeleted = isDeleted;
     }
+
 
     public int getPaymentID() {
         return paymentID;
@@ -81,14 +85,23 @@ public class Payment {
         this.paymentStatus = paymentStatus;
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
+    public String getTransactionID() {
+        return transactionID;
+    }
+
+    public void setTransactionID(String transactionID) {
+        this.transactionID = transactionID;
+    }
+
+   
     public boolean isIsDeleted() {
         return isDeleted;
     }

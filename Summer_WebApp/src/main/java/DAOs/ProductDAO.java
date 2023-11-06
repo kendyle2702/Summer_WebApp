@@ -39,6 +39,16 @@ public class ProductDAO {
         }
         return rs;
     }
+    public ResultSet getAllHaveCategoryName() {
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select * from Product p inner join Category c on p.categoryID = c.categoryID");
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
 
     public Product addNew(Product newProduct) {
         int count = 0;

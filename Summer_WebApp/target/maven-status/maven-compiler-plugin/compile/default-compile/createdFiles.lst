@@ -6,6 +6,7 @@ DAOs\OrderDAO.class
 DAOs\AccountDAO.class
 Models\Payment.class
 Controllers\LoginController.class
+Controllers\AdminController.class
 Hash\MD5.class
 Models\Category.class
 DAOs\ProductDAO.class
@@ -17,5 +18,4 @@ DAOs\PaymentDAO.class
 Models\Account.class
 Models\Order.class
 DB\DBConnection.class
-DAOs\Wishlist.class
 Models\WishlistItem.class
