@@ -22,7 +22,7 @@
                   <a
                     id="link-cms-page-3-2"
                     class="cms-page-link"
-                    href="content/3-terms-and-conditions-of-use.html"
+                    href="#"
                     title="Our terms and conditions of use"
                   >
                     Terms and conditions of use
@@ -32,7 +32,7 @@
                   <a
                     id="link-cms-page-4-2"
                     class="cms-page-link"
-                    href="content/4-about-us.html"
+                    href="#"
                     title="Learn more about us"
                   >
                     About us
@@ -42,7 +42,7 @@
                   <a
                     id="link-cms-page-5-2"
                     class="cms-page-link"
-                    href="content/5-secure-payment.html"
+                    href="#"
                     title="Our secure payment method"
                   >
                     Secure payment
@@ -52,7 +52,7 @@
                   <a
                     id="link-static-page-contact-2"
                     class="cms-page-link"
-                    href="contact-us.html"
+                    href="#"
                     title="Use our form to contact us"
                   >
                     Contact us
@@ -62,7 +62,7 @@
                   <a
                     id="link-static-page-stores-2"
                     class="cms-page-link"
-                    href="stores.html"
+                    href="#"
                     title=""
                   >
                     Stores
@@ -73,7 +73,7 @@
           </div>
           <div id="ttcmsfooter" class="links">
             <p class="ttfooter-logo">
-              <img src="../img/cms/logo.png" alt="" width="150" height="75" />
+              <img src="/img/cms/logo.png" alt="" width="150" height="75" />
             </p>
           </div>
           <div id="newslatter" class="col-sm-12">
@@ -85,7 +85,7 @@
                 class="tt-subscribeblock col-sm-12 right-to-left hb-animate-element"
               >
                 <form
-                  action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/#footer"
+                  action="#footer"
                   method="post"
                 >
                   <div class="row">
@@ -145,7 +145,7 @@
                 <div class="icon">
                   <i class="material-icons">&#xE55F;</i>
                 </div>
-                <div class="data address">demo store<br />United States</div>
+                <div class="data address">ice <br />United States</div>
               </li>
               <li class="block">
                 <div class="data contact">
@@ -198,7 +198,7 @@
                     <a href="#">
                       <img
                         alt="visa"
-                        src="../img/cms/payment-visa.png"
+                        src="/img/cms/payment-visa.png"
                         width="42"
                         height="26"
                     /></a>
@@ -207,7 +207,7 @@
                     <a href="#">
                       <img
                         alt="mastercard"
-                        src="../img/cms/payment-mastercard.png"
+                        src="/img/cms/payment-mastercard.png"
                         width="42"
                         height="26"
                     /></a>
@@ -216,7 +216,7 @@
                     <a href="#">
                       <img
                         alt="paypal"
-                        src="../img/cms/payment-paypal.png"
+                        src="/img/cms/payment-paypal.png"
                         width="42"
                         height="26"
                     /></a>
@@ -224,7 +224,7 @@
                   <li class="cod">
                     <a href="#">
                       <img
-                        src="../img/cms/payment-cod.png"
+                        src="/img/cms/payment-cod.png"
                         alt=""
                         width="42"
                         height="26"
@@ -234,7 +234,7 @@
                     <a href="#">
                       <img
                         alt="paypal"
-                        src="../img/cms/payment-google.png"
+                        src="/img/cms/payment-google.png"
                         width="42"
                         height="26"
                     /></a>

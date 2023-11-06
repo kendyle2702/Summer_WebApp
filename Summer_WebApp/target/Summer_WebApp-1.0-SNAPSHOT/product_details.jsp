@@ -107,11 +107,21 @@
                         </p>
                       </div>
 
+				<script>
+					function notifySuccess(){
+						Swal.fire({
+							icon: "success",
+							title: "Add to cart successful!",
+							showConfirmButton: true,
+							timer: 2000,
+						}).then(()=>location.reload());
+					}
+				</script>
+
                       <div class="product-actions">
-                        <form action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart" method="post"
-                          id="add-to-cart-or-refresh">
-                          <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" />
-                          <input type="hidden" name="id_product" value="1" id="product_page_product_id" />
+                        <form action="/cart" method="post" id="add-to-cart-or-refresh" >
+                          <input type="hidden" name="addCart" value="25af647bb2f763e6bdcc079df66ccd55" />
+                          <input type="hidden" name="productId" value="<%= product.getProductID()%>" id="product_page_product_id" />
                           <input type="hidden" name="id_customization" value="0" id="product_customization_id" />
 
                           <section class="product-discounts"></section>
@@ -122,13 +132,13 @@
                             <div class="product-button">
                               <div class="product-quantity clearfix">
                                 <div class="qty">
-                                  <input type="text" name="qty" id="quantity_wanted" value="1" class="input-group"
+                                  <input type="text" name="quantity" id="quantity_wanted" value="1" class="input-group"
                                     min="1" aria-label="Quantity" />
                                 </div>
 
                                 <div class="add">
                                   <button class="btn btn-primary add-to-cart" data-button-action="add-to-cart"
-                                    type="submit">
+                                    type="submit" onclick="notifySuccess()">
                                     <i class="material-icons shopping-cart">&#xE547;</i>
                                     Add to cart
                                   </button>
@@ -147,7 +157,7 @@
                               <div class="wishlist">
                                 <a class="addToWishlist btn btn-primary wishlistProd_1" href="#" data-dismiss="modal"
                                   data-rel="1" title="Add to wishlist"
-                                  onclick="WishlistCart('wishlist_block_list', 'add', '1', '1', 1); return false;">
+                                  onclick="">
                                   <i class="material-icons wishlist-icon">favorite_border</i>
                                   <span class="wishlist-name">Add to Wishlist</span>
                                   <span class="loading"><i class="material-icons">cached</i></span>

@@ -13,6 +13,16 @@
           itemtype="http://schema.org/WebPage">
         <div class="ttloading-bg spinner"></div>
 
+		<script>
+			function notifySuccess(){
+				Swal.fire({
+					icon: "success",
+					title: "Add to cart successful!",
+					showConfirmButton: true,
+					timer: 2000,
+				}).then(()=>location.reload());
+			}
+		</script>
         <%@include file="/components/header.jsp" %>
 
        <%        if (session.getAttribute("acc") == null) {%>
@@ -158,7 +168,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <div class="cat-img">
-                                            <a href="10-ice-cream.html" title="Ice Cream">
+                                            <a href="/product/iceCream" title="Ice Cream">
                                                 <img src="../img/c/10_thumb.jpg" alt="" width="270" height="351" />
                                             </a>
                                         </div>
@@ -166,7 +176,7 @@
                                         <div class="ttcat-content">
                                             <div class="cat-infor">
                                                 <h4 class="title">
-                                                    <a href="/product/icream"> Ice Cream </a>
+                                                    <a href="/product/iceCream"> Ice Cream </a>
                                                 </h4>
                                             </div>
                                             <div class="sub-cat">
@@ -177,7 +187,7 @@
                                                             String productName = rsCream.getString("ProductName");
                                                     %>
                                                     <li>
-                                                        <a href="/product/<%= rsCream.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
+                                                        <a href="/product/detail/<%= rsCream.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
                                                     </li>
                                                     <% } %>
                                                 </ul>
@@ -189,7 +199,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <div class="cat-img">
-                                            <a href="11-ice-drink.html" title="Ice Drink">
+                                            <a href="/product/iceDrink" title="Ice Drink">
                                                 <img src="../img/c/11_thumb.jpg" alt="" width="270" height="351" />
                                             </a>
                                         </div>
@@ -197,7 +207,7 @@
                                         <div class="ttcat-content">
                                             <div class="cat-infor">
                                                 <h4 class="title">
-                                                    <a href="/product/idrink"> Ice Drink </a>
+                                                    <a href="/product/iceDrink"> Ice Drink </a>
                                                 </h4>
                                             </div>
                                             <div class="sub-cat">
@@ -206,7 +216,7 @@
                                                                                                                                                                                                                     while (rsDrink.next()) {
                                                                                                                                                                                                                         String productName = rsDrink.getString("ProductName");%>
                                                     <li>
-                                                        <a href="/product/<%= rsDrink.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
+                                                        <a href="/product/detail/<%= rsDrink.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
                                                     </li>
                                                     <%}%>
                                                 </ul>
@@ -218,7 +228,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <div class="cat-img">
-                                            <a href="12-ice-juice.html" title="Ice Juice">
+                                            <a href="/product/iceJuice" title="Ice Juice">
                                                 <img src="../img/c/12_thumb.jpg" alt="" width="270" height="351" />
                                             </a>
                                         </div>
@@ -226,7 +236,7 @@
                                         <div class="ttcat-content">
                                             <div class="cat-infor">
                                                 <h4 class="title">
-                                                    <a href="/product/ijuice"> Ice Juice </a>
+                                                    <a href="/product/iceJuice"> Ice Juice </a>
                                                 </h4>
                                             </div>
                                             <div class="sub-cat">
@@ -236,7 +246,7 @@
                                                         while (rsJuice.next()) {
                                                                                                                                                                                                                         String productName = rsJuice.getString("ProductName");%>
                                                     <li>
-                                                        <a href="/product/<%= rsJuice.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
+                                                        <a href="/product/detail/<%= rsJuice.getInt("productID")%>" title="<%= productName%>"><%=productName%></a>
                                                     </li>
                                                     <%}%>
                                                 </ul>
@@ -248,7 +258,7 @@
                                 <div class="item">
                                     <div class="content">
                                         <div class="cat-img">
-                                            <a href="13-ice-pop.html" title="Ice Pop">
+                                            <a href="/product/icePop" title="Ice Pop">
                                                 <img src="../img/c/13_thumb.jpg" alt="" width="270" height="351" />
                                             </a>
                                         </div>
@@ -256,7 +266,7 @@
                                         <div class="ttcat-content">
                                             <div class="cat-infor">
                                                 <h4 class="title">
-                                                    <a href="/product/ipop"> Ice Pop </a>
+                                                    <a href="/product/icePop"> Ice Pop </a>
                                                 </h4>
                                             </div>
                                             <div class="sub-cat">
@@ -266,7 +276,7 @@
                                                         while (rsPop.next()) {
                                                                                                                                                                                                                         String productName = rsPop.getString("ProductName");%>
                                                     <li>
-                                                        <a href="/product/<%= rsPop.getInt("productID")%>" title="<%= productName%>"><%= productName%>
+                                                        <a href="/product/detail/<%= rsPop.getInt("productID")%>" title="<%= productName%>"><%= productName%>
                                                         </a>
                                                     </li>
                                                     <%}%>
@@ -390,7 +400,7 @@
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a
-																		href="/product/<%=rsNewProduct.getInt("productID")%>"
+																		href="/product/detail/<%=rsNewProduct.getInt("productID")%>"
                                   class="thumbnail product-thumbnail"
                                 >
                                   <img
@@ -437,30 +447,12 @@
                                 <div class="product-description">
                                   <h5 class="cat-name">home</h5>
                                   <div class="ttproducthover">
-                                    <div class="quick-view-block">
-                                      <a
-                                        href="#"
-                                        class="quick-view btn btn-primary"
-                                        data-link-action="quickview"
-                                        title="Quick view"
-                                      >
-                                        <i
-                                          class="material-icons quick_view_icon"
-                                          >visibility</i
-                                        >
-                                        <span>Quick view</span>
-                                        <span class="loading"
-                                          ><i class="material-icons"
-                                            >cached</i
-                                          ></span
-                                        >
-                                      </a>
-                                    </div>
+                                    
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
                                         <form
-                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          action="/cart"
                                           method="post"
                                           class="add-to-cart-or-refresh"
                                         >
@@ -470,8 +462,8 @@
                                           >
                                             <input
                                               type="number"
-                                              name="id_product"
-                                              value="16"
+                                              name="productId"
+                                              value="<%=rsNewProduct.getInt("productID")%>"
                                               class="product_page_product_id"
                                             />
                                             <input
@@ -482,13 +474,13 @@
                                             />
                                             <input
                                               type="hidden"
-                                              name="token"
+                                              name="addCart"
                                               value="25af647bb2f763e6bdcc079df66ccd55"
                                               class="tt-token"
                                             />
                                             <input
                                               type="number"
-                                              name="qty"
+                                              name="quantity"
                                               class="quantity_wanted input-group"
                                               value="1"
                                               min="1"
@@ -496,7 +488,7 @@
                                           </div>
                                           <button
                                             class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart"
+                                            data-button-action="add-to-cart" onclick="notifySuccess()"
                                             title="Add to cart"
                                           >
                                             <i
@@ -513,25 +505,7 @@
                                         </form>
                                       </div>
                                     </div>
-                                    <div class="compare">
-                                      <a
-                                        class="add_to_compare btn btn-primary"
-                                        href="#"
-                                        data-id-product="16"
-                                        data-dismiss="modal"
-                                        title="Add to Compare"
-                                      >
-                                        <i class="material-icons compare_icon"
-                                          >equalizer</i
-                                        >
-                                        <span>Add to Compare</span>
-                                        <span class="loading"
-                                          ><i class="material-icons"
-                                            >cached</i
-                                          ></span
-                                        >
-                                      </a>
-                                    </div>
+                                    
                                   </div>
 
                                   <div class="hook-reviews">
@@ -567,12 +541,12 @@
 
                                   <span class="h3 product-title" itemprop="name"
                                     ><a
-                                      href="/product/<%=rsNewProduct.getInt("productID")%>"
+                                      href="/product/detail/<%=rsNewProduct.getInt("productID")%>"
                                       ><%= rsNewProduct.getString("productName")%></a
                                     ></span
                                   >
 
-                                  <div
+                                  <div/>
                                     class="product-desc-short"
                                     itemprop="description"
                                   >
@@ -637,7 +611,7 @@
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a
-																		href="/product/<%=rsFeatured.getInt("productID")%>"
+																		href="/product/detail/<%=rsFeatured.getInt("productID")%>"
                                   class="thumbnail product-thumbnail"
                                 >
                                   <img
@@ -684,30 +658,12 @@
                                 <div class="product-description">
                                   <h5 class="cat-name">home</h5>
                                   <div class="ttproducthover">
-                                    <div class="quick-view-block">
-                                      <a
-                                        href="#"
-                                        class="quick-view btn btn-primary"
-                                        data-link-action="quickview"
-                                        title="Quick view"
-                                      >
-                                        <i
-                                          class="material-icons quick_view_icon"
-                                          >visibility</i
-                                        >
-                                        <span>Quick view</span>
-                                        <span class="loading"
-                                          ><i class="material-icons"
-                                            >cached</i
-                                          ></span
-                                        >
-                                      </a>
-                                    </div>
+                                    
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
                                         <form
-                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          action="/cart"
                                           method="post"
                                           class="add-to-cart-or-refresh"
                                         >
@@ -717,8 +673,8 @@
                                           >
                                             <input
                                               type="number"
-                                              name="id_product"
-                                              value="16"
+                                              name="productId"
+                                              value="<%=rsFeatured.getInt("productID")%>"
                                               class="product_page_product_id"
                                             />
                                             <input
@@ -729,13 +685,13 @@
                                             />
                                             <input
                                               type="hidden"
-                                              name="token"
+                                              name="addCart"
                                               value="25af647bb2f763e6bdcc079df66ccd55"
                                               class="tt-token"
                                             />
                                             <input
                                               type="number"
-                                              name="qty"
+                                              name="quantity"
                                               class="quantity_wanted input-group"
                                               value="1"
                                               min="1"
@@ -743,8 +699,8 @@
                                           </div>
                                           <button
                                             class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart"
-                                            title="Add to cart"
+                                            data-button-action="add-to-cart" onclick="notifySuccess()"
+                                            title="Add to cart" 
                                           >
                                             <i
                                               class="material-icons add_to_cart_icon"
@@ -760,25 +716,7 @@
                                         </form>
                                       </div>
                                     </div>
-                                    <div class="compare">
-                                      <a
-                                        class="add_to_compare btn btn-primary"
-                                        href="#"
-                                        data-id-product="16"
-                                        data-dismiss="modal"
-                                        title="Add to Compare"
-                                      >
-                                        <i class="material-icons compare_icon"
-                                          >equalizer</i
-                                        >
-                                        <span>Add to Compare</span>
-                                        <span class="loading"
-                                          ><i class="material-icons"
-                                            >cached</i
-                                          ></span
-                                        >
-                                      </a>
-                                    </div>
+                                    
                                   </div>
 
                                   <div class="hook-reviews">
@@ -814,7 +752,7 @@
 
                                   <span class="h3 product-title" itemprop="name"
                                     ><a
-																				href="/product/<%=rsFeatured.getInt("productID")%>"
+																				href="/product/detail/<%=rsFeatured.getInt("productID")%>"
                                       ><%= rsFeatured.getString("productName")%></a
                                     ></span
                                   >
@@ -883,7 +821,7 @@
                             <div class="thumbnail-container">
                               <div class="ttproduct-image">
                                 <a
-																		href="/product/<%=rsBestSellers.getInt("productID")%>"
+																		href="/product/detail/<%=rsBestSellers.getInt("productID")%>"
                                   class="thumbnail product-thumbnail"
                                 >
                                   <img
@@ -930,30 +868,12 @@
                                 <div class="product-description">
                                   <h5 class="cat-name">home</h5>
                                   <div class="ttproducthover">
-                                    <div class="quick-view-block">
-                                      <a
-                                        href="#"
-                                        class="quick-view btn btn-primary"
-                                        data-link-action="quickview"
-                                        title="Quick view"
-                                      >
-                                        <i
-                                          class="material-icons quick_view_icon"
-                                          >visibility</i
-                                        >
-                                        <span>Quick view</span>
-                                        <span class="loading"
-                                          ><i class="material-icons"
-                                            >cached</i
-                                          ></span
-                                        >
-                                      </a>
-                                    </div>
+                                    
 
                                     <div class="tt-button-container">
                                       <div class="product-add-to-cart">
                                         <form
-                                          action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                          action="/cart"
                                           method="post"
                                           class="add-to-cart-or-refresh"
                                         >
@@ -963,8 +883,8 @@
                                           >
                                             <input
                                               type="number"
-                                              name="id_product"
-                                              value="16"
+                                              name="productId"
+                                              value="<%=rsBestSellers.getInt("productID")%>"
                                               class="product_page_product_id"
                                             />
                                             <input
@@ -975,13 +895,13 @@
                                             />
                                             <input
                                               type="hidden"
-                                              name="token"
+                                              name="addCart"
                                               value="25af647bb2f763e6bdcc079df66ccd55"
                                               class="tt-token"
                                             />
                                             <input
                                               type="number"
-                                              name="qty"
+                                              name="quantity"
                                               class="quantity_wanted input-group"
                                               value="1"
                                               min="1"
@@ -989,7 +909,7 @@
                                           </div>
                                           <button
                                             class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                            data-button-action="add-to-cart"
+                                            data-button-action="add-to-cart" onclick="notifySuccess()"
                                             title="Add to cart"
                                           >
                                             <i
@@ -1006,25 +926,7 @@
                                         </form>
                                       </div>
                                     </div>
-                                    <div class="compare">
-                                      <a
-                                        class="add_to_compare btn btn-primary"
-                                        href="#"
-                                        data-id-product="16"
-                                        data-dismiss="modal"
-                                        title="Add to Compare"
-                                      >
-                                        <i class="material-icons compare_icon"
-                                          >equalizer</i
-                                        >
-                                        <span>Add to Compare</span>
-                                        <span class="loading"
-                                          ><i class="material-icons"
-                                            >cached</i
-                                          ></span
-                                        >
-                                      </a>
-                                    </div>
+                                    
                                   </div>
 
                                   <div class="hook-reviews">
@@ -1060,7 +962,7 @@
 
                                   <span class="h3 product-title" itemprop="name"
                                     ><a
-                                      href="/product/<%=rsBestSellers.getInt("productID")%>"
+                                      href="/product/detail/<%=rsBestSellers.getInt("productID")%>"
                                       ><%= rsBestSellers.getString("productName")%></a
                                     ></span
                                   >
@@ -1327,7 +1229,7 @@
                                                                  data-id-product-attribute="9">
                                                             <div class="thumbnail-container">
                                                                 <div class="ttproduct-image">
-                                                                    <a href="/product/<%=rsSpecial.getInt("productID")%>"
+                                                                    <a href="/product/detail/<%=rsSpecial.getInt("productID")%>"
                                                                        class="thumbnail product-thumbnail">
                                                                         <img class="ttproduct-img1"
                                                                              src="/img/<%= rsSpecial.getString("image") %>"
@@ -1360,33 +1262,26 @@
                                                                     <div class="product-description">
                                                                         <h5 class="cat-name">home</h5>
                                                                         <div class="ttproducthover">
-                                                                            <div class="quick-view-block">
-                                                                                <a href="#" class="quick-view btn btn-primary" data-link-action="quickview"
-                                                                                   title="Quick view">
-                                                                                    <i class="material-icons quick_view_icon">visibility</i>
-                                                                                    <span>Quick view</span>
-                                                                                    <span class="loading"><i class="material-icons">cached</i></span>
-                                                                                </a>
-                                                                            </div>
+                                                                            
 
                                                                             <div class="tt-button-container">
                                                                                 <div class="product-add-to-cart">
                                                                                     <form
-                                                                                        action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                                                                        action="/cart"
                                                                                         method="post" class="add-to-cart-or-refresh">
                                                                                         <div class="product-quantity" style="display: none">
-                                                                                            <input type="number" name="id_product" value="2"
+                                                                                            <input type="number" name="productId" value="<%=rsSpecial.getInt("productID")%>"
                                                                                                    class="product_page_product_id" />
                                                                                             <input type="number" name="id_customization" value="0"
                                                                                                    class="product_customization_id" />
-                                                                                            <input type="hidden" name="token"
+                                                                                            <input type="hidden" name="addCart"
                                                                                                    value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
-                                                                                            <input type="number" name="qty" class="quantity_wanted input-group"
+                                                                                            <input type="number" name="quantity" class="quantity_wanted input-group"
                                                                                                    value="1" min="1" />
                                                                                         </div>
                                                                                         <button
                                                                                             class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                                                            data-button-action="add-to-cart" title="Add to cart">
+                                                                                            data-button-action="add-to-cart" title="Add to cart" onclick="notifySuccess()">
                                                                                             <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                                                             <span class="loading"><i class="material-icons">cached</i></span>
                                                                                             <span>Add to cart</span>
@@ -1394,14 +1289,7 @@
                                                                                     </form>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="compare">
-                                                                                <a class="add_to_compare btn btn-primary" href="#" data-id-product="2"
-                                                                                   data-dismiss="modal" title="Add to Compare">
-                                                                                    <i class="material-icons compare_icon">equalizer</i>
-                                                                                    <span>Add to Compare</span>
-                                                                                    <span class="loading"><i class="material-icons">cached</i></span>
-                                                                                </a>
-                                                                            </div>
+                                                                            
                                                                         </div>
 
                                                                         <div class="hook-reviews">
@@ -1422,7 +1310,7 @@
                                                                         </div>
 
                                                                         <span class="h3 product-title" itemprop="name"><a
-                                                                                href="/product/<%=rsSpecial.getInt("productID")%>"><%= rsSpecial.getString("productName")%></a></span>
+                                                                                href="/product/detail/<%=rsSpecial.getInt("productID")%>"><%= rsSpecial.getString("productName")%></a></span>
 
                                                                         <div class="product-desc-short" itemprop="description">
                                                                              <%= rsSpecial.getString("description")%>

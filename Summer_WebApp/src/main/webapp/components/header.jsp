@@ -1,3 +1,5 @@
+<%@page import="Models.Product"%>
+<%@page import="java.util.List"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="DAOs.ProductDAO"%>
 <%@page import="Models.Account"%>
@@ -55,6 +57,9 @@
 		}
 	})	
 });
+function toURL(url){
+    window.location.href = url;
+}
 </script>
 <header id="header">
     <div class="header-banner"></div>
@@ -102,7 +107,7 @@
             <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
                 <h1>
                     <a href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/">
-                        <img class="logo img-responsive" src="../img/demo-logo-1615016276.jpg" alt="demo store" width="185"
+                        <img class="logo img-responsive" src="/img/demo-logo-1615016276.jpg" alt="demo store" width="185"
                              height="60" />
                     </a>
                 </h1>
@@ -135,7 +140,7 @@
                     <div class="ttmenu-content">
                         <ul class="menu-content">
                             <li class="level-1 parent">
-                                <a href="/product/icream" class="ttinnermenu">
+                                <a href="/product/iceCream" class="ttinnermenu">
                                     <span class="catagory">Ice Cream</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
@@ -145,14 +150,14 @@
                                         while (rsCreamh.next()) {
                                     %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="/product/<%= rsCreamh.getInt("productID")%>"><span class="catagory"><%= rsCreamh.getString("ProductName")%></span></a>
+                                        <a class="ttinnermenu" href="/product/detail/<%= rsCreamh.getInt("productID")%>"><span class="catagory"><%= rsCreamh.getString("ProductName")%></span></a>
                                     </li>
                                     <% } %>
 
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a href="/product/idrink" class="ttinnermenu">
+                                <a href="/product/IceDrink" class="ttinnermenu">
                                     <span class="catagory">Ice Drink</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
@@ -162,13 +167,13 @@
                                         while (rsDrinkh.next()) {
                                     %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="/product/<%= rsDrinkh.getInt("productID")%>"><span class="catagory"><%= rsDrinkh.getString("ProductName")%></span></a>
+                                        <a class="ttinnermenu" href="/product/detail/<%= rsDrinkh.getInt("productID")%>"><span class="catagory"><%= rsDrinkh.getString("ProductName")%></span></a>
                                     </li>
                                     <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a class="ttinnermenu" href="/product/ijuice"><span class="catagory">Ice Juice</span></a><span
+                                <a class="ttinnermenu" href="/product/iceJuice"><span class="catagory">Ice Juice</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
                                     <%
@@ -176,13 +181,13 @@
                                         while (rsJuiceh.next()) {
                                     %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="/product/<%= rsJuiceh.getInt("productID")%>"><span class="catagory"><%= rsJuiceh.getString("ProductName")%></span></a>
+                                        <a class="ttinnermenu" href="/product/detail/<%= rsJuiceh.getInt("productID")%>"><span class="catagory"><%= rsJuiceh.getString("ProductName")%></span></a>
                                     </li>
                                     <% } %>
                                 </ul>
                             </li>
                             <li class="level-1 parent">
-                                <a class="ttinnermenu" href="/product/ipop"><span class="catagory">Ice Pop</span></a><span
+                                <a class="ttinnermenu" href="/product/IcePop"><span class="catagory">Ice Pop</span></a><span
                                     class="icon-drop-mobile"></span>
                                 <ul class="menu-dropdown cat-drop-menu tt-sub-right">
                                     <%
@@ -190,14 +195,14 @@
                                         while (rsPoph.next()) {
                                     %>
                                     <li class="level-2">
-                                        <a class="ttinnermenu" href="/product/<%= rsPoph.getInt("productID")%>"><span class="catagory"><%= rsPoph.getString("ProductName")%></span></a>
+                                        <a class="ttinnermenu" href="/product/detail/<%= rsPoph.getInt("productID")%>"><span class="catagory"><%= rsPoph.getString("ProductName")%></span></a>
                                     </li>
                                     <% } %>
                                 </ul>
                             </li>
 
                             <li class="level-1">
-                                <a href="content/4-about-us.html" class="ttinnermenu">
+                                <a href="#" class="ttinnermenu">
                                     <span class="catagory">About us</span>
                                 </a>
                                 <span class="icon-drop-mobile"></span>
@@ -253,26 +258,109 @@
             </script>
             <!-- /Module Megamenu -->
 
-            <div id="_desktop_cart">
-                <div class="blockcart cart-preview inactive"
-                     data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                    <div class="header">
-                        <span class="shopping">
-                            <i class="material-icons shopping-cart">shopping_cart</i>
-                            <span class="hidden-sm-down">Cart</span>
-                            <span class="cart-productsount">0</span>
-                        </span>
-                    </div>
-                    <div class="cart_block block exclusive">
-                        <div class="block_content">
-                            <div class="cart_head"></div>
-                            <div class="cart_block_list">
-                                <p class="no-item">No products in the cart.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <%
+                        Account account = (Account) session.getAttribute("acc");
+					List<Product> cart = (List<Product>) session.getAttribute("cart");
+												if(account == null || cart == null || cart.isEmpty()){
+												%>
+									<div id="_desktop_cart">
+										<div class="blockcart cart-preview inactive"
+											 data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
+											<div class="header">
+													<span class="shopping">
+															<i class="material-icons shopping-cart">shopping_cart</i>
+															<span class="hidden-sm-down">Cart</span>
+															<span class="cart-productsount">0</span>
+													</span>
+											</div>
+											<div class="cart_block block exclusive">
+													<div class="block_content">
+															<div class="cart_head"></div>
+															<div class="cart_block_list">
+																	<p class="no-item">No products in the cart.</p>
+															</div>
+													</div>
+											</div>
+									</div>
+							</div>
+										<%
+											}else{
+										%>
+										<div id="_desktop_cart">
+											<div class="blockcart cart-preview active" data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
+												<div class="header">
+													<span class="shopping">
+														<i class="material-icons shopping-cart">shopping_cart</i>
+														<span class="hidden-sm-down">Cart</span>
+														<span class="cart-products-count"><%= cart.size()%></span>
+													</span>
+												</div>
+												<div class="cart_block block exclusive">
+													<div class="block_content">
+														<div class="cart_head">
+
+														</div>
+														<div class="cart_block_list">
+															<div class="cart_block_product_list">
+																<%
+																	for (Product product : cart){
+																	%>
+
+																<div class="products">
+																	<div class="img">
+
+																		<a href="/product/detail/<%= product.getProductID()%>" class="thumbnail product-thumbnail">
+																			<img src="/img/<%= product.getImage()%>" alt="" data-full-size-image-url="/img/<%= product.getImage()%>" style="width: 70px; height: 70px;">
+																		</a>
+
+																	</div>
+																	<div class="cart-info">
+																		<h2 class="h2 productname" itemprop="name">
+																			<a href="/img/<%= product.getProductID()%>"><%= product.getProductName()%></a>
+																		</h2>
+																		<div class="ttPrice">
+																			<span class="quantity"><%= product.getQuantity()%>X</span>
+																			<span class="price"><%= (int)product.getPrice()%><sup>d</sup></span>
+																		</div>
+																	</div>
+																	<p class="remove_link">
+																		<a class="remove-from-cart" onclick="toURL('/cart/delete/<%=product.getProductID()%>')" rel="nofollow" href="/cart/delete/<%=product.getProductID()%>" data-link-action="delete-from-cart" data-id-product="13" data-id-product-attribute="0" data-id-customization=""><i class="material-icons">close</i></a>
+																	</p>
+																</div>
+																	<%
+																	}
+																%>
+
+
+															</div>
+														</div>
+													</div>
+													<div class="cart-prices">
+														<span class="total pull-left">
+															Total:
+														</span>
+														<span class="amount pull-right">
+															<%
+																int total = 0;
+																for (Product product: cart){
+																	total += product.getQuantity() * product.getPrice();
+																}
+																out.print(total + "<sup>d</sup>");
+															%>
+														</span>
+													</div>
+													<div class="cart-buttons">
+														<a rel="nofollow" href="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart?action=show" class="btn-primary">
+															Check out <i class="ion-chevron-right"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<%
+											}
+                    %>
+            
 
             <div id="_desktop_user_info">
                 <div class="ttuserheading">

@@ -1,4 +1,3 @@
-
 <meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
@@ -9,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script src="../libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="/libs/jquery/2.0.0/jquery.min.js"></script>
 <!-- TemplateTrip theme google font-->
 
 <link rel="preconnect" href="https://fonts.gstatic.com/" />
@@ -27,6 +26,7 @@
         href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/img/favicon.ico?1615016276" />
 
 <link rel="stylesheet" href="/css/theme-91857b59.css" type="text/css" media="all" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 <script>
