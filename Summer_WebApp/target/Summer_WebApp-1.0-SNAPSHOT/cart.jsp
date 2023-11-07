@@ -104,28 +104,46 @@
                                                                                         </div>
                                                                                         <div class="col-md-10 col-xs-6">
                                                                                             <div class="row">
-                                                                                                <div
-                                                                                                    class="col-md-6 col-xs-6 qty">
-                                                                                                    <input
-                                                                                                        class="js-cart-line-product-quantity"
-                                                                                                        data-down-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart?update=1&amp;id_product=13&amp;id_product_attribute=0&amp;token=6ea111009b92f07ada139a938926287f&amp;op=down"
-                                                                                                        data-up-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart?update=1&amp;id_product=13&amp;id_product_attribute=0&amp;token=6ea111009b92f07ada139a938926287f&amp;op=up"
-                                                                                                        data-update-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart?update=1&amp;id_product=13&amp;id_product_attribute=0&amp;token=6ea111009b92f07ada139a938926287f"
-                                                                                                        data-product-id="<%=product.getProductID()%>"
-                                                                                                        type="number"
-                                                                                                        value="<%=product.getQuantity()%>"
-                                                                                                        name="product-quantity-spin"
-                                                                                                        min="1" />
+                                                                                                <div class="col-md-6 col-xs-6 qty">
+                                                            <script>
+                                                                    function updateQuantity(e, pID) {
+                                                                        let cart = [] 
+                                                                        $.ajax({
+                                                                            url: '/ajax',
+                                                                            type: 'POST',
+                                                                            success: function (response) {
+                                                                                cart = response
+                                                                                let total = 0;
+                                                                                cart.forEach(product => {
+                                                                                    let price = product.price * product.quantity;
+                                                                                    $("#" + product.productID).html(price+"<sup>d</sup>");
+                                                                                    total += price;
+                                                                                })
+                                                                                $(".ajax-price").html(total+"<sup>d</sup>");
+                                                                                updateHeaderCart();
+                                                                            },
+                                                                            data: {
+                                                                                updateQuantity: "true",
+                                                                                productId: pID,
+                                                                                quantity: e.target.value
+                                                                            },
+                                                                            error: function () {
+                                                                                alert("error ajax get cart");
+                                                                            }
+                                                                        });
+                                                                    }
+                                                            </script>
+                                    <input class="js-cart-line-product-quantity" data-down-url="" data-up-url="" data-update-url="" data-product-id="<%=product.getProductID()%>" type="number" value="<%=product.getQuantity()%>" name="product-quantity-spin" min="1" onchange="updateQuantity(event, <%=product.getProductID()%>)"/>
                                                                                                 </div>
                                                                                                 <div
                                                                                                     class="col-md-6 col-xs-2 price">
                                                                                                     <span
                                                                                                         class="product-price">
-                                                                                                        <strong>
+                                                                                                        <strong id="<%=product.getProductID()%>">
                                                                                                             <%=(float)
                                                                                                                 product.getPrice()
                                                                                                                 *
-                                                                                                                product.getQuantity()%>
+                                                                                                                product.getQuantity()%><sup>d</sup>
                                                                                                         </strong>
                                                                                                     </span>
                                                                                                 </div>
@@ -194,8 +212,8 @@
                                                                         <span class="label js-subtotal">
                                                                             <%=cartItem.size()%> items
                                                                         </span>
-                                                                        <span class="value">
-                                                                            <%=totalPrice%>
+                                                                        <span class="value ajax-price" >
+                                                                            <%=totalPrice%><sup>d</sup>
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -205,20 +223,20 @@
                                                                     <div class="cart-summary-line">
                                                                         <span class="label">Total&nbsp;(tax
                                                                             excl.)</span>
-                                                                        <span class="value">
-                                                                            <%=totalPrice%>
+                                                                        <span class="value ajax-price" >
+                                                                            <%=totalPrice%><sup>d</sup>
                                                                         </span>
                                                                     </div>
                                                                     <div class="cart-summary-line cart-total">
                                                                         <span class="label">Total (tax incl.)</span>
-                                                                        <span class="value">
-                                                                            <%=totalPrice%>
+                                                                        <span class="value ajax-price">
+                                                                            <%=totalPrice%><sup>d</sup>
                                                                         </span>
                                                                     </div>
 
                                                                     <div class="cart-summary-line">
                                                                         <span class="label sub">Taxes:</span>
-                                                                        <span class="value sub">$0.00</span>
+                                                                        <span class="value sub">0<sup>d</sup></span>
                                                                     </div>
 
                                                                 </div>

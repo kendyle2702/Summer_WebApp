@@ -3,7 +3,10 @@
         <%@page import="java.sql.ResultSet" %>
             <%@page import="DAOs.ProductDAO" %>
                 <%@page import="Models.Account" %>
-                    <%ProductDAO proDAO=new ProductDAO();%>
+                    <%
+                        ProductDAO proDAO=new ProductDAO();
+                        Account account = (Account)session.getAttribute("acc");
+                    %>
                         <style>
                             .ttuserheading {
                                 display: flex;
@@ -42,9 +45,11 @@
                                 $.ajax({
                                     url: '/ajax',
                                     type: 'POST',
-                                    contentType: 'application/json; charset=utf-8',
                                     success: function (response) {
                                         products = response
+                                    },
+                                    data: {
+                                        "getAllProduct": "true",
                                     },
                                     error: function () {
                                         alert("error ajax get products");
@@ -71,9 +76,54 @@
                                         })
                                     }
                                 })
+                                updateHeaderCart();
                             });
+                                    function updateHeaderCart() {
+                                        $.ajax({
+                                            url: '/ajax',
+                                            type: 'POST',
+                                            success: function (response) {
+                                                let cart = response
+                                                let desktopCart = $("#_desktop_cart")
+                                                desktopCart.empty()
+                                                if (cart.length === 0) {
+                                                    desktopCart.append('<div class="blockcart cart-preview inactive" data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax"> <div class="header"> <span class="shopping"> <i class="material-icons shopping-cart">shopping_cart</i> <span class="hidden-sm-down">Cart</span> <span class="cart-productsount">0</span> </span> </div> <div class="cart_block block exclusive"> <div class="block_content"> <div class="cart_head"></div> <div class="cart_block_list"> <p class="no-item">No products in the cart.</p> </div> </div> </div></div>')
+                                                } else {
+                                                    let totalPrice = 0;
+                                                    let productList = ""
+                                                    cart.forEach(product => {
+                                                        totalPrice += product.price * product.quantity
+                                                        productList += '<div class="products"> <div class="img"> <a href="/product/detail/' + product.productID + '" class="thumbnail product-thumbnail"> <img src="/img/' + product.image + '" alt="" data-full-size-image-url="/img/' + product.image + '" style="width: 70px; height: 70px;"> </a> </div> <div class="cart-info"> <h2 class="h2 productname" itemprop="name"> <a href="/product/detail/' + product.productID + '"> ' + product.productName + ' </a> </h2> <div class="ttPrice"> <span class="quantity"> ' + product.quantity + 'X </span> <span class="price">' + product.price + ' <sup>d</sup> </span> </div> </div> <p class="remove_link"> <a class="remove-from-cart" onclick="deleteProductInCart('+product.productID+')" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="13" data-id-product-attribute="0" data-id-customization=""><i class="material-icons">close</i></a></p></div>'
+                                                    })
+                                                    desktopCart.append('<div class="blockcart cart-preview active" data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax"> <div class="header"> <span class="shopping"> <i class="material-icons shopping-cart">shopping_cart</i> <span class="hidden-sm-down">Cart</span> <span class="cart-products-count">' + cart.length + '</span> </span> </div> <div class="cart_block block exclusive"> <div class="block_content"> <div class="cart_head"> </div> <div class="cart_block_list"> <div class="cart_block_product_list"> ' + productList + ' </div> </div> </div> <div class="cart-prices"> <span class="total pull-left"> Total: </span> <span class="amount pull-right"> ' + totalPrice + '<sup>d</sup> </span> </div> <div class="cart-buttons"> <a rel="nofollow" href="/cart/checkout" class="btn-primary"> Check out <i class="ion-chevron-right"></i> </a> </div> </div> </div>')
+                                                }
+                                            },
+                                            data: {
+                                                "getCart": "true",
+                                            },
+                                            error: function () {
+                                                alert("error ajax get products");
+                                            }
+                                        });
+                                    }
                             function toURL(url) {
                                 window.location.href = url;
+                            }
+                            function deleteProductInCart(pID){
+                                $.ajax({
+                                    url: '/ajax',
+                                    type: 'POST',
+                                    success: function (response) {
+                                        updateHeaderCart();
+                                    },
+                                    data:{
+                                        deleteCart: "true",
+                                        productId: pID
+                                    },
+                                    error: function () {
+                                        alert("error ajax delete product in cart");
+                                    }
+                                });
                             }
                         </script>
                         <header id="header">
@@ -179,7 +229,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="level-1 parent">
-                                                        <a href="/product/IceDrink" class="ttinnermenu">
+                                                        <a href="/product/iceDrink" class="ttinnermenu">
                                                             <span class="catagory">Ice Drink</span>
                                                         </a>
                                                         <span class="icon-drop-mobile"></span>
@@ -212,7 +262,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="level-1 parent">
-                                                        <a class="ttinnermenu" href="/product/IcePop"><span
+                                                        <a class="ttinnermenu" href="/product/icePop"><span
                                                                 class="catagory">Ice Pop</span></a><span
                                                             class="icon-drop-mobile"></span>
                                                         <ul class="menu-dropdown cat-drop-menu tt-sub-right">
@@ -285,124 +335,9 @@
                                     </script>
                                     <!-- /Module Megamenu -->
 
-                                    <% Account account=(Account) session.getAttribute("acc"); List<Product> cart = (List
-                                        <Product>) session.getAttribute("cart");
-                                            if(account == null || cart == null || cart.isEmpty()){
-                                            %>
                                             <div id="_desktop_cart">
-                                                <div class="blockcart cart-preview inactive"
-                                                    data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                                                    <div class="header">
-                                                        <span class="shopping">
-                                                            <i class="material-icons shopping-cart">shopping_cart</i>
-                                                            <span class="hidden-sm-down">Cart</span>
-                                                            <span class="cart-productsount">0</span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="cart_block block exclusive">
-                                                        <div class="block_content">
-                                                            <div class="cart_head"></div>
-                                                            <div class="cart_block_list">
-                                                                <p class="no-item">No products in the cart.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
-                                            <% }else{ %>
-                                                <div id="_desktop_cart">
-                                                    <div class="blockcart cart-preview active"
-                                                        data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax">
-                                                        <div class="header">
-                                                            <span class="shopping">
-                                                                <i
-                                                                    class="material-icons shopping-cart">shopping_cart</i>
-                                                                <span class="hidden-sm-down">Cart</span>
-                                                                <span class="cart-products-count">
-                                                                    <%= cart.size()%>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="cart_block block exclusive">
-                                                            <div class="block_content">
-                                                                <div class="cart_head">
-
-                                                                </div>
-                                                                <div class="cart_block_list">
-                                                                    <div class="cart_block_product_list">
-                                                                        <% for (Product product : cart){ %>
-
-                                                                            <div class="products">
-                                                                                <div class="img">
-
-                                                                                    <a href="/product/detail/<%= product.getProductID()%>"
-                                                                                        class="thumbnail product-thumbnail">
-                                                                                        <img src="/img/<%= product.getImage()%>"
-                                                                                            alt=""
-                                                                                            data-full-size-image-url="/img/<%= product.getImage()%>"
-                                                                                            style="width: 70px; height: 70px;">
-                                                                                    </a>
-
-                                                                                </div>
-                                                                                <div class="cart-info">
-                                                                                    <h2 class="h2 productname"
-                                                                                        itemprop="name">
-                                                                                        <a
-                                                                                            href="/img/<%= product.getProductID()%>">
-                                                                                            <%=
-                                                                                                product.getProductName()%>
-                                                                                        </a>
-                                                                                    </h2>
-                                                                                    <div class="ttPrice">
-                                                                                        <span class="quantity">
-                                                                                            <%= product.getQuantity()%>X
-                                                                                        </span>
-                                                                                        <span class="price">
-                                                                                            <%=
-                                                                                                (int)product.getPrice()%>
-                                                                                                <sup>d</sup>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <p class="remove_link">
-                                                                                    <a class="remove-from-cart"
-                                                                                        onclick="toURL('/cart/delete/<%=product.getProductID()%>')"
-                                                                                        rel="nofollow"
-                                                                                        href="/cart/delete/<%=product.getProductID()%>"
-                                                                                        data-link-action="delete-from-cart"
-                                                                                        data-id-product="13"
-                                                                                        data-id-product-attribute="0"
-                                                                                        data-id-customization=""><i
-                                                                                            class="material-icons">close</i></a>
-                                                                                </p>
-                                                                            </div>
-                                                                            <% } %>
-
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="cart-prices">
-                                                                <span class="total pull-left">
-                                                                    Total:
-                                                                </span>
-                                                                <span class="amount pull-right">
-                                                                    <% int total=0; for (Product product: cart){ total
-                                                                        +=product.getQuantity() * product.getPrice(); }
-                                                                        out.print(total + "<sup>d</sup>" ); %>
-                                                                </span>
-                                                            </div>
-                                                            <div class="cart-buttons">
-                                                                <a rel="nofollow"
-                                                                    href="/cart/checkout"
-                                                                    class="btn-primary">
-                                                                    Check out <i class="ion-chevron-right"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <% } %>
 
 
                                                     <div id="_desktop_user_info">

@@ -91,7 +91,7 @@ public class CartController extends HttpServlet {
 				}
 			}
 			session.setAttribute("cart", cartItem);
-			request.getRequestDispatcher("/cart.jsp").forward(request, response);
+			request.getRequestDispatcher("/cart/checkout").forward(request, response);
 		}
 	}
 

@@ -37,7 +37,82 @@
                     Addresses
                     <span class="step-edit text-muted"><i class="material-icons edit">mode_edit</i> Edit</span>
                   </h1>
+                  <!-- Show cho nay neu customer khong address san -->
+                  <!-- <div class="content">
 
+                    <div class="js-address-form">
+                      <form method="POST" action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/order"
+                        data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/order?ajax=1&amp;action=addressForm">
+
+
+                        <p>
+                          The selected address will be used as your personal address (for invoice).
+                        </p>
+
+                        <div id="delivery-address">
+
+                          <div class="js-address-form">
+                            <section class="form-fields">
+                              <input type="hidden" name="back" value="">
+
+                              <input type="hidden" name="token" value="0422a169af679d89870bb7a45edb7481">
+                              <div class="form-group row">
+                                <label class="col-md-3 form-control-label required">
+                                  FullName
+                                </label>
+                                <div class="col-md-6">
+                                  <input class="form-control" name="fullName" type="text" maxlength="255"
+                                    required="">
+                                </div>
+                                <div class="col-md-3 form-control-comment">
+                                </div>
+                              </div>
+                              <div class="form-group row ">
+                                <label class="col-md-3 form-control-label required">
+                                  Phone
+                                </label>
+                                <div class="col-md-6">
+                                  <input class="form-control" name="phone" type="tel" value="" maxlength="32" required>
+                                </div>
+                                <div class="col-md-3 form-control-comment">
+                                </div>
+                              </div>
+                              <div class="form-group row ">
+                                <label class="col-md-3 form-control-label required">
+                                  Address
+                                </label>
+                                <div class="col-md-6">
+                                  <textarea style="resize: none;" class="form-control" rows="4" name="address" type="text" maxlength="128"
+                                    required=""></textarea>
+                                </div>
+                                <div class="col-md-3 form-control-comment">
+                                </div>
+                              </div>
+                              
+                              <input type="hidden" name="saveAddress" value="delivery">
+
+                            </section>
+
+
+
+                            <footer class="form-footer clearfix">
+                              <input type="hidden" name="submitAddress" value="1">
+                            </footer>
+
+
+
+                          </div>
+
+
+                        </div>
+                      </form>
+
+
+
+
+                    </div>
+
+                  </div> -->
                   <div class="content">
 
                     <div class="js-address-form">
@@ -77,13 +152,21 @@
                       </form>
                     </div>
 
+                  </div>
+                  <h1 class="step-title h3">
+                    <i class="material-icons rtl-no-flip done">&#xE876;</i>
+                    <span class="step-number">2</span>
+                    Payment
+                    <span class="step-edit text-muted"><i class="material-icons edit">mode_edit</i> Edit</span>
+                  </h1>
+                  <div class="content">
                     <div style="display:none" class="js-cart-payment-step-refresh"></div>
                     <div class="payment-options ">
                       <div>
                         <div id="payment-option-1-container" class="payment-option clearfix">
                           <span class="custom-radio float-xs-left">
                             <input class="ps-shown-by-js " id="payment-option-1" data-module-name="ps_checkpayment"
-                              name="payment-option" type="radio" required="">
+                              name="payment-option" type="radio" required="" checked>
                             <span></span>
                           </span>
                           <form method="GET" class="ps-hidden-by-js" style="display: none;">
@@ -212,14 +295,14 @@
                               <input id="conditions_to_approve[terms-and-conditions]"
                                 name="conditions_to_approve[terms-and-conditions]" required="" type="checkbox" value="1"
                                 class="ps-shown-by-js">
-                              <span><i class="material-icons rtl-no-flip checkbox-checked"></i></span>
+                              <span><i class="material-icons rtl-no-flip checkbox-checked">check_box</i>
+                              </span>
                             </span>
                           </div>
                           <div class="condition-label">
                             <label class="js-terms" for="conditions_to_approve[terms-and-conditions]">
-                              I agree to the <a
-                                href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/content/3-terms-and-conditions-of-use"
-                                id="cta-terms-and-conditions-0">terms of service</a> and will adhere to them
+                              I agree to the <a href="#" id="cta-terms-and-conditions-0">terms of service</a> and will
+                              adhere to them
                               unconditionally.
                             </label>
                           </div>
@@ -251,7 +334,7 @@
                   </div>
                 </section>
 
-                
+
 
 
 
