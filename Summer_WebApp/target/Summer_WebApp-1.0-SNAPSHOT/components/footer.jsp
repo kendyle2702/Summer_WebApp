@@ -145,7 +145,7 @@
                 <div class="icon">
                   <i class="material-icons">&#xE55F;</i>
                 </div>
-                <div class="data address">ice <br />United States</div>
+                <div class="data address">ice store<br />FPT University</div>
               </li>
               <li class="block">
                 <div class="data contact">
@@ -165,7 +165,7 @@
                       <i class="material-icons">&#xE158;</i>
                     </div>
                     <span class="title">Email us:</span>
-                    <span>demo@gmail.com</span>
+                    <span>demo@fpt.edu.vn</span>
                   </a>
                 </div>
               </li>
@@ -186,7 +186,7 @@
                   class="_blank"
                   href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/"
                 >
-                  © 2023 - Ecommerce software by PrestaShop?
+                  © 2023 - Ecommerce software by Group 4?
                 </a>
               </p>
             </div>
