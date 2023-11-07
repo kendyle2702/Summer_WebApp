@@ -27,7 +27,7 @@ public class PaymentDAO {
             Logger.getLogger(PaymentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public ResultSet getAll() {
         ResultSet rs = null;
         try {
@@ -42,7 +42,8 @@ public class PaymentDAO {
     public int createNewPayment(Payment pm) {
         int count = 0;
         try {
-            PreparedStatement ps = conn.prepareStatement("insert into Wishlist values (paymentID=?, paymentMethod=?, paymentStatus=?, fee=?, time=?, totalPayment=?, transactionID=?, orderID=?, isDeleted=?)");
+            PreparedStatement ps = conn.prepareStatement(
+                    "insert into Wishlist values (paymentID=?, paymentMethod=?, paymentStatus=?, fee=?, time=?, totalPayment=?, transactionID=?, orderID=?, isDeleted=?)");
 
             ps.setInt(1, pm.getPaymentID());
             ps.setString(2, pm.getPaymentMethod());
@@ -53,7 +54,7 @@ public class PaymentDAO {
             ps.setString(7, pm.getTransactionID());
             ps.setInt(8, pm.getOrderID());
             ps.setBoolean(9, pm.isIsDeleted());
-            
+
             count = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PaymentDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,7 +66,8 @@ public class PaymentDAO {
         int count = 0;
 
         try {
-            PreparedStatement ps = conn.prepareStatement("update Wishlist set paymentMethod=?, paymentStatus=?, fee=?, time=?, totalPayment=?, transactionID=?, orderID=?, isDeleted=? where paymentID=?");
+            PreparedStatement ps = conn.prepareStatement(
+                    "update Wishlist set paymentMethod=?, paymentStatus=?, fee=?, time=?, totalPayment=?, transactionID=?, orderID=?, isDeleted=? where paymentID=?");
 
             ps.setString(1, newInfo.getPaymentMethod());
             ps.setString(2, newInfo.getPaymentStatus());
@@ -76,8 +78,7 @@ public class PaymentDAO {
             ps.setInt(7, newInfo.getOrderID());
             ps.setBoolean(8, newInfo.isIsDeleted());
             ps.setInt(9, paymentID);
-            
-            
+
             count = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PaymentDAO.class.getName()).log(Level.SEVERE, null, ex);

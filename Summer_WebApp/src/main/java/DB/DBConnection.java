@@ -16,28 +16,28 @@ import java.util.logging.Logger;
  */
 public class DBConnection {
 
-	public static Connection connect() throws SQLException {
+    public static Connection connect() throws SQLException {
 
-		String server = "LAPTOP-DUY";
-		String port = "1433";
-		String database = "prj_project";
-		String user = "sa";
-		String password = "123";
+        String server = "LAPTOP-DUY";
+        String port = "1433";
+        String database = "prj_project";
+        String user = "sa";
+        String password = "123";
 
-		Connection conn = null;
+        Connection conn = null;
 
-		try {
-			// Đảm bảo driver đã được tạo
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        try {
+            // Đảm bảo driver đã được tạo
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-			// Tạo đối tượng Connection
-			conn = DriverManager.getConnection("jdbc:sqlserver://" + server + ":" + port
-					+ ";databaseName=" + database + ";user=" + user + ";password=" + password
-					+ ";encrypt=true;trustServerCertificate=true;");
-		} catch (ClassNotFoundException ex) {
-			Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
-		}
+            // Tạo đối tượng Connection
+            conn = DriverManager.getConnection("jdbc:sqlserver://" + server + ":" + port
+                    + ";databaseName=" + database + ";user=" + user + ";password=" + password
+                    + ";encrypt=true;trustServerCertificate=true;");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-		return conn;
-	}
+        return conn;
+    }
 }

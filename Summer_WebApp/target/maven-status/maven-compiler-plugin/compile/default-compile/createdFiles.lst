@@ -1,15 +1,3 @@
 Models\Address.class
-DAOs\OrderDAO.class
-Controllers\LoginController.class
-Hash\MD5.class
-Models\Category.class
-Models\Wishlist.class
-Models\OrderItem.class
-DAOs\AddressDAO.class
-Models\Account.class
+Models\Product.class
 Models\WishlistItem.class
-Controllers\HomeController.class
-Models\Payment.class
-DAOs\PaymentDAO.class
-Models\Order.class
-DAOs\Wishlist.class

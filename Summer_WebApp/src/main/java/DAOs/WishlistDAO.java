@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Tran Duy Dat - CE172036
@@ -42,7 +43,8 @@ public class WishlistDAO {
     public int createNewWishlist(Wishlist wl) {
         int count = 0;
         try {
-            PreparedStatement ps = conn.prepareStatement("insert into Wishlist values (wishlistID=?, wishlistName=?, time=?, email=?, isDeleted=?)");
+            PreparedStatement ps = conn.prepareStatement(
+                    "insert into Wishlist values (wishlistID=?, wishlistName=?, time=?, email=?, isDeleted=?)");
 
             ps.setInt(1, wl.getWishlistID());
             ps.setString(2, wl.getWishlistName());
@@ -61,7 +63,8 @@ public class WishlistDAO {
         int count = 0;
 
         try {
-            PreparedStatement ps = conn.prepareStatement("update Wishlist set wishlistName=?, time=?, email=?, isDeleted=? where wishlistID=?");
+            PreparedStatement ps = conn.prepareStatement(
+                    "update Wishlist set wishlistName=?, time=?, email=?, isDeleted=? where wishlistID=?");
 
             ps.setString(1, newInfo.getWishlistName());
             ps.setTimestamp(2, newInfo.getTime());

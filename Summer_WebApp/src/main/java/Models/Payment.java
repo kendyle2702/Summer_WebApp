@@ -5,6 +5,7 @@
 package Models;
 
 import java.sql.Timestamp;
+
 /**
  *
  * @author Tran Duy Dat - CE172036
@@ -20,11 +21,12 @@ public class Payment {
     private String transactionID;
     private int orderID;
     private boolean isDeleted;
-            
+
     public Payment() {
     }
 
-    public Payment(int paymentID, String paymentMethod, String paymentStatus, int fee, Timestamp time, int totalPayment, String transactionID, int orderID, boolean isDeleted) {
+    public Payment(int paymentID, String paymentMethod, String paymentStatus, int fee, Timestamp time, int totalPayment,
+            String transactionID, int orderID, boolean isDeleted) {
         this.paymentID = paymentID;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
@@ -35,7 +37,6 @@ public class Payment {
         this.orderID = orderID;
         this.isDeleted = isDeleted;
     }
-
 
     public int getPaymentID() {
         return paymentID;
@@ -101,7 +102,6 @@ public class Payment {
         this.transactionID = transactionID;
     }
 
-   
     public boolean isIsDeleted() {
         return isDeleted;
     }
@@ -109,7 +109,5 @@ public class Payment {
     public void setIsDeleted(boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
-    
 
-  
 }

@@ -24,7 +24,8 @@ public class Order {
     public Order() {
     }
 
-    public Order(int orderID, Timestamp time, String orderStatus, int total, String description, String email, int addressID, boolean isDeleted) {
+    public Order(int orderID, Timestamp time, String orderStatus, int total, String description, String email,
+            int addressID, boolean isDeleted) {
         this.orderID = orderID;
         this.time = time;
         this.orderStatus = orderStatus;
@@ -35,7 +36,8 @@ public class Order {
         this.isDeleted = isDeleted;
     }
 
-    public Order(Timestamp time, String orderStatus, int total, String description, String email, int addressID,boolean isDeleted) {
+    public Order(Timestamp time, String orderStatus, int total, String description, String email, int addressID,
+            boolean isDeleted) {
 
         this.time = time;
         this.orderStatus = orderStatus;
@@ -109,13 +111,13 @@ public class Order {
     public void setIsDeleted(boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
-    
-//      public int isIsDeleted() {
-//       return isDeleted;
-//    }
-//
-//    public void setIsDeleted(int isDeleted) {
-//        this.isDeleted = isDeleted;
-//    }
+
+    // public int isIsDeleted() {
+    // return isDeleted;
+    // }
+    //
+    // public void setIsDeleted(int isDeleted) {
+    // this.isDeleted = isDeleted;
+    // }
 
 }

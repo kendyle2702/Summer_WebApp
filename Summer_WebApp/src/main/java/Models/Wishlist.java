@@ -11,10 +11,10 @@ import java.sql.Timestamp;
  * @author Tran Duy Dat - CE172036
  */
 public class Wishlist {
-    
+
     private int wishlistID;
     private String wishlistName;
-    private Timestamp time;  
+    private Timestamp time;
     private String email;
     private boolean isDeleted;
 
@@ -28,8 +28,6 @@ public class Wishlist {
         this.email = email;
         this.isDeleted = isDeleted;
     }
-
-   
 
     public int getWishlistID() {
         return wishlistID;
@@ -71,6 +69,4 @@ public class Wishlist {
         this.isDeleted = isDeleted;
     }
 
-    
-    
 }

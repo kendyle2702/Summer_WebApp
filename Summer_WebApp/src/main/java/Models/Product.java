@@ -19,10 +19,11 @@ public class Product {
     private float price;
 
     public Product() {
-        
+
     }
 
-    public Product(String productName, int discount, int quantity, String description ,int categoryID, String image, boolean isDeleted,Date createTime,float price) {
+    public Product(String productName, int discount, int quantity, String description, int categoryID, String image,
+            boolean isDeleted, Date createTime, float price) {
         this.discount = discount;
         this.quantity = quantity;
         this.categoryID = categoryID;
@@ -33,7 +34,9 @@ public class Product {
         this.createTime = createTime;
         this.price = price;
     }
-    public Product(int productID, String productName, int discount, int quantity, String description ,int categoryID, String image, boolean isDeleted,Date createTime,float price) {
+
+    public Product(int productID, String productName, int discount, int quantity, String description, int categoryID,
+            String image, boolean isDeleted, Date createTime, float price) {
         this.productID = productID;
         this.discount = discount;
         this.quantity = quantity;

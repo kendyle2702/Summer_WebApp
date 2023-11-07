@@ -54,7 +54,7 @@ public class OrderDAO {
             ps.setString(5, newOrder.getEmail());
             ps.setInt(6, newOrder.getAddressID());
             ps.setBoolean(7, newOrder.isIsDeleted());
-            //  ps.setInt(6, newOrder.isIsDeleted());
+            // ps.setInt(6, newOrder.isIsDeleted());
 
             count = ps.executeUpdate(); // tra ve so dong bi anh huong trong sql
 
@@ -72,7 +72,9 @@ public class OrderDAO {
             ps.setInt(1, orderID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                order = new Order(rs.getInt("orderID"), rs.getTimestamp("time"), rs.getString("orderStatus"), rs.getInt("total"), rs.getString("description"), rs.getString("email"), rs.getInt("addressID"), rs.getBoolean("isDeleted"));
+                order = new Order(rs.getInt("orderID"), rs.getTimestamp("time"), rs.getString("orderStatus"),
+                        rs.getInt("total"), rs.getString("description"), rs.getString("email"), rs.getInt("addressID"),
+                        rs.getBoolean("isDeleted"));
             }
 
         } catch (SQLException ex) {
@@ -101,7 +103,8 @@ public class OrderDAO {
     public Order update(String pro_id, Order newOrder) {
         int count = 0;
         try {
-            PreparedStatement ps = conn.prepareStatement("update [order] set time =?, orderStatus=?, total=?, description=?, email=?,addressID=?,isDeleted=? where orderID =?");
+            PreparedStatement ps = conn.prepareStatement(
+                    "update [order] set time =?, orderStatus=?, total=?, description=?, email=?,addressID=?,isDeleted=? where orderID =?");
 
             ps.setTimestamp(1, newOrder.getTime());
             ps.setInt(2, newOrder.getTotal());
@@ -109,7 +112,7 @@ public class OrderDAO {
             ps.setString(4, newOrder.getEmail());
             ps.setInt(5, newOrder.getAddressID());
             ps.setBoolean(6, newOrder.isIsDeleted());
-            //  ps.setInt(6, newOrder.isIsDeleted());
+            // ps.setInt(6, newOrder.isIsDeleted());
             ps.setInt(7, newOrder.getOrderID());
             count = ps.executeUpdate();
         } catch (SQLException ex) {
@@ -132,7 +135,8 @@ public class OrderDAO {
     public ResultSet getNearSevenDay() {
         ResultSet rs = null;
         try {
-            PreparedStatement ps = conn.prepareStatement("Select * from [Order] where time >= DATEADD(day, -7, GETDATE()) AND time <= GETDATE()");
+            PreparedStatement ps = conn.prepareStatement(
+                    "Select * from [Order] where time >= DATEADD(day, -7, GETDATE()) AND time <= GETDATE()");
             rs = ps.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);

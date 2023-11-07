@@ -14,10 +14,10 @@
         >
         <%@include file="/components/header.jsp" %>
 
-        <%        
-            ProductDAO pDAO = new ProductDAO();
+        <%            ProductDAO pDAO = new ProductDAO();
             HttpSession session1 = request.getSession();
             int caterogy = (int) session1.getAttribute("type");
+            String[] cate = {"Ice Cream", "Ice Juice", "Ice Pop", "Ice Drink"};
         %>
         <div class="ttloading-bg spinner"></div>
 
@@ -33,7 +33,7 @@
                         </li>
 
                         <li>
-                            <span>Drinks</span>
+                            <span><%=cate[caterogy - 1]%></span>
                         </li>
                     </ol>
                 </nav>
@@ -56,16 +56,15 @@
                                     </span>
                                 </div>
                                 <ul id="categories" class="category-top-menu collapse toggle">
-                                        <a class="text-uppercase h6" href="#">Drinks</a>
+                                    <a class="text-uppercase h6" href="#"><%=cate[caterogy - 1]%></a>
                                 </ul>
                             </div>
-                            
+
                             <div class="ttleftbanner">
                                 <a href="#" title="PrestaShop"
                                    ><img src="../modules/ttadvertising/img/advertising-s1.jpg" alt="PrestaShop" title="PrestaShop" width="300" height="500"
                                       /></a>
                             </div>
-                            
                         </div>
 
                         <div id="content-wrapper" class="left-column col-xs-12 col-sm-8 col-md-9">
@@ -75,7 +74,7 @@
                                         <div class="category-cover">
                                             <img src="../c/6-category_default/drinks.jpg" alt="Drinks" />
                                         </div>
-                                        <h1 class="h1 title-category">Drinks</h1>
+                                        <h1 class="h1 title-category"><%=cate[caterogy - 1]%></h1>
                                         <div id="category-description" class="text-muted">
                                             <p>
                                                 <span style="font-size: 10pt; font-style: normal"
@@ -86,7 +85,6 @@
                                     </div>
 
                                     <!-- Subcategories -->
-                                    
                                 </div>
 
                                 <section id="products">
@@ -102,7 +100,7 @@
                                                 <%
                                                     int numberProductByCategory = pDAO.getNumberProductByCategory(caterogy);
                                                 %>
-                                                <p>There are <%=numberProductByCategory %> products.</p>
+                                                <p>There are <%=numberProductByCategory%> products.</p>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="row sort-by-row">
@@ -149,17 +147,17 @@
                                         <div id="js-product-list">
                                             <div class="products product-thumbs row">
                                                 <%
-                                                   ResultSet rs = pDAO.getProductByCategory(caterogy);
-                                                   while(rs.next()){  
+                                                    ResultSet rs = pDAO.getProductByCategory(caterogy);
+                                                    while (rs.next()) {
                                                 %>
                                                 <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                                    <article class="product-miniature js-product-miniature col-sm-4" data-id-product="<%=rs.getInt("productID") %>" data-id-product-attribute="0">
+                                                    <article class="product-miniature js-product-miniature col-sm-4" data-id-product="<%=rs.getInt("productID")%>" data-id-product-attribute="0">
                                                         <div class="thumbnail-container">
                                                             <div class="ttproduct-image">
-                                                                <a href="#" class="thumbnail product-thumbnail">
+                                                                <a href="/product/detail/<%=rs.getInt("productID")%>" class="thumbnail product-thumbnail">
                                                                     <img
                                                                         class="ttproduct-img1"
-                                                                        src="/img/<%=rs.getString("image") %>"
+                                                                        src="/img/<%=rs.getString("image")%>"
                                                                         alt="Polycarbonate Hurricane"
                                                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/60-large_default/mug-the-adventure-begins.jpg"
                                                                         width="290"
@@ -167,7 +165,7 @@
                                                                         />
                                                                     <img
                                                                         class="fade second_image img-responsive"
-                                                                        src="/img/<%=rs.getString("image") %>"
+                                                                        src="/img/<%=rs.getString("image")%>"
                                                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/61-large_default/mug-the-adventure-begins.jpg"
                                                                         alt=""
                                                                         width="300"
@@ -180,7 +178,7 @@
                                                                 <ul class="product-flags">
                                                                     <li class="online-only">Online only</li>
                                                                     <li class="on-sale">On sale!</li>
-                                                                    <li class="discount">-<%=rs.getInt("discount") %></li>
+                                                                    <li class="discount">-<%=rs.getInt("discount")%></li>
                                                                     <li class="new">New</li>
                                                                 </ul>
 
@@ -205,31 +203,43 @@
                                                                     <h5 class="cat-name">home</h5>
                                                                     <div class="ttproducthover">
                                                                         <div class="quick-view-block">
-                                                                            <a href="#" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
+                                                                            <a href="/product/detail/<%=rs.getInt("productID")%>" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
                                                                                 <i class="material-icons quick_view_icon">visibility</i>
                                                                                 <span>Quick view</span>
                                                                                 <span class="loading"><i class="material-icons">cached</i></span>
                                                                             </a>
                                                                         </div>
 
+                                                                        <script>
+                                                                            function notifySuccess() {
+                                                                                Swal.fire({
+                                                                                    icon: "success",
+                                                                                    title: "Add to cart successful!",
+                                                                                    showConfirmButton: true,
+                                                                                    timer: 2000,
+                                                                                }).then(() => location.reload());
+                                                                            }
+                                                                        </script>
+                                                                        
                                                                         <div class="tt-button-container">
                                                                             <div class="product-add-to-cart">
                                                                                 <form
-                                                                                    action="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/cart"
+                                                                                    action="/cart"
                                                                                     method="post"
                                                                                     class="add-to-cart-or-refresh"
                                                                                     >
                                                                                     <div class="product-quantity" style="display: none">
-                                                                                        <input type="number" name="id_product" value="<%=rs.getInt("productID") %>" class="product_page_product_id" />
+                                                                                        <input type="number" name="productId" value="<%=rs.getInt("productID")%>" class="product_page_product_id" />
                                                                                         <input type="number" name="id_customization" value="0" class="product_customization_id" />
-                                                                                        <input type="hidden" name="token" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
+                                                                                        <input type="hidden" name="addCart" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
                                                                                         <input type="number" name="qty" class="quantity_wanted input-group" value="1" min="1" />
+                                                                                        <input type="hidden" name="quantity" id="quantity_wanted" value="1" class="input-group" min="1" aria-label="Quantity"/>
                                                                                     </div>
                                                                                     <button
                                                                                         class="button ajax_add_to_cart_button add-to-cart btn btn-default"
                                                                                         data-button-action="add-to-cart"
                                                                                         title="Add to cart"
-                                                                                        >
+                                                                                        type="submit" onclick="notifySuccess()">
                                                                                         <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                                                         <span class="loading"><i class="material-icons">cached</i></span>
                                                                                         <span>Add to cart</span>
@@ -241,7 +251,7 @@
                                                                             <a
                                                                                 class="add_to_compare btn btn-primary"
                                                                                 href="#"
-                                                                                data-id-product="<%=rs.getInt("productID") %>"
+                                                                                data-id-product="<%=rs.getInt("productID")%>"
                                                                                 data-dismiss="modal"
                                                                                 title="Add to Compare"
                                                                                 >
@@ -269,19 +279,19 @@
                                                                     </div>
 
                                                                     <span class="h3 product-title" itemprop="name"
-                                                                          ><a href="#"><%=rs.getString("productName") %></a></span
+                                                                          ><a href="#"><%=rs.getString("productName")%></a></span
                                                                     >
 
                                                                     <div class="product-desc-short" itemprop="description">
-                                                                        <%=rs.getString("description") %>
+                                                                        <%=rs.getString("description")%>
                                                                     </div>
 
                                                                     <div class="product-price-and-shipping">
-                                                                        <span itemprop="price" class="price"><%=rs.getDouble("price") %></span>
+                                                                        <span itemprop="price" class="price"><%=rs.getDouble("price")%></span>
 
                                                                         <span class="sr-only">Regular price</span>
-                                                                        <span class="discount-amount discount-product">-<%=rs.getInt("discount") %></span>
-                                                                        <span class="regular-price"><%=rs.getDouble("price") - rs.getInt("discount") %></span>
+                                                                        <span class="discount-amount discount-product">-<%=rs.getInt("discount")%></span>
+                                                                        <span class="regular-price"><%=rs.getDouble("price") - rs.getInt("discount")%></span>
 
                                                                         <span class="sr-only">Price</span>
                                                                     </div>
