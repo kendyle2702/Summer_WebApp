@@ -117,16 +117,6 @@
                             </p>
                           </div>
 
-                          <script>
-                            function notifySuccess() {
-                              Swal.fire({
-                                icon: "success",
-                                title: "Add to cart successful!",
-                                showConfirmButton: true,
-                                timer: 2000,
-                              }).then(() => location.reload());
-                            }
-                          </script>
 
                           <div class="product-actions">
                             <form action="/cart" method="post" id="add-to-cart-or-refresh">
@@ -149,7 +139,7 @@
 
                                     <div class="add">
                                       <button class="btn btn-primary add-to-cart" data-button-action="add-to-cart"
-                                        type="submit" onclick="notifySuccess()">
+                                        type="submit" onclick="<%= account != null ? "notifySuccess()" : "notifyFail()"%> ()">
                                         <i class="material-icons shopping-cart">&#xE547;</i>
                                         Add to cart
                                       </button>

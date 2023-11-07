@@ -12,17 +12,6 @@
       <body id="index" class="lang-en country-us currency-usd layout-full-width page-index tax-display-disabled"
         itemscope itemtype="http://schema.org/WebPage">
         <div class="ttloading-bg spinner"></div>
-
-        <script>
-          function notifySuccess() {
-            Swal.fire({
-              icon: "success",
-              title: "Add to cart successful!",
-              showConfirmButton: true,
-              timer: 2000,
-            }).then(() => location.reload());
-          }
-        </script>
         <%@include file="/components/header.jsp" %>
 
           <% if (session.getAttribute("acc")==null) {%>
@@ -440,7 +429,7 @@
                                                       </div>
                                                       <button
                                                         class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                        data-button-action="add-to-cart" onclick="notifySuccess()"
+                                                        data-button-action="add-to-cart" onclick="<%= account != null ? "notifySuccess()" : "notifyFail()"%> ()"
                                                         title="Add to cart">
                                                         <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                         <span class="loading"><i
@@ -715,7 +704,7 @@
                                                 </div>
                                                 <button
                                                   class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                  data-button-action="add-to-cart" onclick="notifySuccess()"
+                                                  data-button-action="add-to-cart" onclick="<%= account != null ? "notifySuccess()" : "notifyFail()"%> ()"
                                                   title="Add to cart">
                                                   <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                   <span class="loading"><i class="material-icons">cached</i></span>
@@ -1060,7 +1049,7 @@
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
                                                     data-button-action="add-to-cart" title="Add to cart"
-                                                    onclick="notifySuccess()">
+                                                    onclick="<%= account != null ? "notifySuccess()" : "notifyFail()"%> ()">
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>

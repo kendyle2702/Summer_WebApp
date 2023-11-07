@@ -20,6 +20,22 @@
                             }
                         </style>
                         <script>
+                            function notifySuccess() {
+                              Swal.fire({
+                                icon: "success",
+                                title: "Add to cart successful!",
+                                showConfirmButton: true,
+                                timer: 2000,
+                              }).then(() => location.reload());
+                            }
+                            function notifyFail() {
+                              Swal.fire({
+                                icon: "error",
+                                title: "Please login to shopping!",
+                                showConfirmButton: true,
+                                timer: 2000,
+                              }).then(() => window.location.href = "/login");
+                            }
                             $(document).ready(function () {
                                 let products = []
                                 let filter = [];
@@ -118,7 +134,7 @@
                                     </div>
 
                                     <div class="top-wishlist" id="top-wishlist">
-                                        <a class="wishtlist_top" href="loginb6ea.html" title="Wishlists" rel="nofollow">
+                                        <a class="wishtlist_top" href="/" title="Wishlists" rel="nofollow">
                                             <i class="material-icons">favorite_border</i><span
                                                 class="cart-wishlist-number">0</span>
                                         </a>

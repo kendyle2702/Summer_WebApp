@@ -226,8 +226,8 @@
                                                             </div>
 
                                                             <div class="checkout cart-detailed-actions card-block">
-                                                                <div class="text-sm-center">
-                                                                    <a href="#" class="btn btn-primary">Proceed to
+                                                                <div class="text-sm-center" >
+                                                                    <a href="#" class="btn btn-primary" >Proceed to
                                                                         checkout</a>
 
                                                                 </div>

@@ -88,7 +88,7 @@
                                                     </div>
 
                                                     <div class="col-md-3 form-control-comment"></div>
-                                                </div>g
+                                                </div>
 
                                                 <div class="forgot-password">
                                                     <a href="/login/recovery" rel="nofollow"> Forgot your password? </a>
