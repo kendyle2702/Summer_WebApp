@@ -39,21 +39,22 @@ public class AccountDAO {
         }
         return rs;
     }
-    
-    public Account getAccountByUsername(String username){
+
+    public Account getAccountByUsername(String username) {
         Account account = null;
         try {
             PreparedStatement ps = conn.prepareStatement("select * from Account where email = ?");
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birthdate"), rs.getString("role"), rs.getString("sex"),rs.getBoolean("isDeleted"));
+            while (rs.next()) {
+                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birthdate"), rs.getString("role"), rs.getString("sex"), rs.getBoolean("isDeleted"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return account;
     }
+
     public Account getAccountByUsernameAndPassword(String username, String password) {
         Account account = null;
         try {
@@ -62,7 +63,7 @@ public class AccountDAO {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birthdate"), rs.getString("role"), rs.getString("sex"),rs.getBoolean("isDeleted"));
+                account = new Account(rs.getString("email"), rs.getString("password"), rs.getString("fullName"), rs.getDate("birthdate"), rs.getString("role"), rs.getString("sex"), rs.getBoolean("isDeleted"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,15 +74,15 @@ public class AccountDAO {
     public Account addNewAccount(Account acc) {
         int count = 0;
         try {
-            PreparedStatement ps = conn.prepareStatement("insert into Account values(?,?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("insert into [Account] values(?,?,?,?,?,?,?)");
             ps.setString(1, acc.getEmail());
             ps.setString(2, acc.getPassword());
-            ps.setString(3, acc.getFullName()); 
+            ps.setString(3, acc.getFullName());
             ps.setDate(4, acc.getBirthdate());
             ps.setString(5, "member");
             ps.setString(6, acc.getSex());
             ps.setBoolean(7, false);
-           
+
             count = ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -90,7 +91,64 @@ public class AccountDAO {
 
         return (count == 0) ? null : acc;
     }
+
+    public void ban(String mail) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("update [Account] set isDeleted=?  where email =?");
+            ps.setBoolean(1, true);
+            ps.setString(2, mail);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void unban(String mail) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("update [Account] set isDeleted=?  where email =?");
+            ps.setBoolean(1, false);
+            ps.setString(2, mail);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void updateRole(String mail, String role) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("update [Account] set role=?  where email =?");
+            ps.setString(1, role);
+            ps.setString(2, mail);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public ResultSet getRoles() {
+        ResultSet rs = null;
+        try {
+            PreparedStatement ps = conn.prepareStatement("select [role],count(email) as quantity from Account \n"
+                    + "group by [role]");
+            rs = ps.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(WishlistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
     
-
-
+    public int getRows() {
+        int quantity = -1;
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select count(email) as quantity from [Account]");
+            while(rs.next()){
+                quantity = rs.getInt("quantity");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return quantity;
+    }
 }

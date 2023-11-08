@@ -141,13 +141,30 @@ Validator.isPositiveFloat = (selector, invalidMessage) => {
         }
     };
 };
-
+Validator.isEmail = (selector, invalidMessage) => {
+    return {
+        selector: selector,
+        test: function (value) {
+            return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)? undefined : invalidMessage;
+        }
+    };
+};
 
 Validator.isPassword = (selector, invalidMessgae) => {
     return {
         selector: selector,
         test: function (value) {
             return value.trim().length < 6 ? invalidMessgae : undefined;
+        }
+    };
+};
+
+
+Validator.isConfirmPassword = (selector,selectorConfirm, invalidMessgae) => {
+    return {
+        selector: selector,
+        test: function (value) {
+            return document.querySelector(selectorConfirm).value.trim() !== value.trim() ? invalidMessgae : undefined;
         }
     };
 };

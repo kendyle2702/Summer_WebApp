@@ -14,7 +14,7 @@
         <%@include file="/components/headAdmin.jsp"%>
     </head>
     <body>
-        <% Account acc = (Account)session.getAttribute("acc"); %>
+        <% Account acc = (Account) session.getAttribute("acc");%>
         <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
@@ -94,10 +94,8 @@
                                                 <div class="scroll-area-xs" style="height: 150px">
                                                     <div class="scrollbar-container ps">
                                                         <ul class="nav flex-column">
-                                                            <li class="nav-item-header nav-item" style="text-transform: lowercase">Email: <%=acc.getEmail() %></li>
-                                                            <li class="nav-item">
-                                                                <a href="javascript:void(0);" class="nav-link">Recovery Password </a>
-                                                            </li>
+                                                            <li class="nav-item-header nav-item" style="text-transform: lowercase">Email: <%=acc.getEmail()%></li>
+
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -117,7 +115,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="app-main">
                 <div class="app-sidebar sidebar-shadow">
                     <div class="app-header__logo">
@@ -183,12 +181,7 @@
                                     <a href="/admin/order"> <i class="metismenu-icon pe-7s-note2"></i>View Orders </a>
                                 </li>
                             </ul>
-                            <ul class="vertical-nav-menu">
-                                <li class="app-sidebar__heading">Payment Management</li>
-                                <li class="mm-active">
-                                    <a href="/admin/payment"> <i class="metismenu-icon pe-7s-note2"></i>View Payments </a>
-                                </li>
-                            </ul>
+
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Account Management</li>
                                 <li class="mm-active">
@@ -207,11 +200,57 @@
                             <div class="card mb-3">
                                 <div class="card-header-tab card-header">
                                     <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                        <i class="header-icon lnr-lighter icon-gradient bg-amy-crisp"> </i>View Statistics On Product Quantity
+                                    </div>
+                                </div>
+                                <div id="chart" style="background: white;margin-bottom: 50px"></div>
+                                <%
+                                    ProductDAO proChartDAO = new ProductDAO();
+                                    ResultSet rsChart = proChartDAO.getTop10FeaturedQuantity();
+                                    String series = "";
+                                    String lables = "";
+                                    while(rsChart.next()){
+                                        lables += "'"+rsChart.getString("productName")+"',";
+                                        series += rsChart.getInt("quantity")+",";
+                                    }
+                                %>
+                                <script>
+
+                                    var options = {
+                                        series: [{
+                                                data: [<%=series%>]
+                                            }],
+                                        chart: {
+                                            type: 'bar',
+                                            height: 350
+                                        },
+                                        plotOptions: {
+                                            bar: {
+                                                borderRadius: 4,
+                                                horizontal: true,
+                                            }
+                                        },
+                                        dataLabels: {
+                                            enabled: false
+                                        },
+                                        xaxis: {
+                                            categories: [<%=lables%>
+                                            ]
+                                        }
+                                    };
+
+                                    var chart = new ApexCharts(document.querySelector("#chart"), options);
+                                    chart.render();
+                                </script>
+                            </div>
+                            <div class="card mb-3">
+                                <div class="card-header-tab card-header">
+                                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
                                         <i class="header-icon lnr-laptop-phone mr-3 text-muted opacity-6"> </i>View Products
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    
+
                                     <table style="width: 100%" id="example" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
@@ -230,25 +269,25 @@
                                         </thead>
                                         <tbody>
                                             <%
-                                                ProductDAO pDAO =  new ProductDAO();
+                                                ProductDAO pDAO = new ProductDAO();
                                                 ResultSet rs = pDAO.getAllHaveCategoryName();;
-                                                while(rs.next()){%>
-                                                <tr>
-                                                    <td><%=rs.getInt("productID") %></td>
-                                                    <td><%=rs.getString("productName") %></td>
-                                                    <td><%=rs.getInt("price") %>đ</td>
-                                                    <td><%=rs.getInt("discount") %>%</td>
-                                                    <td><%=rs.getInt("quantity") %></td>
-                                                    <td><%=rs.getString("categoryName")%></td>
-                                                    <td><img src="/img/<%=rs.getString("image")%>" alt="alt" witdh="50px" height="50px"/></td>
-                                                    <td><%=rs.getDate("createTime")%></td>
-                                                    <td><%=rs.getString("description")%></td>
-                                                    <td><%=rs.getBoolean("isDeleted")== false? "<span style='color:blue'>Selling</span>":"<span style='color:red;font-weight:bold;'>Stop selling</span>"%></td>
-                                                    <td><a  href="/admin/product/view/<%=rs.getInt("productID")%>"><button style='min-width: 80px' class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary"><i class="pe-7s-tools btn-icon-wrapper"></i>View detail</button></a></td>
-                                                </tr>
-                                                <%}
+                                                while (rs.next()) {%>
+                                            <tr>
+                                                <td><%=rs.getInt("productID")%></td>
+                                                <td><%=rs.getString("productName")%></td>
+                                                <td><%=rs.getInt("price")%>đ</td>
+                                                <td><%=rs.getInt("discount")%>%</td>
+                                                <td><%=rs.getInt("quantity")%></td>
+                                                <td><%=rs.getString("categoryName")%></td>
+                                                <td><img src="/img/<%=rs.getString("image")%>" alt="alt" witdh="50px" height="50px"/></td>
+                                                <td><%=rs.getDate("createTime")%></td>
+                                                <td><%=rs.getString("description")%></td>
+                                                <td><%=rs.getBoolean("isDeleted") == false ? "<span style='color:blue'>Selling</span>" : "<span style='color:red;font-weight:bold;'>Stop selling</span>"%></td>
+                                                <td><a  href="/admin/product/view/<%=rs.getInt("productID")%>"><button style='min-width: 80px' class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary"><i class="pe-7s-tools btn-icon-wrapper"></i>View detail</button></a></td>
+                                            </tr>
+                                            <%}
                                             %>
-                                            
+
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -273,7 +312,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="app-drawer-overlay d-none animated fadeIn"></div>
         <script type="text/javascript" src="/js/main.d810cf0ae7f39f28f336.js"></script>
     </body>

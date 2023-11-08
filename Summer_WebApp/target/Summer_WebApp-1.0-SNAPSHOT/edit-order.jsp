@@ -4,6 +4,7 @@
     Author     : QuocCu
 --%>
 
+<%@page import="DAOs.OrderDAO"%>
 <%@page import="Models.Order"%>
 <%@page import="DAOs.CategoryDAO"%>
 <%@page import="Models.Product"%>
@@ -129,9 +130,7 @@
                                                     <div class="scrollbar-container ps">
                                                         <ul class="nav flex-column">
                                                             <li class="nav-item-header nav-item" style="text-transform: lowercase">Email: <%=acc.getEmail()%></li>
-                                                            <li class="nav-item">
-                                                                <a href="javascript:void(0);" class="nav-link">Recovery Password </a>
-                                                            </li>
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -216,12 +215,7 @@
                                     <a href="/admin/order"> <i class="metismenu-icon pe-7s-note2"></i>View Orders </a>
                                 </li>
                             </ul>
-                            <ul class="vertical-nav-menu">
-                                <li class="app-sidebar__heading">Payment Management</li>
-                                <li class="mm-active">
-                                    <a href="/admin/payment"> <i class="metismenu-icon pe-7s-note2"></i>View Payments </a>
-                                </li>
-                            </ul>
+                            
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Account Management</li>
                                 <li class="mm-active">
@@ -245,7 +239,10 @@
                                 </div>
                                 <div class="card-body">
                                     <%
-                                        Order order = (Order) session.getAttribute("viewOrder");
+                                        Order order = (Order) session.getAttribute("viewOrder");  
+                           
+                                        OrderDAO orDAO = new OrderDAO();
+                                        ResultSet rs = orDAO.getProductByOrder(order.getOrderID());
                                     %>
                                     <form action="admin" id="form-1" method="POST" class="container form__box" enctype="multipart/form-data">
                                         <div class="mt-3 mb-3 row">
@@ -258,7 +255,7 @@
                                         <div class="mb-3 row">
                                             <label for="orderStatus" class="col-sm-2 col-form-label">Order Status</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="orderStatus" name="orderStatus" value="<%= order.getOrderStatus()%>">
+                                                <input type="text" class="form-control" id="orderStatus" name="orderStatus" value="<%= order.getOrderStatus()%>" readonly>
                                                 <div class="message"></div>
                                             </div>
                                         </div>
@@ -268,11 +265,18 @@
                                                 <input type="text" class="form-control" id="createTime" name="createTime" value="<%= order.getTime()%>" readonly>
                                                 <div class="message"></div>
                                             </div>
-                                        </div>  
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="address" class="col-sm-2 col-form-label">Address</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="address" name="address" value="<%=orDAO.getAddressByOrder(order.getOrderID())%>" readonly>
+                                                <div class="message"></div>
+                                            </div>
+                                        </div>       
                                         <div class="mb-3 row">
                                             <label for="total" class="col-sm-2 col-form-label">Total</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="total" name="total" value="<%= order.getTotal()%>" readonly>
+                                                <input type="text" class="form-control" id="total" name="total" value="<%= order.getTotal()%>đ" readonly>
                                                 <div class="message"></div>
                                             </div>
                                         </div>
@@ -284,11 +288,41 @@
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <input type="hidden" name="updateOrder" value="<%=order.isIsDeleted()%>">
-                                            <button class="btn btn-primary col-sm-1 offset-sm-2" type="submit" value="save" name="save">Save</button>
-                                            <a class="btn btn-danger col-sm-2 ms-1" href="/admin/order">Back to View Orders</a>
-                                        </div>
+                                            <label for="description" class="col-sm-2 col-form-label">Description</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" id="description" rows="3" name="description" readonly><%= order.getDescription()%></textarea>
+                                                <div class="message"></div>
+                                            </div>
+                                        </div> 
                                     </form>
+                                    <div class="card-header">
+                                        <i class="header-icon lnr-gift icon-gradient bg-mixed-hopes"> </i>Items
+                                    </div>
+                                    <div class="row">
+                                       <style>
+                                             .card img{
+                                                 height: 300px;
+                                                 width: 100%;
+                                                 object-fit: contain;
+                                             }
+                                       </style>
+                                       <% 
+    
+                                           while(rs.next()){%>
+                                         <div class="col-lg-4 mt-3">
+                                             <div class="card" >
+                                                 <img src="/img/<%=rs.getString("image") %>" class="card-img-top" alt="item">
+                                                 <div class="card-body">
+                                                     <h5 class="card-title"><%=rs.getString("productName") %></h5>
+                                                     <p class="card-text">Quantity: <%=rs.getInt("quantity") %></p>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                           <%}
+                                       %>
+
+                                    </div>            
+                                    <a class="btn btn-danger col-sm-2 ms-1 mt-5" href="/admin/order">Back to View Orders</a>            
                                 </div>
                             </div>
                         </div>
@@ -314,7 +348,7 @@
                 message: ".message", // Selector class
                 invalid: "invalid", // Tên class message
                 rules: [
-                    
+
                 ]
             });
         </script>

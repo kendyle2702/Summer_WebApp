@@ -39,6 +39,7 @@ public class ProductDAO {
         }
         return rs;
     }
+
     public ResultSet getAllHaveCategoryName() {
         ResultSet rs = null;
         try {
@@ -49,7 +50,6 @@ public class ProductDAO {
         }
         return rs;
     }
-   
 
     public Product addNew(Product newProduct) {
         int count = 0;
@@ -128,7 +128,7 @@ public class ProductDAO {
         }
         return (count == 0) ? null : newProduct;
     }
-    
+
     public void delete(int productID) {
         boolean isDelete = true;
         try {
@@ -140,7 +140,8 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void sellingAgain(int productID){
+
+    public void sellingAgain(int productID) {
         boolean isDelete = false;
         try {
             PreparedStatement ps = conn.prepareStatement("update Product set isDeleted = ?  where productID = ?");
@@ -186,7 +187,7 @@ public class ProductDAO {
         }
         return rs;
     }
-    
+
     public ResultSet get5SpecialProducts() {
         ResultSet rs = null;
         try {
@@ -196,5 +197,65 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
+    }
+
+    public ResultSet getFeaturedProducts() {
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery(" select * from Product where productID IN(\n"
+                    + "  select top 10 p.productID \n"
+                    + "  from Product p inner join OrderItem o \n"
+                    + "  on p.productID = o.productID \n"
+                    + "  group by p.productID\n"
+                    + "  order by count(o.orderID) DESC)");
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+
+    public ResultSet getTop10FeaturedQuantity() {
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery(" select top 10 p.productID ,p.productName, count(o.orderID) as quantity\n"
+                    + "from Product p inner join OrderItem o on\n"
+                    + "p.productID = o.productID \n"
+                    + "group by p.productID, p.productName\n"
+                    + "order by count(o.orderID) DESC");
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    
+    public int getRows() {
+        int quantity = -1;
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select count(productID) as quantity from Product");
+            while(rs.next()){
+                quantity = rs.getInt("quantity");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return quantity;
+    }
+    public int getRowsOnSale() {
+        int quantity = -1;
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select count(productID) as quantity from Product where isDeleted != 1");
+            while(rs.next()){
+                quantity = rs.getInt("quantity");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return quantity;
     }
 }

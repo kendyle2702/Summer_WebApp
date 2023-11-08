@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Tran Duy Dat - CE172036
@@ -90,5 +91,28 @@ public class WishlistDAO {
             Logger.getLogger(WishlistDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return count;
+    }
+
+    public int quantityWishlist(int wishlistID) {
+        ResultSet rs = null;
+        int quantity = -1;
+        try {
+            PreparedStatement ps = conn.prepareStatement("select w.wishlistID, COUNT(wl.productID)as quantity from Wishlist w \n"
+                    + "  inner join WishlistItem wl on w.wishlistID = wl.wishlistID\n"
+                    + "  group by w.wishlistID \n"
+                    + "  having w.wishlistID = ?");
+            ps.setInt(1, wishlistID);
+            rs = ps.executeQuery();
+            if (rs == null) {
+                quantity = 0;
+            } else {
+                while (rs.next()) {
+                    quantity = rs.getInt("quantity");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(WishlistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return quantity;
     }
 }

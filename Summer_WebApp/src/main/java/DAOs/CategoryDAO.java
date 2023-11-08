@@ -121,7 +121,7 @@ public class CategoryDAO {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void sellingAgain(int categoryID) {
         boolean isDelete = false;
         try {
@@ -133,5 +133,30 @@ public class CategoryDAO {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-}
 
+    public ResultSet getCategoriesQuantity() {
+        ResultSet rs = null;
+        try {
+            PreparedStatement ps = conn.prepareStatement("select c.categoryID, c.categoryName,count(p.productID) as quantity from Product p inner join Category c on p.categoryID = c.categoryID\n"
+                    + "  group by c.categoryID, c.categoryName");
+            rs = ps.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(WishlistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    public int getRows() {
+        int quantity = -1;
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select count(categoryID) as quantity from [Category]");
+            while(rs.next()){
+                quantity = rs.getInt("quantity");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return quantity;
+    }
+}

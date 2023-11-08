@@ -4,6 +4,7 @@
     Author     : QuocCu
 --%>
 
+<%@page import="java.util.HashMap"%>
 <%@page import="DAOs.AccountDAO"%>
 <%@page import="Models.Account"%>
 <%@page import="java.sql.ResultSet"%>
@@ -96,9 +97,7 @@
                                                     <div class="scrollbar-container ps">
                                                         <ul class="nav flex-column">
                                                             <li class="nav-item-header nav-item" style="text-transform: lowercase">Email: <%=acc.getEmail() %></li>
-                                                            <li class="nav-item">
-                                                                <a href="javascript:void(0);" class="nav-link">Recovery Password </a>
-                                                            </li>
+                                                           
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -184,12 +183,7 @@
                                     <a href="/admin/order"> <i class="metismenu-icon pe-7s-note2"></i>View Orders </a>
                                 </li>
                             </ul>
-                            <ul class="vertical-nav-menu">
-                                <li class="app-sidebar__heading">Payment Management</li>
-                                <li class="mm-active">
-                                    <a href="/admin/payment"> <i class="metismenu-icon pe-7s-note2"></i>View Payments </a>
-                                </li>
-                            </ul>
+                            
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Account Management</li>
                                 <li class="mm-active">
@@ -205,6 +199,49 @@
                 <div class="app-main__outer">
                     <div class="app-main__inner">
                         <div class="tabs-animation">
+                             <div class="card mb-3">
+                                <div class="card-header-tab card-header">
+                                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                        <i class="header-icon lnr-user icon-gradient bg-ripe-malin"> </i>Statistics Accounts Role
+                                    </div>
+                                </div>
+                                <div id="chart"></div>
+                                
+                                <%
+                                    AccountDAO accChartDAO = new AccountDAO();
+                                    ResultSet rsChart = accChartDAO.getRoles();
+                                    String series = "";
+                                    String lables = "";
+                                    while(rsChart.next()){
+                                        lables += "'"+rsChart.getString("role")+"',";
+                                        series += rsChart.getInt("quantity")+",";
+                                    }
+                                %>
+                                <script>
+                                    var options = {
+                                        series: [<%=series%>],
+                                        chart: {
+                                            width: 380,
+                                            type: 'pie',
+                                        },
+                                        labels: [<%=lables%>],
+                                        responsive: [{
+                                                breakpoint: 480,
+                                                options: {
+                                                    chart: {
+                                                        width: 200
+                                                    },
+                                                    legend: {
+                                                        position: 'bottom'
+                                                    }
+                                                }
+                                            }]
+                                    };
+
+                                    var chart = new ApexCharts(document.querySelector("#chart"), options);
+                                    chart.render();
+                                </script>
+                            </div>
                             <div class="card mb-3">
                                 <div class="card-header-tab card-header">
                                     <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
@@ -217,13 +254,12 @@
                                         <thead>
                                             <tr>
                                                 <th>Email</th>
-                                                <th>Password</th>
                                                 <th>Full Name</th>
                                                 <th>Birth date</th>
                                                 <th>Role</th>
                                                 <th>Sex</th>
                                                 <th>Status</th>
-                                                <th></th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -233,7 +269,6 @@
                                                 while(rs.next()){%>
                                                 <tr>
                                                     <td><%=rs.getString("email") %></td>
-                                                    <td><%=rs.getString("password") %></td>
                                                     <td><%=rs.getString("fullName") %></td>
                                                     <td><%=rs.getDate("birthdate") %></td>
                                                     <td><%=rs.getString("role") %></td>
@@ -247,8 +282,9 @@
                                                                 <%}
                                                                 else{%>
                                                                     <a  href="/admin/account/unban/<%=rs.getString("email")%>"><button class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary"><i class="pe-7s-upload btn-icon-wrapper"></i>Cancel Ban</button></a>
-                                                                <%}
-                                                            }
+                                                                <%}%>
+                                                                <a href="/admin/account/view/<%=rs.getString("email")%>"><button class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary"><i class="pe-7s-tools btn-icon-wrapper"></i>View detail</button></a>
+                                                            <%}
                                                         %>
                                                         
                                                     </td>
@@ -260,13 +296,12 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Email</th>
-                                                <th>Password</th>
                                                 <th>Full Name</th>
                                                 <th>Birth date</th>
                                                 <th>Role</th>
                                                 <th>Sex</th>
                                                 <th>Status</th>
-                                                <th></th>
+                                                <th>Action</th>
                                             </tr>
                                         </tfoot>
                                     </table>

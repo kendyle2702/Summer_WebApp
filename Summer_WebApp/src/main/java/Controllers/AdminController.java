@@ -4,6 +4,7 @@
  */
 package Controllers;
 
+import DAOs.AccountDAO;
 import DAOs.CategoryDAO;
 import DAOs.OrderDAO;
 import DAOs.ProductDAO;
@@ -156,6 +157,22 @@ public class AdminController extends HttpServlet {
                             response.sendRedirect("/admin/order");
                         }
                     }
+                    else if (path.startsWith("/admin/order/view/")) {
+                        String[] s = path.split("/");
+                        try {
+                            int cate_id = Integer.parseInt(s[s.length - 1]);
+                            OrderDAO orDAO = new OrderDAO();
+                            Order order = orDAO.getOrder(cate_id);
+                            if (order != null) {
+                                session.setAttribute("viewOrder", order);
+                                request.getRequestDispatcher("/edit-order.jsp").forward(request, response);
+                            } else {
+                                response.sendRedirect("/admin/account");
+                            }
+                        } catch (IOException | NumberFormatException ex) {
+                            response.sendRedirect("/admin/order");
+                        }
+                    }
                     
 
                 } else if (path.startsWith("/admin/payment")) {
@@ -166,9 +183,53 @@ public class AdminController extends HttpServlet {
                     if (path.endsWith("/admin/account")) {
                         request.getRequestDispatcher("/view-account.jsp").forward(request, response);
                     }
+                    else if(path.startsWith("/admin/account/ban")){
+                        String[] s = path.split("/");
+                        try {
+                            String email = s[s.length - 1];
+                            AccountDAO accDAO = new AccountDAO();
+                            accDAO.ban(email);
+                            response.sendRedirect("/admin/account");
+                        } catch (IOException | NumberFormatException ex) {
+                            response.sendRedirect("/admin/account");
+                        }
+                    }
+                    else if(path.startsWith("/admin/account/unban")){
+                        String[] s = path.split("/");
+                        try {
+                            String email = s[s.length - 1];
+                            AccountDAO accDAO = new AccountDAO();
+                            accDAO.unban(email);
+                            response.sendRedirect("/admin/account");
+                        } catch (IOException | NumberFormatException ex) {
+                            response.sendRedirect("/admin/account");
+                        }
+                    }
+                    else if (path.endsWith("/admin/account/add")) {
+                        request.getRequestDispatcher("/add-account.jsp").forward(request, response);
+                    }
+                    else if (path.startsWith("/admin/account/view/")) {
+                        String[] s = path.split("/");
+                        try {
+                            String email = s[s.length - 1];
+                            AccountDAO accDAO = new AccountDAO();
+                            Account account = accDAO.getAccountByUsername(email);
+                            if (account != null) {
+                                session.setAttribute("viewAccount", account);
+                                request.getRequestDispatcher("/edit-account.jsp").forward(request, response);
+                            } else {
+                                response.sendRedirect("/admin/account");
+                            }
+                        } catch (IOException | NumberFormatException ex) {
+                            response.sendRedirect("/admin/account");
+                        }
+                        
+                    }
                     
                 }
-
+                else if(path.startsWith("/admin/analytics")){
+                    request.getRequestDispatcher("/admin.jsp").forward(request, response);
+                }
             } else {
                 response.sendRedirect("/");
             }
@@ -278,8 +339,57 @@ public class AdminController extends HttpServlet {
             } else {
                 response.sendRedirect("/admin/category/add");
             }
-        }
+        } 
+        else if (request.getParameter("addAccount") != null) {
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            
+            String fullname = request.getParameter("fullname");
+            String sex = request.getParameter("sex");
+            Date birthdate = null;
+            if(!request.getParameter("birthdate").isEmpty() && request.getParameter("birthdate") != null ){
+                birthdate = Date.valueOf(request.getParameter("birthdate"));
+            }
+            else{
+                birthdate = null;
+            }
+            String role = request.getParameter("role");
+            
 
+            Account newAccount = new Account(email, password, fullname,birthdate,role,sex,false);
+            AccountDAO accDAO = new AccountDAO();
+            Account acc = accDAO.addNewAccount(newAccount);
+
+            if (acc != null) {
+                response.sendRedirect("/admin/account");
+            } else {
+                session.setAttribute("isDuplicated", "true");
+                response.sendRedirect("/admin/account/add");
+            }
+        } 
+        else if (request.getParameter("updateAccount") != null) {
+            
+            String role = request.getParameter("role");
+            String email = request.getParameter("email");
+            AccountDAO accDAO = new AccountDAO();
+            accDAO.updateRole(email,role);
+            response.sendRedirect("/admin/account");
+        }
+        else if (request.getParameter("search") != null) {
+            Date startdate = Date.valueOf(request.getParameter("startdate"));
+            Date enddate = Date.valueOf(request.getParameter("enddate"));
+            
+            session.setAttribute("startDate", startdate);
+            session.setAttribute("endDate", enddate);
+            
+            response.sendRedirect("/admin/order");
+        } 
+        else if (request.getParameter("setMonth") != null) {
+            String month = request.getParameter("month");
+            System.out.println(month);
+            session.setAttribute("month", month);
+            response.sendRedirect("/admin/analytics");
+        } 
     }
 
     private String getFileName(Part part) {

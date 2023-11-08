@@ -129,9 +129,7 @@
                                                     <div class="scrollbar-container ps">
                                                         <ul class="nav flex-column">
                                                             <li class="nav-item-header nav-item" style="text-transform: lowercase">Email: <%=acc.getEmail()%></li>
-                                                            <li class="nav-item">
-                                                                <a href="javascript:void(0);" class="nav-link">Recovery Password </a>
-                                                            </li>
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -216,12 +214,7 @@
                                     <a href="/admin/order"> <i class="metismenu-icon pe-7s-note2"></i>View Orders </a>
                                 </li>
                             </ul>
-                            <ul class="vertical-nav-menu">
-                                <li class="app-sidebar__heading">Payment Management</li>
-                                <li class="mm-active">
-                                    <a href="/admin/payment"> <i class="metismenu-icon pe-7s-note2"></i>View Payments </a>
-                                </li>
-                            </ul>
+                           
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Account Management</li>
                                 <li class="mm-active">
