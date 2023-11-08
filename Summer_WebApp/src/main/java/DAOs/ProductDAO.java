@@ -230,4 +230,20 @@ public class ProductDAO {
         }
         return rs;
     }
+
+    public ResultSet getFeaturedProducts() {
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery(" select * from Product where productID IN(\n"
+                    + "  select top 10 p.productID \n"
+                    + "  from Product p inner join OrderItem o \n"
+                    + "  on p.productID = o.productID \n"
+                    + "  group by p.productID\n"
+                    + "  order by count(o.orderID) DESC)");
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
 }

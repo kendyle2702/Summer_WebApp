@@ -512,7 +512,7 @@
                           <h3 class="tab-title">Featured</h3>
 
                           <div class="ttfeatured-content products">
-                            <% ResultSet rsFeatured=pDAO.getNearSevenDay(); while(rsFeatured.next()){ %>
+                            <% ResultSet rsFeatured=pDAO.getFeaturedProducts(); while(rsFeatured.next()){ %>
                               <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                                 <article class="product-miniature js-product-miniature col-sm-4" data-id-product="16"
                                   data-id-product-attribute="28">
