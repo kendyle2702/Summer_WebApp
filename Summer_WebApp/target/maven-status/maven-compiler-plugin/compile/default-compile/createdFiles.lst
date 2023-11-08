@@ -21,5 +21,4 @@ DAOs\PaymentDAO.class
 Controllers\testJson.class
 Models\Order.class
 DB\DBConnection.class
-DAOs\Wishlist.class
 Controllers\CartController.class

@@ -106,9 +106,9 @@
                 quantity: quantity
             },
             error: function (response) {
-                e.target.value = Number(e.target.value) -1;
                 let data = response.responseJSON;
                 notifyError(data["title"], data["text"])
+                updateCartList();
             }
         });
     }

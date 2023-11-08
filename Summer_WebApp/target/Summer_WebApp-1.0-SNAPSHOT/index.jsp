@@ -397,9 +397,9 @@
                                             </ul>
 
                                             <div class="wishlist">
-                                              <a class="addToWishlist btn btn-primary wishlistProd_16" href="#"
+                                              <a class="addToWishlist btn btn-primary wishlistProd_16" href="javascript:void(0)"
                                                 data-dismiss="modal" data-rel="16" title="Add to wishlist"
-                                                onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;">
+                                                onclick="<%= account != null ? "addProductToWishList("+ rsNewProduct.getInt("productID") +")": "notifyFail()" %>">
                                                 <i class="material-icons wishlist-icon">favorite_border</i>
                                                 <span class="wishlist-name">Add to Wishlist</span>
                                                 <span class="loading"><i class="material-icons">cached</i></span>
@@ -463,10 +463,7 @@
                                                   href="/product/detail/<%=rsNewProduct.getInt("productID")%>"
                                                   ><%= rsNewProduct.getString("productName")%></a></span>
 
-                                              <div />
-                                              class="product-desc-short"
-                                              itemprop="description"
-                                              >
+                                              <div class="product-desc-short" itemprop="description" >
                                               <%= rsNewProduct.getString("description")%>
                                             </div>
 
@@ -538,9 +535,9 @@
                                       </ul>
 
                                       <div class="wishlist">
-                                        <a class="addToWishlist btn btn-primary wishlistProd_16" href="#"
+                                        <a class="addToWishlist btn btn-primary wishlistProd_16" href="javascript:void(0)"
                                           data-dismiss="modal" data-rel="16" title="Add to wishlist"
-                                          onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;">
+                                          onclick="<%= account != null ? "addProductToWishList("+ rsFeatured.getInt("productID") +")": "notifyFail()" %>">
                                           <i class="material-icons wishlist-icon">favorite_border</i>
                                           <span class="wishlist-name">Add to Wishlist</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -673,9 +670,9 @@
                                       </ul>
 
                                       <div class="wishlist">
-                                        <a class="addToWishlist btn btn-primary wishlistProd_16" href="#"
+                                        <a class="addToWishlist btn btn-primary wishlistProd_16" href="javascript:void(0)"
                                           data-dismiss="modal" data-rel="16" title="Add to wishlist"
-                                          onclick="WishlistCart('wishlist_block_list', 'add', '16', '28', 1); return false;">
+                                          onclick="<%= account != null ? "addProductToWishList("+ rsBestSellers.getInt("productID") +")": "notifyFail()" %>">
                                           <i class="material-icons wishlist-icon">favorite_border</i>
                                           <span class="wishlist-name">Add to Wishlist</span>
                                           <span class="loading"><i class="material-icons">cached</i></span>
@@ -1019,10 +1016,9 @@
                                         </ul>
 
                                         <div class="wishlist">
-                                          <a class="addToWishlist btn btn-primary wishlistProd_2" href="#"
-                                            data-dismiss="modal" data-rel="2" title="Add to wishlist"
-                                            onclick="WishlistCart('wishlist_block_list', 'add', '2', '9', 1);
-                                                                                                                                                                                                                                                                                                                 return false;">
+                                          <a class="addToWishlist btn btn-primary wishlistProd_2" href="javascript:void(0)"
+                                             title="Add to wishlist"
+                                            onclick="<%= account != null ? "addProductToWishList("+ rsSpecial.getInt("productID") +")": "notifyFail()" %>">
                                             <i class="material-icons wishlist-icon">favorite_border</i>
                                             <span class="wishlist-name">Add to Wishlist</span>
                                             <span class="loading"><i class="material-icons">cached</i></span>
@@ -1034,8 +1030,6 @@
                                         <div class="product-description">
                                           <h5 class="cat-name">home</h5>
                                           <div class="ttproducthover">
-
-
                                             <div class="tt-button-container">
                                               <div class="product-add-to-cart">
                                                 <form action="/cart" method="post" class="add-to-cart-or-refresh">
@@ -1053,7 +1047,7 @@
                                                   <button
                                                     class="button ajax_add_to_cart_button add-to-cart btn btn-default"
                                                     data-button-action="add-to-cart" title="Add to cart"
-                                                    onclick="<%= account != null ? "notifySuccess()" : "notifyFail()"%> ()">
+                                                    onclick="<%= account != null ? "addToCart("+rsSpecial.getInt("productID")+")" : "notifyFail()"%>">
                                                     <i class="material-icons add_to_cart_icon">shopping_cart</i>
                                                     <span class="loading"><i class="material-icons">cached</i></span>
                                                     <span>Add to cart</span>

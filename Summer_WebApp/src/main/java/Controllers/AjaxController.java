@@ -5,8 +5,10 @@
 package Controllers;
 
 import DAOs.ProductDAO;
+import DAOs.WishlistDAO;
 import Models.Account;
 import Models.Product;
+import Models.WishlistItem;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -253,6 +255,47 @@ public class AjaxController extends HttpServlet {
 			String jsonCart = objectMapper.writeValueAsString(cart);
 
 			response.getWriter().write(jsonCart);
+		}
+
+		if(request.getParameter("addProductToWishlist") != null){
+			int productId = Integer.parseInt(request.getParameter("productId"));
+			WishlistDAO wDAO = new WishlistDAO();
+
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			Map<String, String> responseData = new HashMap<>();
+			ObjectMapper objectMapper = new ObjectMapper();
+			Account account = (Account)session.getAttribute("acc");
+			int wishlistID = wDAO.getWistListByEmailAndDefault(account.getEmail());
+			if(wishlistID == 0){
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				responseData.put("title", "You don't have any wishlist yet!");
+				responseData.put("text", "Please create a wishlist to add products");
+				String jsonResponse = objectMapper.writeValueAsString(responseData);
+				response.getWriter().write(jsonResponse);
+				return;
+			}
+
+			WishlistItem wishlistItem = wDAO.getWishlistItemByWishlistIDAndProductID(wishlistID, productId);
+			if(wishlistItem != null){
+				if(wDAO.updateQuantityOfWishlistItem(wishlistItem.getQuantity(), wishlistID, productId)){
+					responseData.put("title", "Add product to wishlist successful!");
+				}else{
+					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+					responseData.put("title", "Add product to wishlist failed!");
+					responseData.put("text", "Try again");
+				}
+			}else{
+				if(wDAO.addProductIntoWishlist(wishlistID, productId)){
+					responseData.put("title", "Add product to wishlist successful!");
+				}else{
+					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+					responseData.put("title", "Add product to wishlist failed!");
+					responseData.put("text", "Try again");
+				}
+			}
+			String jsonResponse = objectMapper.writeValueAsString(responseData);
+			response.getWriter().write(jsonResponse);
 		}
 	}
 

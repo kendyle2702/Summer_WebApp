@@ -1,3 +1,4 @@
+<%@page import="DAOs.WishlistDAO"%>
 <%@page import="Models.Product" %>
     <%@page import="java.util.List" %>
         <%@page import="java.sql.ResultSet" %>
@@ -46,6 +47,14 @@
                                 text: text,
                                 showConfirmButton: true,
                               })
+                            }
+                            function notifySuccessWishlist(title) {
+                              Swal.fire({
+                                icon: "success",
+                                title: title,
+                                showConfirmButton: true,
+                                timer: 2000,
+                              });
                             }
                             function addToCart(pID){
                                 let quantity = 1;
@@ -160,6 +169,24 @@
                                     }
                                 });
                             }
+                            function addProductToWishList(pID){
+                                $.ajax({
+                                    url: '/ajax',
+                                    type: 'POST',
+                                    success: function (response) {
+                                        notifySuccessWishlist(response["title"])
+                                    },
+                                    data: {
+                                        addProductToWishlist: "true",
+                                        productId: pID
+                                    },
+                                    error: function (response) {
+                                        console.log(response)
+                                        let data = response["responseJSON"];
+                                        notifyError(data.title, data.text)
+                                    }
+                                });
+                            }
                         </script>
                         <header id="header">
                             <div class="header-banner"></div>
@@ -174,7 +201,7 @@
                                                 <button data-target="#" data-toggle="dropdown"
                                                     class="hidden-sm-down btn-unstyle" aria-haspopup="true"
                                                     aria-expanded="false" aria-label="Currency dropdown">
-                                                    <span class="expand-more _gray-darker">USD $</span>
+                                                    <span class="expand-more _gray-darker">VND <sup>d</sup></span>
                                                     <i class="material-icons expand-more">&#xE313;</i>
                                                     <i class="material-icons expand-less">&#xE316;</i>
                                                 </button>
@@ -182,7 +209,7 @@
                                                     aria-labelledby="currency-selector-label">
                                                     <li>
                                                         <a title="Euro" rel="nofollow"
-                                                            href="index6edc.html?SubmitCurrency=1&amp;id_currency=2"
+                                                            href="#"
                                                             class="dropdown-item">EUR ?</a>
                                                     </li>
                                                     <li class="current">
@@ -219,9 +246,18 @@
                                     </div>
 
                                     <div class="top-wishlist" id="top-wishlist">
-                                        <a class="wishtlist_top" href="/" title="Wishlists" rel="nofollow">
+                                        <a class="wishtlist_top" href="/account/mywishlist" title="Wishlists" rel="nofollow">
                                             <i class="material-icons">favorite_border</i><span
-                                                class="cart-wishlist-number">0</span>
+									<% WishlistDAO wDAO = new WishlistDAO();
+                                    String email = account != null ? account.getEmail() : "";
+									ResultSet rsWishlist = wDAO.getWistListByEmail(email);
+									int count = 0;
+									while(rsWishlist.next()){
+										count++;
+										}
+									
+									%>
+                                                class="cart-wishlist-number"><%=count%></span>
                                         </a>
                                     </div>
 

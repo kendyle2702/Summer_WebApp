@@ -111,12 +111,6 @@
                                                             <i class="material-icons float-xs-right">&#xE5C5;</i>
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a rel="nofollow" href="6-drinkse563.html?order=product.sales.desc" class="select-list js-search-link">
-                                                                Best sellers
-                                                            </a>
-                                                            <a rel="nofollow" href="6-drinksf917.html?order=product.position.asc" class="select-list current js-search-link">
-                                                                Relevance
-                                                            </a>
                                                             <a rel="nofollow" href="6-drinksfe2d.html?order=product.name.asc" class="select-list js-search-link"> Name, A to Z </a>
                                                             <a rel="nofollow" href="6-drinks0279.html?order=product.name.desc" class="select-list js-search-link"> Name, Z to A </a>
                                                             <a rel="nofollow" href="6-drinks8eb3.html?order=product.price.asc" class="select-list js-search-link">
@@ -154,7 +148,7 @@
                                                     <article class="product-miniature js-product-miniature col-sm-4" data-id-product="<%=rs.getInt("productID")%>" data-id-product-attribute="0">
                                                         <div class="thumbnail-container">
                                                             <div class="ttproduct-image">
-                                                                <a href="/product/detail/<%=rs.getInt("productID")%>" class="thumbnail product-thumbnail">
+                                                                <a href="/product/detail/<%=rs.getInt("productID")%>" class="thumbnail product-thumbnail" style="width: 100%">
                                                                     <img
                                                                         class="ttproduct-img1"
                                                                         src="/img/<%=rs.getString("image")%>"
@@ -162,14 +156,7 @@
                                                                         data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/60-large_default/mug-the-adventure-begins.jpg"
                                                                         width="290"
                                                                         height="290"
-                                                                        />
-                                                                    <img
-                                                                        class="fade second_image img-responsive"
-                                                                        src="/img/<%=rs.getString("image")%>"
-                                                                        data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/61-large_default/mug-the-adventure-begins.jpg"
-                                                                        alt=""
-                                                                        width="300"
-                                                                        height="390"
+                                                                        style="height: 300px"
                                                                         />
                                                                 </a>
 
@@ -202,33 +189,13 @@
                                                                 <div class="product-description">
                                                                     <h5 class="cat-name">home</h5>
                                                                     <div class="ttproducthover">
-                                                                        <div class="quick-view-block">
-                                                                            <a href="/product/detail/<%=rs.getInt("productID")%>" class="quick-view btn btn-primary" data-link-action="quickview" title="Quick view">
-                                                                                <i class="material-icons quick_view_icon">visibility</i>
-                                                                                <span>Quick view</span>
-                                                                                <span class="loading"><i class="material-icons">cached</i></span>
-                                                                            </a>
-                                                                        </div>
 
-                                                                        <script>
-                                                                            function notifySuccess() {
-                                                                                Swal.fire({
-                                                                                    icon: "success",
-                                                                                    title: "Add to cart successful!",
-                                                                                    showConfirmButton: true,
-                                                                                    timer: 2000,
-                                                                                }).then(() => location.reload());
-                                                                            }
-                                                                        </script>
+                                                                        
                                                                         
                                                                         <div class="tt-button-container">
                                                                             <div class="product-add-to-cart">
                                                                                 <form
-                                                                                    action="/cart"
-                                                                                    method="post"
-                                                                                    class="add-to-cart-or-refresh"
-                                                                                    >
-                                                                                    <div class="product-quantity" style="display: none">
+                                                                                    method="post" class="add-to-cart-or-refresh" > <div class="product-quantity" style="display: none">
                                                                                         <input type="number" name="productId" value="<%=rs.getInt("productID")%>" class="product_page_product_id" />
                                                                                         <input type="number" name="id_customization" value="0" class="product_customization_id" />
                                                                                         <input type="hidden" name="addCart" value="25af647bb2f763e6bdcc079df66ccd55" class="tt-token" />
@@ -239,27 +206,14 @@
                                                                                         class="button ajax_add_to_cart_button add-to-cart btn btn-default"
                                                                                         data-button-action="add-to-cart"
                                                                                         title="Add to cart"
-                                                                                        type="submit" onclick="notifySuccess()">
-                                                                                        <i class="material-icons add_to_cart_icon">shopping_cart</i>
-                                                                                        <span class="loading"><i class="material-icons">cached</i></span>
+                                                                                        type="button" onclick="addToCart(<%=rs.getInt("productID")%>)">
+                                                                                        <i class="material-icons add_to_cart_icon" style="display: block;">shopping_cart</i>
                                                                                         <span>Add to cart</span>
                                                                                     </button>
                                                                                 </form>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="compare">
-                                                                            <a
-                                                                                class="add_to_compare btn btn-primary"
-                                                                                href="#"
-                                                                                data-id-product="<%=rs.getInt("productID")%>"
-                                                                                data-dismiss="modal"
-                                                                                title="Add to Compare"
-                                                                                >
-                                                                                <i class="material-icons compare_icon">equalizer</i>
-                                                                                <span>Add to Compare</span>
-                                                                                <span class="loading"><i class="material-icons">cached</i></span>
-                                                                            </a>
-                                                                        </div>
+                                                                        
                                                                     </div>
 
                                                                     <div class="hook-reviews">
@@ -287,11 +241,15 @@
                                                                     </div>
 
                                                                     <div class="product-price-and-shipping">
-                                                                        <span itemprop="price" class="price"><%=rs.getDouble("price")%></span>
+                                                                        <span itemprop="price" class="price">
+                                                                            <%= (100 - rs.getInt("discount"))*rs.getInt("price")/100 +"<sup>d</sup>" %>
 
                                                                         <span class="sr-only">Regular price</span>
-                                                                        <span class="discount-amount discount-product">-<%=rs.getInt("discount")%></span>
-                                                                        <span class="regular-price"><%=rs.getDouble("price") - rs.getInt("discount")%></span>
+                                                                        <span class="discount-amount discount-product">
+                                                                            <%= rs.getInt("discount") == 0? "": "-"+rs.getInt("discount")+"%" %>
+                                                                            </span>
+                                                                        <span class="regular-price"><%= rs.getInt("discount") == 0 ? "": rs.getInt("price")+ "<sup>d</sup>" %>
+</span>
 
                                                                         <span class="sr-only">Price</span>
                                                                     </div>
@@ -308,27 +266,7 @@
 
                                             </div>
 
-                                            <nav class="pagination">
-                                                <div class="col-md-4 pagination-left">Showing 1-12 of 19 item(s)</div>
-
-                                                <div class="col-md-6 pr-0 pagination-right">
-                                                    <ul class="page-list clearfix text-sm-center">
-                                                        <li class="current">
-                                                            <a rel="nofollow" href="6-drinks.html" class="disabled js-search-link"> 1 </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a rel="nofollow" href="6-drinks4658.html?page=2" class="js-search-link"> 2 </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a rel="next" href="6-drinks4658.html?page=2" class="next js-search-link">
-                                                                <i class="material-icons">&#xE315;</i>Next
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </nav>
+                                            
 
                                             <div class="hidden-md-up text-xsright up">
                                                 <a href="#header" class="btn btn-secondary">

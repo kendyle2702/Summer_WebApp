@@ -157,7 +157,7 @@
 
                                   <div class="wishlist">
                                     <a class="addToWishlist btn btn-primary wishlistProd_1" href="#"
-                                      data-dismiss="modal" data-rel="1" title="Add to wishlist" onclick="">
+                                      data-dismiss="modal" data-rel="1" title="Add to wishlist" onclick="<%= account != null ? "addProductToWishList("+ product.getProductID() +")": "notifyFail()" %>">
                                       <i class="material-icons wishlist-icon">favorite_border</i>
                                       <span class="wishlist-name">Add to Wishlist</span>
                                       <span class="loading"><i class="material-icons">cached</i></span>
