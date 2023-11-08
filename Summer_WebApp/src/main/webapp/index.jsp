@@ -8,7 +8,8 @@
       <head>
         <%@include file="/components/head.jsp" %>
       </head>
-
+      <style>
+      </style>
       <body id="index" class="lang-en country-us currency-usd layout-full-width page-index tax-display-disabled"
         itemscope itemtype="http://schema.org/WebPage">
         <div class="ttloading-bg spinner"></div>
@@ -379,13 +380,13 @@
                                         <div class="thumbnail-container">
                                           <div class="ttproduct-image">
                                             <a href="/product/detail/<%=rsNewProduct.getInt("productID")%>"
-                                              class="thumbnail product-thumbnail"
-                                              >
+                                              class="thumbnail product-thumbnail" style="width: 100%">
                                               <img class="ttproduct-img1" src="/img/<%= rsNewProduct.getString("image")%>"
                                               alt="Vodka Cranberry drink"
                                               data-full-size-image-url=""
                                               width="290"
                                               height="290"
+                                              style="height: 300px; object-fit: cover;"
                                               />
                                             </a>
 
@@ -519,13 +520,14 @@
                                   <div class="thumbnail-container">
                                     <div class="ttproduct-image">
                                       <a href="/product/detail/<%=rsFeatured.getInt("productID")%>"
-                                        class="thumbnail product-thumbnail"
+                                        class="thumbnail product-thumbnail" style="width: 100%"
                                         >
                                         <img class="ttproduct-img1" src="/img/<%= rsFeatured.getString("image")%>"
                                         alt="Vodka Cranberry drink"
                                         data-full-size-image-url=""
                                         width="290"
                                         height="290"
+                                        style="height: 300px; object-fit: cover;"
                                         />
                                       </a>
 
@@ -653,13 +655,14 @@
                                   <div class="thumbnail-container">
                                     <div class="ttproduct-image">
                                       <a href="/product/detail/<%=rsBestSellers.getInt("productID")%>"
-                                        class="thumbnail product-thumbnail"
+                                        class="thumbnail product-thumbnail" style="width: 100%"
                                         >
                                         <img class="ttproduct-img1" src="/img/<%= rsBestSellers.getString("image")%>"
                                         alt="Vodka Cranberry drink"
                                         data-full-size-image-url=""
                                         width="290"
                                         height="290"
+                                        style="height: 300px; object-fit: cover"
                                         />
                                       </a>
 
@@ -996,11 +999,13 @@
                                     <div class="thumbnail-container">
                                       <div class="ttproduct-image">
                                         <a href="/product/detail/<%=rsSpecial.getInt("productID")%>"
-                                          class="thumbnail product-thumbnail">
+                                          class="thumbnail product-thumbnail" style="width: 100%">
                                           <img class="ttproduct-img1" src="/img/<%= rsSpecial.getString("image") %>"
                                           alt="Various carbonated flavors"
                                           data-full-size-image-url=""
-                                          width="290" height="290" />
+                                          width="290" height="290" 
+                                          style="height: 300px; object-fit: cover"
+                                          />
 
                                         </a>
 
