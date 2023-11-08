@@ -180,9 +180,40 @@ public class AjaxController extends HttpServlet {
 			response.getWriter().write(jsonCart);
 		}
 		if(request.getParameter("addCart") != null){
+			int productId = Integer.parseInt(request.getParameter("productId")); // Lấy id sản phẩm từ request parameter
+			int quantity = Integer.parseInt(request.getParameter("quantity"));
+			ProductDAO pDAO = new ProductDAO();
+			Product productToAdd = pDAO.getProduct(productId); // Lấy sản phẩm từ cơ sở dữ liệu hoặc danh sách sản phẩm
 
+			List<Product> cart = (List<Product>) session.getAttribute("cart");
+
+			if (cart == null) {
+				cart = new ArrayList<>();
+			}
+
+			boolean productExistsInCart = false;
+			for (Product product : cart) {
+				if (product.getProductID() == productId) {
+					product.setQuantity(product.getQuantity() + quantity);
+					product.setPrice((100 - product.getDiscount()) *product.getPrice()/100);
+					productExistsInCart = true;
+					break;
+				}
+			}
+
+			if (!productExistsInCart) {
+				productToAdd.setQuantity(quantity);
+				productToAdd.setPrice((100 - productToAdd.getDiscount()) *productToAdd.getPrice()/100);
+				cart.add(productToAdd);
+			}
+			session.setAttribute("cart", cart);
+			ObjectMapper objectMapper = new ObjectMapper();
+			String jsonCart = objectMapper.writeValueAsString(cart);
+
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(jsonCart);
 		}
-
 	}
 
 	/**

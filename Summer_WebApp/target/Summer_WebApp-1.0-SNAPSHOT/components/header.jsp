@@ -29,7 +29,7 @@
                                 title: "Add to cart successful!",
                                 showConfirmButton: true,
                                 timer: 2000,
-                              }).then(() => location.reload());
+                              });
                             }
                             function notifyFail() {
                               Swal.fire({
@@ -38,6 +38,30 @@
                                 showConfirmButton: true,
                                 timer: 2000,
                               }).then(() => window.location.href = "/login");
+                            }
+                            function addToCart(pID){
+                                let quantity = 1;
+                                if ($("#quantity_wanted").val()) {
+                                    quantity = $("#quantity_wanted").val();
+                                } $.ajax({
+                                    url: '/ajax',
+                                    type: 'POST',
+                                    success: function (response) {
+                                        products = response
+                                    },
+                                    data: {
+                                        addCart: "true",
+                                        productId: pID,
+                                        quantity: quantity
+                                    },
+                                    success: function (response) {
+                                        notifySuccess();
+                                        updateHeaderCart();
+                                    },
+                                    error: function () {
+                                        alert("error ajax add to cart");
+                                    }
+                                });
                             }
                             $(document).ready(function () {
                                 let products = []
@@ -87,7 +111,7 @@
                                                 let desktopCart = $("#_desktop_cart")
                                                 desktopCart.empty()
                                                 if (cart.length === 0) {
-                                                    desktopCart.append('<div class="blockcart cart-preview inactive" data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax"> <div class="header"> <span class="shopping"> <i class="material-icons shopping-cart">shopping_cart</i> <span class="hidden-sm-down">Cart</span> <span class="cart-productsount">0</span> </span> </div> <div class="cart_block block exclusive"> <div class="block_content"> <div class="cart_head"></div> <div class="cart_block_list"> <p class="no-item">No products in the cart.</p> </div> </div> </div></div>')
+                                                    desktopCart.append('<div class="blockcart cart-preview inactive" data-refresh-url=""> <div class="header"> <span class="shopping"> <i class="material-icons shopping-cart">shopping_cart</i> <span class="hidden-sm-down">Cart</span> <span class="cart-productsount">0</span> </span> </div> <div class="cart_block block exclusive"> <div class="block_content"> <div class="cart_head"></div> <div class="cart_block_list"> <p class="no-item">No products in the cart.</p> </div> </div> </div></div>')
                                                 } else {
                                                     let totalPrice = 0;
                                                     let productList = ""
@@ -95,7 +119,7 @@
                                                         totalPrice += product.price * product.quantity
                                                         productList += '<div class="products"> <div class="img"> <a href="/product/detail/' + product.productID + '" class="thumbnail product-thumbnail"> <img src="/img/' + product.image + '" alt="" data-full-size-image-url="/img/' + product.image + '" style="width: 70px; height: 70px;"> </a> </div> <div class="cart-info"> <h2 class="h2 productname" itemprop="name"> <a href="/product/detail/' + product.productID + '"> ' + product.productName + ' </a> </h2> <div class="ttPrice"> <span class="quantity"> ' + product.quantity + 'X </span> <span class="price">' + product.price + ' <sup>d</sup> </span> </div> </div> <p class="remove_link"> <a class="remove-from-cart" onclick="deleteProductInCart('+product.productID+')" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="13" data-id-product-attribute="0" data-id-customization=""><i class="material-icons">close</i></a></p></div>'
                                                     })
-                                                    desktopCart.append('<div class="blockcart cart-preview active" data-refresh-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/module/ps_shoppingcart/ajax"> <div class="header"> <span class="shopping"> <i class="material-icons shopping-cart">shopping_cart</i> <span class="hidden-sm-down">Cart</span> <span class="cart-products-count">' + cart.length + '</span> </span> </div> <div class="cart_block block exclusive"> <div class="block_content"> <div class="cart_head"> </div> <div class="cart_block_list"> <div class="cart_block_product_list"> ' + productList + ' </div> </div> </div> <div class="cart-prices"> <span class="total pull-left"> Total: </span> <span class="amount pull-right"> ' + totalPrice + '<sup>d</sup> </span> </div> <div class="cart-buttons"> <a rel="nofollow" href="/cart/checkout" class="btn-primary"> Check out <i class="ion-chevron-right"></i> </a> </div> </div> </div>')
+                                                    desktopCart.append('<div class="blockcart cart-preview active" data-refresh-url=""> <div class="header"> <span class="shopping"> <i class="material-icons shopping-cart">shopping_cart</i> <span class="hidden-sm-down">Cart</span> <span class="cart-products-count">' + cart.length + '</span> </span> </div> <div class="cart_block block exclusive"> <div class="block_content"> <div class="cart_head"> </div> <div class="cart_block_list"> <div class="cart_block_product_list"> ' + productList + ' </div> </div> </div> <div class="cart-prices"> <span class="total pull-left"> Total: </span> <span class="amount pull-right"> ' + totalPrice + '<sup>d</sup> </span> </div> <div class="cart-buttons"> <a rel="nofollow" href="/cart/checkout" class="btn-primary"> Check out <i class="ion-chevron-right"></i> </a> </div> </div> </div>')
                                                 }
                                             },
                                             data: {
@@ -115,6 +139,8 @@
                                     type: 'POST',
                                     success: function (response) {
                                         updateHeaderCart();
+                                        updateCartList();
+                                        updateTotal();
                                     },
                                     data:{
                                         deleteCart: "true",
@@ -152,20 +178,20 @@
                                                     </li>
                                                     <li class="current">
                                                         <a title="US Dollar" rel="nofollow"
-                                                            href="indexe3c8.html?SubmitCurrency=1&amp;id_currency=1"
+                                                            href="#"
                                                             class="dropdown-item">USD $</a>
                                                     </li>
                                                 </ul>
                                                 <select class="link hidden-md-up"
                                                     aria-labelledby="currency-selector-label">
                                                     <option
-                                                        value="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/?SubmitCurrency=1&amp;id_currency=2">
-                                                        EUR ?
+                                                        value="">
+                                                        USD $
                                                     </option>
                                                     <option
-                                                        value="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/?SubmitCurrency=1&amp;id_currency=1"
+                                                        value=""
                                                         selected="selected">
-                                                        USD $
+                                                        VND <sup>d</sup>
                                                     </option>
                                                 </select>
                                             </div>
@@ -176,7 +202,7 @@
                                 <div class="header-top">
                                     <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
                                         <h1>
-                                            <a href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/">
+                                            <a href="/">
                                                 <img class="logo img-responsive" src="/img/demo-logo-1615016276.jpg"
                                                     alt="demo store" width="185" height="60" />
                                             </a>
@@ -372,13 +398,13 @@
                                                     </div>
                                                     <!-- Block search module TOP -->
                                                     <div id="search_widget" class="search-widget"
-                                                        data-search-controller-url="//prestashop1.templatetrip.com/PRS01/PRS001_summer/en/search">
+                                                        data-search-controller-url="">
                                                         <span class="ttsearch_button">
                                                             <i class="material-icons search">&#xE8B6;</i>
                                                         </span>
                                                         <div class="ttsearchtoggle">
                                                             <form method="get"
-                                                                action="http://prestashop1.templatetrip.com/PRS01/PRS001_summer/en/search">
+                                                                action="">
                                                                 <input type="hidden" name="controller" value="search" />
                                                                 <input type="text" name="s" id="search_query_top"
                                                                     value="" placeholder="Search our catalog"

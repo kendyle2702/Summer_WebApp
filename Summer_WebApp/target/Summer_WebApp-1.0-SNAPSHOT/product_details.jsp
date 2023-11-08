@@ -119,7 +119,7 @@
 
 
                           <div class="product-actions">
-                            <form action="/cart" method="post" id="add-to-cart-or-refresh">
+                            <form method="post" id="add-to-cart-or-refresh">
                               <input type="hidden" name="addCart" value="25af647bb2f763e6bdcc079df66ccd55" />
                               <input type="hidden" name="productId" value="<%= product.getProductID()%>"
                                 id="product_page_product_id" />
@@ -138,8 +138,8 @@
                                     </div>
 
                                     <div class="add">
-                                      <button class="btn btn-primary add-to-cart" data-button-action="add-to-cart"
-                                        type="submit" onclick="<%= account != null ? "notifySuccess()" : "notifyFail()"%> ()">
+                                      <button class="btn btn-primary add-to-cart" data-button-action="add-to-cart" type="button"
+                                        onclick='<%= account != null ? "addToCart(" + product.getProductID() + ")" : "notifyFail()" %>'>
                                         <i class="material-icons shopping-cart">&#xE547;</i>
                                         Add to cart
                                       </button>

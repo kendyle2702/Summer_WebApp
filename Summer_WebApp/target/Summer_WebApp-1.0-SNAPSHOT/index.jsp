@@ -82,7 +82,7 @@
                 var field_width = 600;
                 var field_height = 490;
                 var field_newsletter = 1;
-                var field_path = "https://prestashop1.templatetrip.com/PRS01/PRS001_summer/modules/ttpopupnewsletter/ajax.php";
+                var field_path = "";
               </script>
             </div>
 
@@ -96,7 +96,7 @@
                       <div class="ttloading-bg"></div>
                       <ul class="carousel-inner" role="listbox">
                         <li class="carousel-item active" role="option" aria-hidden="false">
-                          <a href="index.html">
+                          <a href="#">
                             <figure>
                               <img
                                 src="../modules/ps_imageslider/images/ee137d975ece14977f9e49140199c16439b48eea_slider-01.jpg"
@@ -115,7 +115,7 @@
                           </a>
                         </li>
                         <li class="carousel-item" role="option" aria-hidden="true">
-                          <a href="index.html">
+                          <a href="#">
                             <figure>
                               <img
                                 src="../modules/ps_imageslider/images/9252f4a4f320db92addbc4e5547c60e07ada7540_slider-02.jpg"
@@ -383,7 +383,7 @@
                                               >
                                               <img class="ttproduct-img1" src="/img/<%= rsNewProduct.getString("image")%>"
                                               alt="Vodka Cranberry drink"
-                                              data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/114-large_default/mountain-fox-notebook.jpg"
+                                              data-full-size-image-url=""
                                               width="290"
                                               height="290"
                                               />
@@ -414,7 +414,7 @@
 
                                                 <div class="tt-button-container">
                                                   <div class="product-add-to-cart">
-                                                    <form action="/cart" method="post" class="add-to-cart-or-refresh">
+                                                    <form method="post" class="add-to-cart-or-refresh">
                                                       <div class="product-quantity" style="display: none">
                                                         <input type="number" name="productId"
                                                           value="<%=rsNewProduct.getInt("productID")%>"
@@ -429,11 +429,10 @@
                                                       </div>
                                                       <button
                                                         class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                        data-button-action="add-to-cart" onclick="<%= account != null ? "notifySuccess()" : "notifyFail()"%> ()"
+                                                        data-button-action="add-to-cart" onclick="<%= account != null ? "addToCart("+rsNewProduct.getInt("productID")+")" : "notifyFail()"%>"
                                                         title="Add to cart">
-                                                        <i class="material-icons add_to_cart_icon">shopping_cart</i>
-                                                        <span class="loading"><i
-                                                            class="material-icons">cached</i></span>
+                                                        <i class="material-icons add_to_cart_icon" style="display: block;">shopping_cart</i>
+                                                        
                                                         <span>Add to cart</span>
                                                       </button>
                                                     </form>
@@ -524,7 +523,7 @@
                                         >
                                         <img class="ttproduct-img1" src="/img/<%= rsFeatured.getString("image")%>"
                                         alt="Vodka Cranberry drink"
-                                        data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/114-large_default/mountain-fox-notebook.jpg"
+                                        data-full-size-image-url=""
                                         width="290"
                                         height="290"
                                         />
@@ -555,7 +554,7 @@
 
                                           <div class="tt-button-container">
                                             <div class="product-add-to-cart">
-                                              <form action="/cart" method="post" class="add-to-cart-or-refresh">
+                                              <form method="post" class="add-to-cart-or-refresh">
                                                 <div class="product-quantity" style="display: none">
                                                   <input 
                                                   type="number" name="productId" value="<%=rsFeatured.getInt("productID")%>"
@@ -566,14 +565,14 @@
                                                   <input type="hidden" name="addCart" class="tt-token" name="quantity"
                                                     class="quantity_wanted input-group" value="1" min="1" />
                                                 </div>
-                                                <button
-                                                  class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                  data-button-action="add-to-cart" onclick="notifySuccess()"
-                                                  title="Add to cart">
-                                                  <i class="material-icons add_to_cart_icon">shopping_cart</i>
-                                                  <span class="loading"><i class="material-icons">cached</i></span>
-                                                  <span>Add to cart</span>
-                                                </button>
+                                                      <button
+                                                        class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                        data-button-action="add-to-cart" onclick="<%= account != null ? "addToCart("+rsFeatured.getInt("productID")+")" : "notifyFail()"%>"
+                                                        title="Add to cart">
+                                                        <i class="material-icons add_to_cart_icon" style="display: block;">shopping_cart</i>
+                                                        
+                                                        <span>Add to cart</span>
+                                                      </button>
                                               </form>
                                             </div>
                                           </div>
@@ -658,7 +657,7 @@
                                         >
                                         <img class="ttproduct-img1" src="/img/<%= rsBestSellers.getString("image")%>"
                                         alt="Vodka Cranberry drink"
-                                        data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/114-large_default/mountain-fox-notebook.jpg"
+                                        data-full-size-image-url=""
                                         width="290"
                                         height="290"
                                         />
@@ -702,14 +701,14 @@
                                                   <input type="number" name="quantity"
                                                     class="quantity_wanted input-group" value="1" min="1" />
                                                 </div>
-                                                <button
-                                                  class="button ajax_add_to_cart_button add-to-cart btn btn-default"
-                                                  data-button-action="add-to-cart" onclick="<%= account != null ? "notifySuccess()" : "notifyFail()"%> ()"
-                                                  title="Add to cart">
-                                                  <i class="material-icons add_to_cart_icon">shopping_cart</i>
-                                                  <span class="loading"><i class="material-icons">cached</i></span>
-                                                  <span>Add to cart</span>
-                                                </button>
+                                                      <button
+                                                        class="button ajax_add_to_cart_button add-to-cart btn btn-default"
+                                                        data-button-action="add-to-cart" onclick="<%= account != null ? "addToCart("+rsBestSellers.getInt("productID")+")" : "notifyFail()"%>"
+                                                        title="Add to cart">
+                                                        <i class="material-icons add_to_cart_icon" style="display: block;">shopping_cart</i>
+                                                        
+                                                        <span>Add to cart</span>
+                                                      </button>
                                               </form>
                                             </div>
                                           </div>
@@ -1000,7 +999,7 @@
                                           class="thumbnail product-thumbnail">
                                           <img class="ttproduct-img1" src="/img/<%= rsSpecial.getString("image") %>"
                                           alt="Various carbonated flavors"
-                                          data-full-size-image-url="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/30-large_default/brown-bear-printed-sweater.jpg"
+                                          data-full-size-image-url=""
                                           width="290" height="290" />
 
                                         </a>
