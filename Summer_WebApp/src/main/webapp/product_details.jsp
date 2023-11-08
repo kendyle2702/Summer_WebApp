@@ -119,7 +119,7 @@
 
 
                           <div class="product-actions">
-                            <form method="post" id="add-to-cart-or-refresh">
+                            <form method="post" id="add-to-cart-or-refresh" onsubmit="return false">
                               <input type="hidden" name="addCart" value="25af647bb2f763e6bdcc079df66ccd55" />
                               <input type="hidden" name="productId" value="<%= product.getProductID()%>"
                                 id="product_page_product_id" />

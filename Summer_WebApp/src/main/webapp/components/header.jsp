@@ -39,6 +39,14 @@
                                 timer: 2000,
                               }).then(() => window.location.href = "/login");
                             }
+                            function notifyError(title, text){
+                              Swal.fire({
+                                icon: "error",
+                                title: title,
+                                text: text,
+                                showConfirmButton: true,
+                              })
+                            }
                             function addToCart(pID){
                                 let quantity = 1;
                                 if ($("#quantity_wanted").val()) {
@@ -58,8 +66,9 @@
                                         notifySuccess();
                                         updateHeaderCart();
                                     },
-                                    error: function () {
-                                        alert("error ajax add to cart");
+                                    error: function (response) {
+                                        let data = response.responseJSON;
+                                        notifyError(data["title"], data["text"]);
                                     }
                                 });
                             }

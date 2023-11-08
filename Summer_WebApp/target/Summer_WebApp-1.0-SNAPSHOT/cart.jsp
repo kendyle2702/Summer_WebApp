@@ -75,12 +75,16 @@
             data: {
                 getCart: "true",
             },
-            error: function () {
-                alert("error ajax get cart");
+            error: function (response) {
+                alert("error ajax get cart")
             }
         });
     }
     function updateQuantity(e, pID) {
+        let quantity = e.target.value;
+        if(quantity <= 0){
+            quantity = 1
+        }
         $.ajax({
             url: '/ajax',
             type: 'POST',
@@ -99,10 +103,12 @@
             data: {
                 updateQuantity: "true",
                 productId: pID,
-                quantity: e.target.value
+                quantity: quantity
             },
-            error: function () {
-                alert("error ajax get cart");
+            error: function (response) {
+                e.target.value = Number(e.target.value) -1;
+                let data = response.responseJSON;
+                notifyError(data["title"], data["text"])
             }
         });
     }

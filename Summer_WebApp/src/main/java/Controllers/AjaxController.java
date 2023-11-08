@@ -135,6 +135,11 @@ public class AjaxController extends HttpServlet {
 
 			List<Product> cart = (List<Product>) session.getAttribute("cart");
 
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			Map<String, String> responseData = new HashMap<>();
+			ObjectMapper objectMapper = new ObjectMapper();
+
 			if (cart == null) {
 				cart = new ArrayList<>();
 			}
@@ -142,6 +147,15 @@ public class AjaxController extends HttpServlet {
 			boolean productExistsInCart = false;
 			for (Product product : cart) {
 				if (product.getProductID() == productId) {
+					if(quantity > productToAdd.getQuantity()){
+						response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+						responseData.put("title", "Quantity is not enough!");
+						responseData.put("text", "The number of remaining products is "
+								+ productToAdd.getQuantity() + "! Please choose again");
+						String jsonResponse = objectMapper.writeValueAsString(responseData);
+						response.getWriter().write(jsonResponse);
+						return;
+					}
 					product.setQuantity(quantity);
 					productExistsInCart = true;
 					break;
@@ -149,16 +163,22 @@ public class AjaxController extends HttpServlet {
 			}
 
 			if (!productExistsInCart) {
+				if (quantity > productToAdd.getQuantity()) {
+					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+					responseData.put("title", "Quantity is not enough!");
+					responseData.put("text", "The number of remaining products is "
+							+ productToAdd.getQuantity() + "! Please choose again");
+					String jsonResponse = objectMapper.writeValueAsString(responseData);
+					response.getWriter().write(jsonResponse);
+					return;
+				}
 				productToAdd.setQuantity(quantity);
 				cart.add(productToAdd);
 			}
 			session.setAttribute("cart", cart);
 
-			ObjectMapper objectMapper = new ObjectMapper();
 			String jsonCart = objectMapper.writeValueAsString(cart);
 
-			response.setContentType("application/json");
-			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(jsonCart);
 		}
 
@@ -187,6 +207,11 @@ public class AjaxController extends HttpServlet {
 
 			List<Product> cart = (List<Product>) session.getAttribute("cart");
 
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			Map<String, String> responseData = new HashMap<>();
+			ObjectMapper objectMapper = new ObjectMapper();
+
 			if (cart == null) {
 				cart = new ArrayList<>();
 			}
@@ -194,6 +219,15 @@ public class AjaxController extends HttpServlet {
 			boolean productExistsInCart = false;
 			for (Product product : cart) {
 				if (product.getProductID() == productId) {
+					if(product.getQuantity() + quantity > productToAdd.getQuantity()){
+						response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+						responseData.put("title", "Quantity is not enough!");
+						responseData.put("text", "The number of remaining products is "
+								+ (productToAdd.getQuantity() - product.getQuantity()) + "! Please choose again");
+						String jsonResponse = objectMapper.writeValueAsString(responseData);
+						response.getWriter().write(jsonResponse);
+						return;
+					}
 					product.setQuantity(product.getQuantity() + quantity);
 					product.setPrice((100 - product.getDiscount()) *product.getPrice()/100);
 					productExistsInCart = true;
@@ -202,16 +236,22 @@ public class AjaxController extends HttpServlet {
 			}
 
 			if (!productExistsInCart) {
+				if(productToAdd.getQuantity() < quantity){
+					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+					responseData.put("title", "Quantity is not enough!");
+					responseData.put("text", "The number of remaining products is "
+							+ productToAdd.getQuantity() + "! Please choose again");
+					String jsonResponse = objectMapper.writeValueAsString(responseData);
+					response.getWriter().write(jsonResponse);
+					return;
+				}
 				productToAdd.setQuantity(quantity);
 				productToAdd.setPrice((100 - productToAdd.getDiscount()) *productToAdd.getPrice()/100);
 				cart.add(productToAdd);
 			}
 			session.setAttribute("cart", cart);
-			ObjectMapper objectMapper = new ObjectMapper();
 			String jsonCart = objectMapper.writeValueAsString(cart);
 
-			response.setContentType("application/json");
-			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(jsonCart);
 		}
 	}
