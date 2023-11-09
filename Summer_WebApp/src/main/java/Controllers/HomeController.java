@@ -27,7 +27,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         HttpSession session = request.getSession();
         if (session.getAttribute("acc") == null) {
             String username = null;
@@ -47,7 +47,11 @@ public class HomeController extends HttpServlet {
                     if (acc != null) {
                         session.setAttribute("acc", acc);
                     }
-                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    if (acc.getRole() != "member") {
+                        response.sendRedirect("/admin");
+                    } else {
+                        request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    }
                 } else {
                     request.getRequestDispatcher("/index.jsp").forward(request, response);
                 }
@@ -55,7 +59,13 @@ public class HomeController extends HttpServlet {
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             }
         } else {
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            Account currAccount = (Account)session.getAttribute("acc");
+            if(!currAccount.getRole().equals("member") ){
+               response.sendRedirect("/admin");
+            }
+            else{
+               request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
         }
     }
 

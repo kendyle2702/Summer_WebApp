@@ -53,4 +53,12 @@
 			30
 		</session-timeout>
 	</session-config>
+    <servlet>
+        <servlet-name>admin</servlet-name>
+        <servlet-class>Controllers.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>admin</servlet-name>
+        <url-pattern>/admin/*</url-pattern>
+    </servlet-mapping>
 </web-app>

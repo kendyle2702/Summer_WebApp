@@ -20,10 +20,6 @@
 
 <!-- TemplateTrip theme google font-->
 
-<link rel="icon" type="image/vnd.microsoft.icon"
-        href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/img/favicon.ico?1615016276" />
-<link rel="shortcut icon" type="image/x-icon"
-        href="https://prestashop1.templatetrip.com/PRS01/PRS001_summer/img/favicon.ico?1615016276" />
 
 <link rel="stylesheet" href="/css/theme-91857b59.css" type="text/css" media="all" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

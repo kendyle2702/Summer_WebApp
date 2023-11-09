@@ -5,7 +5,6 @@
 package Models;
 
 import java.sql.Timestamp;
-
 /**
  *
  * @author Tran Duy Dat - CE172036
@@ -21,7 +20,7 @@ public class Payment {
     private String transactionID;
     private int orderID;
     private boolean isDeleted;
-
+            
     public Payment() {
     }
 
@@ -37,6 +36,7 @@ public class Payment {
         this.orderID = orderID;
         this.isDeleted = isDeleted;
     }
+
 
     public int getPaymentID() {
         return paymentID;

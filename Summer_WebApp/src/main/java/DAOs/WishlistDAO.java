@@ -158,7 +158,7 @@ public class WishlistDAO {
 
     public int quantityWishlist(int wishlistID) {
         ResultSet rs = null;
-        int quantity = -1;
+        int quantity = 0;
         try {
             PreparedStatement ps = conn
                     .prepareStatement("select w.wishlistID, COUNT(wl.productID)as quantity from Wishlist w \n"
@@ -226,7 +226,7 @@ public class WishlistDAO {
             ps.setInt(2, productID);
             rs = ps.executeQuery();
             while (rs.next()) {
-                 wishlistItem = new WishlistItem(rs.getInt("quantity"), rs.getInt("wishlistID"), rs.getInt("productID"));
+                wishlistItem = new WishlistItem(rs.getInt("quantity"), rs.getInt("wishlistID"), rs.getInt("productID"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(WishlistDAO.class.getName()).log(Level.SEVERE, null, ex);
