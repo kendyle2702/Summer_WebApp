@@ -118,13 +118,42 @@ public class OrderDAO {
     public ResultSet getProductByOrder(int orderID) {
         ResultSet rs = null;
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from [Order] o left join [OrderItem] ot on o.orderID = ot.orderID left join [Product] p on p.productID = ot.productID  left join [Address] a on a.addressID = o.addressID where o.orderID = ?");
+            PreparedStatement ps = conn.prepareStatement("select * from [Order] o left join [OrderItem] ot on o.orderID = ot.orderID left join [Product] p on p.productID = ot.productID  left join [Address] a on a.addressID = o.addressID left join Payment pa on pa.orderID =  o.orderID where o.orderID = ?");
             ps.setInt(1, orderID);
             rs = ps.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
+    }
+    
+    public String getPaymentMethod(int orderID) {
+        String method = "";
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from [Payment] where orderID = ?");
+            ps.setInt(1, orderID);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                method = rs.getString("paymentMethod");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return method;
+    }
+    public String getPaymentStatus(int orderID) {
+        String method = "";
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from [Payment] where orderID = ?");
+            ps.setInt(1, orderID);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                method = rs.getString("paymentStatus");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return method;
     }
 
     public String getAddressByOrder(int orderID) {
@@ -176,6 +205,38 @@ public class OrderDAO {
         try {
             PreparedStatement ps = conn.prepareStatement("update [Order] set orderStatus=?  where orderID =?");
             ps.setString(1, "Awaiting delivery");
+            ps.setInt(2, orderID);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void receiveOrder(int orderID) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("update [Order] set orderStatus=?  where orderID =?");
+            ps.setString(1, "Delivering");
+            ps.setInt(2, orderID);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void successOrder(int orderID) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("update [Order] set orderStatus=?  where orderID =?");
+            ps.setString(1, "Success");
+            ps.setInt(2, orderID);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void givebackOrder(int orderID) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("update [Order] set orderStatus=?  where orderID =?");
+            ps.setString(1, "Give back");
             ps.setInt(2, orderID);
             ps.executeUpdate();
         } catch (SQLException ex) {

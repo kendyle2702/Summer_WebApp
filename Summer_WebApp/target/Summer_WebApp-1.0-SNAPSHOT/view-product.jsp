@@ -210,9 +210,10 @@
                                     String series = "";
                                     String lables = "";
                                     while(rsChart.next()){
-                                        lables += "'"+rsChart.getString("productName")+"',";
+                                        lables += "'"+rsChart.getString("productName")+"'"+",";
                                         series += rsChart.getInt("quantity")+",";
                                     }
+                                    System.out.println(lables);
                                 %>
                                 <script>
 
@@ -234,8 +235,7 @@
                                             enabled: false
                                         },
                                         xaxis: {
-                                            categories: [<%=lables%>
-                                            ]
+                                            categories: [<%=lables%>]
                                         }
                                     };
 

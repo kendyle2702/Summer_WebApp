@@ -288,6 +288,22 @@
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
+                                            <label for="email" class="col-sm-2 col-form-label">Payment Method</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="email" name="email" value="<%=orDAO.getPaymentMethod(order.getOrderID())%>" readonly> 
+                                                <%----%>
+                                                <div class="message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="email" class="col-sm-2 col-form-label">Payment Status</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="email" name="email" value="<%=orDAO.getPaymentStatus(order.getOrderID())%>" readonly>
+                                                <div class="message"></div>
+                                                <%----%>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
                                             <label for="description" class="col-sm-2 col-form-label">Description</label>
                                             <div class="col-sm-10">
                                                 <textarea class="form-control" id="description" rows="3" name="description" readonly><%= order.getDescription()%></textarea>
@@ -315,6 +331,7 @@
                                                  <div class="card-body">
                                                      <h5 class="card-title"><%=rs.getString("productName") %></h5>
                                                      <p class="card-text">Quantity: <%=rs.getInt("quantity") %></p>
+                                                     <p class="card-text">Total: <span style="color:red;font-size: 18px;font-weight: bold;"><%=rs.getInt("total")*rs.getInt("quantity") %></span></p>
                                                  </div>
                                              </div>
                                          </div>

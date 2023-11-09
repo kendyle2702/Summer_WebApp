@@ -209,84 +209,72 @@
                                         <i class="header-icon lnr-chart-bars icon-gradient bg-night-fade"> </i>View Income In Month
                                     </div>
                                 </div>
-                                <div id="chart" style="background: white;margin-bottom: 50px"></div>
+                                <div id="chart3" ></div>
                                 <%
                                     OrderDAO orderChartDao = new OrderDAO();
 
                                     String monthYear = "";
-                                    if(session.getAttribute("month") != null){
-                                       monthYear = (String)session.getAttribute("month");
+                                    if (session.getAttribute("month") != null) {
+                                        monthYear = (String) session.getAttribute("month");
+                                    } else {
+                                        monthYear = "2023-11";
                                     }
-                                    else{
-                                       monthYear = "2023-11";
-                                    }
-                                    
+
                                     String month = monthYear.split("-")[1];
-                                    
+
                                     YearMonth yearMonth = YearMonth.of(Integer.parseInt(monthYear.split("-")[0]), Integer.parseInt(month));
                                     int numberOfDaysInMonth = yearMonth.lengthOfMonth();
-                                    
+
                                     ArrayList<String> dates = new ArrayList<String>();
-                                    
+
                                     for (int i = 1; i <= numberOfDaysInMonth; i++) {
-                                        if(i<10){
-                                            dates.add(monthYear +"-"+ "0" + String.valueOf(i));
+                                        if (i < 10) {
+                                            dates.add(monthYear + "-" + "0" + String.valueOf(i));
+                                        } else {
+                                            dates.add(monthYear + "-" + String.valueOf(i));
                                         }
-                                        else{
-                                            dates.add(monthYear +"-"+ String.valueOf(i));
-                                        }
-                                    }  
-                                    
-                                    
+                                    }
+
                                     String datesInMonth = "";
                                     String dataIncome = "";
                                     String dataOrders = "";
                                     for (String date : dates) {
-                                          datesInMonth += "'" + date.split("-")[2]+"',"  ;
-                                          dataIncome += orderChartDao.getTotalOfDate(Date.valueOf(date)) + ",";
-                                          dataOrders += orderChartDao.getOrderQuantityOfDate(Date.valueOf(date)) + ",";
-                                          System.out.println("Date: " + datesInMonth); 
-                                          System.out.println("dataIncome " + dataIncome); 
-                                          System.out.println("dataOrders " + dataOrders); 
+                                        datesInMonth += "'" + date.split("-")[2] + "',";
+                                        dataIncome += orderChartDao.getTotalOfDate(Date.valueOf(date)) + ",";
+                                        dataOrders += orderChartDao.getOrderQuantityOfDate(Date.valueOf(date)) + ",";
                                     }
-                                    
+
                                 %>
                                 <script>
                                     var options = {
                                         series: [{
-                                                name: "Income",
+                                                name: 'series1',
                                                 data: [<%=dataIncome%>]
                                             }],
                                         chart: {
                                             height: 350,
-                                            type: 'line',
-                                            zoom: {
-                                                enabled: false
-                                            }
+                                            type: 'area'
                                         },
                                         dataLabels: {
                                             enabled: false
                                         },
                                         stroke: {
-                                            curve: 'straight'
-                                        },
-                                        title: {
-                                            text: '',
-                                            align: 'left'
-                                        },
-                                        grid: {
-                                            row: {
-                                                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                                                opacity: 0.5
-                                            },
+                                            curve: 'smooth'
                                         },
                                         xaxis: {
-                                            categories: [<%=datesInMonth%>],
-                                        }
+                                            type: 'month',
+                                            categories: [<%=datesInMonth%>]
+                                        },
+                                        tooltip: {
+                                            x: {
+                                                format: 'dd/MM/yy HH:mm'
+                                            },
+                                        },
                                     };
 
-                                    var chart = new ApexCharts(document.querySelector("#chart"), options);
-                                    chart.render();
+                                    var chart3 = new ApexCharts(document.querySelector("#chart3"), options);
+                                    chart3.render();
+                                    
                                 </script>
                             </div>
                             <div class="card mb-2">
@@ -313,7 +301,7 @@
                                             enabled: false
                                         },
                                         stroke: {
-                                            curve: 'straight'
+                                            curve: 'smooth'
                                         },
                                         title: {
                                             text: '',
@@ -338,20 +326,20 @@
                                 <div class="card-header-tab card-header">
                                     <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
                                         <i class="header-icon lnr-calendar-full icon-gradient bg-night-fade"> </i>
-                                        
+
                                     </div>
                                     <form action="admin" method="POST" class="container" >
-                                            <div class="row align-items-center">
-                                                <label for="month" class="col-sm-2 col-form-label">Choose Time</label>
-                                                <div class="col-sm-5">
-                                                    <input type="month" class="form-control" id="month" name="month" value="<%=(String)session.getAttribute("month")!=null?session.getAttribute("month"):"2023-11"%>">
-                                                    <div class="message"></div>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <input type="hidden" name="setMonth" value="setMonth">
-                                                    <button type="submit" class="btn btn-primary btn-lg">Set Month</button>
-                                                </div>
+                                        <div class="row align-items-center">
+                                            <label for="month" class="col-sm-2 col-form-label">Choose Time</label>
+                                            <div class="col-sm-5">
+                                                <input type="month" class="form-control" id="month" name="month" value="<%=(String) session.getAttribute("month") != null ? session.getAttribute("month") : "2023-11"%>">
+                                                <div class="message"></div>
                                             </div>
+                                            <div class="col-sm-5">
+                                                <input type="hidden" name="setMonth" value="setMonth">
+                                                <button type="submit" class="btn btn-primary btn-lg">Set Month</button>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -384,7 +372,7 @@
                                             <div class="icon-wrapper-bg bg-success"></div>
                                             <i class="lnr-screen text-success"></i>
                                         </div>
-                                        <div class="widget-numbers"><span><%=orderChartDao.getRows() %></span></div>
+                                        <div class="widget-numbers"><span><%=orderChartDao.getRows()%></span></div>
                                         <div class="widget-subheading">Total Orders</div>
                                         <div class="widget-description text-warning"><span class="pr-1"></span>
 
@@ -400,7 +388,7 @@
                                         <%
                                             CategoryDAO cateDAO = new CategoryDAO();
                                         %>
-                                        <div class="widget-numbers"><span><%=cateDAO.getRows() %></span></div>
+                                        <div class="widget-numbers"><span><%=cateDAO.getRows()%></span></div>
                                         <div class="widget-subheading">Total Categories</div>
                                         <div class="widget-description text-primary"><span class="pr-1"></span>
 
@@ -416,7 +404,7 @@
                                         <%
                                             AccountDAO accDAO = new AccountDAO();
                                         %>
-                                        <div class="widget-numbers"><span><%=cateDAO.getRows() %></span></div>
+                                        <div class="widget-numbers"><span><%=cateDAO.getRows()%></span></div>
                                         <div class="widget-subheading">Total Accounts</div>
                                         <div class="widget-description text-info">
 
@@ -432,7 +420,7 @@
                                                 </i>
                                             </div>
                                         </div>
-                                       
+
                                         <div class="widget-numbers"><span><%=orderChartDao.totalIncome()%>đ</span></div>
                                         <div class="widget-subheading">Total Income</div>
                                         <div class="widget-description text-danger"><span class="pr-1"></span>

@@ -43,7 +43,7 @@ public class AdminController extends HttpServlet {
 
         if (session.getAttribute("acc") != null) {
             Account currentAcc = (Account) session.getAttribute("acc");
-            if (!currentAcc.getRole().equals("member")) {// Admin 
+            if (currentAcc.getRole().equals("admin")) {
                 if (path.endsWith("/admin")) {
                     request.getRequestDispatcher("/admin.jsp").forward(request, response);
                 } else if (path.startsWith("/admin/product")) {
@@ -135,8 +135,7 @@ public class AdminController extends HttpServlet {
                 } else if (path.startsWith("/admin/order")) {
                     if (path.endsWith("/admin/order")) {
                         request.getRequestDispatcher("/view-order.jsp").forward(request, response);
-                    }
-                    else if (path.startsWith("/admin/order/accept/")) {
+                    } else if (path.startsWith("/admin/order/accept/")) {
                         String[] s = path.split("/");
                         try {
                             int cate_id = Integer.parseInt(s[s.length - 1]);
@@ -156,8 +155,7 @@ public class AdminController extends HttpServlet {
                         } catch (IOException | NumberFormatException ex) {
                             response.sendRedirect("/admin/order");
                         }
-                    }
-                    else if (path.startsWith("/admin/order/view/")) {
+                    } else if (path.startsWith("/admin/order/view/")) {
                         String[] s = path.split("/");
                         try {
                             int cate_id = Integer.parseInt(s[s.length - 1]);
@@ -173,7 +171,6 @@ public class AdminController extends HttpServlet {
                             response.sendRedirect("/admin/order");
                         }
                     }
-                    
 
                 } else if (path.startsWith("/admin/payment")) {
                     if (path.endsWith("/admin/payment")) {
@@ -182,8 +179,7 @@ public class AdminController extends HttpServlet {
                 } else if (path.startsWith("/admin/account")) {
                     if (path.endsWith("/admin/account")) {
                         request.getRequestDispatcher("/view-account.jsp").forward(request, response);
-                    }
-                    else if(path.startsWith("/admin/account/ban")){
+                    } else if (path.startsWith("/admin/account/ban")) {
                         String[] s = path.split("/");
                         try {
                             String email = s[s.length - 1];
@@ -193,8 +189,7 @@ public class AdminController extends HttpServlet {
                         } catch (IOException | NumberFormatException ex) {
                             response.sendRedirect("/admin/account");
                         }
-                    }
-                    else if(path.startsWith("/admin/account/unban")){
+                    } else if (path.startsWith("/admin/account/unban")) {
                         String[] s = path.split("/");
                         try {
                             String email = s[s.length - 1];
@@ -204,11 +199,9 @@ public class AdminController extends HttpServlet {
                         } catch (IOException | NumberFormatException ex) {
                             response.sendRedirect("/admin/account");
                         }
-                    }
-                    else if (path.endsWith("/admin/account/add")) {
+                    } else if (path.endsWith("/admin/account/add")) {
                         request.getRequestDispatcher("/add-account.jsp").forward(request, response);
-                    }
-                    else if (path.startsWith("/admin/account/view/")) {
+                    } else if (path.startsWith("/admin/account/view/")) {
                         String[] s = path.split("/");
                         try {
                             String email = s[s.length - 1];
@@ -223,12 +216,48 @@ public class AdminController extends HttpServlet {
                         } catch (IOException | NumberFormatException ex) {
                             response.sendRedirect("/admin/account");
                         }
-                        
+
                     }
-                    
-                }
-                else if(path.startsWith("/admin/analytics")){
+
+                } else if (path.startsWith("/admin/analytics")) {
                     request.getRequestDispatcher("/admin.jsp").forward(request, response);
+                }
+            } else if (currentAcc.getRole().equals("shipper")) {
+                if (path.endsWith("/admin")) {
+                    request.getRequestDispatcher("/shipper.jsp").forward(request, response);
+                } else if (path.endsWith("/admin/order")) {
+
+                    response.sendRedirect("/admin");
+                } else if (path.startsWith("/admin/order/accept")) {
+                    String[] s = path.split("/");
+                    try {
+                        int order_id = Integer.parseInt(s[s.length - 1]);
+                        OrderDAO orDAO = new OrderDAO();
+                        orDAO.receiveOrder(order_id);
+                        response.sendRedirect("/admin");
+                    } catch (IOException | NumberFormatException ex) {
+                        response.sendRedirect("/admin");
+                    }
+                } else if (path.startsWith("/admin/order/success")) {
+                    String[] s = path.split("/");
+                    try {
+                        int order_id = Integer.parseInt(s[s.length - 1]);
+                        OrderDAO orDAO = new OrderDAO();
+                        orDAO.successOrder(order_id);
+                        response.sendRedirect("/admin");
+                    } catch (IOException | NumberFormatException ex) {
+                        response.sendRedirect("/admin");
+                    }
+                } else if (path.startsWith("/admin/order/giveback")) {
+                    String[] s = path.split("/");
+                    try {
+                        int order_id = Integer.parseInt(s[s.length - 1]);
+                        OrderDAO orDAO = new OrderDAO();
+                        orDAO.givebackOrder(order_id);
+                        response.sendRedirect("/admin");
+                    } catch (IOException | NumberFormatException ex) {
+                        response.sendRedirect("/admin");
+                    }
                 }
             } else {
                 response.sendRedirect("/");
@@ -339,24 +368,21 @@ public class AdminController extends HttpServlet {
             } else {
                 response.sendRedirect("/admin/category/add");
             }
-        } 
-        else if (request.getParameter("addAccount") != null) {
+        } else if (request.getParameter("addAccount") != null) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            
+
             String fullname = request.getParameter("fullname");
             String sex = request.getParameter("sex");
             Date birthdate = null;
-            if(!request.getParameter("birthdate").isEmpty() && request.getParameter("birthdate") != null ){
+            if (!request.getParameter("birthdate").isEmpty() && request.getParameter("birthdate") != null) {
                 birthdate = Date.valueOf(request.getParameter("birthdate"));
-            }
-            else{
+            } else {
                 birthdate = null;
             }
             String role = request.getParameter("role");
-            
 
-            Account newAccount = new Account(email, password, fullname,birthdate,role,sex,false);
+            Account newAccount = new Account(email, password, fullname, birthdate, role, sex, false);
             AccountDAO accDAO = new AccountDAO();
             Account acc = accDAO.addNewAccount(newAccount);
 
@@ -366,30 +392,27 @@ public class AdminController extends HttpServlet {
                 session.setAttribute("isDuplicated", "true");
                 response.sendRedirect("/admin/account/add");
             }
-        } 
-        else if (request.getParameter("updateAccount") != null) {
-            
+        } else if (request.getParameter("updateAccount") != null) {
+
             String role = request.getParameter("role");
             String email = request.getParameter("email");
             AccountDAO accDAO = new AccountDAO();
-            accDAO.updateRole(email,role);
+            accDAO.updateRole(email, role);
             response.sendRedirect("/admin/account");
-        }
-        else if (request.getParameter("search") != null) {
+        } else if (request.getParameter("search") != null) {
             Date startdate = Date.valueOf(request.getParameter("startdate"));
             Date enddate = Date.valueOf(request.getParameter("enddate"));
-            
+
             session.setAttribute("startDate", startdate);
             session.setAttribute("endDate", enddate);
-            
+
             response.sendRedirect("/admin/order");
-        } 
-        else if (request.getParameter("setMonth") != null) {
+        } else if (request.getParameter("setMonth") != null) {
             String month = request.getParameter("month");
             System.out.println(month);
             session.setAttribute("month", month);
             response.sendRedirect("/admin/analytics");
-        } 
+        }
     }
 
     private String getFileName(Part part) {
